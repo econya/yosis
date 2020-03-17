@@ -1,0 +1,25 @@
+= form_for @customer, builder: BulmaFormBuilder::FormBuilder do |f|
+  - if @customer.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@customer.errors.count, "error")} prohibited this customer from being saved:"
+      %ul
+        - @customer.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :first_name
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .field
+    = f.label :birthyear
+    = f.number_field :birthyear
+  .field
+    = f.label :avatar
+    = f.text_field :avatar
+  .field
+    = f.label :contact
+    = f.text_field :contact
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,33 @@
+
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- flash.each do |type, message|
+  .notification-wrapper
+    %input{ :type => "checkbox", :class => 'delete' }
+    -#.notification{ :class => bulma_flash_class[type] || 'is-primary'}
+    .notification{ :class => '' || 'is-primary'}
+      - case type
+      - when 'error'
+        %span.icon
+          %i.fa.fa-warning
+      - when 'alert'
+        %span.icon.has-text-danger
+          %i.fa.fa-warning
+      - when 'notice'
+        %span.icon
+          %i.fa.fa-info-circle
+      - when 'info'
+        %span.icon.has-text-notice
+          %i.fa.fa-info-circle
+      - when 'success'
+        %span.icon.has-text-warning
+          %i.fa.fa-check-square
+      - else
+        -# no icon
+
+      = message
+
+%br/
+

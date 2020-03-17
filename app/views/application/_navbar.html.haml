@@ -1,0 +1,58 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+%nav.navbar.is-link.is-fixed-top{"aria-label" => "main navigation", :role => "navigation"}
+  -#.navbar-brand
+    -#  -#%a.navbar-item{:href => "https://bulma.io"}
+    -#  -#  -#%img{:height => "28", :src => "", :width => "112"}/
+    -#  -#  %i.fa.fa-server
+    %a.navbar-burger.burger{"aria-expanded" => "false", "aria-label" => "menu", "data-target" => "cablerNavbar", :role => "button"}
+      %span{"aria-hidden" => "true"}
+      %span{"aria-hidden" => "true"}
+      %span{"aria-hidden" => "true"}
+  #yosisNavbar.navbar-menu
+    - Navigation.new.items.each do |item|
+      = link_to item.title, item.path, class: 'navbar-item'
+
+    .navbar-start
+      = link_to t('Dashboard'), root_path, class: 'navbar-item'
+      -#= link_to t('Dashboard'), root_path, class: nav_item_classes(root_path)
+      -#= link_to devices_path, class: nav_item_classes(devices_path) do
+      -#  %span.icon
+      -#    %i.fa.fa-server
+      -#  = t('Devices')
+
+      -#%div{class: "#{nav_item_classes(locations_path)} navbar-submenu" }
+      -#  = link_to locations_path, class: 'has-text-light' do
+      -#    %span.icon
+      -#      %i.fa.fa-globe
+      -#    =  t('Locations')
+      -#  .navbar-submenu-content.has-background-dark
+      -#    .menu
+      -#      %ul.menu-list
+      -#        %li
+      -#        - @nav_locations.each do |location|
+      -#          %li
+      -#            = link_to location, onclick: "((e) => (e.stopPropagation())).call({}, ...arguments)" do
+      -#              %span.icon
+      -#                %i.fa.fa-map-marker
+      -#              %span
+      -#                = location.name
+
+      -#= link_to topology_path, class: nav_item_classes(topology_path) do
+      -#  %span.icon
+      -#    %i.fa.fa-vector-square
+      -#  = t('Topology')
+
+    -#.navbar-end
+    -#  - if user_signed_in?
+    -#    = link_to t('sessions.destroy.sign_out'), destroy_user_session_path, method: :delete, class: "navbar-item"
+    -#  - else
+    -#    = link_to t('devise.sessions.new.sign_in'), new_user_session_path, class: 'navbar-item'
+
+    -#  = link_to edit_user_registration_path, class: nav_item_classes(edit_user_registration_path) do
+    -#    %span.icon
+    -#      %i.fa.fa-cog
+    -#    %span
+    -#      Settings

@@ -2,10 +2,18 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{"name" => "viewport", "content" => "width=device-width, initial-scale=1"}/
     %title Yosis
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    = yield
+  %body.has-navbar-fixed-top
+    = render 'navbar'
+    .main-section
+      %section.hero.is-light.is-bold.is-fullheight-with-navbar
+        .hero-head
+          = render 'flashs'
+          .container
+            = yield
+        .hero-body

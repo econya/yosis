@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+$primary: #52677b;
+$link: #648991;
+$info: #7eaca5;
+$success: #dc6db0;
+$warning: #c95d95;
+$danger: #a21a45;
+$dark: #141a35;
+$text: #424564;
+
+@import "bulma"
