@@ -14,3 +14,22 @@
   - if user_admin?
     = link_to ('new_appointment'), new_admin_appointment_path, class: 'button is-link'
 
+%br
+%br
+
+%section.courses-links
+  %h2.title.is-4
+    = t('courses')
+%br
+.columns.is-multiline
+  - @courses.each do |course|
+    .column.is-2
+      = link_to course.name, "#course#{course.id}", class: 'button is-big'
+  - if @courses.empty?
+    = t('No courses yet')
+
+%section.videos
+  %h2.title.is-4= t('videos')
+%hr
+- @courses.each do |course|
+  = render partial: 'course_video_row', locals: { course: course }
