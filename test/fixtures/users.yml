@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+admin:
+  email: 'admin@yo.sis'
+  encrypted_password: <%= User.new.send(:password_digest, 'adminpwd') %>
+  role: 'admin'
+
+user:
+  email: 'user1@yo.sis'
+  encrypted_password: <%= User.new.send(:password_digest, 'userpwd') %>

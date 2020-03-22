@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+appointment_one:
+  date_from: 2020-03-22 16:39:10
+  date_to: 2020-03-22 16:39:10
+  course: base_yoga
+  notice: MyString
+  link: https://github.com
+
+appointment_two:
+  date_from: 2021-03-22 16:39:10
+  date_to: 2021-03-22 16:39:10
+  lesson: relaxed_yoga
+  notice: 
+  link: https://github.com

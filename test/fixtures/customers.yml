@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+carl:
+  first_name: Carl
+  last_name: Chank
+  contact: Home Adress
+
+daphne:
+  first_name: Daphne
+  last_name: Downs
+  contact: Telephone number ...

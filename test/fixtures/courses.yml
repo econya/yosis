@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+base_yoga:
+  name: Basic Yoga
+
+relaxed_yoga:
+  name: Relaxed Yoga

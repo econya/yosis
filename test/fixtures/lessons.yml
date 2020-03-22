@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+base_yoga_intro:
+  name: Introduction
+  course: base_yoga
+  date_start: 2020-03-22 11:04:22
+  date_end: 2020-03-22 11:04:22
+
+base_yoga_first:
+  name: First Session
+  course: base_yoga
+  date_start: 2020-03-22 11:04:22
+  date_end: 2020-03-22 11:04:22
+
+relaxed_yoga_intro:
+  name: Intro to Relaxed Yoga
+  course: relaxed_yoga
+  date_start: 2020-03-22 11:04:22
+  date_end: 2020-03-22 11:04:22
