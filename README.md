@@ -45,6 +45,8 @@ documentation.
 yosis is copyright 2020 Felix Wolfsteller and released under the
 [AGPLv3+](LICENSE).
 
+Some file use [https://reuse.software](FSFEs reuse software) compliant headers.
+
 ### Contributions
 
 Contributions are more than welcome. For a pleasant experience, mail me or
@@ -56,6 +58,12 @@ create issues before you deep dive.
 
 None yet. shame.
 
+#### i18n
+
+During development, add new translation keys with
+
+`i18n-tasks add-missing`.
+
 #### Live reloading of browser sessions
 
 With [rack-livereload] and [guard-livereload] you can have your browser
@@ -65,7 +73,6 @@ development server (`rails s`), fire up guard (`guard`) in a separate shell.
 ### Doc
 
   * Removed webpacker, replaced by sprockets.
-
 
 ## And even more todos
 
