@@ -6,7 +6,7 @@ Free and Open Software, released under the AGPLv3+, copyright Felix Wolfsteller.
 ## Synopsis
 
 Project had extremely tight deadlines and is totally adapted to a single use and
-business case as of now.
+business case as of now. And German interface (but i18n fully prepared).
 
 ## Installation
 

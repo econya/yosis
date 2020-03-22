@@ -63,6 +63,8 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+    config.i18n.available_locales = [:de]
+
   # for livereload
   config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
 end
