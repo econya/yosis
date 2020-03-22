@@ -1,0 +1,28 @@
+= form_for [:admin, @appointment], builder: BulmaFormBuilder::FormBuilder do |f|
+  - if @appointment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@appointment.errors.count, "error")} prohibited this appointment from being saved:"
+      %ul
+        - @appointment.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :date_from
+    = f.datetime_select :date_from
+  .field
+    = f.label :date_to
+    = f.datetime_select :date_to
+  -#.field
+  -#  = f.label :lessons
+  -#  = f.text_field :lessons
+  .field
+    = f.label :notice
+    = f.text_field :notice
+  .field
+    = f.label :course
+    = f.collection_select :course_id, Course.all, :id, :name, prompt: t('Select Course')
+  .field
+    = f.label :link
+    = f.text_field :link
+  .actions
+    = f.submit 'Save', class: 'button is-link is-outlined'

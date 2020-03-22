@@ -1,0 +1,23 @@
+%h1.title
+  = t('Listing_appointments')
+
+%h2.title.is-5
+  = t('in_future')
+
+- if @future_appointments.present?
+  = render partial: 'table', locals: {appointments: @future_appointments}
+- else
+  = t('none')
+%br
+%br
+
+%h2.title.is-5
+  = t('in_past')
+
+- if @past_appointments.present?
+  = render partial: 'table', locals: {appointments: @past_appointments}
+- else
+  = t('none')
+%br
+
+= link_to 'New Appointment', new_admin_appointment_path, class: 'button is-primary is-outlined'

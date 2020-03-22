@@ -1,0 +1,34 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+%h1.title
+  = t('appointment')
+
+%p
+  %b
+    = t('Date from')
+    \:
+  = @appointment.date_from
+%p
+  %b Date to:
+  = @appointment.date_to
+%p
+  %b
+    = t('Course')
+    \:
+  = @appointment.course.name
+%p
+  %b Notice:
+  = @appointment.notice
+%p
+  %b Link:
+  = @appointment.link
+
+%section
+  %h2.title.is-5
+    = t('attendence')
+
+= link_to 'Edit', edit_admin_appointment_path(@appointment)
+\|
+= link_to 'Back', admin_appointments_path

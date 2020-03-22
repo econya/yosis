@@ -1,0 +1,28 @@
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th= t('Date_from')
+      %th= t('Date_to')
+      %th= t('Course')
+      %th= t('Notice')
+      %th= t('Link')
+      %th
+      %th
+      %th
+
+  %tbody
+    - appointments.each do |appointment|
+      %tr
+        %td= appointment.date_from
+        %td= appointment.date_to
+        %td
+          .tag.is-link
+            = appointment.course.name
+        %td= appointment.notice
+        %td= appointment.link
+        %td= link_to t('Show'), [:admin, appointment]
+        %td= link_to t('Edit'), edit_admin_appointment_path(appointment)
+        %td= link_to t('Destroy'), [:admin, appointment], method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+

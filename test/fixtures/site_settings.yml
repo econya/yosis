@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+title:
+  key: title
+  value: The YoSis Studio
+
+intro:
+  key: intro
+  value: Here is a longer intro text.
