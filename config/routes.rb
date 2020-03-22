@@ -1,9 +1,14 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 Rails.application.routes.draw do
   devise_for :users
   resources :courses, only: [:index, :show]
   root to: 'pages#home'
   resources :customers
   namespace :admin do
+    resources :appointments
     resources :site_settings, only: [:index, :edit, :update]
   end
 end
