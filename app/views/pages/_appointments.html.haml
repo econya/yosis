@@ -1,0 +1,29 @@
+- if Appointment.future.present?
+  %table.table.is-fullwidth.is-striped
+    %tbody
+      - Appointment.future.order(date_from: :asc).each do |appointment|
+        %tr
+          %td
+            = I18n.l appointment.date_from, format: :short
+            = t('till')
+            = appointment.date_to.strftime('%H:%M')
+          %td
+            (
+            = t('in')
+            = distance_of_time_in_words_to_now appointment.date_from
+            -#= time_ago_in_words appointment.date_from
+            )
+          %td
+            .tag.is-link
+              = appointment.course.name
+          %td
+            = appointment.notice
+          %td
+            - if user_signed_in?
+              = link_to appointment.link, appointment.link
+            - else
+              =t ('visible_after_login')
+              = link_to t('register_or_sign_in'), new_user_session_path, class: 'button is-link is-outlined is-small'
+- else
+  = t('no_appointments')
+
