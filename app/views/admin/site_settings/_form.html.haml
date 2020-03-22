@@ -1,0 +1,16 @@
+= form_for [:admin, @site_setting], builder: BulmaFormBuilder::FormBuilder do |f|
+  - if @site_setting.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@site_setting.errors.count, "error")} prohibited this site_setting from being saved:"
+      %ul
+        - @site_setting.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :key
+    = f.text_field :key
+  .field
+    = f.label :value
+    = f.text_field :value
+  .actions
+    = f.submit 'Save', class: 'button is-link'

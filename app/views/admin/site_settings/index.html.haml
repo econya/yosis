@@ -1,0 +1,20 @@
+%h1.title
+  = t('Listing site_settings')
+
+%table.table.is-striped.is-fullwidth
+  %thead
+    %tr
+      %th= t('Key')
+      %th= t('Value')
+      %th
+      %th
+
+  %tbody
+    - @site_settings.each do |site_setting|
+      %tr
+        %td= site_setting.key
+        %td= site_setting.value
+        %td= link_to 'Show', [:admin, site_setting]
+        %td= link_to 'Edit', edit_admin_site_setting_path(site_setting)
+
+%br

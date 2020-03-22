@@ -1,0 +1,8 @@
+%h1.title
+  = t('Editing site_setting')
+
+= render 'form'
+
+= link_to 'Show', [:admin, @site_setting]
+\|
+= link_to 'Back', admin_site_settings_path
