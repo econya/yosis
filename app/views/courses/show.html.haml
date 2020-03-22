@@ -1,9 +1,17 @@
-%p#notice= notice
+%h1.title= @course.name
 
-%p
-  %b Name:
-  = @course.name
+Description
 
-= link_to 'Edit', edit_course_path(@course)
+- if @course.lessons.empty?
+  No lessons yet
+- @course.lessons.each do |lesson|
+  .box
+    = link_to lesson.name, lesson
+
+- if user_admin?
+  = link_to t(:new_lesson), new_admin_course_lesson_path(@course), class: 'button'
+%hr
+
+= link_to 'Edit', edit_admin_course_path(@course)
 \|
-= link_to 'Back', courses_path
+= link_to 'Back', admin_courses_path
