@@ -11,9 +11,9 @@
   %body.has-navbar-fixed-top
     = render 'navbar'
     .main-section
-      %section.hero.is-light.is-bold.is-fullheight-with-navbar
+      %section.hero.is-info.is-fullheight-with-navbar#hero-section
         .hero-head
-          = render 'flashs'
           .container
+            = render 'flashs'
             = yield
         .hero-body
