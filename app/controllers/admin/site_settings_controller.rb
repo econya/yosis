@@ -39,7 +39,7 @@ class Admin::SiteSettingsController < ApplicationController
   def update
     respond_to do |format|
       if @site_setting.update(site_setting_params)
-        format.html { redirect_to @site_setting, notice: 'Site setting was successfully updated.' }
+        format.html { redirect_to admin_site_settings_path, notice: t('Site setting was successfully updated.') }
       else
         format.html { render :edit }
       end

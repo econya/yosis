@@ -1,3 +1,44 @@
-%h1.title YoSis
+%h1.title.is-1.has-text-centered
+  = t('welcome')
 
-= link_to 'abc def', '', class: 'button is-primary'
+.columns
+  .column.is-two-third
+    %h2.subtitle
+      = t('intro')
+      = SiteSetting['intro']
+      = link_to t('learn_more'), root_path
+%section#next_appointments
+  %h2.title.is-4
+    = t('next_appointments')
+  - if Appointment.future.present?
+    %table.table.is-fullwidth.is-striped
+      %tbody
+        - Appointment.future.order(date_from: :asc).each do |appointment|
+          %tr
+            %td
+              = I18n.l appointment.date_from, format: :short
+              = t('till')
+              = appointment.date_to.strftime('%H:%M')
+            %td
+              (
+              = t('in')
+              = distance_of_time_in_words_to_now appointment.date_from
+              -#= time_ago_in_words appointment.date_from
+              )
+            %td
+              .tag.is-link
+                = appointment.course.name
+            %td
+              = appointment.notice
+            %td
+              - if user_signed_in?
+                = link_to appointment.link, appointment.link
+              - else
+                =t ('visible_after_login')
+                = link_to t('register_or_sign_in'), new_user_session_path, class: 'button is-link is-outlined is-small'
+  - else
+    = t('no_appointments')
+
+  - if user_admin?
+    = link_to ('new_appointment'), new_admin_appointment_path, class: 'button is-link'
+
