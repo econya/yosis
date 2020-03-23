@@ -5,7 +5,7 @@
         %tr
           %td
             = I18n.l appointment.date_from, format: :short
-            = t('till')
+            = t('apointments.time.till')
             = appointment.date_to.strftime('%H:%M')
           %td
             (
@@ -22,8 +22,8 @@
             - if user_signed_in?
               = link_to appointment.link, appointment.link
             - else
-              =t ('visible_after_login')
+              = t('appointments.visible_after_login')
               = link_to t('register_or_sign_in'), new_user_session_path, class: 'button is-link is-outlined is-small'
 - else
-  = t('no_appointments')
+  = t('appointments.none_in_future')
 

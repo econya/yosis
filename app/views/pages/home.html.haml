@@ -1,18 +1,18 @@
 %h1.title.is-1.has-text-centered
-  = t('welcome')
+  = t('home.welcome')
 
 .columns
   .column.is-two-third
     %h2.subtitle
-      = t('intro')
+      -#= t('intro')
       = SiteSetting['intro']
-      = link_to t('learn_more'), root_path
+      = link_to t('home.intro.learn_more'), root_path
 %section#next_appointments
   %h2.title.is-4
-    = t('next_appointments')
+    = t('home.next_appointments')
   = render 'appointments'
   - if user_admin?
-    = link_to ('new_appointment'), new_admin_appointment_path, class: 'button is-link'
+    = link_to ('home.appointment.new'), new_admin_appointment_path, class: 'button is-link'
 
 %br
 %br
@@ -26,10 +26,11 @@
     .column.is-2
       = link_to course.name, "#course#{course.id}", class: 'button is-big'
   - if @courses.empty?
-    = t('No courses yet')
+    = t('home.courses.none_yet')
 
 %section.videos
   %h2.title.is-4= t('videos')
 %hr
 - @courses.each do |course|
   = render partial: 'course_video_row', locals: { course: course }
+

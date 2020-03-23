@@ -1,0 +1,119 @@
+---
+de:
+  Course: Course
+  Course was successfully created: Course was successfully created
+  Course was successfully updated: Course was successfully updated
+  Courses: Kurse
+  Customers: Kund*n
+  Dashboard: Dashboard
+  Date_from: Von
+  Date_to: Von
+  Destroy: Löschen
+  Edit: bearbeiten
+  Home: Home
+  Key: Key
+  Lesson: Lektion
+  Link: Link
+  Listing_appointments: Listing appointments
+  Name: Name
+  Notice: Notice
+  Settings: Einstellungen
+  Show: Show
+  Site setting was successfully updated: Site setting was successfully updated
+  Value: Value
+  about_us: Über uns
+  admin: Admin
+  already_registered?: Schon Kund/in?
+  apointments:
+    time:
+      till: Till
+  appointment: Termin
+  appointments:
+    none_in_future: Keine zukünftigen Termine
+    visible_after_login: Link erst nach dem Anmelden sichtbar!
+  attendence: Attendence
+  courses: Kurse
+  customers: Kund*n
+  devise:
+    failure:
+      invited: Du hast noch eine ausstehende Einladung, akzeptiere sie um Dein Konto zu erstellen.
+    invitations:
+      edit:
+        header: Passwort setzen
+        submit_button: Mein Password speichern
+      invitation_instructions:
+        accept: Akzeptieren
+        accept_until: Akzeptieren bis
+        hello: Hallo
+        ignore: Ingorieren
+        someone_invited_you: Jemand hat dich eingeladen
+      invitation_token_invalid: Das Einladungs-Token ist nicht gültig.
+      new:
+        header: Einladung verschicken
+        submit_button: per E-Mail einladen
+      send_instruction: Eine Einladung wurde an %{email} verschickt.
+      updated: Dein Password wurde gespeichert. Du bist nun angemeldet.
+      updated_not_active: Dein Password wurde gespeichert.
+      user:
+        invitation_token_invalid: Das Einladungs-Token ist nicht gültig.
+        send_instruction: Eine Einladung wurde an %{email} verschickt.
+        updated: Dein Password wurde gespeichert. Du bist nun angemeldet.
+        updated_not_active: Dein Password wurde gespeichert.
+    mailer:
+      invitation_instructions:
+        accept: Akzeptieren
+        accept_until: Akzeptieren bis
+        accept_until_format: "%d %m %Y"
+        hello: Hallo
+        ignore: Ingorieren
+        someone_invited_you: Jemand hat dich eingeladen
+        subject: Einladung zur Yoga-Platform yogamitveronique
+  edit: Bearbeiten
+  errors:
+    messages:
+      not_saved: Nicht gespeichert
+  explanation_text_homepage: Explanation text homepage
+  home:
+    courses:
+      none_yet: Noch keine Kurse
+    intro:
+      learn_more: Mehr erfahren ...
+    next_appointments: Die nächsten Termine
+    welcome: Welcome
+  in: In
+  in_future: In future
+  in_past: In past
+  intro: Erklärung
+  intro_text_homepage: Intro text homepage
+  invite: Invite
+  learn_more: Learn more
+  length: Länge
+  lessons: Lektionen
+  minutes: Minutes
+  new_lesson: Neue Lektion
+  next_appointment: Next appointment
+  next_appointments: Die nächsten Termine
+  no_appointments: Keine Termine
+  none: Keine
+  not authorized: Nicht authorisiert
+  number_appointments: Number appointments
+  number_lessons: Number lessons
+  register_new: Neu registrieren
+  register_or_sign_in: Anmelden oder neu registrieren
+  sessions:
+    destroy:
+      sign_out: Sign out
+  site_settings: Einstellungen
+  the_website: yogamitveronique.de
+  till: bis
+  time:
+    formats:
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%d. %B %Y"
+  users: Users
+  video: Video
+  videos: Videos
+  welcom: Welcom
+  welcome: Welcome
