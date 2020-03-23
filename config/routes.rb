@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :customers
   resources :courses, only: [:index, :show]
   namespace :admin do
+    resources :courses, only: [:index, :edit, :update, :destroy, :new, :create] do
+    end
     resources :appointments
     resources :site_settings, only: [:index, :edit, :update]
   end

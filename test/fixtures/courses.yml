@@ -6,6 +6,7 @@
 
 base_yoga:
   name: Basic Yoga
+  slug: basic-yoga
 
 relaxed_yoga:
   name: Relaxed Yoga
