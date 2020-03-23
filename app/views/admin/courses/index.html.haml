@@ -1,0 +1,27 @@
+%h1.title
+  =t('Listing courses')
+
+%table.table.is-striped.is-fullwidth
+  %thead
+    %tr
+      %th= t('Name')
+      %th= t('number_lessons')
+      %th= t('number_appointments')
+      %th= t('next_appointment')
+      %th
+
+  %tbody
+    - @courses.each do |course|
+      %tr
+        %td= course.name
+        %td= course.lessons.length
+        %td= course.appointments.length
+        %td= course.appointments.future.first&.date_from
+        %td.buttons
+          = link_to 'Show', course
+          = link_to 'Edit', edit_admin_course_path(course)
+          = link_to 'Destroy', [:admin, course], method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Course', new_admin_course_path, class: 'button is-link is-outlined'
