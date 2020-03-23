@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     end
     resources :appointments
     resources :site_settings, only: [:index, :edit, :update]
+    resources :users, only: [:index, :show]
   end
 end

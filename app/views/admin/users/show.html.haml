@@ -1,0 +1,22 @@
+%h1.title
+  = t('user')
+
+%p
+  %b= t('user.email')
+= @user.email
+
+%p
+  %b= t('user.created_at')
+= @user.created_at
+
+%p
+  %b= t('user.confirmed_at')
+= @user.confirmed_at
+
+%p
+  %b= t('user.sign_in_count')
+= @user.sign_in_count
+
+%p
+  %b= t('user.last_sign_in_at')
+= @user.last_sign_in_at

@@ -1,0 +1,24 @@
+%h1.title
+  = t('admin.users')
+
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th= t('admin.users.table.th.email')
+      %th= t('admin.users.table.th.state')
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td
+          = user.email
+        %td
+          - if user.invitation_token
+            = t('admin.users.pending_invitation')
+          - if user.admin?
+            .tag.is-link
+              = t('admin.users.admin')
+          - if user.confirmation_token && !user.confirmed_at
+            .tag.is-link
+              = t('admin.users.unconfirmed')
+
+= link_to t('admin.users.invite_new'), new_user_invitation_path, class: 'button'
