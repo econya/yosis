@@ -1,22 +1,48 @@
 %h1.title
-  = t('user')
+  = t('user.user-heading')
 
 %p
-  %b= t('user.email')
+  %b= t('admin.user.email')
 = @user.email
 
 %p
-  %b= t('user.created_at')
+  %b= t('admin.user.created_at')
 = @user.created_at
 
 %p
-  %b= t('user.confirmed_at')
+  %b= t('admin.user.confirmed_at')
 = @user.confirmed_at
 
 %p
-  %b= t('user.sign_in_count')
+  %b= t('admin.user.sign_in_count')
 = @user.sign_in_count
 
 %p
-  %b= t('user.last_sign_in_at')
+  %b= t('admin.user.last_sign_in_at')
 = @user.last_sign_in_at
+
+%br
+%br
+
+%h2.title.is-5
+  = t('admin.user.subscriptions')
+
+%table.table
+  %thead
+    %tr
+      %th
+  %tbody
+    - @user.subscriptions.each do |subscription|
+      %tr
+        %td
+          - if subscription.active_today?
+            .tag
+              = t('subscription.currently_active')
+          = subscription.date_start
+          = subscription.date_end
+        %td
+          = link_to t('delete'), [:admin, subscription.user, subscription], method: :delete, date: { confirm: t('are_you_sure?') }, class: 'button'
+    %tr
+      %td(colspan=2)
+        = link_to new_admin_user_subscription_path(user_id: @user), class: 'button' do
+          = t('subscription.new')

@@ -6,11 +6,15 @@
     %tr
       %th= t('admin.users.table.th.email')
       %th= t('admin.users.table.th.state')
+      %th= t('admin.users.table.th.subscription')
+      %th= t('admin.users.table.th.created_at')
+      %th= t('admin.users.table.th.sign_in_count')
   %tbody
     - @users.each do |user|
       %tr
         %td
-          = user.email
+          = link_to [:admin, user] do
+            = user.email
         %td
           - if user.invitation_token
             = t('admin.users.pending_invitation')
@@ -20,5 +24,17 @@
           - if user.confirmation_token && !user.confirmed_at
             .tag.is-link
               = t('admin.users.unconfirmed')
+        %td
+          - if user.currently_subscribed?
+            = t('admin.users.currently_subscribed')
+          - elsif user.subscriptions.present?
+            = t('admin.users.subscription_ended_at')
+            = user.subscriptions.order(date_end: :asc).last&.date_end
+          - else
+            = t('admin.users.unsubscribed')
+        %td
+          = user.created_at
+        %td
+          = user.sign_in_count
 
 = link_to t('admin.users.invite_new'), new_user_invitation_path, class: 'button'

@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: user
+  date_start: 2020-01-01 13:41:18
+  date_end: 2020-02-01 13:41:18
+  notes: MyText
+
+two:
+  user: user
+  date_start: 2020-03-23 13:41:18
+  date_end: 2020-03-23 13:41:18
+  notes: MyText

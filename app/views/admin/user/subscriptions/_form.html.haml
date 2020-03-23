@@ -1,0 +1,22 @@
+= form_for [:admin, @subscription.user, @subscription], builder: BulmaFormBuilder::FormBuilder do |f|
+  - if @subscription.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@subscription.errors.count, "error")} prohibited this admin_subscription from being saved:"
+      %ul
+        - @subscription.errors.full_messages.each do |message|
+          %li= message
+
+  -#.field
+  -#  = f.label :user
+  -#  = f.text_field :user
+  .field
+    = f.label :date_start
+    = f.datetime_select :date_start
+  .field
+    = f.label :date_end
+    = f.datetime_select :date_end
+  .field
+    = f.label :notes
+    = f.text_area :notes
+  .actions
+    = f.submit 'Save', class: 'button is-link'
