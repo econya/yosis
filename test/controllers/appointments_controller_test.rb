@@ -7,7 +7,13 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
     @appointment = appointments(:appointment_one)
   end
 
+  test "should not get index unauthenticated" do
+    get admin_appointments_url
+    assert_response :redirect
+  end
+
   test "should not get index unauthorized" do
+    sign_in users(:user)
     get admin_appointments_url
     assert_response :redirect
   end
