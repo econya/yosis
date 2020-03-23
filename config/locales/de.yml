@@ -1,7 +1,7 @@
 ---
 de:
-  Back: Back
-  Course: Course
+  Back: Zurück
+  Course: Kurs
   Course was successfully created: Course was successfully created
   Course was successfully updated: Course was successfully updated
   Courses: Kurse
@@ -12,7 +12,7 @@ de:
   Delete: Delete
   Destroy: Löschen
   Edit: bearbeiten
-  Home: Home
+  Home: Start
   Key: Key
   Lesson: Lektion
   Lesson was successfully created: Lesson was successfully created
@@ -21,7 +21,7 @@ de:
   Link: Link
   Listing_appointments: Listing appointments
   Name: Name
-  Notice: Notice
+  Notice: Notiz
   Settings: Einstellungen
   Show: Show
   Site setting was successfully updated: Site setting was successfully updated
@@ -113,6 +113,10 @@ de:
   lessons: Lektionen
   minutes: Minuten
   navigation:
+    pages:
+      impressum: Impressum
+      privacy_statement: Datenschutzhinweise
+      terms: AGB
     user:
       settings: Einstellungen
   new_lesson: Neue Lektion
@@ -152,4 +156,5 @@ de:
   users: Users
   video: Video
   videos: Videos
+  welcom: Welcom
   welcome: Willkommen
