@@ -7,13 +7,13 @@ class Navigation
 
   attr_reader :items
 
-  def initialize
+  def initialize(current_user: nil)
     @items = []
 
-    item 'Home',      path: root_path
-    item 'Courses',   path: courses_path
-    item 'Customers', path: customers_path
-    item 'Settings'
+    item I18n.t('Home'),      path: root_path
+    item I18n.t('Courses'),   path: courses_path
+    item I18n.t('Customers'), path: customers_path
+    item I18n.t('Settings') if current_user
   end
 
   def item title, icon: nil, path: nil
