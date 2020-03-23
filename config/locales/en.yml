@@ -25,6 +25,9 @@ en:
   Settings: Settings
   Show: Show
   Site setting was successfully updated: Site setting was successfully updated
+  Subscription was successfully created: Subscription was successfully created
+  Subscription was successfully destroyed: Subscription was successfully destroyed
+  Subscription was successfully updated: Subscription was successfully updated
   Value: Value
   about_us: About us
   admin: Admin
@@ -44,6 +47,7 @@ en:
     no_lessons_yet: No lessons yet
     videos: Videos
   customers: Customers
+  delete: Delete
   devise:
     confirmations:
       new:
@@ -150,6 +154,9 @@ en:
       course: Course
   lessons: Lessons
   minutes: Minutes
+  navigation:
+    user:
+      settings: Settings
   new_lesson: New lesson
   next_appointment: Next appointment
   next_appointments: Next appointments
@@ -163,7 +170,11 @@ en:
   sessions:
     destroy:
       sign_out: Sign out
+  sign_out: Sign out
   site_settings: Site settings
+  subscription:
+    currently_active: Currently active
+    new: New
   the_website: The website
   till: Till
   time:

@@ -25,25 +25,29 @@ de:
   Settings: Einstellungen
   Show: Show
   Site setting was successfully updated: Site setting was successfully updated
+  Subscription was successfully created: Subscription was successfully created
+  Subscription was successfully destroyed: Subscription was successfully destroyed
+  Subscription was successfully updated: Subscription was successfully updated
   Value: Value
   about_us: Über uns
   admin: Admin
   already_registered?: Schon Kund/in?
   apointments:
     time:
-      till: Till
+      till: bis
   appointment: Termin
   appointments:
     none_in_future: Keine zukünftigen Termine
     visible_after_login: Link erst nach dem Anmelden sichtbar!
-  are_you_sure?: Are you sure?
+  are_you_sure?: Bist du dir sicher?
   attendence: Attendence
   courses:
-    edit: Edit
-    new: New
-    no_lessons_yet: No lessons yet
+    edit: Bearbeiten
+    new: Neu
+    no_lessons_yet: Noch keine Video-Lektionen
     videos: Videos
   customers: Kund*n
+  delete: Löschen
   devise:
     failure:
       invited: Du hast noch eine ausstehende Einladung, akzeptiere sie um Dein Konto zu erstellen.
@@ -94,34 +98,41 @@ de:
       learn_more: Mehr erfahren ...
     next_appointments: Die nächsten Termine
     welcome: Welcome
-  in: In
-  in_future: In future
-  in_past: In past
+  in: in
+  in_future: Zukünftig
+  in_past: Vergangen
   intro: Erklärung
   intro_text_homepage: Intro text homepage
   invite: Invite
-  learn_more: Learn more
+  learn_more: Mehr erfahren ...
   length: Länge
   lesson:
     new: Neu
     show:
       course: Kurs
   lessons: Lektionen
-  minutes: Minutes
+  minutes: Minuten
+  navigation:
+    user:
+      settings: Einstellungen
   new_lesson: Neue Lektion
   next_appointment: Nächster Termin
   next_appointments: Die nächsten Termine
   no_appointments: Keine Termine
   none: Keine
   not authorized: Nicht authorisiert
-  number_appointments: Number appointments
-  number_lessons: Number lessons
+  number_appointments: Anzahl Termine
+  number_lessons: Anzahl Lektionen
   register_new: Neu registrieren
   register_or_sign_in: Anmelden oder neu registrieren
   sessions:
     destroy:
-      sign_out: Sign out
+      sign_out: Abmelden
+  sign_out: Abmelden
   site_settings: Einstellungen
+  subscription:
+    currently_active: Jetzt aktiv
+    new: Neu
   the_website: yogamitveronique.de
   till: bis
   time:
@@ -131,15 +142,14 @@ de:
           invitation_instructions:
             accept_until_format: "%d. %B %Y"
   user:
-    confirmed_at: Confirmed at
-    created_at: Created at
-    email: Email
-    last_sign_in_at: Last sign in at
-    sign_in_count: Sign in count
+    confirmed_at: Bestätigt am
+    created_at: Erstellt am
+    email: E-Mail
+    last_sign_in_at: Zuletzt eingeloggt am
+    sign_in_count: Anzahl logins
     subscriptions: Subscriptions
     user-heading: User
   users: Users
   video: Video
   videos: Videos
-  welcom: Welcom
-  welcome: Welcome
+  welcome: Willkommen
