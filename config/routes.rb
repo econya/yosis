@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :courses, only: [:index, :edit, :update, :destroy, :new, :create] do
     end
     resources :appointments
-    resources :site_settings, only: [:index, :edit, :update]
+    resources :site_settings, only: [:index, :show, :edit, :update]
     resources :users, only: [:index, :show] do
       resources :subscriptions, only: [:edit, :update, :create, :destroy, :new], controller: 'user/subscriptions'
     end

@@ -5,7 +5,24 @@
 class SiteSetting < ApplicationRecord
   validates :key, uniqueness: true
 
+  before_save :render_markdown, if: -> {value_changed? && kind == "markdown"}
+
   def self.[](setting_name)
-    find_by_key(setting_name)&.value
+    setting = find_by_key(setting_name)
+    if setting
+      if setting.kind != "markdown"
+        return setting.value
+      else
+        return setting.value_rendered
+      end
+    end
   end
+
+  def render_markdown
+    renderer = Redcarpet::Render::HTML
+    assign_attributes({
+      value_rendered: Redcarpet::Markdown.new(renderer).render(value)
+    })
+  end
+
 end

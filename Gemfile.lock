@@ -233,6 +233,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redcarpet (3.5.0)
     regexp_parser (1.7.0)
     responders (3.0.0)
       actionpack (>= 5.0)
@@ -325,6 +326,7 @@ DEPENDENCIES
   rack-livereload
   rails (~> 6.0.2, >= 6.0.2.1)
   rails-i18n (~> 6.0.0)
+  redcarpet
   sass-rails (>= 6)
   selenium-webdriver
   spring

@@ -1,0 +1,12 @@
+%h1.title
+  = @site_setting.key
+
+%hr
+
+.container
+  .content
+    != @site_setting.value_rendered
+
+%hr
+
+= link_to t('edit'), edit_admin_site_setting_path(@site_setting), class: 'button'

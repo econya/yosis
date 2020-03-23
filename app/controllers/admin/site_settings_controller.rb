@@ -4,13 +4,26 @@
 
 class Admin::SiteSettingsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_admin!
+
   before_action :set_site_setting, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/site_settings
   def index
-    SiteSetting.find_or_create_by(key: :intro, value: t('intro_text_homepage'))
-    SiteSetting.find_or_create_by(key: :explanation, value: t('explanation_text_homepage'))
+    md_keys = [:intro, :explanation, :privacy_statement, :impressum, :copyright_notice, :about_us]
+    md_keys.each do |key|
+      SiteSetting.find_or_create_by(key: key,
+        kind: "markdown",
+        value: t('site_settings.' + key.to_s + '.default'))
+    end
+
+    SiteSetting.find_or_create_by(key: 'title',
+      value: t('site_settings.title.default'))
+
     @site_settings = SiteSetting.all
+  end
+
+  def show
   end
 
   # GET /admin/site_settings/new

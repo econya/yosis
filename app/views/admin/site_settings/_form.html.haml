@@ -1,3 +1,7 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
 = form_for [:admin, @site_setting], builder: BulmaFormBuilder::FormBuilder do |f|
   - if @site_setting.errors.any?
     #error_explanation
@@ -6,11 +10,9 @@
         - @site_setting.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :key
-    = f.text_field :key
+  = f.hidden_field :key
   .field
     = f.label :value
-    = f.text_field :value
+    = f.text_area :value
   .actions
-    = f.submit 'Save', class: 'button is-link'
+    = f.submit ('Save'), class: 'button is-link'
