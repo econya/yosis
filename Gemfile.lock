@@ -1,9 +1,8 @@
 GIT
   remote: https://github.com/fwolfst/bulma_form_builder.git
-  revision: a4a6cb077525c1b608db7fbe6f11e6131b8f47d4
-  branch: rails6
+  revision: 3545d5c4db432c290e7c1fd7e8879bb9e4a8a199
   specs:
-    bulma_form_builder (0.1.0)
+    bulma_form_builder (0.2.1)
       rails (>= 6.0.2)
 
 GEM
@@ -66,6 +65,7 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ast (2.4.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.6)
@@ -94,6 +94,9 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.9.0)
       devise (>= 4.7.1)
+    devise_invitable (2.0.1)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -102,6 +105,8 @@ GEM
     eventmachine (1.2.7)
     ffi (1.12.2)
     formatador (0.2.5)
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     guard (2.16.1)
@@ -128,6 +133,7 @@ GEM
       haml (>= 4.0.6, < 6.0)
       html2haml (>= 1.0.1)
       railties (>= 5.1)
+    highline (2.0.3)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
@@ -136,6 +142,16 @@ GEM
     http_parser.rb (0.6.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
+    i18n-tasks (0.9.31)
+      activesupport (>= 4.0.2)
+      ast (>= 2.1.0)
+      erubi
+      highline (>= 2.0.0)
+      i18n
+      parser (>= 2.2.3.0)
+      rails-i18n
+      rainbow (>= 2.2.2, < 4.0)
+      terminal-table (>= 1.5.1)
     image_processing (1.10.3)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
@@ -169,6 +185,8 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    parser (2.7.0.5)
+      ast (~> 2.4.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -209,6 +227,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
+    rainbow (3.0.0)
     rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
@@ -251,6 +270,8 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
     temple (0.8.2)
+    terminal-table (1.8.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -259,6 +280,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
+    unicode-display_width (1.7.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.1)
@@ -288,8 +310,11 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   devise-i18n
+  devise_invitable (~> 2.0.0)
+  friendly_id (~> 5.2.4)
   guard-livereload (~> 2.5)
   haml-rails (~> 2.0)
+  i18n-tasks (~> 0.9.31)
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)

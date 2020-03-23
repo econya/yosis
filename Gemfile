@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 
+gem 'friendly_id', '~> 5.2.4'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -36,14 +38,17 @@ gem 'haml-rails',  '~> 2.0'
 gem 'bulma-rails', '~> 0.8'
 
 gem 'devise'
+gem 'devise_invitable', '~> 2.0.0'
+
 gem 'devise-i18n'
 gem 'rails-i18n', '~> 6.0.0'
 
-gem "bulma_form_builder", git: 'https://github.com/fwolfst/bulma_form_builder.git', branch: 'rails6'
+gem "bulma_form_builder", git: 'https://github.com/fwolfst/bulma_form_builder.git'#, branch: 'rails6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'i18n-tasks', '~> 0.9.31'
 end
 
 group :development do
