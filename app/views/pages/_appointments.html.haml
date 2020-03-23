@@ -24,6 +24,15 @@
             - else
               = t('appointments.visible_after_login')
               = link_to t('register_or_sign_in'), new_user_session_path, class: 'button is-link is-outlined is-small'
+      - if user_admin?
+        %tr
+          %td(colspan=3)
+            = link_to t('home.appointment.new'), new_admin_appointment_path, class: 'button is-link'
 - else
   = t('appointments.none_in_future')
+  - if user_admin?
+    %table.table.is-fullwidth
+      %tr
+        %td(colspan=3)
+          = link_to t('home.appointment.new'), new_admin_appointment_path, class: 'button is-link'
 

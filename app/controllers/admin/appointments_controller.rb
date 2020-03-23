@@ -4,6 +4,8 @@
 
 class Admin::AppointmentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_admin!
+
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   # GET /appointments
