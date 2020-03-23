@@ -13,7 +13,7 @@
       %span{"aria-hidden" => "true"}
   #yosisNavbar.navbar-menu
     .navbar-start
-      = link_to t('about_us'),    root_url, class: 'navbar-item'
+      = link_to t('about_us'),    about_us_url, class: 'navbar-item'
       = link_to t('the_website'), root_url, class: 'navbar-item'
       = link_to 'info@yogamitveronique.de', 'mailto:info@yogamitveronique.de', class: 'navbar-item'
 
@@ -29,12 +29,12 @@
         - if user_admin?
           .navbar-item.has-dropdown.is-hoverable
             .navbar-link
-              = t('admin')
+              = t('navigation.admin')
             .navbar-dropdown
-              = link_to t('courses'),   admin_courses_path,   class: 'navbar-item'
-              = link_to t('appointments'), admin_appointments_path, class: 'navbar-item'
-              = link_to t('site_settings'), admin_site_settings_path, class: 'navbar-item'
-              = link_to t('users'), admin_users_path, class: 'navbar-item'
+              = link_to t('navigation.courses'),   admin_courses_path,   class: 'navbar-item'
+              = link_to t('navigation.appointments'), admin_appointments_path, class: 'navbar-item'
+              = link_to t('navigation.site_settings'), admin_site_settings_path, class: 'navbar-item'
+              = link_to t('navigation.users'), admin_users_path, class: 'navbar-item'
 
         = link_to t('sign_out'), destroy_user_session_path, method: :delete, class: "navbar-item"
       - else
