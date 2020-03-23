@@ -4,10 +4,11 @@
 -#%br
 
 %h2.title.is-4
-  = t('videos')
+  = t('courses.videos')
 
 - if @course.lessons.empty?
-  =t('No lessons yet')
+  .box
+    =t('courses.no_lessons_yet')
 - @course.lessons.each do |lesson|
   .box
     - if lesson.image.attached?
@@ -17,9 +18,9 @@
     = link_to lesson.name, lesson
 
 - if user_admin?
-  = link_to t(:new_lesson), new_admin_course_lesson_path(@course), class: 'button'
-  = link_to 'Edit', edit_admin_course_path(@course), class: 'button'
+  = link_to t('courses.new'), new_admin_course_lesson_path(@course), class: 'button'
+  = link_to t('courses.edit'), edit_admin_course_path(@course), class: 'button'
 
 %hr
 
-= link_to 'Back', courses_path, class: 'button is-link'
+= link_to t('Back'), courses_path, class: 'button is-link'
