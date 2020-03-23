@@ -1,17 +1,25 @@
 %h1.title= @course.name
 
-Description
+-#Description
+-#%br
+
+%h2.title.is-4
+  = t('videos')
 
 - if @course.lessons.empty?
-  No lessons yet
+  =t('No lessons yet')
 - @course.lessons.each do |lesson|
   .box
+    - if lesson.image.attached?
+      = image_tag rails_blob_url(lesson.image)
+    - else
+      -# Need placeholder image
     = link_to lesson.name, lesson
 
 - if user_admin?
   = link_to t(:new_lesson), new_admin_course_lesson_path(@course), class: 'button'
+  = link_to 'Edit', edit_admin_course_path(@course), class: 'button'
+
 %hr
 
-= link_to 'Edit', edit_admin_course_path(@course)
-\|
-= link_to 'Back', admin_courses_path
+= link_to 'Back', courses_path, class: 'button is-link'

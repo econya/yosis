@@ -1,21 +1,17 @@
-%h1 Listing courses
+%h1.title
+  = t('Listing courses')
 
-%table.table.is-striped.is-fullwidth
-  %thead
-    %tr
-      %th Name
-      %th
-      %th
-      %th
+.columns.is-multiline
+  - @courses.each do |course|
+    .column.is-3
+      .card
+        .card-image
 
-  %tbody
-    - @courses.each do |course|
-      %tr
-        %td= course.name
-        %td= link_to 'Show', course
-        %td= link_to 'Edit', edit_course_path(course)
-        %td= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }
+        .card-header
+          %p.card-header-title.is-centered
+            = course.name
+        .card-content
+          = course.name
+          Text
+        %td= link_to t('Show'), course
 
-%br
-
-= link_to 'New Course', new_course_path

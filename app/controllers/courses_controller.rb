@@ -3,19 +3,16 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show]
 
   # GET /courses
-  # GET /courses.json
   def index
     @courses = Course.all
   end
 
   # GET /courses/1
-  # GET /courses/1.json
   def show
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.

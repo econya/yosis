@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :courses, only: [:index, :show]
   root to: 'pages#home'
   resources :customers
+  resources :courses, only: [:index, :show]
   namespace :admin do
     resources :appointments
     resources :site_settings, only: [:index, :edit, :update]
