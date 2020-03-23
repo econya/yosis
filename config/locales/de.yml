@@ -30,7 +30,31 @@ de:
   Subscription was successfully updated: Subscription was successfully updated
   Value: Value
   about_us: Über uns
-  admin: Admin
+  admin:
+    courses:
+      edit: Bearbeiten
+    user:
+      confirmed_at: Confirmed at
+      created_at: Created at
+      email: Email
+      last_sign_in_at: Last sign in at
+      sign_in_count: Sign in count
+      subscriptions: Subscriptions
+    users:
+      admin: Admin
+      currently_subscribed: Currently subscribed
+      invite_new: Invite new
+      pending_invitation: Pending invitation
+      subscription_ended_at: Subscription ended at
+      table:
+        th:
+          created_at: Created at
+          email: E-Mail
+          sign_in_count: Sign in count
+          state: State
+          subscription: Subscription
+      unconfirmed: Unconfirmed
+      unsubscribed: Unsubscribed
   already_registered?: Schon Kund/in?
   apointments:
     time:
@@ -113,12 +137,17 @@ de:
   lessons: Lektionen
   minutes: Minuten
   navigation:
+    admin: Admin
+    appointments: Termine
+    courses: Kurse
     pages:
       impressum: Impressum
       privacy_statement: Datenschutzhinweise
       terms: AGB
+    site_settings: Seiten-Einstellungen
     user:
       settings: Einstellungen
+    users: User
   new_lesson: Neue Lektion
   next_appointment: Nächster Termin
   next_appointments: Die nächsten Termine
@@ -132,8 +161,13 @@ de:
   sessions:
     destroy:
       sign_out: Abmelden
+  settings:
+    site:
+      title: Einstellung
   sign_out: Abmelden
-  site_settings: Einstellungen
+  site_settings:
+    title:
+      default: Default
   subscription:
     currently_active: Jetzt aktiv
     new: Neu
