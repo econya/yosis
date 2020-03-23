@@ -21,7 +21,10 @@ rails s # (development server)
 ```
 
 ### Test / example data
-None yet. Sorry.
+
+Non many yet. Sorry.
+Run tests with `rails t` (you might have to `sudo sysctl fs.inotify.max_user_watches=524288` if you hit filewatch limits with livereloard/guard/spring).
+Import test/example data with `rails db:fixture:load`.
 
 ### Deployment
 
@@ -35,6 +38,21 @@ documentation.
 
 #### Database
 #### Mail
+
+To send mails you need to configure your mail credentials. Set following
+environment variables:
+
+    HOST=yourhost.comm
+    BINDING=yourhost.comm
+    MAILER_HOST=yourhost.commm # to generate absolute URLs in mails
+    SENDER_EMAIL="Neseri\ Your\ Community\ <registration@yourhost.commm>"
+    SMTP_SERVER=smpt.yourhost.commm
+    SMTP_DOMAIN=yourhost.commm
+    SMTP_PORT=587
+    SMTP_PWD=9098asdjlker!
+    SMTP_USER=iaowur32oalks
+    RAILS_SERVE_STATIC_FILES=yes
+
 
 ## Lenghtier user/admin documentation
 
