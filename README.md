@@ -37,6 +37,13 @@ documentation.
 ### Configuration
 
 #### Database
+
+Set
+
+    DATABASEURL=postgres://aksdjl:aslkalksd@djief:342/aksdu
+
+for production db usage (herokuisih).
+
 #### Mail
 
 To send mails you need to configure your mail credentials. Set following
