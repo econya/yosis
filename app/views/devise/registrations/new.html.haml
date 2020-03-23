@@ -1,4 +1,4 @@
-%h2.tite.has-text-dark
+%h2.title.has-text-dark
   = t('.sign_up')
 = form_for(resource, as: resource_name, url: registration_path(resource_name), builder: BulmaFormBuilder::FormBuilder) do |f|
   = render "devise/shared/error_messages", resource: resource
