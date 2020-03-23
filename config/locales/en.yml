@@ -53,6 +53,7 @@ en:
           sign_in_count: Sign in count
           state: State
           subscription: Subscription
+      title: User
       unconfirmed: Unconfirmed
       unsubscribed: Unsubscribed
   already_registered?: Already registered?
