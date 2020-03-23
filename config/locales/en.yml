@@ -1,33 +1,187 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  hello: "Hello world"
+  Back: Back
+  Course: Course
+  Course was successfully created: Course was successfully created
+  Course was successfully updated: Course was successfully updated
+  Courses: Courses
+  Customers: Customers
+  Dashboard: Dashboard
+  Date_from: Date from
+  Date_to: Date to
+  Delete: Delete
+  Destroy: Destroy
+  Edit: Edit
+  Home: Home
+  Key: Key
+  Lesson: Lesson
+  Lesson was successfully created: Lesson was successfully created
+  Lesson was successfully destroyed: Lesson was successfully destroyed
+  Lesson was successfully updated: Lesson was successfully updated
+  Link: Link
+  Listing_appointments: Listing appointments
+  Name: Name
+  Notice: Notice
+  Settings: Settings
+  Show: Show
+  Site setting was successfully updated: Site setting was successfully updated
+  Value: Value
+  about_us: About us
+  admin: Admin
+  already_registered?: Already registered?
+  apointments:
+    time:
+      till: Till
+  appointment: Appointment
+  appointments:
+    none_in_future: None in future
+    visible_after_login: Visible after login
+  are_you_sure?: Are you sure?
+  attendence: Attendence
+  courses:
+    edit: Edit
+    new: New
+    no_lessons_yet: No lessons yet
+    videos: Videos
+  customers: Customers
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: Resend confirmation instructions
+    invitations:
+      edit:
+        header: Header
+        submit_button: Submit button
+      new:
+        header: Header
+        submit_button: Submit button
+    mailer:
+      confirmation_instructions:
+        action: Action
+        greeting: Greeting
+        instruction: Instruction
+      email_changed:
+        greeting: Greeting
+        message: Message
+      invitation_instructions:
+        accept: Accept
+        accept_until: Accept until
+        hello: Hello
+        ignore: Ignore
+        someone_invited_you: Someone invited you
+      password_change:
+        greeting: Greeting
+        message: Message
+      reset_password_instructions:
+        action: Action
+        greeting: Greeting
+        instruction: Instruction
+        instruction_2: Instruction 2
+        instruction_3: Instruction 3
+      unlock_instructions:
+        action: Action
+        greeting: Greeting
+        instruction: Instruction
+        message: Message
+    passwords:
+      edit:
+        change_my_password: Change my password
+        change_your_password: Change your password
+        confirm_new_password: Confirm new password
+        new_password: New password
+      new:
+        forgot_your_password: Forgot your password
+        send_me_reset_password_instructions: Send me reset password instructions
+    registrations:
+      edit:
+        are_you_sure: Are you sure
+        cancel_my_account: Cancel my account
+        currently_waiting_confirmation_for_email: Currently waiting confirmation for email
+        leave_blank_if_you_don_t_want_to_change_it: Leave blank if you don t want to change it
+        title: Title
+        unhappy: Unhappy
+        update: Update
+        we_need_your_current_password_to_confirm_your_changes: We need your current password to confirm your changes
+      new:
+        sign_up: Sign up
+    sessions:
+      new:
+        sign_in: Sign in
+    shared:
+      links:
+        back: Back
+        didn_t_receive_confirmation_instructions: Didn t receive confirmation instructions
+        didn_t_receive_unlock_instructions: Didn t receive unlock instructions
+        forgot_your_password: Forgot your password
+        sign_in: Sign in
+        sign_in_with_provider: Sign in with provider
+        sign_up: Sign up
+      minimum_password_length: Minimum password length
+    unlocks:
+      new:
+        resend_unlock_instructions: Resend unlock instructions
+  edit: Edit
+  errors:
+    messages:
+      not_saved: Not saved
+  explanation_text_homepage: Explanation text homepage
+  home:
+    appointment:
+      new: Neuen Termin eintragen
+    courses:
+      courses-title: Courses-title
+      new: New
+      none_yet: None yet
+    intro:
+      learn_more: Learn more
+    next_appointments: Next appointments
+    welcome: Welcome
+  in: In
+  in_future: In future
+  in_past: In past
+  intro: Intro
+  intro_text_homepage: Intro text homepage
+  invite: Invite
+  learn_more: Learn more
+  length: Length
+  lesson:
+    new: New
+    show:
+      course: Course
+  lessons: Lessons
+  minutes: Minutes
+  new_lesson: New lesson
+  next_appointment: Next appointment
+  next_appointments: Next appointments
+  no_appointments: No appointments
+  none: None
+  not authorized: Not authorized
+  number_appointments: Number appointments
+  number_lessons: Number lessons
+  register_new: Register new
+  register_or_sign_in: Register or sign in
+  sessions:
+    destroy:
+      sign_out: Sign out
+  site_settings: Site settings
+  the_website: The website
+  till: Till
+  time:
+    formats:
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%d. %B %Y"
+  user:
+    confirmed_at: Confirmed at
+    created_at: Created at
+    email: Email
+    last_sign_in_at: Last sign in at
+    sign_in_count: Sign in count
+    subscriptions: Subscriptions
+    user-heading: User-heading
+  users: Users
+  video: Video
+  videos: Videos
+  welcom: Welcom
+  welcome: Welcome

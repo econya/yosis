@@ -1,5 +1,6 @@
 ---
 de:
+  Back: Back
   Course: Course
   Course was successfully created: Course was successfully created
   Course was successfully updated: Course was successfully updated
@@ -8,11 +9,15 @@ de:
   Dashboard: Dashboard
   Date_from: Von
   Date_to: Von
+  Delete: Delete
   Destroy: Löschen
   Edit: bearbeiten
   Home: Home
   Key: Key
   Lesson: Lektion
+  Lesson was successfully created: Lesson was successfully created
+  Lesson was successfully destroyed: Lesson was successfully destroyed
+  Lesson was successfully updated: Lesson was successfully updated
   Link: Link
   Listing_appointments: Listing appointments
   Name: Name
@@ -31,8 +36,13 @@ de:
   appointments:
     none_in_future: Keine zukünftigen Termine
     visible_after_login: Link erst nach dem Anmelden sichtbar!
+  are_you_sure?: Are you sure?
   attendence: Attendence
-  courses: Kurse
+  courses:
+    edit: Edit
+    new: New
+    no_lessons_yet: No lessons yet
+    videos: Videos
   customers: Kund*n
   devise:
     failure:
@@ -74,7 +84,11 @@ de:
       not_saved: Nicht gespeichert
   explanation_text_homepage: Explanation text homepage
   home:
+    appointment:
+      new: Neuen Termin eintragen
     courses:
+      courses-title: Kurse
+      new: Neuen anlegen
       none_yet: Noch keine Kurse
     intro:
       learn_more: Mehr erfahren ...
@@ -88,10 +102,14 @@ de:
   invite: Invite
   learn_more: Learn more
   length: Länge
+  lesson:
+    new: Neu
+    show:
+      course: Kurs
   lessons: Lektionen
   minutes: Minutes
   new_lesson: Neue Lektion
-  next_appointment: Next appointment
+  next_appointment: Nächster Termin
   next_appointments: Die nächsten Termine
   no_appointments: Keine Termine
   none: Keine
@@ -112,6 +130,14 @@ de:
         mailer:
           invitation_instructions:
             accept_until_format: "%d. %B %Y"
+  user:
+    confirmed_at: Confirmed at
+    created_at: Created at
+    email: Email
+    last_sign_in_at: Last sign in at
+    sign_in_count: Sign in count
+    subscriptions: Subscriptions
+    user-heading: User
   users: Users
   video: Video
   videos: Videos

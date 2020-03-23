@@ -80,7 +80,7 @@ None yet. shame.
 
 During development, add new translation keys with
 
-`i18n-tasks add-missing`.
+`i18n-tasks add-missing` .
 
 #### Live reloading of browser sessions
 
@@ -95,7 +95,5 @@ development server (`rails s`), fire up guard (`guard`) in a separate shell.
 ## And even more todos
 
 * Database initialization
-
-* How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
