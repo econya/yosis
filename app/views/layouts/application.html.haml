@@ -3,7 +3,8 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{"name" => "viewport", "content" => "width=device-width, initial-scale=1"}/
-    %title Yosis
+    %title
+      = SiteSetting['title'] || 'Yosis'
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -17,3 +18,13 @@
             = render 'flashs'
             = yield
         .hero-body
+    %footer.footer
+      .content.has-text-centered
+        %p
+          %strong
+            yogamitveronique.de
+          = link_to t('navigation.pages.impressum'), root_path
+          = link_to t('navigation.pages.terms'), root_path
+          = link_to t('navigation.pages.privacy_statement'), root_path
+          Copyright 2020 Véronique Wolfsteller
+
