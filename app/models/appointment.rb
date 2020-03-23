@@ -5,6 +5,6 @@
 class Appointment < ApplicationRecord
   belongs_to :course
 
-  scope :future, -> { where("date_from >= ?", DateTime.now) }
-  scope :past,   -> { where("date_from < ?", DateTime.now) }
+  scope :future, -> { where("date_from >= ?", DateTime.current) }
+  scope :past,   -> { where("date_from < ?",  DateTime.current) }
 end

@@ -13,6 +13,6 @@ class Subscription < ApplicationRecord
   end
 
   def active_today?
-    (date_start..date_end).include? DateTime.now
+    (date_start..date_end).include? DateTime.current
   end
 end

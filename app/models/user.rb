@@ -16,7 +16,7 @@ class User < ApplicationRecord
   end
 
   def currently_subscribed?
-    subscribed_at?(DateTime.now)
+    subscribed_at?(DateTime.current)
   end
 
   def subscribed_at? datetime

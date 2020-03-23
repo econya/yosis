@@ -10,6 +10,9 @@ module Yosis
   class Application < Rails::Application
     VERSION = '0.1.0'.freeze
 
+    config.time_zone = "Berlin"
+    config.active_record.default_timezone = :local
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
