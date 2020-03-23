@@ -95,6 +95,12 @@ With [rack-livereload] and [guard-livereload] you can have your browser
 refreshing itself when view files are changed. To do so, before starting your
 development server (`rails s`), fire up guard (`guard`) in a separate shell.
 
+#### Releasing
+
+* Modify version in `config/application.rb` .
+* Tag the repositories state.
+* Push.
+
 ### Doc
 
   * Removed webpacker, replaced by sprockets.
