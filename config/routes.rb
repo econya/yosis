@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     end
     resources :appointments
     resources :site_settings, only: [:index, :edit, :update]
-    resources :users, only: [:index, :show]
+    resources :users, only: [:index, :show] do
+      resources :subscriptions, only: [:edit, :update, :create, :destroy, :new], controller: 'user/subscriptions'
+    end
   end
 end
