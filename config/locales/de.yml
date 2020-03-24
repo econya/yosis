@@ -60,7 +60,10 @@ de:
   apointments:
     time:
       till: bis
-  appointment: Termin
+  appointment:
+    course: Kurs
+    timespan: Zeit
+    zoom-link: Zoom-Link
   appointments:
     none_in_future: Keine zukünftigen Termine
     visible_after_login: Link erst nach dem Anmelden sichtbar!

@@ -60,7 +60,10 @@ en:
   apointments:
     time:
       till: Till
-  appointment: Appointment
+  appointment:
+    course: Course
+    timespan: Timespan
+    zoom-link: Zoom-link
   appointments:
     none_in_future: None in future
     visible_after_login: Visible after login
