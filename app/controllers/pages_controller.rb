@@ -4,7 +4,7 @@
 
 class PagesController < ApplicationController
   def home
-    @courses = Course.all
+    @courses = Course.active
   end
 
   def privacy

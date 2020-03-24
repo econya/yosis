@@ -9,7 +9,7 @@
 - if @course.lessons.empty?
   .box
     =t('courses.no_lessons_yet')
-- @course.lessons.each do |lesson|
+- @course.lessons.active.each do |lesson|
   .box
     - if lesson.image.attached?
       = image_tag rails_blob_url(lesson.image)

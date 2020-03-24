@@ -9,6 +9,6 @@
         = link_to t('course_row.course.add-video'), new_admin_course_lesson_path(course), class: 'button is-primary is-outlined'
         = link_to t('edit'), edit_admin_course_path(course), class: 'button is-primary is-outlined'
 .columns.is-multiline
-  - course.lessons.each do |lesson|
+  - course.lessons.active.each do |lesson|
     .column.is-3
       = render partial: 'shared/video_card', locals: { lesson: lesson }
