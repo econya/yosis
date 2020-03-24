@@ -16,4 +16,5 @@ class Lesson < ApplicationRecord
   friendly_id :name, use: :slugged
 
   scope :active, -> { where(active: true) }
+  scope :inactive, -> { where.not(active: true) }
 end
