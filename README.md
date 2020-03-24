@@ -101,9 +101,11 @@ development server (`rails s`), fire up guard (`guard`) in a separate shell.
 * Tag the repositories state.
 * Push.
 
-### Doc
+## Developerish Documentation
 
-  * Removed webpacker, replaced by sprockets.
+* **Design decisions and resources** are found in the
+  [knowledgebase](doc/kndowledgebase.md)
+
 
 ## And even more todos
 
