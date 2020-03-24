@@ -1,4 +1,11 @@
-%h1.title= @course.name
+.level
+  .level-left
+    .level-item
+      %h1.title= @course.name
+  - if user_admin?
+    .level-right
+      .level-item
+        = link_to t('course.admin.edit'), edit_admin_course_path(@course), class: 'button is-link is-outlined'
 
 -#Description
 -#%br
