@@ -13,21 +13,57 @@
 %h2.title.is-4
   = t('courses.videos')
 
-- if @course.lessons.empty?
+- if @course.lessons.active.empty?
   .box
     =t('courses.no_lessons_yet')
 - @course.lessons.active.each do |lesson|
   .box
-    - if lesson.image.attached?
-      = image_tag rails_blob_url(lesson.image)
-    - else
-      -# Need placeholder image
-    = link_to lesson.name, lesson
+    - if lesson.preview_image.attached? && lesson.video.attached?
+      %article.media
+        %figure.media-left
+          - if user_has_access?
+            %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="auto" id="vs-#{lesson.id}" width="240")
+              %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
+          - else
+            .image
+              = image_tag lesson.preview_image.variant(resize_to_fill: [320,240]).processed
+        .media-content
+          .content
+            %h3.is-title.is-7
+              = lesson.name
+            = l lesson.created_at, format: '%A, %d. %B %Y'
+            .level
+              .level-item
+                - if user_admin?
+                  = link_to t('course.admin.edit-lesson'), edit_admin_course_lesson_path(lesson.course, lesson), class: 'button is-link is-outlined'
 
 - if user_admin?
+  %h2.title.is-4
+    = t('courses.videos-inactive')
+  
+  - @course.lessons.inactive.each do |lesson|
+    .box.has-background-danger.has-text-light
+      - if lesson.preview_image.attached? && lesson.video.attached?
+        %article.media
+          %figure.media-left
+            - if user_has_access?
+              %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="auto" id="vs-#{lesson.id}" width="240")
+                %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
+            - else
+              .image
+                = image_tag lesson.preview_image.variant(resize_to_fill: [320,240]).processed
+          .media-content
+            .content
+              %h3.is-title.is-7
+                = lesson.name
+              = l lesson.created_at, format: '%A, %d. %B %Y'
+              .level
+                .level-item
+                  = link_to t('course.admin.edit-lesson'), edit_admin_course_lesson_path(lesson.course, lesson), class: 'button is-link is-outlined'
+
   = link_to t('courses.new'), new_admin_course_lesson_path(@course), class: 'button'
-  = link_to t('courses.edit'), edit_admin_course_path(@course), class: 'button'
+  = link_to t('courses.edit'), edit_admin_course_path(@course), class: 'button is-outlined'
 
 %hr
 
-= link_to t('Back'), courses_path, class: 'button is-link'
+= link_to t('Back'), :back, class: 'button is-link'

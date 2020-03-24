@@ -7,13 +7,11 @@
       -#= t('intro')
       .content
         != SiteSetting['intro']
-      = link_to t('home.intro.learn_more'), root_path
+      = link_to t('home.intro.learn_more'), explanation_path
 %section#next_appointments
   %h2.title.is-4
     = t('home.next_appointments')
   = render 'appointments'
-  - if user_admin?
-    = link_to ('home.appointment.new'), new_admin_appointment_path, class: 'button is-link'
 
 %br
 %br
@@ -34,7 +32,7 @@
       = link_to t('home.courses.new'), new_admin_course_path, class: 'button is-primary'
 
 %section.videos
-  %h2.title.is-4= t('videos')
+  %h2.title.is-4= t('home.videos')
 %hr
 - @courses.each do |course|
   = render partial: 'course_video_row', locals: { course: course }
