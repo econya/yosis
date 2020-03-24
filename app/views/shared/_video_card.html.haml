@@ -17,10 +17,10 @@
       = lesson.name
   .card-content
     - if lesson.video.attached? && lesson.video.metadata[:duration]
-      = t('length')
+      = t('video.length')
       \:
       = (lesson.video.metadata[:duration] / 60).round
-      =t('minutes')
+      =t('video.minutes')
   - if user_admin?
     %footer.card-footer
       = link_to 'edit', [:admin, lesson.course, lesson], class: 'card-footer-item'

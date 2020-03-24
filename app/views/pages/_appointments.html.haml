@@ -1,5 +1,14 @@
 - if Appointment.future.present?
   %table.table.is-fullwidth.is-striped
+    %thead
+      %tr
+        %th(colspan=2)
+          = t('appointment.timespan')
+        %th(colspan=1)
+          = t('appointment.course')
+        %th(colspan=1)
+        %th(colspan=1)
+          = t('appointment.zoom-link')
     %tbody
       - Appointment.future.order(date_from: :asc).each do |appointment|
         %tr

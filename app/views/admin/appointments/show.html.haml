@@ -3,15 +3,15 @@
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
 %h1.title
-  = t('appointment')
+  = t('admin.appointment.title')
 
 %p
   %b
-    = t('Date from')
+    = t('appointment.date_from')
     \:
   = @appointment.date_from
 %p
-  %b Date to:
+  %b=t('Date_to:')
   = @appointment.date_to
 %p
   %b
