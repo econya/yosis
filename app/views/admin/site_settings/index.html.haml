@@ -13,7 +13,11 @@
     - @site_settings.each do |site_setting|
       %tr
         %td= site_setting.key
-        %td= site_setting.value
+        %td
+          - if site_setting.kind == 'image'
+            - if site_setting.image.attached?
+              = image_tag site_setting.image.variant(resize_to_fill: [120, 120]).processed
+          = site_setting.value
         %td
           - if site_setting.kind == "markdown"
             = link_to t('Show'), [:admin, site_setting]

@@ -20,6 +20,9 @@ class Admin::SiteSettingsController < ApplicationController
     SiteSetting.find_or_create_by(key: 'title',
       value: t('site_settings.title.default'))
 
+    SiteSetting.find_or_create_by(key: 'logo',
+      value: t('site_settings.logo.default'), kind: 'image')
+
     @site_settings = SiteSetting.all
   end
 
@@ -67,6 +70,6 @@ class Admin::SiteSettingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def site_setting_params
-      params.require(:site_setting).permit(:key, :value)
+      params.require(:site_setting).permit(:key, :value, :image)
     end
 end

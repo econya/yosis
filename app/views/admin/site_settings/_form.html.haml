@@ -13,6 +13,9 @@
   = f.hidden_field :key
   .field
     = f.label :value
-    = f.text_area :value
+    - if @site_setting.kind == "markdown"
+      = f.text_area :value, rows: 20
+    - if @site_setting.kind == "image"
+      = f.file_field :image
   .actions
     = f.submit ('Save'), class: 'button is-link'

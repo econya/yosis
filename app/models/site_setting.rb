@@ -5,6 +5,8 @@
 class SiteSetting < ApplicationRecord
   validates :key, uniqueness: true
 
+  has_one_attached :image
+
   before_save :render_markdown, if: -> {value_changed? && kind == "markdown"}
 
   def self.[](setting_name)
