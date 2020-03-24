@@ -23,5 +23,5 @@
       =t('minutes')
   - if user_admin?
     %footer.card-footer
-      = link_to 'edit', [:admin, course, lesson], class: 'card-footer-item'
+      = link_to 'edit', [:admin, lesson.course, lesson], class: 'card-footer-item'
 
