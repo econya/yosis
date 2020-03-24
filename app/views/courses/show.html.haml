@@ -40,7 +40,9 @@
             .level
               .level-item
                 - if user_admin?
-                  = link_to t('course.admin.edit-lesson'), edit_admin_course_lesson_path(lesson.course, lesson), class: 'button is-link is-outlined'
+                  .buttons
+                    = link_to t('course.admin.edit-lesson'), edit_admin_course_lesson_path(lesson.course, lesson), class: 'button is-link is-outlined'
+                    = link_to t('course.admin.destroy-lesson'), [:admin, lesson.course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined'
 
 - if user_admin?
   %h2.title.is-4
@@ -60,7 +62,9 @@
               = l lesson.created_at, format: '%A, %d. %B %Y'
               .level
                 .level-item
-                  = link_to t('course.admin.edit-lesson'), edit_admin_course_lesson_path(lesson.course, lesson), class: 'button is-link is-outlined'
+                  .buttons
+                    = link_to t('course.admin.edit-lesson'), edit_admin_course_lesson_path(lesson.course, lesson), class: 'button is-link is-outlined'
+                    = link_to t('course.admin.destroy-lesson'), [:admin, lesson.course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined'
 
   = link_to t('courses.new'), new_admin_course_lesson_path(@course), class: 'button'
   = link_to t('courses.edit'), edit_admin_course_path(@course), class: 'button is-outlined'
