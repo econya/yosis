@@ -21,13 +21,13 @@ addEventListener("direct-upload:progress", event => {
   progressElement.style.width = `${progress}%`
 })
 
-addEventListener("direct-upload:error", event => {
+/*addEventListener("direct-upload:error", event => {
   event.preventDefault()
   const { id, error } = event.detail
   const element = document.getElementById(`direct-upload-${id}`)
   element.classList.add("direct-upload--error")
   element.setAttribute("title", error)
-})
+})*/
 
 addEventListener("direct-upload:end", event => {
   const { id } = event.detail
