@@ -7,7 +7,10 @@
 title:
   key: title
   value: The YoSis Studio
+  kind: string
 
 intro:
   key: intro
-  value: Here is a longer intro text.
+  value: **Here** is a longer intro text.
+  value_rendered: <p><stong>Here</p></strong> is a longer intro text.**
+  kind: markdown
