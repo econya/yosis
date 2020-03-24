@@ -15,7 +15,9 @@
     = f.label :value
     - if @site_setting.kind == "markdown"
       = f.text_area :value, rows: 20
-    - if @site_setting.kind == "image"
+    - elsif @site_setting.kind == "image"
       = f.file_field :image
+    - else @site_setting.kind == "image"
+      = f.text_field :value
   .actions
     = f.submit ('Save'), class: 'button is-link'
