@@ -17,7 +17,7 @@
     = f.datetime_select :date_end
   .field
     = f.label :video
-    = f.file_field :video
+    = f.file_field :video, direct_upload: true
     -#= f.hidden_field :video, value: video.signed_id
   .field
     = f.label :preview_image
