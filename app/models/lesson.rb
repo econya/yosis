@@ -14,4 +14,6 @@ class Lesson < ApplicationRecord
   validates :video, presence: true
 
   friendly_id :name, use: :slugged
+
+  scope :active, -> { where(active: true) }
 end

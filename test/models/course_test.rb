@@ -12,4 +12,8 @@ class CourseTest < ActiveSupport::TestCase
     assert Course.create(name: 'clone')
     assert_not Course.new(name: 'clone').valid?
   end
+
+  test "active scope" do
+    assert_equal 1, Course.active.count
+  end
 end

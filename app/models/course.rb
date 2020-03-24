@@ -13,4 +13,6 @@ class Course < ApplicationRecord
   friendly_id :name, use: :slugged
 
   validates :name, presence: true, length: { minimum: 2 }, uniqueness: true
+
+  scope :active, -> { where(active: true) }
 end

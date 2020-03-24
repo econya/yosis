@@ -13,4 +13,8 @@ class LessonTest < ActiveSupport::TestCase
     assert_not Lesson.new(name: 'clone').valid?
     assert true
   end
+
+  test "active_scope" do
+    assert_equal 1, Lesson.active.count
+  end
 end
