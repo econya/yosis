@@ -12,5 +12,8 @@
   -#.field
   -#  = f.label :start_date
   -#  = f.date_field :start_date
+  .field
+    = f.label :active
+    = f.check_box :active
   .actions
     = f.submit 'Save', class: 'button'

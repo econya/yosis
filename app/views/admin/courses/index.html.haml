@@ -9,14 +9,20 @@
       %th= t('number_appointments')
       %th= t('next_appointment')
       %th
+      %th
 
   %tbody
     - @courses.each do |course|
       %tr
-        %td= course.name
+        %td
+          = course.name
         %td= course.lessons.length
         %td= course.appointments.length
         %td= course.appointments.future.first&.date_from
+        %td
+          - if !course.active?
+            %span.tag.is-danger
+              = t('course.inactive')
         %td.buttons
           = link_to 'Show', course
           = link_to 'Edit', edit_admin_course_path(course)
