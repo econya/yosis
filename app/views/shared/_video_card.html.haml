@@ -1,0 +1,27 @@
+.card
+  .card-image
+    - if lesson.video.attached?
+      %video.video-js.vjs-fluid(controls preload="auto" id="vs-#{lesson.id}" width="100%")
+        %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
+      :javascript
+        // set poster (url)
+        // bitplaybutton?
+        var player=videojs("vs-#{lesson.id}")
+
+      -#= videojs_rails sources: { mp4: rails_blob_url(lesson.video)}, setup: "{}", controls: true, width:"100%"
+      -#= image_tag lesson.video.preview(resize_to_fit: [100, 100])
+    - else
+      = image_tag "https://via.placeholder.com/150"
+  %header.card-header
+    %p.card-header-title.is-centered.has-background-white-ter
+      = lesson.name
+  .card-content
+    - if lesson.video.attached? && lesson.video.metadata[:duration]
+      = t('length')
+      \:
+      = (lesson.video.metadata[:duration] / 60).round
+      =t('minutes')
+  - if user_admin?
+    %footer.card-footer
+      = link_to 'edit', [:admin, course, lesson], class: 'card-footer-item'
+
