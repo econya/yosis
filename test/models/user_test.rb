@@ -15,4 +15,9 @@ class UserTest < ActiveSupport::TestCase
     assert_not users(:user).currently_subscribed?
     assert users(:user).subscribed_at?(DateTime.new(2020,1,10))
   end
+
+  test "#in_trial_period?" do
+    assert_not users(:admin).in_trial_period?
+    assert users(:user).in_trial_period?
+  end
 end
