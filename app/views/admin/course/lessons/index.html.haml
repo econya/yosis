@@ -1,0 +1,31 @@
+%h1.title
+  =t('Listing lessons')
+
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th= t('Course')
+      %th= t('Date start')
+      %th= t('Date end')
+      %th
+      %th
+      %th
+      %th
+
+  %tbody
+    - @lessons.each do |lesson|
+      %tr
+        %td= lesson.course.name
+        %td= lesson.date_start
+        %td= lesson.date_end
+        %td
+          - if !lesson.active?
+            %span.tag.is-danger
+              = t('lesson.inactive')
+        %td= link_to t('Show'), lesson
+        %td= link_to t('Edit'), edit_lesson_path(lesson)
+        %td= link_to t('Destroy'), lesson, method: :delete, data: { confirm: t('are_you_sure?') }
+
+%br
+
+= link_to t('lesson.new'), new_admin_course_lesson_path, class: 'button'

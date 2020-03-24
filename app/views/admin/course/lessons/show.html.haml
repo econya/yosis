@@ -1,0 +1,33 @@
+%h2.subtitle
+  = t('lesson.show.course')
+  = @lesson.course.name
+
+%h1.title
+  = Lesson.model_name.human
+  = @lesson.name
+
+-#%p
+-#  %b= t('Date start:')
+-#  = @lesson.date_start
+-#
+-#%p
+-#  %b= t('Date end:')
+-#  = @lesson.date_end
+
+- if @lesson.video.attached?
+  = image_tag @lesson.video.preview(resize_to_limit: [100, 100])
+  %br
+  = @lesson.video.blob.byte_size / 1024 / 1024
+  MB
+  %br
+  - if @lesson.video.metadata[:duration]
+    = t('video.length')
+    \:
+    = (@lesson.video.metadata[:duration] / 60).round
+    =t('video.minutes')
+
+%br
+%br
+
+= link_to t('Edit'), edit_admin_course_lesson_path(@lesson.course, @lesson), class: 'button is-link is-outlined'
+

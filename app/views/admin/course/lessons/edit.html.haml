@@ -1,0 +1,9 @@
+%h1.title
+  =t('.edit.title')
+
+= render 'form'
+
+= link_to t('Show'), [:admin, @lesson.course, @lesson]
+\|
+= link_to t('Back'), admin_course_path(@lesson.course)
+

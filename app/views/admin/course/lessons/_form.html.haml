@@ -1,0 +1,36 @@
+= form_for [:admin, @lesson.course, @lesson], builder: BulmaFormBuilder::FormBuilder do |f|
+  - if @lesson.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@lesson.errors.count, "error")} prohibited this lesson from being saved:"
+      %ul
+        - @lesson.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :date_start
+    = f.datetime_select :date_start
+  .field
+    = f.label :date_end
+    = f.datetime_select :date_end
+  .field
+    = f.label :video
+    = f.file_field :video
+    -#= f.hidden_field :video, value: video.signed_id
+  .field
+    = f.label :preview_image
+    .media
+      .media-left
+        -#= f.hidden_field :preview_image, value: @lesson.preview_image.&attachment&.signed_id
+        - if @lesson.preview_image.attached? && @lesson.preview_image.attachment.id != nil
+          %figure.image.is-128x128
+            = image_tag @lesson.preview_image.variant(resize_to_fill: [128, 128]).processed
+      .media-content
+        = f.file_field :preview_image
+    .field
+      = f.label :active
+      = f.check_box :active
+  .actions
+    = f.submit 'Save', class: 'button'

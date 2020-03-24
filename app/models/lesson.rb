@@ -10,6 +10,8 @@ class Lesson < ApplicationRecord
   has_one_attached :preview_image
 
   validates :name, presence: true
+  validates :preview_image, presence: true
+  validates :video, presence: true
 
   friendly_id :name, use: :slugged
 end
