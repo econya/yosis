@@ -4,7 +4,11 @@
 
 module UserAccessHelper
   def user_has_access?
-    user_signed_in? && current_user.role == 'admin' || current_user.in_trial_period?
+    user_signed_in? && current_user.role == 'admin' || current_user&.in_trial_period?
+  end
+
+  def user_has_limited_access?
+    user_signed_in? && current_user.in_trial_period?
   end
 end
 
