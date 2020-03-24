@@ -22,12 +22,12 @@
             (#{t('in')} #{distance_of_time_in_words_to_now appointment.date_from})
             -#= time_ago_in_words appointment.date_from
           %td
-            .tag.is-link
+            .tag.is-info
               = appointment.course.name
           %td
             = appointment.notice
           %td
-            - if user_signed_in?
+            - if user_signed_in? && user_has_access?
               = link_to appointment.link, appointment.link
             - else
               = t('appointments.visible_after_login')

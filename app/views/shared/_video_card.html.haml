@@ -1,17 +1,19 @@
 .card
   .card-image
-    - if lesson.video.attached?
-      %video.video-js.vjs-fluid(controls preload="auto" id="vs-#{lesson.id}" width="100%")
+    -#- if lesson.video.attached?
+    - if user_has_access?
+      %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="auto" id="vs-#{lesson.id}" width="100%")
         %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
-      :javascript
-        // set poster (url)
-        // bitplaybutton?
-        var player=videojs("vs-#{lesson.id}")
-
+      -#:javascript
+      -#  // set poster (url)
+      -#  // bitplaybutton?
+      -#  var player=videojs("vs-#{lesson.id}", {"preload": false});
+      -#, "poster": "#{rails_blob_url(lesson.preview_image)}", "width": 240});
       -#= videojs_rails sources: { mp4: rails_blob_url(lesson.video)}, setup: "{}", controls: true, width:"100%"
       -#= image_tag lesson.video.preview(resize_to_fit: [100, 100])
     - else
-      = image_tag "https://via.placeholder.com/150"
+      %figure.image
+        = image_tag lesson.preview_image.variant(resize_to_fill: [320,240]).processed
   %header.card-header
     %p.card-header-title.is-centered.has-background-white-ter
       = lesson.name

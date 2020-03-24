@@ -32,6 +32,11 @@
             %h3.is-title.is-7
               = lesson.name
             = l lesson.created_at, format: '%A, %d. %B %Y'
+            %br
+            - if lesson.video.attached? && lesson.video.metadata[:duration]
+              = "%s:" % t('video.length')
+              = (lesson.video.metadata[:duration] / 60).round
+              =t('video.minutes')
             .level
               .level-item
                 - if user_admin?
@@ -40,18 +45,14 @@
 - if user_admin?
   %h2.title.is-4
     = t('courses.videos-inactive')
-  
+
   - @course.lessons.inactive.each do |lesson|
     .box.has-background-danger.has-text-light
       - if lesson.preview_image.attached? && lesson.video.attached?
         %article.media
           %figure.media-left
-            - if user_has_access?
-              %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="auto" id="vs-#{lesson.id}" width="240")
-                %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
-            - else
-              .image
-                = image_tag lesson.preview_image.variant(resize_to_fill: [320,240]).processed
+            %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="auto" id="vs-#{lesson.id}" width="240")
+              %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
           .media-content
             .content
               %h3.is-title.is-7
