@@ -5,7 +5,11 @@
   - if user_admin?
     .level-right
       .level-item
-        = link_to t('course.admin.edit'), edit_admin_course_path(@course), class: 'button is-link is-outlined'
+        = link_to edit_admin_course_path(@course), class: 'button is-link is-outlined' do
+          %span.icon.is-small
+            %i.fas.fa-user-shield
+          %span
+            = t('course.admin.edit')
 
 -#Description
 -#%br
@@ -41,8 +45,17 @@
               .level-item
                 - if user_admin?
                   .buttons
-                    = link_to t('course.admin.edit-lesson'), edit_admin_course_lesson_path(lesson.course, lesson), class: 'button is-link is-outlined'
-                    = link_to t('course.admin.destroy-lesson'), [:admin, lesson.course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined'
+                    = link_to edit_admin_course_lesson_path(lesson.course, lesson), class: 'button is-link is-outlined' do
+                      %span.icon.is-small
+                        %i.fas.fa-user-shield
+                      %span
+                        = t('course.admin.edit-lesson')
+                    = link_to [:admin, lesson.course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined' do
+                      %span.icon.is-small
+                        %i.fas.fa-user-shield
+                      %span
+                        = t('course.admin.destroy-lesson')
+
 
 - if user_admin?
   %h2.title.is-4
@@ -63,11 +76,30 @@
               .level
                 .level-item
                   .buttons
-                    = link_to t('course.admin.edit-lesson'), edit_admin_course_lesson_path(lesson.course, lesson), class: 'button is-link is-outlined'
-                    = link_to t('course.admin.destroy-lesson'), [:admin, lesson.course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined'
+                    = link_to edit_admin_course_lesson_path(lesson.course, lesson), class: 'button is-link is-outlined' do
+                      %span.icon.is-small
+                        %i.fas.fa-user-shield
+                      %span
+                        = t('course.admin.edit-lesson')
 
-  = link_to t('courses.new'), new_admin_course_lesson_path(@course), class: 'button'
-  = link_to t('courses.edit'), edit_admin_course_path(@course), class: 'button is-outlined'
+                    = link_to [:admin, lesson.course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined' do
+                      %span.icon.is-small
+                        %i.fas.fa-user-shield
+                      %span
+                        = t('course.admin.destroy-lesson')
+
+  .buttons
+    = link_to new_admin_course_lesson_path(@course), class: 'button' do
+      %span.icon.is-small
+        %i.fas.fa-user-shield
+      %span
+        = t('courses.new')
+
+    = link_to edit_admin_course_path(@course), class: 'button is-outlined' do
+      %span.icon.is-small
+        %i.fas.fa-user-shield
+      %span
+        =t('courses.edit')
 
 %hr
 

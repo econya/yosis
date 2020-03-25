@@ -14,9 +14,16 @@
   #yosisNavbar.navbar-menu
     .navbar-start
       = link_to t('about_us'),    about_us_url, class: 'navbar-item'
-      = link_to t('the_website'), root_url, class: 'navbar-item'
-      = link_to 'info@yogamitveronique.de', 'mailto:info@yogamitveronique.de', class: 'navbar-item'
-
+      = link_to root_url, class: 'navbar-item' do
+        %span.icon
+          %i.fa.fa-heart
+        %span
+          = t('the_website')
+      = link_to 'mailto:info@yogamitveronique.de', class: 'navbar-item' do
+        %span.icon
+          %i.fas.fa-envelope
+        %span
+          = 'info@yogamitveronique.de'
     - if (logo = SiteSetting.find_by_key("logo"))&.image&.attached?
       = link_to root_path, class: 'is-hidden-mobile is-hidden-tablet-only' do
         = image_tag logo.image.variant(resize_to_fill: [128, 128]).processed, class: 'logo'
@@ -33,7 +40,10 @@
         - if user_admin?
           .navbar-item.has-dropdown.is-hoverable
             .navbar-link
-              = t('navigation.admin')
+              %span.icon
+                %i.fas.fa-user-shield
+              %span
+                = t('navigation.admin')
             .navbar-dropdown
               = link_to t('navigation.courses'),   admin_courses_path,   class: 'navbar-item'
               = link_to t('navigation.appointments'), admin_appointments_path, class: 'navbar-item'

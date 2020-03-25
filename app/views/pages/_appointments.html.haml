@@ -35,7 +35,11 @@
       - if user_admin?
         %tr
           %td(colspan=3)
-            = link_to t('home.appointment.new'), new_admin_appointment_path, class: 'button is-link'
+            = link_to new_admin_appointment_path, class: 'button is-link' do
+              %span.icon
+                %i.fas.fa-user-shield
+              %span
+                = t('home.appointment.new')
 - else
   = t('appointments.none_in_future')
   - if user_admin?
