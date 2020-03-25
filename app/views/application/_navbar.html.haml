@@ -7,6 +7,12 @@
     - if (logo = SiteSetting.find_by_key("logo"))&.image&.attached?
       = link_to root_path, class: 'is-hidden-desktop' do
         = image_tag logo.image.variant(resize_to_fill: [128, 128]).processed, class: 'logo'
+      .is-hidden-desktop
+        .is-size-7
+          %br
+        = link_to root_path, class: 'navbar-item is-size-3 has-text-light' do
+          = SiteSetting['title']
+
     %a.navbar-burger.burger{"aria-expanded" => "false", "aria-label" => "menu", "data-target" => "yosisNavbar", :role => "button"}
       %span{"aria-hidden" => "true"}
       %span{"aria-hidden" => "true"}
@@ -26,9 +32,10 @@
           = 'info@yogamitveronique.de'
     - if (logo = SiteSetting.find_by_key("logo"))&.image&.attached?
       = link_to root_path, class: 'is-hidden-mobile is-hidden-tablet-only' do
-        = image_tag logo.image.variant(resize_to_fill: [128, 128]).processed, class: 'logo'
+        = image_tag logo.image.variant(resize_to_fill: [100, 100]).processed, class: 'logo'
 
-    = link_to SiteSetting['title'], root_path, class: 'navbar-item'
+    = link_to root_path, class: 'navbar-item is-size-3 has-text-light is-hidden-mobile is-hidden-tablet-only' do
+      = SiteSetting['title']
 
     .navbar-end
       - if user_signed_in?
@@ -53,6 +60,6 @@
         = link_to t('sign_out'), destroy_user_session_path, method: :delete, class: "navbar-item"
       - else
         .navbar-item
-          = link_to t('devise.sessions.new.sign_in'), new_user_session_path, class: 'button is-primary is-outlined'
+          = link_to t('devise.sessions.new.sign_in'), new_user_session_path, class: 'button is-light is-outlined'
         .navbar-item
-          = link_to t('register_new'), new_user_registration_path, class: 'button is-primary is-outlined'
+          = link_to t('register_new'), new_user_registration_path, class: 'button is-light is-outlined'

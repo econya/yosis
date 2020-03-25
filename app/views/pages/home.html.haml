@@ -5,11 +5,11 @@
   .column.is-two-third
     %h2.subtitle
       -#= t('intro')
-      .content
-        != SiteSetting['intro']
-      = link_to t('home.intro.learn_more'), explanation_path
+    .content.is-large
+      != SiteSetting['intro']
+    = link_to t('home.intro.learn_more'), explanation_path
 %section#next_appointments
-  %h2.title.is-4
+  %h2.title.is-2
     = t('home.next_appointments')
   = render 'appointments'
 
@@ -17,13 +17,14 @@
 %br
 
 %section.courses-links
-  %h2.title.is-4
+  %h2.title.is-2
     = t('home.courses.courses-title')
 %br
 .columns.is-multiline
   - @courses.each do |course|
     .column.is-2
-      = link_to course.name, "#course#{course.id}", class: 'button is-big'
+      = link_to "#course#{course.id}", class: 'button is-primary is-normal' do
+        %b= course.name
   - if @courses.empty?
     .column.is-2
       = t('home.courses.none_yet')
@@ -31,9 +32,12 @@
     .column.is-2
       = link_to t('home.courses.new'), new_admin_course_path, class: 'button is-primary'
 
+%br
+%br
 %section.videos
-  %h2.title.is-4= t('home.videos')
-%hr
+  %h2.title.is-2
+    = t('home.videos')
+%hr.has-text-primary.hr.is-divider
 - @courses.each do |course|
   = render partial: 'course_video_row', locals: { course: course }
 - if @courses.empty?
