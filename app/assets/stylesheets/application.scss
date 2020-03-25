@@ -1,25 +1,63 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
+ * SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ *
+ * Manifest file that'll be compiled into application.css, which will include
+ * all the files listed below.
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
  * vendor/assets/stylesheets directory can be referenced here using a relative path.
  *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
  */
 
-$dark_orange   : #cd5b1c;
-$success: #dc6db0;
-$warning: #c95d95;
-$danger: #a21a45;
-$dark: #141a35;
-$text: #424564;
+@import "yosis/_base_colors";
+@import "source-sans-pro";
+
+/* Customize Bulma */
+$family-primary:    "Source Sans Pro";
+$family-sans-serif: 'Source Sans Pro';
+
+$weight-light:    200;
+$weight-normal:   300;
+$weight-medium:   400;
+$weight-semibold: 500;
+$weight-bold:     500;
+
+$title-color:  $bluerple;
+$title-weight: $weight-normal;
+
+$primary: $orange;
+$link:    $bluerple;
+
+$navbar-box-shadow-size: 0 8px 0 0;
+$navbar-height: 5.75rem;
+
+/* Own customization */
+h1, h2, h3 {
+  text-transform: uppercase;
+}
+
+.box.coursebox {
+  background-image: linear-gradient(90deg, #ffffff -0%, $orange 90%, $orange 150%);
+  padding: 0.9em;
+}
+
+.coursebox h3 {
+  font-weight: 400;
+}
+
+.navbar {
+  .logo {
+    height: 5.75rem;
+  }
+}
+
+#hero-section {
+  background-color: #fdfaf4;;
+}
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
