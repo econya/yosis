@@ -1,60 +1,109 @@
 ---
 de:
+  Appointment was successfully destroyed: Appointment was successfully destroyed
+  Appointment was successfully updated: Appointment was successfully updated
   Back: Zurück
   Course: Kurs
   Course was successfully created: Course was successfully created
   Course was successfully updated: Course was successfully updated
   Courses: Kurse
   Customers: Kund*n
-  Dashboard: Dashboard
   Date_from: Von
   Date_to: Von
-  Delete: Delete
+  'Date_to:': 'Date to:'
+  Delete: Löschen
   Destroy: Löschen
   Edit: bearbeiten
   Home: Start
-  Key: Key
+  Key: Name
   Lesson: Lektion
   Lesson was successfully created: Lesson was successfully created
   Lesson was successfully destroyed: Lesson was successfully destroyed
   Lesson was successfully updated: Lesson was successfully updated
   Link: Link
-  Listing_appointments: Listing appointments
+  Listing_appointments: Termin-Liste
   Name: Name
   Notice: Notiz
+  Save: Speichern
   Settings: Einstellungen
-  Show: Show
+  Show: Anzeigen
   Site setting was successfully updated: Site setting was successfully updated
   Subscription was successfully created: Subscription was successfully created
   Subscription was successfully destroyed: Subscription was successfully destroyed
   Subscription was successfully updated: Subscription was successfully updated
-  Value: Value
+  Value: Wert
   about_us: Über uns
+  activerecord:
+    attributes:
+      appointment:
+        course: Kurs
+        date_from: Start-Zeit
+        date_to: End-Zeit
+        link: Zoom-link
+        notice: Notiz
+      lesson:
+        date_end: End-Zeit
+        date_start: Start-Zeit
+        name: Video-Name
+        preview_image: Vorschau-Bild
+        video: Video-Datei
+    models:
+      appointment:
+        labels:
+          date_from: Von
+        one: Termin
+        other: Termine
+      course:
+        one: Kurs
+        other: Kurse
+      lesson:
+        one: Lektion
+        other: Lektionen
   admin:
+    appointment:
+      edit: Edit
+      info: Info
+      title: Title
+    course:
+      lessons:
+        edit:
+          edit:
+            title: Kurs bearbeiten
+      new: Neu
+      new_lesson: Neues Video
     courses:
       edit: Bearbeiten
+      name: Name
+      next_appointment: Nächster Termin
+      number_appointments: Anzahl Termine
+      number_lessons: Anzahl Videos
+      order: Order
     user:
-      confirmed_at: Confirmed at
-      created_at: Created at
-      email: Email
-      last_sign_in_at: Last sign in at
-      sign_in_count: Sign in count
+      back_to_admin: Zurück als Admin
+      confirmed_at: Bestätigt am
+      created_at: Erstellt am
+      email: E-Mail
+      impersonate: Impersonate
+      last_sign_in_at: Zuletzt angemeldet am
+      sign_in_count: Wie oft angemeldet
+      subscription:
+        edit-title: Subscription bearbeiten
       subscriptions: Subscriptions
     users:
       admin: Admin
-      currently_subscribed: Currently subscribed
-      invite_new: Invite new
-      pending_invitation: Pending invitation
-      subscription_ended_at: Subscription ended at
+      currently_subscribed: Zurzeit subscribed
+      invite_new: Einladung verschicken
+      pending_invitation: Einladung steht noch aus
+      subscription_ended_at: Subscription geendet am
       table:
         th:
-          created_at: Created at
+          created_at: Erstellt am
           email: E-Mail
-          sign_in_count: Sign in count
-          state: State
+          sign_in_count: Anzahl Anmeldungen
+          state: Zustand
           subscription: Subscription
       title: User
-      unconfirmed: Unconfirmed
+      unconfirmed: Unbestätigt
       unsubscribed: Unsubscribed
   already_registered?: Schon Kund/in?
   apointments:
@@ -62,6 +111,8 @@ de:
       till: bis
   appointment:
     course: Kurs
+    created-success: Termin angelegt
+    date_from: Von
     timespan: Zeit
     zoom-link: Zoom-Link
   appointments:
@@ -69,11 +120,25 @@ de:
     visible_after_login: Link erst nach dem Anmelden sichtbar!
   are_you_sure?: Bist du dir sicher?
   attendence: Attendence
+  contact:
+    send: Send
+    sent_thanks: Sent thanks
+    title: Title
+  course:
+    admin:
+      destroy-lesson: Video löschen
+      edit: Bearbeiten
+      edit-lesson: Video bearbeiten
+    inactive: Nicht freigeschaltet
+  course_row:
+    course:
+      add-video: Video hinzufügen
   courses:
     edit: Bearbeiten
     new: Neu
-    no_lessons_yet: Noch keine Video-Lektionen
+    no_lessons_yet: Noch keine Videos
     videos: Videos
+    videos-inactive: Nicht freigeschaltete Videos
   customers: Kund*n
   delete: Löschen
   devise:
@@ -125,7 +190,8 @@ de:
     intro:
       learn_more: Mehr erfahren ...
     next_appointments: Die nächsten Termine
-    welcome: Welcome
+    videos: Videos
+    welcome: Willkommen
   in: in
   in_future: Zukünftig
   in_past: Vergangen
@@ -135,9 +201,11 @@ de:
   learn_more: Mehr erfahren ...
   length: Länge
   lesson:
+    inactive: Nicht freigeschaltet
     new: Neu
     show:
       course: Kurs
+      video: Video
   lessons: Lektionen
   minutes: Minuten
   navigation:
@@ -170,6 +238,8 @@ de:
       title: Einstellung
   sign_out: Abmelden
   site_settings:
+    logo:
+      default: Default
     title:
       default: Default
   subscription:
@@ -187,12 +257,22 @@ de:
     confirmed_at: Bestätigt am
     created_at: Erstellt am
     email: E-Mail
+    in_trial_till: Schnupperphase bis
     last_sign_in_at: Zuletzt eingeloggt am
-    sign_in_count: Anzahl logins
-    subscriptions: Subscriptions
+    never-signed-in: Noch nie eingeloggt
+    sign_in_count: Anzahl Anmeldungen
+    subsciptions:
+      admins_no_need: Admins brauchen das nicht
+    subscription_till: Subscription bis
+    subscriptions:
+      none: Keine
+      notes: Notizen
+      timespan: Zeitraum
+    unconfirmed: Unbestätigt
     user-heading: User
   users: Users
-  video: Video
+  video:
+    length: Länge
+    minutes: Minuten
   videos: Videos
-  welcom: Welcom
   welcome: Willkommen

@@ -1,5 +1,7 @@
 ---
 en:
+  Appointment was successfully destroyed: Appointment was successfully destroyed
+  Appointment was successfully updated: Appointment was successfully updated
   Back: Back
   Course: Course
   Course was successfully created: Course was successfully created
@@ -9,6 +11,7 @@ en:
   Dashboard: Dashboard
   Date_from: Date from
   Date_to: Date to
+  'Date_to:': 'Date to:'
   Delete: Delete
   Destroy: Destroy
   Edit: Edit
@@ -22,6 +25,7 @@ en:
   Listing_appointments: Listing appointments
   Name: Name
   Notice: Notice
+  Save: Save
   Settings: Settings
   Show: Show
   Site setting was successfully updated: Site setting was successfully updated
@@ -30,15 +34,61 @@ en:
   Subscription was successfully updated: Subscription was successfully updated
   Value: Value
   about_us: About us
+  activerecord:
+    attributes:
+      appointment:
+        course: Kurs
+        date_from: Start-Zeit
+        date_to: End-Zeit
+        link: Zoom-link
+        notice: Notiz
+      lesson:
+        date_end: End-Zeit
+        date_start: Start-Zeit
+        name: Video-Name
+        preview_image: Vorschau-Bild
+        video: Video-Datei
+    models:
+      appointment:
+        labels:
+          date_from: Von
+        one: Termin
+        other: Termine
+      course:
+        one: Kurs
+        other: Kurse
+      lesson:
+        one: Lektion
+        other: Lektionen
   admin:
+    appointment:
+      edit: Edit
+      info: Info
+      title: Title
+    course:
+      lessons:
+        edit:
+          edit:
+            title: Title
+      new: New
+      new_lesson: New lesson
     courses:
       edit: Edit
+      name: Name
+      next_appointment: Next appointment
+      number_appointments: Number appointments
+      number_lessons: Number lessons
+      order: Order
     user:
+      back_to_admin: Back to admin
       confirmed_at: Confirmed at
       created_at: Created at
       email: Email
+      impersonate: Impersonate
       last_sign_in_at: Last sign in at
       sign_in_count: Sign in count
+      subscription:
+        edit-title: Edit-title
       subscriptions: Subscriptions
     users:
       admin: Admin
@@ -62,6 +112,8 @@ en:
       till: Till
   appointment:
     course: Course
+    created-success: Created-success
+    date_from: Date from
     timespan: Timespan
     zoom-link: Zoom-link
   appointments:
@@ -69,11 +121,25 @@ en:
     visible_after_login: Visible after login
   are_you_sure?: Are you sure?
   attendence: Attendence
+  contact:
+    send: Send
+    sent_thanks: Sent thanks
+    title: Title
+  course:
+    admin:
+      destroy-lesson: Destroy-lesson
+      edit: Edit
+      edit-lesson: Edit-lesson
+    inactive: Inactive
+  course_row:
+    course:
+      add-video: Add-video
   courses:
     edit: Edit
     new: New
     no_lessons_yet: No lessons yet
     videos: Videos
+    videos-inactive: Videos-inactive
   customers: Customers
   delete: Delete
   devise:
@@ -167,6 +233,7 @@ en:
     intro:
       learn_more: Learn more
     next_appointments: Next appointments
+    videos: Videos
     welcome: Welcome
   in: In
   in_future: In future
@@ -177,9 +244,11 @@ en:
   learn_more: Learn more
   length: Length
   lesson:
+    inactive: Inactive
     new: New
     show:
       course: Course
+      video: Video
   lessons: Lessons
   minutes: Minutes
   navigation:
@@ -212,6 +281,8 @@ en:
       title: Title
   sign_out: Sign out
   site_settings:
+    logo:
+      default: Default
     title:
       default: Default
   subscription:
@@ -229,12 +300,22 @@ en:
     confirmed_at: Confirmed at
     created_at: Created at
     email: Email
+    in_trial_till: In trial till
     last_sign_in_at: Last sign in at
+    never-signed-in: Never-signed-in
     sign_in_count: Sign in count
-    subscriptions: Subscriptions
+    subsciptions:
+      admins_no_need: Admins no need
+    subscription_till: Subscription till
+    subscriptions:
+      none: None
+      notes: Notes
+      timespan: Timespan
+    unconfirmed: Unconfirmed
     user-heading: User-heading
   users: Users
-  video: Video
+  video:
+    length: Length
+    minutes: Minutes
   videos: Videos
-  welcom: Welcom
   welcome: Welcome
