@@ -36,6 +36,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'haml-rails',  '~> 2.0'
 gem 'bulma-rails', '~> 0.8'
+gem 'font-awesome-sass', '~> 5.12.0'
 
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
@@ -45,6 +46,9 @@ gem 'devise-i18n'
 gem 'rails-i18n', '~> 6.0.0'
 
 gem "bulma_form_builder", git: 'https://github.com/fwolfst/bulma_form_builder.git'#, branch: 'rails6'
+# ActAs/Model enhancement
+gem 'ranked-model'
+
 
 gem 'pg' # production db
 
