@@ -27,28 +27,31 @@ gem 'jbuilder', '~> 2.7'
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 
-gem 'friendly_id', '~> 5.2.4'
-
-gem 'redcarpet'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# Assety gems
 gem 'haml-rails',  '~> 2.0'
 gem 'bulma-rails', '~> 0.8'
 gem 'font-awesome-sass', '~> 5.12.0'
+gem "bulma_form_builder", git: 'https://github.com/fwolfst/bulma_form_builder.git'#, branch: 'rails6'
 
+# Authentication
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'pretender'
 
+# i18n
 gem 'devise-i18n'
 gem 'rails-i18n', '~> 6.0.0'
 
-gem "bulma_form_builder", git: 'https://github.com/fwolfst/bulma_form_builder.git'#, branch: 'rails6'
 # ActAs/Model enhancement
+gem 'friendly_id', '~> 5.2.4'
 gem 'ranked-model'
 
+# md rendering
+gem 'redcarpet'
 
 gem 'pg' # production db
 
