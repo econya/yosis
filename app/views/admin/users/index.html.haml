@@ -9,6 +9,7 @@
       %th= t('admin.users.table.th.subscription')
       %th= t('admin.users.table.th.created_at')
       %th= t('admin.users.table.th.sign_in_count')
+      %th
   %tbody
     - @users.each do |user|
       %tr
@@ -36,5 +37,7 @@
           = user.created_at
         %td
           = user.sign_in_count
+        %td
+          = link_to t('admin.user.impersonate'), impersonate_user_path(user), method: :post, class: 'button'
 
 = link_to t('admin.users.invite_new'), new_user_invitation_path, class: 'button'
