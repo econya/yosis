@@ -12,6 +12,9 @@
 %p
   %b= t('admin.user.confirmed_at')
 = @user.confirmed_at
+- if @user.confirmed_at.nil?
+  %span.tag
+    = t('user.unconfirmed')
 
 %p
   %b= t('admin.user.sign_in_count')
@@ -20,6 +23,9 @@
 %p
   %b= t('admin.user.last_sign_in_at')
 = @user.last_sign_in_at
+- if @user.last_sign_in_at.nil?
+  %span.tag
+    = t('user.never-signed-in')
 
 %br
 %br
@@ -27,21 +33,38 @@
 %h2.title.is-5
   = t('admin.user.subscriptions')
 
-%table.table
+%table.table.is-hoverable
   %thead
     %tr
       %th
+        = t('user.subscriptions.timespan')
+      %th
+        = t('user.subscriptions.notes')
+      %th
   %tbody
-    - @user.subscriptions.each do |subscription|
+    - if @user.role == "admin"
       %tr
-        %td
-          - if subscription.active_today?
-            .tag
-              = t('subscription.currently_active')
-          = subscription.date_start
-          = subscription.date_end
-        %td
-          = link_to t('delete'), [:admin, subscription.user, subscription], method: :delete, date: { confirm: t('are_you_sure?') }, class: 'button'
+        %td(colspan=2)
+          = t('user.subsciptions.admins_no_need')
+    - elsif @user.subscriptions.empty?
+      %tr
+        %td(colspan=2)
+          = t('user.subscriptions.none')
+    - else
+      - @user.subscriptions.each do |subscription|
+        %tr
+          %td
+            - if subscription.active_today?
+              .tag
+                = t('subscription.currently_active')
+            = l subscription.date_start, format: '%d. %B %Y'
+            \-
+            = l subscription.date_end, format: '%d. %B %Y'
+          %td
+            = subscription.notes
+          %td
+            = link_to t('edit'), edit_admin_user_subscription_path(subscription.user, subscription), class: 'button'
+            = link_to t('delete'), [:admin, subscription.user, subscription], method: :delete, date: { confirm: t('are_you_sure?') }, class: 'button'
     %tr
       %td(colspan=2)
         = link_to new_admin_user_subscription_path(user_id: @user), class: 'button' do
