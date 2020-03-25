@@ -4,9 +4,10 @@
 
 class ApplicationController < ActionController::Base
   #before_action :authenticate_user!
+  impersonates :user
 
   def authorize_admin!
-    if current_user&.admin?
+    if true_user&.admin?
       # happy face
     else
       flash[:error] = t('not authorized')

@@ -5,13 +5,18 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
-  devise_for :users
-
   get 'about_us',    to: 'pages#about_us'
   get 'privacy',     to: 'pages#privacy'
   get 'terms',       to: 'pages#terms'
   get 'impressum',   to: 'pages#impressum'
   get 'explanation', to: 'pages#explanation'
+
+  devise_for :users
+
+  resources :users, only: [:index], controller: 'admin/users' do
+    post :impersonate, on: :member
+    post :stop_impersonating, on: :collection
+  end
 
   resources :courses, only: [:index, :show]
   resources :customers

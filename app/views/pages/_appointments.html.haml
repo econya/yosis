@@ -17,7 +17,7 @@
               = l(appointment.date_from, format: '%A')
             = I18n.l appointment.date_from, format: :short
             = t('apointments.time.till')
-            = appointment.date_to.strftime('%H:%M')
+            = l appointment.date_to, format: '%H:%M'
           %td
             (#{t('in')} #{distance_of_time_in_words_to_now appointment.date_from})
             -#= time_ago_in_words appointment.date_from

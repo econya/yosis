@@ -39,6 +39,7 @@ gem 'bulma-rails', '~> 0.8'
 
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
+gem 'pretender'
 
 gem 'devise-i18n'
 gem 'rails-i18n', '~> 6.0.0'
