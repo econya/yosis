@@ -4,15 +4,17 @@
       %h1.title= @course.name
   - if user_admin?
     .level-right
-      .level-item
+      .level-item.buttons
+        = link_to new_admin_course_lesson_path(@course), class: 'button' do
+          %span.icon.is-small
+            %i.fas.fa-user-shield
+          %span
+            = t('courses.new-video')
         = link_to edit_admin_course_path(@course), class: 'button is-link is-outlined' do
           %span.icon.is-small
             %i.fas.fa-user-shield
           %span
             = t('course.admin.edit')
-
--#Description
--#%br
 
 %h2.title.is-4
   = t('courses.videos')
@@ -93,7 +95,7 @@
       %span.icon.is-small
         %i.fas.fa-user-shield
       %span
-        = t('courses.new')
+        = t('courses.new-video')
 
     = link_to edit_admin_course_path(@course), class: 'button is-outlined' do
       %span.icon.is-small
