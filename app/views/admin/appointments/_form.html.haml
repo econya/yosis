@@ -19,6 +19,9 @@
     = f.label :notice
     = f.text_field :notice
   .field
+    = f.label :info
+    = f.text_field :info
+  .field
     = f.label :course
     = f.collection_select :course_id, Course.all, :id, :name, prompt: t('Select Course')
   .field

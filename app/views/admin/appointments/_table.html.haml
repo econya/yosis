@@ -5,6 +5,7 @@
       %th= t('Date_to')
       %th= t('Course')
       %th= t('Notice')
+      %th= t('admin.appointment.info')
       %th= t('Link')
       %th
       %th
@@ -20,6 +21,7 @@
             = appointment.course.name
         %td= appointment.notice
         %td= appointment.link
+        %td= appointment.info
         %td= link_to t('Show'), [:admin, appointment]
         %td= link_to t('Edit'), edit_admin_appointment_path(appointment)
         %td= link_to t('Destroy'), [:admin, appointment], method: :delete, data: { confirm: 'Are you sure?' }

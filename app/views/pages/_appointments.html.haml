@@ -8,6 +8,7 @@
           = t('appointment.course')
         %th(colspan=1)
         %th(colspan=1)
+        %th(colspan=1)
           = t('appointment.zoom-link')
     %tbody
       - Appointment.future.order(date_from: :asc).each do |appointment|
@@ -22,16 +23,21 @@
             (#{t('in')} #{distance_of_time_in_words_to_now appointment.date_from})
             -#= time_ago_in_words appointment.date_from
           %td
-            .tag.is-info
+            .tag.is-primary
               = appointment.course.name
           %td
             = appointment.notice
           %td
             - if user_signed_in? && user_has_access?
+              = appointment.info
+          %td
+            - if user_signed_in? && user_has_access?
               = link_to appointment.link, appointment.link
             - else
-              = t('appointments.visible_after_login')
-              = link_to t('register_or_sign_in'), new_user_session_path, class: 'button is-link is-outlined is-small'
+              = link_to t('register_or_sign_in'), new_user_session_path, class: 'button is-primary is-outlined is-small'
+            - if user_admin?
+              = link_to t('admin.appointment.edit'), edit_admin_appointment_path(appointment), class: 'button is-link is-outlined is-small'
+
       - if user_admin?
         %tr
           %td(colspan=3)
