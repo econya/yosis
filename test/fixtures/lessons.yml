@@ -9,6 +9,7 @@ base_yoga_intro:
   course: base_yoga
   date_start: 2020-03-22 11:04:22
   date_end: 2020-03-22 11:04:22
+  active: true
 
 base_yoga_first:
   name: First Session
