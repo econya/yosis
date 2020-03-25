@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :courses, only: [:index, :edit, :update, :destroy, :new, :create] do
       resources :lessons, controller: 'course/lessons'
+      resource :position, only: [:create, :destroy], controller: 'course/position'
     end
     resources :appointments
     resources :site_settings, only: [:index, :show, :edit, :update]

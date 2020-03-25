@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
 
   # GET /courses
   def index
-    @courses = Course.active
+    @courses = Course.active.rank(:row_order)
   end
 
   # GET /courses/1

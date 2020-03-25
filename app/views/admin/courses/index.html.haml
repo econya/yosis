@@ -4,30 +4,50 @@
 %table.table.is-striped.is-fullwidth
   %thead
     %tr
-      %th= t('Name')
-      %th= t('number_lessons')
-      %th= t('number_appointments')
-      %th= t('next_appointment')
+      %th= t('admin.courses.order')
       %th
+      %th= t('admin.courses.name')
+      %th= t('admin.courses.number_lessons')
+      %th= t('admin.courses.number_appointments')
+      %th= t('admin.courses.next_appointment')
       %th
 
   %tbody
+    - first = @courses.first
+    - last  = @courses.last
     - @courses.each do |course|
       %tr
+        %td
+          = course.row_order_rank
+          - if course != first
+            = link_to admin_course_position_path(course), method: :post do
+              %span.icon.has-text-primary
+                %i.fas.fa-arrow-up.is-small
+          - else
+            %span.icon.has-text-primary
+              %i.fas.fa-empty.is-small
+          - if course != last
+            = link_to admin_course_position_path(course), method: :delete do
+              %span.icon.has-text-primary
+                %i.fas.fa-arrow-down
+          - else
+            %span.icon.has-text-primary
+              %i.fas.fa-empty.is-small
+        %td
+          - if !course.active?
+            %span.tag.is-danger
+              = t('course.inactive')
         %td
           = course.name
         %td= course.lessons.length
         %td= course.appointments.length
         %td= course.appointments.future.first&.date_from
         %td
-          - if !course.active?
-            %span.tag.is-danger
-              = t('course.inactive')
-        %td.buttons
-          = link_to 'Show', course
-          = link_to 'Edit', edit_admin_course_path(course)
-          = link_to 'Destroy', [:admin, course], method: :delete, data: { confirm: 'Are you sure?' }
+          .buttons
+            = link_to t('Show'), course, class: 'button is-small'
+            = link_to t('Edit'), edit_admin_course_path(course), class: 'button is-small'
+            = link_to t('Destroy'), [:admin, course], method: :delete, data: { confirm: t('Are you sure?') }, class: 'button is-small is-danger'
 
 %br
 
-= link_to 'New Course', new_admin_course_path, class: 'button is-link is-outlined'
+= link_to t('admin.course.new'), new_admin_course_path, class: 'button is-link is-outlined'

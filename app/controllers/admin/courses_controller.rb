@@ -10,7 +10,7 @@ class Admin::CoursesController < ApplicationController
 
   # GET /courses
   def index
-    @courses = Course.all
+    @courses = Course.all.rank(:row_order)
   end
 
   # GET /courses/new

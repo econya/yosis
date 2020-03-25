@@ -6,6 +6,9 @@
           = course.name
     - if user_admin?
       .level-item-right
+        = link_to t('course_row.course.move-up'), admin_course_position_path(course), method: :post, class: 'button is-primary is-outlined'
+        = link_to t('course_row.course.move-down'), admin_course_position_path(course), method: :delete, class: 'button is-primary is-outlined'
+        = link_to t('edit'), edit_admin_course_path(course), class: 'button is-primary is-outlined'
         = link_to t('course_row.course.add-video'), new_admin_course_lesson_path(course), class: 'button is-primary is-outlined'
         = link_to t('edit'), edit_admin_course_path(course), class: 'button is-primary is-outlined'
 .columns.is-multiline

@@ -4,6 +4,8 @@
 
 class Course < ApplicationRecord
   extend FriendlyId
+  include RankedModel
+  ranks :row_order
 
   has_one_attached :image
 
