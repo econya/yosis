@@ -18,13 +18,13 @@
             = render 'flashs'
             = yield
         .hero-body
-    %footer.footer
-      .content.has-text-centered
-        %p
-          %strong
-            yogamitveronique.de
-          = link_to t('navigation.pages.impressum'), impressum_path
-          = link_to t('navigation.pages.terms'), terms_path
-          = link_to t('navigation.pages.privacy_statement'), privacy_path
-          Copyright 2020 Véronique Wolfsteller
-
+        .hero-foot
+          %footer.footer
+            .content.has-text-centered
+              %p
+                %strong
+                  yogamitveronique.de
+                = link_to t('navigation.pages.impressum'), impressum_path
+                = link_to t('navigation.pages.terms'), terms_path
+                = link_to t('navigation.pages.privacy_statement'), privacy_path
+                Copyright 2020 Véronique Wolfsteller
