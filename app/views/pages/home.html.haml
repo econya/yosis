@@ -19,8 +19,8 @@
 %section.courses-links
   %h2.title.is-2
     = t('home.courses.courses-title')
-%br
-.columns.is-multiline
+%hr
+.columns.is-multiline.is-vcentered
   - @courses.each do |course|
     .column.is-2
       = link_to "#course#{course.id}", class: 'button is-primary is-normal' do
