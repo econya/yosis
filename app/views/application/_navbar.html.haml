@@ -25,6 +25,9 @@
 
     .navbar-end
       - if user_signed_in?
+        - if current_user != true_user
+          .navbar-item
+            = link_to t('admin.user.back_to_admin'), stop_impersonating_users_path, method: :post, class: 'button'
         = link_to t('navigation.user.settings'), edit_user_registration_path, class: 'navbar-item'
 
         - if user_admin?
