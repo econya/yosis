@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   resources :courses, only: [:index, :show]
   namespace :admin do
     resources :courses, only: [:index, :edit, :update, :destroy, :new, :create] do
-      resources :lessons, controller: 'course/lessons'
+      resources :lessons, controller: 'course/lessons' do
+        resource :position, only: [:create, :destroy], controller: 'course/lesson/position'
+      end
       resource :position, only: [:create, :destroy], controller: 'course/position'
     end
     resources :appointments

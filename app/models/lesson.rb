@@ -4,7 +4,10 @@
 
 class Lesson < ApplicationRecord
   extend FriendlyId
-  #include RankedModel
+  include RankedModel
+
+  ranks :row_order, with_same: :course_id, scope: :inactive
+  ranks :row_order, with_same: :course_id, scope: :active
 
   belongs_to :course
 

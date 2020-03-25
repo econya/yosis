@@ -1,7 +1,7 @@
 .level
   .level-left
     .level-item
-      %h1.title= @course.name
+      %h1.title.is-2= @course.name
   - if user_admin?
     .level-right
       .level-item.buttons
@@ -22,7 +22,9 @@
 - if @course.lessons.active.empty?
   .box
     =t('courses.no_lessons_yet')
-- @course.lessons.active.each do |lesson|
+- first = @course.lessons.active.rank(:row_order).first
+- last  = @course.lessons.active.rank(:row_order).last
+- @course.lessons.active.rank(:row_order).each do |lesson|
   .box
     - if lesson.preview_image.attached? && lesson.video.attached?
       %article.media
@@ -35,28 +37,38 @@
               = image_tag lesson.preview_image.variant(resize_to_fill: [320,240]).processed
         .media-content
           .content
-            %h3.is-title.is-7.has-text-primary
-              = lesson.name
+            .level
+              .level-left
+                .level-item
+                  %h3.is-title.is-7.has-text-primary
+                    = lesson.name
+              - if user_admin?
+                .level-right
+                  .level-item
+                    .buttons
+                      - if lesson != first
+                        = link_to admin_course_lesson_position_path(lesson.course, lesson_id: lesson.id), method: :post, class: 'button is-primary is-outlined is-small' do
+                          %span.icon.is-small.has-text-primary
+                            %i.fas.fa-arrow-up
+                      - if lesson != last
+                        = link_to admin_course_lesson_position_path(lesson.course, lesson_id: lesson.id), method: :delete, class: 'button is-primary is-outlined is-small' do
+                          %span.icon.is-small.has-text-primary
+                            %i.fas.fa-arrow-down
+                      = link_to edit_admin_course_lesson_path(lesson.course, lesson), class: 'button is-link is-outlined is-small' do
+                        %span.icon.is-small
+                          %i.fas.fa-user-shield
+                        %span
+                          = t('course.admin.edit-lesson')
+                      = link_to [:admin, lesson.course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined is-small' do
+                        %span.icon.is-small
+                          %i.fas.fa-user-shield
+                        %span
+                          = t('course.admin.destroy-lesson')
             = l lesson.created_at, format: '%A, %d. %B %Y'
-            %br
             - if lesson.video.attached? && lesson.video.metadata[:duration]
               = "%s:" % t('video.length')
               = (lesson.video.metadata[:duration] / 60).round
               =t('video.minutes')
-            .level
-              .level-item
-                - if user_admin?
-                  .buttons
-                    = link_to edit_admin_course_lesson_path(lesson.course, lesson), class: 'button is-link is-outlined' do
-                      %span.icon.is-small
-                        %i.fas.fa-user-shield
-                      %span
-                        = t('course.admin.edit-lesson')
-                    = link_to [:admin, lesson.course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined' do
-                      %span.icon.is-small
-                        %i.fas.fa-user-shield
-                      %span
-                        = t('course.admin.destroy-lesson')
 
 
 - if user_admin?

@@ -1,7 +1,7 @@
 %h1.title
   =t('Listing lessons')
 
-%table.table.is-fullwidth
+%table.table.is-fullwidth.is-hoverable
   %thead
     %tr
       %th= t('Course')
@@ -22,9 +22,13 @@
           - if !lesson.active?
             %span.tag.is-danger
               = t('lesson.inactive')
-        %td= link_to t('Show'), lesson
-        %td= link_to t('Edit'), edit_lesson_path(lesson)
-        %td= link_to t('Destroy'), lesson, method: :delete, data: { confirm: t('are_you_sure?') }
+        %td
+          .buttons
+            = link_to t('Show'), lesson
+        %td
+          = link_to t('Edit'), edit_lesson_path(lesson)
+        %td
+          = link_to t('Destroy'), lesson, method: :delete, data: { confirm: t('are_you_sure?') }
 
 %br
 
