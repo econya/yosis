@@ -4,6 +4,8 @@
 
 class Lesson < ApplicationRecord
   extend FriendlyId
+  #include RankedModel
+
   belongs_to :course
 
   has_one_attached :video
@@ -13,8 +15,8 @@ class Lesson < ApplicationRecord
   validates :preview_image, presence: true
   validates :video, presence: true
 
-  friendly_id :name, use: :slugged
-
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where.not(active: true) }
+
+  friendly_id :name, use: :slugged
 end

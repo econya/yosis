@@ -12,9 +12,10 @@ class Course < ApplicationRecord
   has_many :lessons
   has_many :appointments
 
-  friendly_id :name, use: :slugged
-
   validates :name, presence: true, length: { minimum: 2 }, uniqueness: true
 
   scope :active, -> { where(active: true) }
+  scope :inactive, -> { where.not(active: true) }
+
+  friendly_id :name, use: :slugged
 end
