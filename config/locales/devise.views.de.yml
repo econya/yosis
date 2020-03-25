@@ -63,10 +63,12 @@ de:
       reset_password_instructions:
         action: Passwort ändern
         greeting: Hallo %{recipient}!
-        instruction: Jemand hat einen Link angefordert, um Ihr Passwort zu ändern. Klicken Sie auf den unten aufgeführten Link um das Passwort zu ändern.
-        instruction_2: Bitte ignorieren Sie diese E-Mail, wenn Sie kein neues Passwort angefordert haben.
-        instruction_3: Das Passwort wird nicht geändert bis Sie den obenstehenden Link abrufen und ein neues Passwort bestimmen.
-        subject: Anleitung für das Zurücksetzen Ihres Passworts
+        instruction: Jemand hat einen Link angefordert, um Dein Passwort zu ändern. Klicke bitte auf den unten aufgeführten Link um es zu ändern.
+        instruction_2: Bitte ignoriere diese E-Mail, wenn Du kein neues Passwort angefordert haben.
+        instruction_3: Das Passwort wird nicht geändert bis Du den obenstehenden Link aufrufst und ein neues Passwort bestimmst.
+        see_you: Danke und bis bald,
+        author: "%{author}"
+        subject: Anleitung zum Zurücksetzen Deines Passwortes
       unlock_instructions:
         action: Mein Konto entsperren
         greeting: Hallo %{recipient}!
