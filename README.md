@@ -22,8 +22,7 @@ rails s # (development server)
 
 ### Test / example data
 
-Non many yet. Sorry.
-Run tests with `rails t` (you might have to `sudo sysctl fs.inotify.max_user_watches=524288` if you hit filewatch limits with livereloard/guard/spring).
+Not very strong yet. Sorry.
 Import test/example data with `rails db:fixture:load`.
 
 ### Deployment
@@ -81,7 +80,9 @@ create issues before you deep dive.
 
 #### Tests
 
-None yet. shame.
+There could be more.
+
+Run tests with `rails t` (you might have to `sudo sysctl fs.inotify.max_user_watches=524288` if you hit filewatch limits with livereloard/guard/spring).
 
 #### i18n
 
