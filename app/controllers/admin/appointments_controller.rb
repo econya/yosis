@@ -33,7 +33,7 @@ class Admin::AppointmentsController < ApplicationController
 
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to admin_appointments_path, notice: t('appointment.created-success' }
+        format.html { redirect_to admin_appointments_path, notice: t('appointment.created-success') }
       else
         format.html { render :new }
       end
