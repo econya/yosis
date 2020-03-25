@@ -71,6 +71,10 @@ yosis is copyright 2020 Felix Wolfsteller and released under the
 
 Some file use [https://reuse.software](FSFEs reuse software) compliant headers.
 
+This repositories bundles third party assets:
+
+* [app/assets/fonts](app/assets/fonts): The Font **"Source Sans Pro"** from Adobe (https://github.com/adobe-fonts/source-sans-pro), published under the OFL-1.1 . The "black" variant (weight 900) is omitted.
+
 ### Contributions
 
 Contributions are more than welcome. For a pleasant experience, mail me or
