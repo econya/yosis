@@ -1,6 +1,9 @@
 %h1.title
   = @site_setting.key
 
+.subtitle
+  = t('site_settings.' + @site_setting.key + '.help')
+
 %hr
 
 .container

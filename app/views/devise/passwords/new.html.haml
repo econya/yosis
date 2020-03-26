@@ -1,4 +1,4 @@
-%h2.title.is-5.has-text-dark
+%h2.title.is-3
   = t('.forgot_your_password')
 = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
   = render "devise/shared/error_messages", resource: resource
@@ -7,6 +7,6 @@
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
   .actions
-    = f.submit t('.send_me_reset_password_instructions'), class: 'button is-fullwidth is-link'
+    = f.submit t('.send_me_reset_password_instructions'), class: 'button is-fullwidth is-primary'
     %br/
 = render "devise/shared/links"

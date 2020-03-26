@@ -6,6 +6,9 @@
   = t('settings.site.title')
   = @site_setting.key
 
+.subtitle
+  = t('site_settings.' + @site_setting.key + '.help')
+
 = render 'form'
 
 = link_to 'Back', admin_site_settings_path

@@ -1,4 +1,4 @@
-%h2.title.is-5.has-text-dark
+%h2.title.is-4
   = t('.resend_confirmation_instructions')
 = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
   = render "devise/shared/error_messages", resource: resource
@@ -7,7 +7,7 @@
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
   .actions
-    = f.submit t('.resend_confirmation_instructions'), class: 'button is-link'
+    = f.submit t('.resend_confirmation_instructions'), class: 'button is-primary'
     %br/
     %br/
 = render "devise/shared/links"

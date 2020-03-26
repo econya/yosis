@@ -228,8 +228,11 @@ de:
   not authorized: Nicht authorisiert
   number_appointments: Anzahl Termine
   number_lessons: Anzahl Lektionen
-  register_new: Neu registrieren
-  register_or_sign_in: Anmelden oder neu registrieren
+  register:
+    heading: Schnupperwoche anfangen
+    action: Für Schnupperwoche registrieren
+  register_new: Schnupperwoche anfangen
+  register_or_sign_in: Anmelden oder Schnupperwoche anfangen
   sessions:
     destroy:
       sign_out: Abmelden

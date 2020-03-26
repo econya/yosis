@@ -23,6 +23,9 @@ class Admin::SiteSettingsController < ApplicationController
     SiteSetting.find_or_create_by(key: 'logo',
       value: t('site_settings.logo.default'), kind: 'image')
 
+    SiteSetting.find_or_create_by(key: 'your_name',
+      value: t('site_settings.your_name.default'), kind: 'string')
+
     @site_settings = SiteSetting.all
   end
 

@@ -50,12 +50,23 @@ de:
       confirmation_instructions:
         action: Mein Konto bestätigen
         greeting: Willkommen %{recipient}!
-        instruction: 'Folgen Sie dem untenstehenden Link, um Ihr Konto zu bestätigen:'
+        instruction: 'Folge dem untenstehenden Link, um Dein Konto auf %{site} zu bestätigen:'
         subject: Anleitung zur Bestätigung Ihres Kontos
+        see_you: "Danke und bis bald!"
       email_changed:
         greeting: Hallo %{recipient}!
         message: Wir schreiben Ihnen, um Sie darüber zu informieren, dass Ihre E-Mail-Adresse zu %{email} geändert wurde.
         subject: E-Mail-Adresse geändert
+      invitation_instructions:
+        subject: "Einladung"
+        hello: "Hallo %{email}"
+        # TODO HIER, mailer views angepasst!
+        someone_invited_you: "Ich freue mich, Dich auf auf %{url} willkommen zu heißen! Wenn Du diese E-Mail bekommst hast Du schon ein monatliches Abo erworben oder Du möchtest Deine Probe-Woche anfangen. Klicke auf den folgenden Link um auf die Webseite zu gelangen und Dein persönliches Passwort zu setzen."
+        accept: "Einladung annehmen und Passwort setzen"
+        accept_until: "Die Einladung verliert ihre Gültigkeit am %{due_date}."
+        ignore: ""
+        see_you: "Bis bald!"
+        author: "%{author}"
       password_change:
         greeting: Hallo %{recipient}!
         message: Wir schreiben Ihnen, um Sie darüber zu informieren, dass Ihr Passwort geändert wurde.

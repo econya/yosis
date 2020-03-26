@@ -12,11 +12,17 @@
   %tbody
     - @site_settings.each do |site_setting|
       %tr
-        %td= site_setting.key
+        %td
+          %b= site_setting.key
+        %td(colspan=3)
+          %small
+            = t('site_settings.' + site_setting.key + '.help')
+      %tr
+        %td
         %td
           - if site_setting.kind == 'image'
             - if site_setting.image.attached?
-              = image_tag site_setting.image.variant(resize_to_fill: [120, 120]).processed
+              = image_tag site_setting.image.variant(resize_to_fill: [120, 120]).processed, class: 'has-background-primary'
           = site_setting.value
         %td
           - if site_setting.kind == "markdown"
