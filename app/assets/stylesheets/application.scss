@@ -59,6 +59,13 @@ h1, h2, h3 {
   background-color: #fdfaf4;;
 }
 
+.tag, .button, .card {
+  transition: transform 500ms ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
