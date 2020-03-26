@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_140420) do
+ActiveRecord::Schema.define(version: 2020_03_25_204229) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_140420) do
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "info"
     t.index ["course_id"], name: "index_appointments_on_course_id"
   end
 
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_140420) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.boolean "active"
+    t.integer "row_order"
     t.index ["slug"], name: "index_courses_on_slug", unique: true
   end
 
@@ -71,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_140420) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.boolean "active"
+    t.integer "row_order"
     t.index ["course_id"], name: "index_lessons_on_course_id"
     t.index ["slug"], name: "index_lessons_on_slug", unique: true
   end
