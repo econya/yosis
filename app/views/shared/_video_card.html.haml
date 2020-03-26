@@ -2,8 +2,9 @@
   .card-image
     -#- if lesson.video.attached?
     - if user_has_access?
-      %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="auto" id="vs-#{lesson.id}" width="100%")
+      %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="auto" id="vs-#{lesson.id}" width="100%" preload="metadata")
         %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
+        = t('no-video-support')
       -#:javascript
       -#  // set poster (url)
       -#  // bitplaybutton?

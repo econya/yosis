@@ -30,8 +30,9 @@
       %article.media
         %figure.media-left
           - if user_has_access?
-            %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="auto" id="vs-#{lesson.id}" width="240")
+            %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="metadata" id="vs-#{lesson.id}" width="240")
               %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
+              = t('no-video-support')
           - else
             .image
               = image_tag lesson.preview_image.variant(resize_to_fill: [320,240]).processed
@@ -80,8 +81,9 @@
       - if lesson.preview_image.attached? && lesson.video.attached?
         %article.media
           %figure.media-left
-            %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="auto" id="vs-#{lesson.id}" width="240")
+            %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="metadata" id="vs-#{lesson.id}" width="240")
               %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
+              = t('no-video-support')
           .media-content
             .content
               %h3.is-title.is-7
