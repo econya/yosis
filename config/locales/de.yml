@@ -241,33 +241,34 @@ de:
       title: Einstellung
   sign_out: Abmelden
   site_settings:
+    ":": ":"
+    about_us:
+      default: "# Über uns"
+      help: Über-Uns-Seite
+    copyright_notice:
+      default: Copyright ()
+      help: Copyright-Hinweise im Footer
+    explanation:
+      default: Details über Dein Business (markdown)
+      help: Sichtbar bei Mehr erfahren-Link
+    impressum:
+      default: Dein Impressum (markdown)
+      help: Impressum im Footer
+    intro:
+      default: Hallo von Deiner frischen**YoSis** Installation!
+      help: Intro Text auf Start-Seite
     logo:
       default: Default
       help: Lade Dein Logo hoch
+    privacy_statement:
+      default: Deine Datenschutzbestimmung (markdown)
+      help: Datenschutzerklärung im Footer
     title:
       default: Yosis
       help: Der Titel Deiner Seite
     your_name:
       default: Yosis
       help: Dein Name
-    intro:
-      default: "Hallo von Deiner frischen**YoSis** Installation!"
-      help: Intro Text auf Start-Seite
-    explanation:
-      default: "Details über Dein Business (markdown)"
-      help: Sichtbar bei Mehr erfahren-Link
-    privacy_statemen:
-      default: "Deine Datenschutzbestimmung (markdown)"
-      help: Datenschutzerklärung im Footer
-    impressum:
-      default: "Dein Impressum (markdown)"
-      help: Impressum im Footer
-    copyright_notice:
-      default: "Copyright ()"
-      help: Copyright-Hinweise im Footer
-    about_us:
-      default: "# Über uns"
-      help: Über-Uns-Seite
   subscription:
     currently_active: Jetzt aktiv
     new: Neu
