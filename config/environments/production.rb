@@ -38,6 +38,7 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
+  # Extend the default, for long lasting uploads (otherwise the URLs will 404)
   config.active_storage.service_urls_expire_in = 1.hour
 
   # Mount Action Cable outside main process or domain.

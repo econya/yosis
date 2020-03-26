@@ -78,7 +78,11 @@ This repositories bundles third party assets:
 ### Contributions
 
 Contributions are more than welcome. For a pleasant experience, mail me or
-create issues before you deep dive.
+create issues before you dive deep.
+
+Code is released under the AGPLv3+ (exceptions see below), Copyright 2020 Felix
+Wolfsteller. Copyright transfer of contributions is assumed (or get into
+contact).
 
 ### Workflows
 
@@ -100,6 +104,11 @@ With [rack-livereload] and [guard-livereload] you can have your browser
 refreshing itself when view files are changed. To do so, before starting your
 development server (`rails s`), fire up guard (`guard`) in a separate shell.
 
+#### Mails and debugging them in development
+
+Install mailcatcher (`gem install mailcatcher`), start it and watch mails
+arriving at http://127.0.0.1:1080 .
+
 #### Releasing
 
 * Modify version in `config/application.rb` .
@@ -110,10 +119,9 @@ development server (`rails s`), fire up guard (`guard`) in a separate shell.
 
 * **Design decisions and resources** are found in the
   [knowledgebase](doc/kndowledgebase.md)
-
+* **Some other infos about the tech stack** are found in the
+  [knowledgebase](doc/kndowledgebase.md), too.
 
 ## And even more todos
-
-* Database initialization
 
 * Services (job queues, cache servers, search engines, etc.)
