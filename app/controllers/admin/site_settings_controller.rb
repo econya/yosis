@@ -10,7 +10,7 @@ class Admin::SiteSettingsController < ApplicationController
 
   # GET /admin/site_settings
   def index
-    md_keys = [:intro, :explanation, :privacy_statement, :impressum, :copyright_notice, :about_us]
+    md_keys = [:intro, :explanation, :privacy_statement, :terms, :impressum, :copyright_notice, :about_us]
     md_keys.each do |key|
       SiteSetting.find_or_create_by(key: key,
         kind: "markdown",

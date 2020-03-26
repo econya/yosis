@@ -263,6 +263,9 @@ de:
     privacy_statement:
       default: Deine Datenschutzbestimmung (markdown)
       help: Datenschutzerklärung im Footer
+    terms:
+      default: AGB
+      help: Die AGBs (Allgemeinen Geschäftsbedingungen) deiner Seite
     title:
       default: Yosis
       help: Der Titel Deiner Seite
