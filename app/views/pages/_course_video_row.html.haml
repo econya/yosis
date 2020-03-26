@@ -25,6 +25,6 @@
             = t('course_row.course.add-video')
         = link_to t('edit'), edit_admin_course_path(course), class: 'button is-light is-outlined'
 .columns.is-multiline
-  - course.lessons.active.each do |lesson|
+  - course.lessons.active.rank(:row_order).each do |lesson|
     .column.is-3
       = render partial: 'shared/video_card', locals: { lesson: lesson }
