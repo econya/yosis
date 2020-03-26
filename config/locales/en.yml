@@ -271,6 +271,9 @@ en:
   not authorized: Not authorized
   number_appointments: Number appointments
   number_lessons: Number lessons
+  register:
+    action: Für Schnupperwoche registrieren
+    heading: Schnupperwoche anfangen
   register_new: Register new
   register_or_sign_in: Register or sign in
   sessions:
@@ -281,10 +284,34 @@ en:
       title: Title
   sign_out: Sign out
   site_settings:
+    ":": ":"
+    about_us:
+      default: "# Über uns"
+      help: Über-Uns-Seite
+    copyright_notice:
+      default: Copyright ()
+      help: Copyright-Hinweise im Footer
+    explanation:
+      default: Details über Dein Business (markdown)
+      help: Sichtbar bei Mehr erfahren-Link
+    impressum:
+      default: Dein Impressum (markdown)
+      help: Impressum im Footer
+    intro:
+      default: Hallo von Deiner frischen**YoSis** Installation!
+      help: Intro Text auf Start-Seite
     logo:
       default: Default
+      help: Lade Dein Logo hoch
+    privacy_statemen:
+      default: Deine Datenschutzbestimmung (markdown)
+      help: Datenschutzerklärung im Footer
     title:
       default: Default
+      help: Der Titel Deiner Seite
+    your_name:
+      default: Yosis
+      help: Dein Name
   subscription:
     currently_active: Currently active
     new: New

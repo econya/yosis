@@ -60,7 +60,7 @@ de:
       invitation_instructions:
         subject: "Einladung"
         hello: "Hallo %{email}"
-        someone_invited_you: "Ich freue mich, Dich auf auf %{url} willkommen zu heißen! Wenn Du diese E-Mail bekommst hast Du schon ein monatliches Abo erworben oder Du möchtest Deine Probe-Woche anfangen. Klicke auf den folgenden Link um auf die Webseite zu gelangen und Dein persönliches Passwort zu setzen."
+        someone_invited_you: "Ich freue mich, Dich auf %{url} willkommen zu heißen! Wenn Du diese E-Mail bekommst hast Du schon ein monatliches Abo erworben oder Du möchtest Deine Probe-Woche anfangen. Klicke auf den folgenden Link um auf die Webseite zu gelangen und Dein persönliches Passwort zu setzen."
         accept: "Einladung annehmen und Passwort setzen"
         accept_until: "Die Einladung verliert ihre Gültigkeit am %{due_date}."
         ignore: ""
