@@ -36,6 +36,9 @@ $link:    $bluerple;
 $navbar-box-shadow-size: 0 8px 0 0;
 $navbar-height: 5.75rem;
 
+$content-heading-color: $bluerple;
+$content-heading-weight: $weight-normal;
+
 /* Own customization */
 h1, h2, h3 {
   text-transform: uppercase;
@@ -58,6 +61,7 @@ h1, h2, h3 {
 
 #hero-section {
   background-color: #fdfaf4;;
+  padding-top: 1.25em;
 }
 
 .tag, .button, .card {
