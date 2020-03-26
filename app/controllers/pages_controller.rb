@@ -8,22 +8,22 @@ class PagesController < ApplicationController
   end
 
   def privacy
-    render 'page', locals: {content: SiteSetting['privacy']}
+    render 'page', locals: {content: SiteSetting['privacy_statement'], site_setting: 'privacy_statement'}
   end
 
   def terms
-    render 'page', locals: {content: SiteSetting['terms']}
+    render 'page', locals: {content: SiteSetting['terms'], site_setting: 'terms'}
   end
 
   def impressum
-    render 'page', locals: {content: SiteSetting['impressum']}
+    render 'page', locals: {content: SiteSetting['impressum'], site_setting: 'impressum'}
   end
 
   def explanation
-    render 'page', locals: {content: SiteSetting['explanation']}
+    render 'page', locals: {content: SiteSetting['explanation'], site_setting: 'explanation'}
   end
 
   def about_us
-    render 'page', locals: {content: SiteSetting['about_us']}
+    render 'page', locals: {content: SiteSetting['about_us'], site_setting: 'about_us'}
   end
 end

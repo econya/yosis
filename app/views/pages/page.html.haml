@@ -1,3 +1,6 @@
 .container
   .content
     != content
+
+- if user_admin? && defined?(site_setting)
+  = link_to t('sitesetting.edit'), edit_admin_site_setting_path(SiteSetting.find_by(key: site_setting)), class: 'button'
