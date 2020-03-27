@@ -1,0 +1,9 @@
+{
+  "name": "yosis",
+  "description": "online yoga course info platform",
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rails db:migrate"
+    }
+  }
+}

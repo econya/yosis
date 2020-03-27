@@ -5,6 +5,8 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
+  get '/up', to: proc {[200, {}, ['is_up']]}
+
   get 'about_us',    to: 'pages#about_us'
   get 'privacy',     to: 'pages#privacy'
   get 'terms',       to: 'pages#terms'
