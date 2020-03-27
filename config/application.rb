@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Yosis
   class Application < Rails::Application
-    VERSION = '0.2.0'.freeze
+    VERSION = '0.2.1'.freeze
 
     config.time_zone = "Berlin"
     config.active_record.default_timezone = :local
