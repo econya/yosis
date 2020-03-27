@@ -2,7 +2,7 @@
   .card-image
     -#- if lesson.video.attached?
     - if user_has_access?
-      %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="auto" id="vs-#{lesson.id}" width="100%" preload="metadata")
+      %video(controls="true" poster="#{url_for lesson.preview_image.variant(resize_to_fill: [320,180]).processed}" preload="auto" id="vs-#{lesson.id}" width="100%" preload="metadata")
         %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
         = t('no-video-support')
       -#:javascript
@@ -13,8 +13,11 @@
       -#= videojs_rails sources: { mp4: rails_blob_url(lesson.video)}, setup: "{}", controls: true, width:"100%"
       -#= image_tag lesson.video.preview(resize_to_fit: [100, 100])
     - else
-      %figure.image
+      %figure.image.has-text-centered.is-vcentered
         = image_tag lesson.preview_image.variant(resize_to_fill: [320,240]).processed
+        = link_to new_user_registration_path, class: 'is-overlay has-text-centered is-vcentered columns' do
+          %span.icon.has-text-primary.is-large.has-text-centered.auto-margin
+            %i.fas.fa-play.fa-3x
   %header.card-header
     %p.card-header-title.is-centered.has-background-white-ter
       = lesson.name

@@ -30,12 +30,15 @@
       %article.media
         %figure.media-left
           - if user_has_access?
-            %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="metadata" id="vs-#{lesson.id}" width="240")
+            %video(controls="true" poster="#{url_for lesson.preview_image.variant(resize_to_fill: [354, 200])}" preload="metadata" id="vs-#{lesson.id}" width="240")
               %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
               = t('no-video-support')
           - else
             .image
-              = image_tag lesson.preview_image.variant(resize_to_fill: [320,240]).processed
+              = image_tag lesson.preview_image.variant(resize_to_fill: [354,200]).processed
+              = link_to new_user_registration_path, class: 'is-overlay has-text-centered is-vcentered columns' do
+                %span.icon.has-text-primary.is-large.has-text-centered.auto-margin
+                  %i.fas.fa-play.fa-3x
         .media-content
           .content
             .level
