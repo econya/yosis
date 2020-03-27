@@ -38,6 +38,9 @@
         %td
           = user.sign_in_count
         %td
-          = link_to t('admin.user.impersonate'), impersonate_user_path(user), method: :post, class: 'button'
+          - if user != current_user
+            = link_to t('admin.user.impersonate'), impersonate_user_path(user), method: :post, class: 'button'
+          - else
+            = t('admin.users.its-you')
 
 = link_to t('admin.users.invite_new'), new_user_invitation_path, class: 'button'
