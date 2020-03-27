@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+base_yoga_intro_image:
+  name: preview_image
+  record: base_yoga_intro(Lesson)
+  blob: base_yoga_intro_image_blob

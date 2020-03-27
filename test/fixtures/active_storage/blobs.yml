@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+base_yoga_intro_image_blob:
+  key: baseyoga
+  filename: base_yoga_pixel.png
+  filename: fred.jpg
+  content_type: image/jpeg
+  metadata: '{"identified":true,"analyzed":true}'
+  byte_size: 150
+  checksum: EHQP8K6mlOZtQO6+bsoxuA==

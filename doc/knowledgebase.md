@@ -6,6 +6,10 @@ This project was hacked with a tight time budget and virtually no resources
 (besides server space). It couldnt be made clean and lots of tradeoffs had to be
 done.
 
+### Dokku
+
+Is awesome
+
 ### JavaScript
 
 * Removed webpacker, replaced by sprockets.
@@ -22,6 +26,17 @@ done.
 
 Settled on ActiveStorage, also other implementations and services offer some
 nifty features like working previews and variants for videos.
+
+#### Tests and ActiveStorage
+
+Controller and System tests need to have some data to be able to be crunched. I
+settled on a single white pixel png. Setting up the fixtures involved adding a
+test/fixtures/active_storage/attachment.yml and a
+test/fixtures/active_storage/blobs.yml .
+
+Also had to create the key and checksum, see:
+https://stackoverflow.com/questions/50453596/activestorage-fixtures-attachments
+.
 
 ## Resources and lessons learned
 
