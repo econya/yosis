@@ -18,6 +18,9 @@ class UserTest < ActiveSupport::TestCase
 
   test "#in_trial_period?" do
     assert_not users(:admin).in_trial_period?
-    assert users(:user).in_trial_period?
+    userx = User.create(email: 'userX@yo.sis', password: 'password', password_confirmation: 'password', confirmed_at: DateTime.current - 1.day)
+    assert userx.in_trial_period?
+    userx.update(confirmed_at: DateTime.current - 8.day)
+    assert_not userx.in_trial_period?
   end
 end
