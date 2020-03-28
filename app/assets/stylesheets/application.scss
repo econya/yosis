@@ -46,6 +46,9 @@ h1, h2, h3 {
 
 .flame-box {
   background-image: linear-gradient(90deg, #ffffff -0%, $orange 90%, $orange 150%);
+}
+
+.box.flame-box {
   padding: 0.9em;
   h3 {
     font-weight: 400;
