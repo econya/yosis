@@ -13,7 +13,7 @@
 %section#next_appointments
   %h2.title.is-2
     = t('home.next_appointments')
-  = render 'appointments'
+  = render partial: 'appointments', locals: { appointments: Appointment.future }
 
 %br
 %br

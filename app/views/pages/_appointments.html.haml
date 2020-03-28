@@ -1,4 +1,4 @@
-- if Appointment.future.present?
+- if appointments.present?
   %table.table.is-fullwidth.is-striped
     %thead
       %tr
@@ -11,7 +11,7 @@
         %th(colspan=1)
           = t('appointment.zoom-link')
     %tbody
-      - Appointment.future.order(date_from: :asc).each do |appointment|
+      - appointments.order(date_from: :asc).each do |appointment|
         %tr
           %td
             %b

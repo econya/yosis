@@ -16,6 +16,13 @@
           %span
             = t('course.admin.edit')
 
+-if @course.appointments.future.empty?
+- else
+  .box.flame-box
+    %h3.title.is-4
+      = t('courses.appointments.upcoming')
+    = render partial: 'pages/appointments', locals: { appointments: @course.appointments.future }
+
 %h2.title.is-4
   = t('courses.videos')
 
