@@ -70,9 +70,10 @@
                           = t('course.admin.destroy-lesson')
             = l lesson.created_at, format: '%A, %d. %B %Y'
             - if lesson.video.attached? && lesson.video.metadata[:duration]
+              %br/
               = "%s:" % t('video.length')
               = (lesson.video.metadata[:duration] / 60).round
-              =t('video.minutes')
+              = t('video.minutes')
 
 
 - if user_admin?
