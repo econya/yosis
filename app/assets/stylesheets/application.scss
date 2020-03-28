@@ -44,13 +44,12 @@ h1, h2, h3 {
   text-transform: uppercase;
 }
 
-.box.coursebox {
+.flame-box {
   background-image: linear-gradient(90deg, #ffffff -0%, $orange 90%, $orange 150%);
   padding: 0.9em;
-}
-
-.coursebox h3 {
-  font-weight: 400;
+  h3 {
+    font-weight: 400;
+  }
 }
 
 .navbar {
