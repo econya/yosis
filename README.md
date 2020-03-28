@@ -33,6 +33,11 @@ If you need support and have resources, feel free to get in
 contact with me. Otherwise follow e.g. herokus or phusion passengers
 documentation.
 
+There is a `Procfile` prepared for herokuish/dokku deployments, that will
+automigrate the database after push. With it comes a `CHECK` and the respective
+rack route to `/up` and a `.buildpacks` file to allow for ffmpeg video previews
+(an ActiveStorage feature).
+
 ### Configuration
 
 #### Database
