@@ -1,16 +1,16 @@
 ---
 de:
-  Appointment was successfully destroyed: Appointment was successfully destroyed
-  Appointment was successfully updated: Appointment was successfully updated
+  Appointment was successfully destroyed: Termin gelöscht.
+  Appointment was successfully updated: Termin aktualisiert.
   Back: Zurück
   Course: Kurs
-  Course was successfully created: Course was successfully created
-  Course was successfully updated: Course was successfully updated
+  Course was successfully created: Kurs erstellt.
+  Course was successfully updated: Kurs aktualisiert.
   Courses: Kurse
   Customers: Kund*n
   Date_from: Von
   Date_to: Von
-  'Date_to:': 'Date to:'
+  'Date_to:': 'Bis:'
   Delete: Löschen
   Destroy: Löschen
   Edit: bearbeiten
@@ -27,12 +27,17 @@ de:
   Save: Speichern
   Settings: Einstellungen
   Show: Anzeigen
-  Site setting was successfully updated: Site setting was successfully updated
-  Subscription was successfully created: Subscription was successfully created
-  Subscription was successfully destroyed: Subscription was successfully destroyed
-  Subscription was successfully updated: Subscription was successfully updated
+  Site setting was successfully updated: Einstellung aktualisiert
+  Subscription was successfully created: Abonnement erstellt.
+  Subscription was successfully destroyed: Abonnement gelöscht.
+  Subscription was successfully updated: Abonnement aktualiserit.
   Value: Wert
   about_us: Über uns
+  activemodel:
+    attributes:
+      contact:
+        message: Nachricht
+        subject: Betreff
   activerecord:
     attributes:
       appointment:
@@ -87,12 +92,13 @@ de:
       last_sign_in_at: Zuletzt angemeldet am
       sign_in_count: Wie oft angemeldet
       subscription:
-        edit-title: Subscription bearbeiten
-      subscriptions: Subscriptions
+        edit-title: Abonnement bearbeiten
+      subscriptions: Abonnements
     users:
       admin: Admin
       currently_subscribed: Zurzeit subscribed
       invite_new: Einladung verschicken
+      its-you: Its-you
       pending_invitation: Einladung steht noch aus
       subscription_ended_at: Subscription geendet am
       table:
@@ -117,25 +123,36 @@ de:
     zoom-link: Zoom-Link
   appointments:
     none_in_future: Keine zukünftigen Termine
+    user:
+      subscription-ended: Subscription-ended
     visible_after_login: Link erst nach dem Anmelden sichtbar!
   are_you_sure?: Bist du dir sicher?
   attendence: Attendence
   contact:
-    send: Send
-    sent_thanks: Sent thanks
-    title: Title
+    send: Abschicken
+    sent_thanks: Abgeschickt. Danke! Solltest Du eine Frage geschickt haben werden wir uns bald bei dir melden.
+    title: Nachricht schicken
+  contact_mailer:
+    contacted: Contacted
+    contacted_you: hat dich kontaktiert.
+    message: Nachricht
+    subject: Betreff
   course:
     admin:
       destroy-lesson: Video löschen
       edit: Bearbeiten
       edit-lesson: Video bearbeiten
     inactive: Nicht freigeschaltet
+    next_appointment: "Nächster Termin:"
   course_row:
     course:
       add-video: Video hinzufügen
   courses:
+    appointments:
+      upcoming: Nächste Termine
     edit: Bearbeiten
     new: Neu
+    new-video: New-video
     no_lessons_yet: Noch keine Videos
     videos: Videos
     videos-inactive: Nicht freigeschaltete Videos
@@ -180,6 +197,10 @@ de:
     messages:
       not_saved: Nicht gespeichert
   explanation_text_homepage: Explanation text homepage
+  helpers:
+    label:
+      contact:
+        subject: Betreff
   home:
     appointment:
       new: Neuen Termin eintragen
@@ -190,6 +211,8 @@ de:
     intro:
       learn_more: Mehr erfahren ...
     next_appointments: Die nächsten Termine
+    user:
+      days_till_end_of_trial: Days till end of trial
     videos: Videos
     welcome: Willkommen
   in: in
@@ -223,14 +246,15 @@ de:
   new_lesson: Neue Lektion
   next_appointment: Nächster Termin
   next_appointments: Die nächsten Termine
+  no-video-support: Dein Browser unterstützt keine Videos!
   no_appointments: Keine Termine
   none: Keine
   not authorized: Nicht authorisiert
   number_appointments: Anzahl Termine
   number_lessons: Anzahl Lektionen
   register:
-    heading: Schnupperwoche anfangen
     action: Für Schnupperwoche registrieren
+    heading: Schnupperwoche anfangen
   register_new: Schnupperwoche anfangen
   register_or_sign_in: Anmelden oder Schnupperwoche anfangen
   sessions:
@@ -263,6 +287,9 @@ de:
     privacy_statement:
       default: Deine Datenschutzbestimmung (markdown)
       help: Datenschutzerklärung im Footer
+    privacy_statement:
+      default: Deine Datenschutzbestimmung (markdown)
+      help: Datenschutzerklärung im Footer
     terms:
       default: AGB
       help: Die AGBs (Allgemeinen Geschäftsbedingungen) deiner Seite
@@ -272,6 +299,8 @@ de:
     your_name:
       default: Yosis
       help: Dein Name
+  sitesetting:
+    edit: Edit
   subscription:
     currently_active: Jetzt aktiv
     new: Neu
