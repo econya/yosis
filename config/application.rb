@@ -23,5 +23,7 @@ module Yosis
 
     config.i18n.available_locales = [:de, :en]
     config.i18n.default_locale = :de
+
+    config.active_job.queue_adapter     = :delayed_job
   end
 end

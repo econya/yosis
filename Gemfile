@@ -53,6 +53,10 @@ gem 'ranked-model'
 # md rendering
 gem 'redcarpet'
 
+# Jobs
+gem 'delayed_job_active_record'
+gem 'daemons'
+
 gem 'pg' # production db
 
 group :development, :test do

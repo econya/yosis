@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     end
     resources :appointments
     resources :site_settings, only: [:index, :show, :edit, :update]
+    resources :delayed_jobs, only: [:index, :show, :destroy]
     resources :users, only: [:index, :show] do
       resources :subscriptions, only: [:edit, :update, :create, :destroy, :new], controller: 'user/subscriptions'
     end

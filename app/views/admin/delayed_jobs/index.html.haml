@@ -1,0 +1,24 @@
+%h1.title
+  = t('admin.delayed_jobs.background-jobs')
+
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th
+        = t('admin.delayed_jobs.when')
+      %th
+        = t('admin.delayed_jobs.what')
+      %th
+      %th
+        = t('admin.delayed_jobs.actions')
+  %tbody
+    - @jobs.each do |job|
+      %tr
+        %td
+          = job.run_at
+        %td
+          = job.last_error
+        %td
+          = debug job
+        %td
+          = link_to t('admin.delayed_jobs.destroy'), admin_delayed_job_url(job), method: :delete, data: { confirm: t('Are you sure?') }, class: 'button is-danger'
