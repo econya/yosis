@@ -5,6 +5,7 @@ en:
   Back: Back
   Course: Course
   Course was successfully created: Course was successfully created
+  Course was successfully destroyed: Course was successfully destroyed
   Course was successfully updated: Course was successfully updated
   Courses: Courses
   Customers: Customers
@@ -83,6 +84,8 @@ en:
       number_appointments: Number appointments
       number_lessons: Number lessons
       order: Order
+    subscriptions:
+      total: Total
     user:
       back_to_admin: Back to admin
       confirmed_at: Confirmed at
@@ -109,6 +112,7 @@ en:
           state: State
           subscription: Subscription
       title: User
+      total: Total
       unconfirmed: Unconfirmed
       unsubscribed: Unsubscribed
   already_registered?: Already registered?
@@ -239,6 +243,7 @@ en:
     messages:
       not_saved: Not saved
   explanation_text_homepage: Explanation text homepage
+  feedback: Feedback
   helpers:
     label:
       contact:

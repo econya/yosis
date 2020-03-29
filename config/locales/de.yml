@@ -5,6 +5,7 @@ de:
   Back: Zurück
   Course: Kurs
   Course was successfully created: Kurs erstellt.
+  Course was successfully destroyed: Kurs gelöscht.
   Course was successfully updated: Kurs aktualisiert.
   Courses: Kurse
   Customers: Kund*n
@@ -17,9 +18,9 @@ de:
   Home: Start
   Key: Name
   Lesson: Lektion
-  Lesson was successfully created: Lesson was successfully created
-  Lesson was successfully destroyed: Lesson was successfully destroyed
-  Lesson was successfully updated: Lesson was successfully updated
+  Lesson was successfully created: Video-Lektion erstellt.
+  Lesson was successfully destroyed: Video-Lektion gelöscht.
+  Lesson was successfully updated: Video-Lektion aktualisiert.
   Link: Link
   Listing_appointments: Termin-Liste
   Name: Name
@@ -82,7 +83,9 @@ de:
       next_appointment: Nächster Termin
       number_appointments: Anzahl Termine
       number_lessons: Anzahl Videos
-      order: Order
+      order: Position
+    subscriptions:
+      total: Total
     user:
       back_to_admin: Zurück als Admin
       confirmed_at: Bestätigt am
@@ -98,7 +101,7 @@ de:
       admin: Admin
       currently_subscribed: Zurzeit subscribed
       invite_new: Einladung verschicken
-      its-you: Its-you
+      its-you: "Das bist Du!"
       pending_invitation: Einladung steht noch aus
       subscription_ended_at: Subscription geendet am
       table:
@@ -109,6 +112,7 @@ de:
           state: Zustand
           subscription: Subscription
       title: User
+      total: Total
       unconfirmed: Unbestätigt
       unsubscribed: Unsubscribed
   already_registered?: Schon Kund/in?
@@ -143,7 +147,7 @@ de:
       edit: Bearbeiten
       edit-lesson: Video bearbeiten
     inactive: Nicht freigeschaltet
-    next_appointment: "Nächster Termin:"
+    next_appointment: 'Nächster Termin:'
   course_row:
     course:
       add-video: Video hinzufügen
@@ -152,7 +156,7 @@ de:
       upcoming: Nächste Termine
     edit: Bearbeiten
     new: Neu
-    new-video: New-video
+    new-video: Neues Video
     no_lessons_yet: Noch keine Videos
     videos: Videos
     videos-inactive: Nicht freigeschaltete Videos
