@@ -326,9 +326,6 @@ en:
     logo:
       default: Default
       help: Lade Dein Logo hoch
-    privacy_statemen:
-      default: Deine Datenschutzbestimmung (markdown)
-      help: Datenschutzerklärung im Footer
     privacy_statement:
       default: Deine Datenschutzbestimmung (markdown)
       help: Datenschutzerklärung im Footer

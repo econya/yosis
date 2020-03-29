@@ -287,9 +287,6 @@ de:
     privacy_statement:
       default: Deine Datenschutzbestimmung (markdown)
       help: Datenschutzerklärung im Footer
-    privacy_statement:
-      default: Deine Datenschutzbestimmung (markdown)
-      help: Datenschutzerklärung im Footer
     terms:
       default: AGB
       help: Die AGBs (Allgemeinen Geschäftsbedingungen) deiner Seite
