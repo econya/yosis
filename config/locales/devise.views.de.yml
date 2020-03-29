@@ -51,7 +51,7 @@ de:
         action: Mein Konto bestätigen
         greeting: Willkommen %{recipient}!
         instruction: 'Folge dem untenstehenden Link, um Dein Konto auf %{site} zu bestätigen:'
-        subject: Anleitung zur Bestätigung Ihres Kontos
+        subject: Anleitung zur Bestätigung Deines Kontos
         see_you: "Danke und bis bald!"
         trial_period_procedure: "Die Schnupperwoche ist kostenlos und es entstehen keine weiteren Verpflichtungen. Am Ende der Schnupperwoche wirst du nicht automatisch für das Abonement (25€/Monat) angemeldet."
       email_changed:
@@ -88,6 +88,9 @@ de:
         instruction: 'Folgen Sie dem untenstehenden Link, um Ihr Konto zu entsperren:'
         message: Ihr Konto wurde aufgrund einer großen Anzahl von fehlgeschlagenen Anmeldeversuchen gesperrt.
         subject: Anleitung für die Konto-Freischaltung
+    invitations:
+      user:
+        send_instructions: Einladung mit Anleitung verschickt.
     omniauth_callbacks:
       failure: Sie konnten nicht mit Ihrem %{kind}-Konto angemeldet werden, weil "%{reason}".
       success: Sie haben sich erfolgreich mit Ihrem %{kind}-Konto angemeldet.
