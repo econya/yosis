@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     post :stop_impersonating, on: :collection
   end
 
-  resources :customers
+  resource :contacts, only: [:new, :create]
 
   resources :courses, only: [:index, :show]
 

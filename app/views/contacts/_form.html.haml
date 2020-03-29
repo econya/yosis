@@ -1,0 +1,17 @@
+= form_for @contact ||= Contact.new, builder: BulmaFormBuilder::FormBuilder do |f|
+  - if @contact.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@contact.errors.count, "error")} prohibited this course from being saved:"
+      %ul
+        - @contact.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :subject
+    = f.text_field :subject
+
+  .field
+    = f.label :message
+    = f.text_field :message
+
+  .actions
+    = f.submit t('contact.send'), class: 'button is-primary'

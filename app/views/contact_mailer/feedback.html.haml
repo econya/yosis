@@ -1,0 +1,13 @@
+%p
+  = @user.email
+  = t('contact_mailer.contacted_you')
+
+%p
+  %b
+    = t('contact_mailer.subject')
+  = @contact.subject
+
+%p
+  %b
+    = t('contact_mailer.message')
+  = @contact.message
