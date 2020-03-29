@@ -8,13 +8,19 @@ done.
 
 ### Dokku
 
-Is awesome
+Is awesome. Its doku is great, too. For a brief overview, how to use it with
+rails, read e.g.
+https://medium.com/@dpaluy/the-ultimate-guide-to-dokku-and-ruby-on-rails-5-9ecad2dba4a3
+.
 
 ### JavaScript
 
-* Removed webpacker, replaced by sprockets.
+* Removed webpacker, replaced by sprockets in commit
+  #033656121a44b25351afb4943bf4bff0bad90352 .
 * Use the `direct_upload` stuff from ActiveStorage as is (exception: we want to
   see the errors alert).
+* Also removed everything (or most) yarnish in commit
+  #037e4aa90b82791f1a85408d926fc19f6486275e .
 
 ### SiteSettings
 
