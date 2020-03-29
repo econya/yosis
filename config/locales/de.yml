@@ -116,9 +116,12 @@ de:
       unconfirmed: Unbestätigt
       unsubscribed: Unsubscribed
   admin_mailer:
+    new_confirmation:
+      subject: "Nutzer* hat E-Mail bestätigt"
+      user_confirmed: Ein Mensch hat seine E-Mail bestätigt
     new_registration:
-      new_user_registered: "Ein Mensch hat sich neu registriert."
-      subject: "Neue* Benutzer* registriert!"
+      new_user_registered: Ein Mensch hat sich neu registriert.
+      subject: Neue* Benutzer* registriert!
   already_registered?: Schon Kund/in?
   apointments:
     time:
@@ -205,6 +208,7 @@ de:
     messages:
       not_saved: Nicht gespeichert
   explanation_text_homepage: Explanation text homepage
+  feedback: Feedback
   helpers:
     label:
       contact:
@@ -295,7 +299,7 @@ de:
       default: Hallo von Deiner frischen**YoSis** Installation!
       help: Intro Text auf Start-Seite
     intro_background:
-      default: (Bild)
+      default: "(Bild)"
       help: Hintergrund-Bild vom Intro-Block auf Startseite
     logo:
       default: Default

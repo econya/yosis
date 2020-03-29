@@ -10,4 +10,10 @@ class AdminMailer < ApplicationMailer
 
     mail(subject: t('admin_mailer.new_registration.subject'))
   end
+
+  def new_confirmation(user)
+    @user = user#params[:user]
+
+    mail(subject: t('admin_mailer.new_confirmation.subject'))
+  end
 end
