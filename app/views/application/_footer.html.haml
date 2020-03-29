@@ -13,6 +13,10 @@
           = link_to t('navigation.pages.privacy_statement'), privacy_path
       .level-right
         .level-item
+          = link_to "https://github.com/econya/yosis" do
+            %span.icon
+              %i.fab.fa-github
+        .level-item
           -#Copyright 2020 Véronique Wolfsteller
           != SiteSetting['copyright_notice']
 
