@@ -100,7 +100,7 @@ environment variables:
 yosis is copyright 2020 Felix Wolfsteller and released under the
 [AGPLv3+](LICENSE).
 
-Some file use [https://reuse.software](FSFEs reuse software) compliant headers.
+Some file use [FSFEs reuse software](https://reuse.software/) compliant headers.
 
 This repositories bundles third party assets:
 
