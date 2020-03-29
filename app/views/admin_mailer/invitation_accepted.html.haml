@@ -1,0 +1,11 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+%p
+  = t('admin_mailer.invitation_accepted.invitation_accepted')
+%p
+  %b
+    = link_to [:admin, @user] do
+      = @user.email
+

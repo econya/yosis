@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   get 'impressum',   to: 'pages#impressum'
   get 'explanation', to: 'pages#explanation'
 
-  devise_for :users, controllers: { registrations: 'registrations', confirmations: 'confirmations' }
+  devise_for :users, controllers: {
+    registrations: 'registrations',
+    confirmations: 'confirmations',
+    invitations: 'invitations' }
 
   resources :users, only: [:index], controller: 'admin/users' do
     post :impersonate, on: :member

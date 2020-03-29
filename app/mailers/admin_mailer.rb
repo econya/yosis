@@ -16,4 +16,9 @@ class AdminMailer < ApplicationMailer
 
     mail(subject: t('admin_mailer.new_confirmation.subject'))
   end
+
+  def invitation_accepted(user)
+    @user = user
+    mail(subject: t('admin_mailer.invitation_accepted.subject'))
+  end
 end

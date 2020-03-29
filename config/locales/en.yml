@@ -116,6 +116,12 @@ en:
       unconfirmed: Unconfirmed
       unsubscribed: Unsubscribed
   admin_mailer:
+    invitation_accepted:
+      invitation_accepted: Invitation accepted
+      subject: Subject
+    new_confirmation:
+      subject: Subject
+      user_confirmed: User confirmed
     new_registration:
       new_user_registered: New user registered
       subject: Subject

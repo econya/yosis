@@ -116,8 +116,11 @@ de:
       unconfirmed: Unbestätigt
       unsubscribed: Unsubscribed
   admin_mailer:
+    invitation_accepted:
+      invitation_accepted: Ein Mensch hat die Einladung angenommen
+      subject: Einladung angenommen
     new_confirmation:
-      subject: "Nutzer* hat E-Mail bestätigt"
+      subject: Nutzer* hat E-Mail bestätigt
       user_confirmed: Ein Mensch hat seine E-Mail bestätigt
     new_registration:
       new_user_registered: Ein Mensch hat sich neu registriert.
