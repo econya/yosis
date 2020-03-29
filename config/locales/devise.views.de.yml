@@ -61,7 +61,9 @@ de:
       invitation_instructions:
         subject: "Einladung"
         hello: "Hallo %{email}"
-        someone_invited_you: "Ich freue mich, Dich auf %{url} willkommen zu heißen! Wenn Du diese E-Mail bekommst hast Du schon ein monatliches Abo erworben oder Du möchtest Deine Probe-Woche anfangen. Klicke auf den folgenden Link um auf die Webseite zu gelangen und Dein persönliches Passwort zu setzen."
+        someone_invited_you: "Ich freue mich, Dich auf %{url} willkommen zu heißen! Wenn Du diese E-Mail bekommst hast Du schon ein monatliches Abo erworben oder Du möchtest Deine Schnupper-Woche anfangen."
+        click_on_link_to_accept: "Klicke auf den folgenden Link um auf die Webseite zu gelangen und Dein persönliches Passwort zu setzen."
+        trial_period_procedure: "Die Schnupperwoche ist kostenlos und es entstehen keine weiteren Verpflichtungen. Am Ende der Schnupperwoche wirst du nicht automatisch für das Abonement (25€/Monat) angemeldet."
         accept: "Einladung annehmen und Passwort setzen"
         accept_until: "Die Einladung verliert ihre Gültigkeit am %{due_date}."
         ignore: ""
