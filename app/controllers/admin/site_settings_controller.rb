@@ -10,7 +10,9 @@ class Admin::SiteSettingsController < ApplicationController
 
   # GET /admin/site_settings
   def index
-    md_keys = [:intro, :explanation, :privacy_statement, :terms, :impressum, :copyright_notice, :about_us]
+    md_keys = [:intro, :explanation, :privacy_statement, :terms, :impressum,
+               :copyright_notice, :about_us, :trial_period_cta,
+               :register_cta]
     md_keys.each do |key|
       SiteSetting.find_or_create_by(key: key,
         kind: "markdown",
@@ -22,6 +24,9 @@ class Admin::SiteSettingsController < ApplicationController
 
     SiteSetting.find_or_create_by(key: 'logo',
       value: t('site_settings.logo.default'), kind: 'image')
+
+    SiteSetting.find_or_create_by(key: 'intro_background',
+      value: t('site_settings.intro_background.default'), kind: 'image')
 
     SiteSetting.find_or_create_by(key: 'your_name',
       value: t('site_settings.your_name.default'), kind: 'string')

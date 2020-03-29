@@ -1,15 +1,51 @@
-%h1.title.is-1.has-text-centered
-  = t('home.welcome')
+
+- bg_image = SiteSetting.find_by(key: 'intro_background')&.image
+- if bg_image.attached?
+  - bg_image_url = url_for SiteSetting.find_by(key: 'intro_background')&.image&.variant(resize_to_limit: [1024,720])
+- else
+  - bg_image_url = ''
+
+.columns.intro-block(style="background-image: url(#{bg_image_url})")
+  .column.is-half
+    .intro
+      %h1.title.is-1.has-text-centered
+        = t('home.welcome')
+      .content.is-large
+        != SiteSetting['intro']
+        - if user_admin?
+          = link_to t('sitesetting.edit'), edit_admin_site_setting_path(SiteSetting.find_by(key: 'intro')), class: 'button'
+      = link_to t('home.intro.learn_more'), explanation_path
+
+%br
 
 .columns
-  .column.is-two-third
-    %h2.subtitle
-      -#= t('intro')
-    .content.is-large
-      != SiteSetting['intro']
-      - if user_admin?
-        = link_to t('sitesetting.edit'), edit_admin_site_setting_path(SiteSetting.find_by(key: 'intro')), class: 'button'
-    = link_to t('home.intro.learn_more'), explanation_path
+  .column.is-5.has-text-centered
+    .box.has-background-grey-lighter
+      %h2.subtitle.is-4.has-text-primary
+        = t('home.trial-period')
+      .has-text-justified
+        != SiteSetting['trial_period_cta']
+        - if user_admin?
+          = link_to t('sitesetting.edit'), edit_admin_site_setting_path(SiteSetting.find_by(key: 'trial_period_cta')), class: 'button'
+      .has-text-centered.is-vcentered
+        .button
+          = t('home.register-for-trial-period')
+  .column.is-2
+  .column.is-5.has-text-centered
+    .box.has-background-grey-lighter
+      %h2.subtitle.is-4.has-text-primary
+        = t('home.already-registered?')
+      .has-text-justified
+        != SiteSetting['register_cta']
+        - if user_admin?
+          = link_to t('sitesetting.edit'), edit_admin_site_setting_path(SiteSetting.find_by(key: 'register_cta')), class: 'button'
+      .has-text-centered.is-vcentered
+        .button
+          = t('home.sign-in-with-account')
+
+%br
+%br
+
 %section#next_appointments
   %h2.title.is-2
     = t('home.next_appointments')

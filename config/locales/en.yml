@@ -244,6 +244,7 @@ en:
       contact:
         subject: Betreff
   home:
+    already-registered?: Already-registered?
     appointment:
       new: Neuen Termin eintragen
     courses:
@@ -253,6 +254,9 @@ en:
     intro:
       learn_more: Learn more
     next_appointments: Next appointments
+    register-for-trial-period: Register-for-trial-period
+    sign-in-with-account: Sign-in-with-account
+    trial-period: Trial-period
     user:
       days_till_end_of_trial: Days till end of trial
     videos: Videos

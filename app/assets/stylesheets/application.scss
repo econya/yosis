@@ -44,6 +44,23 @@ h1, h2, h3 {
   text-transform: uppercase;
 }
 
+/* Own classes */
+.intro-block {
+  border-top:    1px solid $bluerple;
+  border-bottom: 1px solid $bluerple;
+  //background-image: url(vero_yoga_2019_110_t.png);
+  background-size:     contain;
+  background-repeat:   no-repeat;
+  background-position: right;
+}
+
+.intro {
+  padding-top:    1.4em;
+  padding-bottom: 1.4em;
+  //background-image: url(vero_yoga_2019_031.jpg);
+  //margin-bottom: 1em;
+}
+
 .flame-box {
   background-image: linear-gradient(90deg, #ffffff -0%, $orange 90%, $orange 150%);
 }
