@@ -26,6 +26,7 @@ class User < ApplicationRecord
   def in_trial_period?
     return false if admin?
     return false if currently_subscribed?
+    return false if confirmed_at.nil?
     confirmed_at + 7.days > DateTime.current
   end
 
