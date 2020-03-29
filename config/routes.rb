@@ -20,19 +20,24 @@ Rails.application.routes.draw do
     post :stop_impersonating, on: :collection
   end
 
-  resources :courses, only: [:index, :show]
   resources :customers
+
   resources :courses, only: [:index, :show]
+
   namespace :admin do
+    resources :appointments
+
     resources :courses, only: [:index, :edit, :update, :destroy, :new, :create] do
       resources :lessons, controller: 'course/lessons' do
         resource :position, only: [:create, :destroy], controller: 'course/lesson/position'
       end
       resource :position, only: [:create, :destroy], controller: 'course/position'
     end
-    resources :appointments
+
     resources :site_settings, only: [:index, :show, :edit, :update]
+
     resources :delayed_jobs, only: [:index, :show, :destroy]
+
     resources :users, only: [:index, :show] do
       resources :subscriptions, only: [:edit, :update, :create, :destroy, :new], controller: 'user/subscriptions'
     end
