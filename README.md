@@ -3,6 +3,32 @@
 yosis is a Ruby on Rails6 Web application to manage (online-) yoga courses and
 Free and Open Software, released under the AGPLv3+, copyright Felix Wolfsteller.
 
+---
+
+## Contents of README
+
+- [Synopsis](#synopsis)
+- [Installation](#installation)
+  * [Test/Example Data](#test-example-data)
+  * [Deployment](#deployment)
+  * [Configuration](#configuration)
+    + [Database](#database)
+    + [Mail](#mail)
+- [User/Admin Documentation](#lengthier-user/admin-documentation)
+- [Development](#development)
+  * [License](#license)
+  * [Contributions](#contributions)
+  * [Workflows](#workflows)
+    + [Tests](#tests)
+    + [i18n](#i18n)
+    + [Live reloading of browser sessions](#live-reloading-of-browser-sessions)
+    + [Mails and debugging them in_development](#mails-and-debugging-them-in-development)
+    + [Releasing](#releasing)
+- [Developerish Documentation](#developerish-documentation)
+- [And even more todos](#and-even-more-todos)
+
+---
+
 ## Synopsis
 
 Project had extremely tight deadlines and is totally adapted to a single use and
