@@ -115,6 +115,10 @@ en:
       total: Total
       unconfirmed: Unconfirmed
       unsubscribed: Unsubscribed
+  admin_mailer:
+    new_registration:
+      new_user_registered: New user registered
+      subject: Subject
   already_registered?: Already registered?
   apointments:
     time:
@@ -326,24 +330,35 @@ en:
     explanation:
       default: Details über Dein Business (markdown)
       help: Sichtbar bei Mehr erfahren-Link
+    general: General
     impressum:
       default: Dein Impressum (markdown)
       help: Impressum im Footer
     intro:
       default: Hallo von Deiner frischen**YoSis** Installation!
       help: Intro Text auf Start-Seite
+    intro_background:
+      default: Default
+      help: Hintergrund-Bild vom Intro-Block auf Startseite
     logo:
       default: Default
       help: Lade Dein Logo hoch
     privacy_statement:
       default: Deine Datenschutzbestimmung (markdown)
       help: Datenschutzerklärung im Footer
+    register_cta:
+      default: Für 25€/Monat erhälst du einen regulären Zugang ("Abonement", verlängert sich nicht automatisch).
+      help: Bereits-Registriert-Info-Box-Text auf Start-Seite.
+    sub-pages: Sub-pages
     terms:
       default: AGB
       help: Die AGBs (Allgemeinen Geschäftsbedingungen) deiner Seite
     title:
       default: Default
       help: Der Titel Deiner Seite
+    trial_period_cta:
+      default: Du kannst Dich für eine kostenlose Schnupperwoche registrieren. Damit erhälst du Zugang zu allen Zoom-Terminen in den nächsten 7 Tagen sowie zu zwei Videos aus jedem Kurs. Es entsteht daraus keine weitere Verpflichtung.
+      help: Schnupperwochen-Info-Box-Text auf Start-Seite.
     your_name:
       default: Yosis
       help: Dein Name

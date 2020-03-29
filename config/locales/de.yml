@@ -101,7 +101,7 @@ de:
       admin: Admin
       currently_subscribed: Zurzeit subscribed
       invite_new: Einladung verschicken
-      its-you: "Das bist Du!"
+      its-you: Das bist Du!
       pending_invitation: Einladung steht noch aus
       subscription_ended_at: Subscription geendet am
       table:
@@ -115,6 +115,10 @@ de:
       total: Total
       unconfirmed: Unbestätigt
       unsubscribed: Unsubscribed
+  admin_mailer:
+    new_registration:
+      new_user_registered: "Ein Mensch hat sich neu registriert."
+      subject: "Neue* Benutzer* registriert!"
   already_registered?: Schon Kund/in?
   apointments:
     time:
@@ -283,6 +287,7 @@ de:
     explanation:
       default: Details über Dein Business (markdown)
       help: Sichtbar bei Mehr erfahren-Link
+    general: Allgemein
     impressum:
       default: Dein Impressum (markdown)
       help: Impressum im Footer
@@ -290,6 +295,7 @@ de:
       default: Hallo von Deiner frischen**YoSis** Installation!
       help: Intro Text auf Start-Seite
     intro_background:
+      default: (Bild)
       help: Hintergrund-Bild vom Intro-Block auf Startseite
     logo:
       default: Default
@@ -300,6 +306,7 @@ de:
     register_cta:
       default: Für 25€/Monat erhälst du einen regulären Zugang ("Abonement", verlängert sich nicht automatisch).
       help: Bereits-Registriert-Info-Box-Text auf Start-Seite.
+    sub-pages: Unter-Seiten
     terms:
       default: AGB
       help: Die AGBs (Allgemeinen Geschäftsbedingungen) deiner Seite
