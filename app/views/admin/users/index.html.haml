@@ -1,12 +1,15 @@
 %h1.title
   = t('admin.users.title')
 
+= User.count
+= t('admin.users.total')
+
 %table.table.is-fullwidth
   %thead
     %tr
       %th= t('admin.users.table.th.email')
-      %th= t('admin.users.table.th.state')
       %th= t('admin.users.table.th.subscription')
+      %th= t('admin.users.table.th.state')
       %th= t('admin.users.table.th.created_at')
       %th= t('admin.users.table.th.sign_in_count')
       %th
@@ -17,8 +20,22 @@
           = link_to [:admin, user] do
             = user.email
         %td
+          - if user.admin?
+          - elsif user.currently_subscribed?
+            = t('admin.users.currently_subscribed')
+            %br
+            = days_till_end_of_subscription user
+            = t('admin.user.subscriptions.days')
+          - elsif user.subscriptions.present?
+            = t('admin.users.subscription_ended_at')
+            = user.subscriptions.order(date_end: :asc).last&.date_end
+          - else
+            = t('admin.users.unsubscribed')
+        %td
           - if user.invitation_token
             = t('admin.users.pending_invitation')
+            %br
+            = l user.invitation_sent_at, format: '%a %d. %B %H:%M'
           - if user.admin?
             .tag.is-link
               = t('admin.users.admin')
@@ -26,21 +43,14 @@
             .tag.is-link
               = t('admin.users.unconfirmed')
         %td
-          - if user.currently_subscribed?
-            = t('admin.users.currently_subscribed')
-          - elsif user.subscriptions.present?
-            = t('admin.users.subscription_ended_at')
-            = user.subscriptions.order(date_end: :asc).last&.date_end
-          - else
-            = t('admin.users.unsubscribed')
-        %td
-          = user.created_at
+          = l user.created_at, format: '%a %d. %B %H:%M'
         %td
           = user.sign_in_count
         %td
           - if user != current_user
             = link_to t('admin.user.impersonate'), impersonate_user_path(user), method: :post, class: 'button'
           - else
-            = t('admin.users.its-you')
+            .tag.is-danger
+              = t('admin.users.its-you')
 
 = link_to t('admin.users.invite_new'), new_user_invitation_path, class: 'button'
