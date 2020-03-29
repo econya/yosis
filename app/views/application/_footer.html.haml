@@ -1,0 +1,18 @@
+%footer.footer
+  .content
+    .level
+      .level-item
+        %p
+          %strong
+            yogamitveronique.de
+          \|
+          = link_to t('navigation.pages.impressum'), impressum_path
+          \|
+          = link_to t('navigation.pages.terms'), terms_path
+          \|
+          = link_to t('navigation.pages.privacy_statement'), privacy_path
+      .level-right
+        .level-item
+          -#Copyright 2020 Véronique Wolfsteller
+          != SiteSetting['copyright_notice']
+
