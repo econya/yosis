@@ -1,6 +1,6 @@
 
 - bg_image = SiteSetting.find_by(key: 'intro_background')&.image
-- if bg_image.attached?
+- if bg_image&.attached?
   - bg_image_url = url_for SiteSetting.find_by(key: 'intro_background')&.image&.variant(resize_to_limit: [1024,720])
 - else
   - bg_image_url = ''
