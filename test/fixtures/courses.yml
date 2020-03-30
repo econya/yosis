@@ -8,6 +8,9 @@ base_yoga:
   name: Basic Yoga
   slug: basic-yoga
   active: true
+  row_order: 2
 
 relaxed_yoga:
   name: Relaxed Yoga
+  row_order: 5
+
