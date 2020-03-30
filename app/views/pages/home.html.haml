@@ -13,12 +13,16 @@
       .content.is-large
         != SiteSetting['intro']
         - if user_admin?
-          = link_to t('sitesetting.edit'), edit_admin_site_setting_path(SiteSetting.find_by(key: 'intro')), class: 'button'
+          = link_to edit_admin_site_setting_path(SiteSetting.find_by(key: 'intro')), class: 'button' do
+            %span.icon
+              %i.fas.fa-user-shield
+            %span
+              = t('sitesetting.edit')
       = link_to t('home.intro.learn_more'), explanation_path
 
 %br
 
-- if !user_signed_in?
+- if !user_signed_in? || user_admin?
   .columns
     .column.is-5.has-text-centered
       .box.has-background-grey-lighter
@@ -27,7 +31,11 @@
         .has-text-justified
           != SiteSetting['trial_period_cta']
           - if user_admin?
-            = link_to t('sitesetting.edit'), edit_admin_site_setting_path(SiteSetting.find_by(key: 'trial_period_cta')), class: 'button'
+            = link_to edit_admin_site_setting_path(SiteSetting.find_by(key: 'trial_period_cta')), class: 'button' do
+              %span.icon
+                %i.fas.fa-user-shield
+              %span
+                = t('sitesetting.edit')
         .has-text-centered.is-vcentered
           .button
             = t('home.register-for-trial-period')
@@ -39,7 +47,11 @@
         .has-text-justified
           != SiteSetting['register_cta']
           - if user_admin?
-            = link_to t('sitesetting.edit'), edit_admin_site_setting_path(SiteSetting.find_by(key: 'register_cta')), class: 'button'
+            = link_to edit_admin_site_setting_path(SiteSetting.find_by(key: 'register_cta')), class: 'button' do
+              %span.icon
+                %i.fas.fa-user-shield
+              %span
+                = t('sitesetting.edit')
         .has-text-centered.is-vcentered
           .button
             = t('home.sign-in-with-account')
@@ -69,7 +81,11 @@
       = t('home.courses.none_yet')
   - if user_admin?
     .column.is-2
-      = link_to t('home.courses.new'), new_admin_course_path, class: 'button is-primary'
+      = link_to new_admin_course_path, class: 'button is-primary is-outlined' do
+        %span.icon
+          %i.fas.fa-user-shield
+        %span
+          = t('home.courses.new')
 
 %br
 %br

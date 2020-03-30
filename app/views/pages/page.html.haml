@@ -1,8 +1,12 @@
 .container
-  .content.is-medium
+  .content.is-medium.has-text-justified
     != content
 
 - if user_admin? && defined?(site_setting)
   - setting = SiteSetting.find_by(key: site_setting)
   - if !setting.nil?
-    = link_to t('sitesetting.edit'), edit_admin_site_setting_path(SiteSetting.find_by(key: site_setting)), class: 'button'
+    = link_to edit_admin_site_setting_path(SiteSetting.find_by(key: site_setting)), class: 'button' do
+      %span.icon
+        %i.fas.fa-user-shield
+      %span
+        = t('sitesetting.edit')
