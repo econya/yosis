@@ -96,6 +96,14 @@ h1, h2, h3 {
   margin: auto;
 }
 
+/* Reposition anchors because of navbar */
+.anchor-offset {
+  display:  block;
+  position: relative;
+  top:      -7.5em;
+  visibility: hidden;
+}
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
