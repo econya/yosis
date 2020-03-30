@@ -52,7 +52,7 @@ class Admin::CoursesController < ApplicationController
       @course.destroy
       redirect_to courses_url, notice: t('Course was successfully destroyed.')
     rescue ActiveRecord::InvalidForeignKey
-      redirect_to courses_url, failure: t('Course cannot be deleted, has videos.')
+      redirect_to courses_url, alert: t('Course cannot be deleted, has videos.')
     end
   end
 
