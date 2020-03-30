@@ -1,33 +1,22 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
 %h1.title
   = t('Listing site_settings')
 
-%table.table.is-striped.is-fullwidth
-  %thead
-    %tr
-      %th= t('Key')
-      %th= t('Value')
-      %th
-      %th
+%h2.subtitle.is-4
+  = t('site_settings.general')
 
-  %tbody
-    - @site_settings.each do |site_setting|
-      %tr
-        %td
-          %b= site_setting.key
-        %td(colspan=3)
-          %small
-            = t('site_settings.' + site_setting.key + '.help')
-      %tr
-        %td
-        %td
-          - if site_setting.kind == 'image'
-            - if site_setting.image.attached?
-              = image_tag site_setting.image.variant(resize_to_fill: [120, 120]).processed, class: 'has-background-primary'
-          = site_setting.value
-        %td
-          - if site_setting.kind == "markdown"
-            = link_to t('Show'), [:admin, site_setting]
-        %td
-          = link_to 'Edit', edit_admin_site_setting_path(site_setting)
+= render partial: 'settings_table', locals: { site_settings: @general_settings }
 
-%br
+%h2.subtitle.is-4
+  = t('site_settings.home-page')
+
+= render partial: 'settings_table', locals: { site_settings: @start_page_settings }
+
+%h2.subtitle.is-4
+  = t('site_settings.sub-pages')
+
+= render partial: 'settings_table', locals: { site_settings: @pages_settings }
+

@@ -31,7 +31,9 @@ class Admin::SiteSettingsController < ApplicationController
     SiteSetting.find_or_create_by(key: 'your_name',
       value: t('site_settings.your_name.default'), kind: 'string')
 
-    @site_settings = SiteSetting.all
+    @general_settings    = SiteSetting.where(key: ['copyright_notice', 'title', 'logo', 'your_name'])
+    @start_page_settings = SiteSetting.where(key: ['intro', 'intro_background', 'register_cta', 'trial_period_cta'])
+    @pages_settings      = SiteSetting.where(key: ['about_us', 'impressum', 'privacy_statement', 'terms', 'explanation'])
   end
 
   def show

@@ -1,0 +1,30 @@
+%table.table.is-striped.is-fullwidth
+  %thead
+    %tr
+      %th= t('Key')
+      %th= t('Value')
+      %th
+      %th
+
+  %tbody
+    - site_settings.each do |site_setting|
+      %tr
+        %td
+          %b= site_setting.key
+        %td(colspan=3)
+          %small
+            = t('site_settings.' + site_setting.key + '.help')
+      %tr
+        %td
+        %td
+          - if site_setting.kind == 'image'
+            - if site_setting.image.attached?
+              = image_tag site_setting.image.variant(resize_to_fill: [120, 120]).processed, class: 'has-background-primary'
+          = site_setting.value
+        %td
+          - if site_setting.kind == "markdown"
+            = link_to t('Show'), [:admin, site_setting]
+        %td
+          = link_to 'Edit', edit_admin_site_setting_path(site_setting)
+
+
