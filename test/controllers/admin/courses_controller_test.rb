@@ -55,10 +55,19 @@ class AdminCoursesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to course_url(@course)
   end
 
-  test "should destroy course" do
+  test "should not destroy course with lessons" do
+    sign_in users(:admin)
+    assert_difference('Course.count', 0) do
+      delete admin_course_url(@course)
+    end
+
+    assert_redirected_to courses_url
+  end
+
+  test "should destroy course only if has no lesson" do
     sign_in users(:admin)
     assert_difference('Course.count', -1) do
-      delete admin_course_url(@course)
+      delete admin_course_url(courses(:course_without_lessons))
     end
 
     assert_redirected_to courses_url

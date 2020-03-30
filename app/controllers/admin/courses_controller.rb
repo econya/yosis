@@ -48,9 +48,11 @@ class Admin::CoursesController < ApplicationController
 
   # DELETE /courses/1
   def destroy
-    @course.destroy
-    respond_to do |format|
-      format.html { redirect_to courses_url, notice: t('Course was successfully destroyed.') }
+    begin
+      @course.destroy
+      redirect_to courses_url, notice: t('Course was successfully destroyed.')
+    rescue ActiveRecord::InvalidForeignKey
+      redirect_to courses_url, failure: t('Course cannot be deleted, has videos.')
     end
   end
 
