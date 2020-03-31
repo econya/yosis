@@ -168,9 +168,9 @@ arriving at http://127.0.0.1:1080 .
 ## Developerish Documentation
 
 * **Design decisions and resources** are found in the
-  [knowledgebase](doc/kndowledgebase.md)
+  [knowledgebase](doc/knowledgebase.md)
 * **Some other infos about the tech stack** are found in the
-  [knowledgebase](doc/kndowledgebase.md), too.
+  [knowledgebase](doc/knowledgebase.md), too.
 
 ## And even more todos
 
