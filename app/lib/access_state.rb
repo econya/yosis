@@ -25,21 +25,25 @@ class AccessState
   end
 
   def state
+    @state_memo ||= get_state
+  end
+
+  def level
+    LEVEL_BY_STATE[state]
+  end
+
+  def get_state
     return :none if @user.nil?
 
     return :admin if @user.admin?
 
-    return :unconfirmed if @user.confirmed_at.nil?
     return :invitation_pending if @user.invitation_token
+    return :unconfirmed if @user.confirmed_at.nil?
 
     return :trial if @user.in_trial_period?
     return :trial_ended if !@user.in_trial_period? && @user.subscriptions.empty?
 
     return :subscribed if @user.currently_subscribed?
     return :subscription_ended
-  end
-
-  def level
-    LEVEL_BY_STATE[state]
   end
 end
