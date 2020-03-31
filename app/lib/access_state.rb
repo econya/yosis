@@ -8,6 +8,17 @@ class AccessState
             :trial, :trial_ended,
             :subscribed, :subscription_ended,
             :admin]
+  LEVELS = [:none, :trial, :full, :admin]
+  LEVEL_BY_STATE = {
+    none:               :none,
+    unconfirmed:        :none,
+    invitation_pending: :none,
+    trial:              :trial,
+    trial_ended:        :none,
+    subscribed:         :full,
+    subscription_ended: :none,
+    admin:              :admin
+  }
 
   def initialize user
     @user = user
@@ -29,15 +40,6 @@ class AccessState
   end
 
   def level
-    case state
-    when :admin
-      :admin
-    when :trial
-      :trial
-    when :subscribed
-      :full
-    else
-      :none
-    end
+    LEVEL_BY_STATE[state]
   end
 end
