@@ -3,6 +3,12 @@
 yosis is a Ruby on Rails6 Web application to manage (online-) yoga courses and
 Free and Open Software, released under the AGPLv3+, copyright Felix Wolfsteller.
 
+The main reason for this code to exist is
+[https://online.yogamitveronique.de](https://online.yogamitveronique.de) .
+
+We are happy to support and/or host other platforms like that (but we
+cannot do that for free).
+
 ---
 
 ## Contents of README
@@ -64,6 +70,15 @@ automigrate the database after push. With it comes a `CHECK` and the respective
 rack route to `/up` and a `.buildpacks` file to allow for ffmpeg video previews
 (an ActiveStorage feature).
 
+
+The initial user can be set up like this (run in `rails c` or `rails run`):
+
+```ruby
+User.create(email: 'adminsemail', password: 'adminspassword',
+  password_confirmation: 'adminspassword', confirmed_at: DateTime.current,
+  role: 'admin')
+```
+
 ### Configuration
 
 #### Database
@@ -90,6 +105,10 @@ environment variables:
     SMTP_USER=iaowur32oalks
     RAILS_SERVE_STATIC_FILES=yes
 
+#### In-App configuration
+
+Any account with administrator role can edit various SiteSettings from the admin
+menu (content, layout, title, ...).
 
 ## Lenghtier user/admin documentation
 
