@@ -4,6 +4,12 @@
 = User.count
 = t('admin.users.total')
 
+= Subscription.current.count
+= t('admin.subscriptions.total')
+
+%br
+%br
+
 %table.table.is-fullwidth
   %thead
     %tr
@@ -15,33 +21,61 @@
       %th
   %tbody
     - @users.each do |user|
+      - access = AccessState.new(user)
       %tr
         %td
           = link_to [:admin, user] do
             = user.email
         %td
-          - if user.admin?
-          - elsif user.currently_subscribed?
-            = t('admin.users.currently_subscribed')
-            %br
-            = days_till_end_of_subscription user
-            = t('admin.user.subscriptions.days')
-          - elsif user.subscriptions.present?
-            = t('admin.users.subscription_ended_at')
-            = user.subscriptions.order(date_end: :asc).last&.date_end
-          - else
-            = t('admin.users.unsubscribed')
+          - case access.level
+          - when :admin
+            .tag.is-danger
+              %span.icon
+                %i.fas.fa-user-shield
+              = t('admin.user.subscription.admin')
+          - when :trial
+            .tags.has-addons
+              .tag
+                %span.icon.is-link
+                  %i.fas.fa-question
+                = t('admin.user.subscription.trial')
+              - if days_till_end_of_trial(user) < 3
+                .tag.is-danger
+                  = days_till_end_of_trial user
+              - else
+                .tag.is-warning
+                  = days_till_end_of_trial user
+          - when :full
+            .tags.has-addons
+              .tag.is-primary
+                %span.icon
+                  %i.fas.fa-check
+                = t('admin.user.subscription.subscribed')
+              - if days_till_end_of_subscription(user) < 7
+                .tag.is-danger
+                  = days_till_end_of_subscription(user)
+              - elsif days_till_end_of_subscription(user) < 15
+                .tag.is-warning
+                  = days_till_end_of_subscription user
+              - else
+                .tag.is-success
+                  = days_till_end_of_subscription user
         %td
-          - if user.invitation_token
-            = t('admin.users.pending_invitation')
-            %br
-            = l user.invitation_sent_at, format: '%a %d. %B %H:%M'
-          - if user.admin?
-            .tag.is-link
-              = t('admin.users.admin')
-          - if user.confirmation_token && !user.confirmed_at
+          - case access.state
+          - when :unconfirmed
             .tag.is-link
               = t('admin.users.unconfirmed')
+          - when :invitation_pending
+            .tag.is-info
+              = t('admin.users.pending_invitation')
+            %br
+            = l user.invitation_sent_at, format: '%a %d. %B %H:%M'
+          - when :admin
+            .tag.is-danger
+              = t('admin.users.admin')
+          - when :trial_ended
+            .tag.is-link
+              = t('admin.users.trial-ended')
         %td
           = l user.created_at, format: '%a %d. %B %H:%M'
         %td
