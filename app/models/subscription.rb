@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 class Subscription < ApplicationRecord
   belongs_to :user
 
@@ -5,6 +9,8 @@ class Subscription < ApplicationRecord
   validates :date_end, presence: true
 
   validate :start_before_end
+
+  scope :current, -> { where("date_start <= ? AND date_end >= ?", DateTime.current, DateTime.current) }
 
   def start_before_end
     if date_end < date_start
