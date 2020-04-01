@@ -8,7 +8,7 @@ class Admin::EmailsController < ApplicationController
 
   # GET /emails
   def index
-    @mails = Ahoy::Message.all.order(sent_ad: :desc)
+    @mails = Ahoy::Message.all.order(sent_at: :desc)
   end
 
   def show
