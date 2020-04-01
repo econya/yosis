@@ -7,7 +7,7 @@ class Admin::UsersController < ApplicationController
   before_action :authorize_admin!
 
   def index
-    @users = User.all
+    @users = User.order(created_at: :asc).all
   end
 
   def show

@@ -44,7 +44,7 @@ class Admin::AppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
-        format.html { redirect_to [:admin, @appointment], notice: t('Appointment was successfully updated.') }
+        format.html { redirect_to [:admin, @appointment], notice: t('appointment.update-success') }
       else
         format.html { render :edit }
       end
@@ -55,7 +55,7 @@ class Admin::AppointmentsController < ApplicationController
   def destroy
     @appointment.destroy
     respond_to do |format|
-      format.html { redirect_to admin_appointments_url, notice: t('Appointment was successfully destroyed.') }
+      format.html { redirect_to admin_appointments_url, notice: t('appointment.deletion-success') }
     end
   end
 

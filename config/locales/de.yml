@@ -1,12 +1,7 @@
 ---
 de:
-  Appointment was successfully destroyed: Termin gelöscht.
-  Appointment was successfully updated: Termin aktualisiert.
   Back: Zurück
   Course: Kurs
-  Course was successfully created: Kurs erstellt.
-  Course was successfully destroyed: Kurs gelöscht.
-  Course was successfully updated: Kurs aktualisiert.
   Courses: Kurse
   Customers: Kund*n
   Date_from: Von
@@ -67,7 +62,7 @@ de:
         other: Lektionen
   admin:
     appointment:
-      edit: Edit
+      edit: Bearbeiten
       info: Info
       title: Title
     course:
@@ -78,12 +73,34 @@ de:
       new: Neu
       new_lesson: Neues Video
     courses:
+      cannot-delete-with-videos: Termin kann nicht gelöscht werden (hat noch Videos).
+      creation-succes: Kurs erstellt.
+      deletion-success: Kurs gelöscht.
       edit: Bearbeiten
       name: Name
       next_appointment: Nächster Termin
       number_appointments: Anzahl Termine
       number_lessons: Anzahl Videos
       order: Position
+      update-succes: Kurs aktualisiert.
+    delayed_job:
+      deleted: Gelöscht
+    delayed_jobs:
+      actions: Actions
+      background-jobs: Background Jobs
+      destroy: Löschen
+      what: Was
+      when: Wann
+    emails:
+      back_to_mails: Zurück zu E-Mails
+      mails_table:
+        content: Inhalt
+        mailer: Mailer
+        sent_at: Gesendet am
+        subject: Betreff
+        to: An
+      showing_mail: Mail-Ansicht
+      title: Title
     subscriptions:
       total: Total
     user:
@@ -95,7 +112,10 @@ de:
       last_sign_in_at: Zuletzt angemeldet am
       sign_in_count: Wie oft angemeldet
       subscription:
+        admin: Admin
         edit-title: Abonnement bearbeiten
+        subscribed: Abo
+        trial: Schnupperwoche
       subscriptions: Abonnements
     users:
       admin: Admin
@@ -113,6 +133,7 @@ de:
           subscription: Subscription
       title: User
       total: Total
+      trial-ended: Trial-ended
       unconfirmed: Unbestätigt
       unsubscribed: Unsubscribed
   admin_mailer:
@@ -131,9 +152,11 @@ de:
       till: bis
   appointment:
     course: Kurs
-    created-success: Termin angelegt
+    created-success: Termin angelegt.
     date_from: Von
+    deletion-success: Termin gelöscht.
     timespan: Zeit
+    update-success: Termin aktualisiert.
     zoom-link: Zoom-Link
   appointments:
     none_in_future: Keine zukünftigen Termine
@@ -253,7 +276,9 @@ de:
   navigation:
     admin: Admin
     appointments: Termine
+    background-jobs: Background Jobs
     courses: Kurse
+    emails: E-Mails
     pages:
       impressum: Impressum
       privacy_statement: Datenschutzhinweise
@@ -295,6 +320,7 @@ de:
       default: Details über Dein Business (markdown)
       help: Sichtbar bei Mehr erfahren-Link
     general: Allgemein
+    home-page: Home-page
     impressum:
       default: Dein Impressum (markdown)
       help: Impressum im Footer

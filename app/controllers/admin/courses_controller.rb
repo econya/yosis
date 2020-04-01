@@ -28,7 +28,7 @@ class Admin::CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: t('Course was successfully created.') }
+        format.html { redirect_to @course, notice: t('admin.courses.creation-succes') }
       else
         format.html { render :new }
       end
@@ -39,7 +39,7 @@ class Admin::CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to @course, notice: t('Course was successfully updated.') }
+        format.html { redirect_to @course, notice: t('admin.courses.update-succes') }
       else
         format.html { render :edit }
       end
@@ -50,9 +50,9 @@ class Admin::CoursesController < ApplicationController
   def destroy
     begin
       @course.destroy
-      redirect_to courses_url, notice: t('Course was successfully destroyed.')
+      redirect_to courses_url, notice: t('admin.courses.deletion-success')
     rescue ActiveRecord::InvalidForeignKey
-      redirect_to courses_url, alert: t('Course cannot be deleted, has videos.')
+      redirect_to courses_url, alert: t('admin.courses.cannot-delete-with-videos')
     end
   end
 
