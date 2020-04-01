@@ -53,6 +53,14 @@ Sidekiq kicks the rests ass, but comes with market.
 
 For production, `worker: rake jobs:work` should do the trick.
 
+DelayedJob has two Web UIs ( ... and ... ), but it was simple to roll ones own.
+
+
+### Mail archive
+
+For mail "tracking" (saving outgoing mails to ensure that the right mails got
+sent), `ahoy_email` is used, with the additional `content` column (somewhat
+undocumented feature).
 
 ## Resources and lessons learned
 
