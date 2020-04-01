@@ -19,7 +19,11 @@
       %span{"aria-hidden" => "true"}
   #yosisNavbar.navbar-menu
     .navbar-start
-      = link_to t('about_us'),    about_us_url, class: 'navbar-item'
+      = link_to about_us_url, class: 'navbar-item' do
+        %span.icon
+          %i.fa.fa-info-circle
+        %span
+          = t('about_us')
       = link_to root_url, class: 'navbar-item' do
         %span.icon
           %i.fa.fa-heart

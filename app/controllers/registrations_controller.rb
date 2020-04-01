@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
     if @user.persisted?
-      AdminMailer.new_registration(@user).deliver#later?
+      AdminMailer.new_registration(@user).deliver_later
     end
   end
 end
