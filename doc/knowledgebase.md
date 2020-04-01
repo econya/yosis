@@ -53,7 +53,8 @@ Sidekiq kicks the rests ass, but comes with market.
 
 For production, `worker: rake jobs:work` should do the trick.
 
-DelayedJob has two Web UIs ( ... and ... ), but it was simple to roll ones own.
+DelayedJob has two Web UIs (https://github.com/ejschmitt/delayed_job_web and ... ), but it was simple to roll ones own.
+It also has a cron-like addition: https://github.com/codez/delayed_cron_job .
 
 
 ### Mail archive
