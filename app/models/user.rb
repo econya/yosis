@@ -28,4 +28,8 @@ class User < ApplicationRecord
     return false if currently_subscribed?
     confirmed_at + 7.days > DateTime.current
   end
+
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
 end

@@ -57,6 +57,7 @@
               = link_to t('navigation.site_settings'), admin_site_settings_path, class: 'navbar-item'
               = link_to t('navigation.users'), admin_users_path, class: 'navbar-item'
               = link_to t('invite'), new_user_invitation_path, class: 'navbar-item'
+              = link_to t('navigation.background-jobs'), admin_delayed_jobs_path, class: 'navbar-item'
 
         = link_to t('sign_out'), destroy_user_session_path, method: :delete, class: "navbar-item"
       - else
