@@ -53,6 +53,9 @@ gem 'ranked-model'
 # md rendering
 gem 'redcarpet'
 
+# mail "tracking"
+gem 'ahoy_email'
+
 # Jobs
 gem 'delayed_job_active_record'
 gem 'daemons'

@@ -1,0 +1,25 @@
+%h1.title
+  = t('admin.emails.title')
+
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th
+        = t("admin.emails.mails_table.to")
+      %th
+        = t("admin.emails.mails_table.subject")
+      %th
+        = t("admin.emails.mails_table.sent_at")
+      %th
+        = t("admin.emails.mails_table.mailer")
+      %th
+        = t("admin.emails.mails_table.content")
+  %tbody
+    - @mails.each do |mail|
+      %tr
+        %td= mail.to
+        %td= mail.subject
+        %td= mail.sent_at
+        %td= mail.mailer
+        %td= link_to t(:view), admin_email_path(mail), class: 'button'
+ 

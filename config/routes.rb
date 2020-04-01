@@ -37,9 +37,11 @@ Rails.application.routes.draw do
       resource :position, only: [:create, :destroy], controller: 'course/position'
     end
 
-    resources :site_settings, only: [:index, :show, :edit, :update]
-
     resources :delayed_jobs, only: [:index, :show, :destroy]
+
+    resources :emails, only: [:index, :show]
+
+    resources :site_settings, only: [:index, :show, :edit, :update]
 
     resources :users, only: [:index, :show] do
       resources :subscriptions, only: [:edit, :update, :create, :destroy, :new], controller: 'user/subscriptions'

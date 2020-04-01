@@ -1,0 +1,30 @@
+.level
+  .level-left
+    = link_to admin_emails_path, class: 'button' do
+      =t('admin.emails.back_to_mails')
+  .level-item
+    %h1.title= t('admin.emails.showing_mail')
+  .level-right
+    = link_to admin_emails_path, class: 'button' do
+      =t('admin.emails.back_to_mails')
+
+.box
+  %pre=@mail.content
+
+  -#%pre=@mail.content.split("\n").map{|p| p.unpack("M*").first}.join("\n")
+  %pre
+    = @mail.content.inspect
+  %pre
+    - @mail.content.gsub("=\n",'').unpack("M*").first.force_encoding('utf-8')
+  %pre
+    - @mail.content.split("=\n") do |p|
+      = "#{p}\n".unpack("M*").first.force_encoding('utf-8')
+  %br
+  %br
+  %pre=@mail.content
+  -#%pre=@mail.content.force_encoding('utf-8').to_s.unpack('M*').first
+
+  -#%br
+  -#%pre=Mail.new(@mail.content).html_part.to_s.unpack("M")
+  
+
