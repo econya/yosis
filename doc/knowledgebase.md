@@ -44,6 +44,16 @@ Also had to create the key and checksum, see:
 https://stackoverflow.com/questions/50453596/activestorage-fixtures-attachments
 .
 
+
+### Jobs
+
+DelayedJob does not need a redis setup, which makes it a simpler for
+development but only suitable for periodic jobs or database-insensitive apps.
+Sidekiq kicks the rests ass, but comes with market.
+
+For production, `worker: rake jobs:work` should do the trick.
+
+
 ## Resources and lessons learned
 
 ### ActiveStorage

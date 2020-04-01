@@ -79,6 +79,14 @@ User.create(email: 'adminsemail', password: 'adminspassword',
   role: 'admin')
 ```
 
+To send and do other "background-task", you need to start delayed_job.
+
+Do so with `rake jobs:work` .
+
+**Note:** While running `bin/delayed_job run` (or `start`) might also work, you will likely
+see some errors in developement, due to usage of Guard (I believe). A
+half-baked workaround might be to create `log/delayed_job.log`.
+
 ### Configuration
 
 #### Database
