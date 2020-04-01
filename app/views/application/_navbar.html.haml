@@ -20,17 +20,17 @@
   #yosisNavbar.navbar-menu
     .navbar-start
       = link_to about_us_url, class: 'navbar-item' do
-        %span.icon
+        %span.icon.has-text-info
           %i.fa.fa-info-circle
         %span
           = t('about_us')
       = link_to root_url, class: 'navbar-item' do
-        %span.icon
+        %span.icon.has-text-info
           %i.fa.fa-heart
         %span
           = t('the_website')
       = link_to 'mailto:info@yogamitveronique.de', class: 'navbar-item' do
-        %span.icon
+        %span.icon.has-text-info
           %i.fas.fa-envelope
         %span
           = 'info@yogamitveronique.de'
