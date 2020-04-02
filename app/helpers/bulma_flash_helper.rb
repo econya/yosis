@@ -9,7 +9,7 @@ module BulmaFlashHelper
       'success' => 'is-success',
       'error'   => 'is-danger',
       'info'    => 'is-info',
-      'alert'   => 'is-danger'
+      'alert'   => 'is-warning',
       'warning' => 'is-warning'
     }.freeze
   end
