@@ -104,9 +104,11 @@ de:
     subscriptions:
       total: Total
     user:
+      are-you-sure-to-destroy: "%{email} wirklich löschen?"
       back_to_admin: Zurück als Admin
       confirmed_at: Bestätigt am
       created_at: Erstellt am
+      destroy: Löschen
       email: E-Mail
       impersonate: Impersonate
       last_sign_in_at: Zuletzt angemeldet am
@@ -119,7 +121,10 @@ de:
       subscriptions: Abonnements
     users:
       admin: Admin
+      cannot-delete-admins: Admins können so nicht gelöscht werden!
+      cannot-delete-subscribed-users: "Nutzer* mit Subscription können nicht gelöscht werden."
       currently_subscribed: Zurzeit subscribed
+      deletion-success: "Nutzer* %{email} gelöscht."
       invite_new: Einladung verschicken
       its-you: Das bist Du!
       pending_invitation: Einladung steht noch aus

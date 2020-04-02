@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 
     resources :site_settings, only: [:index, :show, :edit, :update]
 
-    resources :users, only: [:index, :show] do
+    resources :users, only: [:index, :show, :destroy] do
       resources :subscriptions, only: [:edit, :update, :create, :destroy, :new], controller: 'user/subscriptions'
     end
   end
