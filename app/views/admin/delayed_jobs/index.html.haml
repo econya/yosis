@@ -1,24 +1,42 @@
 %h1.title
   = t('admin.delayed_jobs.background-jobs')
 
-%table.table.is-fullwidth
-  %thead
-    %tr
-      %th
-        = t('admin.delayed_jobs.when')
-      %th
-        = t('admin.delayed_jobs.what')
-      %th
-      %th
-        = t('admin.delayed_jobs.actions')
-  %tbody
-    - @jobs.each do |job|
+.table-container
+  %table.table.is-fullwidth
+    %thead
       %tr
-        %td
-          = job.run_at
-        %td
-          = job.last_error
-        %td
-          = debug job
-        %td
-          = link_to t('admin.delayed_jobs.destroy'), admin_delayed_job_url(job), method: :delete, data: { confirm: t('Are you sure?') }, class: 'button is-danger'
+        %th
+          = t('admin.delayed_jobs.when')
+        %th
+          = t('admin.delayed_jobs.what')
+        %th
+        %th
+          = t('admin.delayed_jobs.actions')
+    %tbody
+      - @jobs.each do |job|
+        %tr
+          %td
+            = job.run_at
+          %td
+            - jobj = YAML::load(job.handler)
+            %b
+              = t('admin.delayed_jobs.job_class')
+            = jobj.job_data["job_class"]
+            %br
+            %b
+              = t('admin.delayed_jobs.arguments')
+            = debug jobj.job_data["arguments"]
+          %td
+            = truncate job.last_error, length: 120
+            - if job.last_error
+              %br
+              .tag.is-danger
+                = job.attempts
+                = t('admin.delayed_jobs.attempts')
+
+            -#%pre
+            -#  = job.handler
+            -#  = YAML::load(job.handler)
+            -#  = job
+          %td
+            = link_to t('admin.delayed_jobs.destroy'), admin_delayed_job_url(job), method: :delete, data: { confirm: t('Are you sure?') }, class: 'button is-danger'
