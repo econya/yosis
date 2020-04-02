@@ -199,6 +199,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    pagy (3.7.5)
     parser (2.7.0.5)
       ast (~> 2.4.0)
     pg (1.2.3)
@@ -345,6 +346,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   mini_magick
+  pagy (~> 3.5)
   pg
   pretender
   puma (~> 4.1)

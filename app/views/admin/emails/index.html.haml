@@ -1,6 +1,10 @@
 %h1.title
   = t('admin.emails.title')
 
+- if @pagy.pages > 1
+  = t('pagy.showing_from_to_total', from: @pagy.from, to: @pagy.to, total: @pagy.count, item_name: t('emails'))
+  != pagy_bulma_nav(@pagy)
+
 %table.table.is-fullwidth
   %thead
     %tr
@@ -22,4 +26,7 @@
         %td= mail.sent_at
         %td= mail.mailer
         %td= link_to t(:view), admin_email_path(mail), class: 'button'
+
+- if @pagy.pages > 1
+  != pagy_bulma_nav(@pagy)
  

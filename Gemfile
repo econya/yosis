@@ -60,6 +60,9 @@ gem 'ahoy_email'
 gem 'delayed_job_active_record'
 gem 'daemons'
 
+# Pagination
+gem 'pagy', '~> 3.5'
+
 gem 'pg' # production db
 
 group :development, :test do

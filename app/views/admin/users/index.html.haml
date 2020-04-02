@@ -14,6 +14,10 @@
 %br
 %br
 
+- if @pagy.pages > 1
+  = t('pagy.showing_from_to_total', from: @pagy.from, to: @pagy.to, total: @pagy.count, item_name: User.model_name.human)
+  != pagy_bulma_nav(@pagy)
+
 %table.table.is-fullwidth
   %thead
     %tr
@@ -93,5 +97,8 @@
           - else
             .tag.is-danger
               = t('admin.users.its-you')
+
+- if @pagy.pages > 1
+  != pagy_bulma_nav(@pagy)
 
 = link_to t('admin.users.invite_new'), new_user_invitation_path, class: 'button'

@@ -9,6 +9,7 @@ de:
   'Date_to:': 'Bis:'
   Delete: Löschen
   Destroy: Löschen
+  emails: E-Mails
   Edit: bearbeiten
   Home: Start
   Key: Name
@@ -60,6 +61,9 @@ de:
       lesson:
         one: Lektion
         other: Lektionen
+      user:
+        one:   "Benutzer"
+        other: "Benutzer*"
   admin:
     appointment:
       edit: Bearbeiten
@@ -393,3 +397,5 @@ de:
     minutes: Minuten
   videos: Videos
   welcome: Willkommen
+  pagy:
+    showing_from_to_total: "Zeige %{item_name} %{from}-%{to}  von %{total} gesamt."

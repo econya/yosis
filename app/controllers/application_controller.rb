@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
   #before_action :authenticate_user!
   impersonates :user
 

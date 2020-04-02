@@ -7,7 +7,7 @@ class Admin::UsersController < ApplicationController
   before_action :authorize_admin!
 
   def index
-    @users = User.order(created_at: :asc).all
+    @pagy, @users = pagy_arel(User.order(created_at: :asc).all, items: 20)
   end
 
   def show
