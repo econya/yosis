@@ -171,6 +171,7 @@ arriving at http://127.0.0.1:1080 .
 #### Releasing
 
 * Modify version in `config/application.rb` .
+* Modify [CHANGELOG.md](CHANGELOG.md) ([https://github.com/olivierlacan/keep-a-changelog/](https://github.com/olivierlacan/keep-a-changelog/))
 * Tag the repositories state.
 * Push.
 
