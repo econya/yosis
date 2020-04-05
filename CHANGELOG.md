@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 #### Added
+- Add 'impersonate' action for admins from show-single-user page.
 #### Changed
 #### Fixed
 #### Removed

@@ -1,5 +1,11 @@
-%h1.title
-  = t('user.user-heading')
+.level
+  .level-left
+    %h1.title
+      = t('user.user-heading')
+  .level-right
+    .level-item
+      = link_to t('admin.user.impersonate'), impersonate_user_path(@user), method: :post, class: 'button'
+
 
 %p
   %b= t('admin.user.email')
