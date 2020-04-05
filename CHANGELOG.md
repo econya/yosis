@@ -2,7 +2,10 @@
 
 ## [Unreleased]
 ### Added
+- Protect from sign-up spam using the `invisible_captcha` gem.
+- Protect from automated sign-in attempts using the `Rack::Attack`.
 ### Changed
+- Require Ruby 2.6.6 .
 ### Fixed
 ### Removed
 
