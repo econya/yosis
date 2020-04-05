@@ -9,7 +9,7 @@
           = ""
         .title.is-4(style="padding: 1.5em;")
           = t('course.videos.see_more', number_more: course.lessons.active.count - 3)
-      - elsif access_level == :trial
+      - elsif user_signed_in? || access_level == :trial
         = link_to explanation_path, class: 'is-overlay has-text-centered is-vcentered'  do
           = ""
         .title.is-4(style="padding: 1.5em;")

@@ -41,7 +41,7 @@
             %video(controls="true" poster="#{url_for lesson.preview_image.variant(resize_to_fill: [354, 200])}" preload="metadata" id="vs-#{lesson.id}" width="354")
               %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
               = t('no-video-support')
-          - elsif access_level == :trial
+          - elsif user_signed_in? || access_level == :trial
             .image
               = image_tag lesson.preview_image.variant(resize_to_fill: [354,200]).processed
               = link_to explanation_path, class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
