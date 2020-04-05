@@ -33,6 +33,11 @@
           %td
             - if user_signed_in? && user_has_access?
               = link_to appointment.link, appointment.link
+            - elsif user_signed_in?
+              - if current_user.subscriptions.any?
+                = t('appointments.user.subscription-ended')
+              - else
+                = t('appointments.user.trial-ended')
             - else
               = link_to t('register_or_sign_in'), new_user_session_path, class: 'button is-primary is-outlined is-small'
             - if user_admin?
