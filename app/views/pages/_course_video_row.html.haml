@@ -6,7 +6,7 @@
         %h3.title.is-4.has-text-primary
           = course.name
     - if course.appointments.future.any?
-      .leve-right
+      .level-right
         .has-text-light
           = t('course.next_appointment')
           = l course.appointments.future.first.date_from

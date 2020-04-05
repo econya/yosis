@@ -13,7 +13,7 @@
               = t('sitesetting.edit')
       -# ++ TODO contact feedback link
       .has-text-centered.is-vcentered
-        .button
+        = link_to new_user_registration_path, class: 'button' do
           = t('home.register-for-trial-period')
   .column.is-2
   .column.is-5.has-text-centered
@@ -30,6 +30,6 @@
               = t('sitesetting.edit')
       -# ++ TODO contact feedback link
       .has-text-centered.is-vcentered
-        .button
+        = link_to new_user_session_path, class: 'button' do
           = t('home.sign-in-with-account')
 

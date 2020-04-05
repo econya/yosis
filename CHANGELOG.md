@@ -6,6 +6,7 @@
 - Add 'impersonate' action for admins from show-single-user page.
 #### Changed
 #### Fixed
+- Minor visual glitches
 #### Removed
 
 ## [0.2.4] - 2020-04-05
