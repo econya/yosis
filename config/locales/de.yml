@@ -190,6 +190,10 @@ de:
       edit-lesson: Video bearbeiten
     inactive: Nicht freigeschaltet
     next_appointment: 'Nächster Termin:'
+    total_videos: '%{number_videos} Videos insgesamt'
+    with_subscription_you_can_see_more: 'Mit einem Abo kannst du hier %{number_more} weitere Videos sehen'
+    videos:
+      see_more: 'Du hast ein Abo! %{number_more} weitere Videos sehen'
   course_row:
     course:
       add-video: Video hinzufügen
@@ -366,6 +370,17 @@ de:
   subscription:
     currently_active: Jetzt aktiv
     new: Neu
+  subscription_state:
+    feedback_contact: Feedback / Kontakt
+    more-info: Infos über ein Abo
+    subscription_ends_in: Es endet in %{how_long_until_end}.
+    trial_ends_in: Sie endet in %{how_long_until_end}.
+    want_to_leave_feedback?: Want to leave feedback?
+    whats_next?: Wie geht es weiter?
+    you-are-in-trial-period: Du bist in der Schnupperwoche
+    your-are-subscriped: Du hast ein Abonnement
+    your-subscription-ended: Deine Schnupperwoche ist abgelaufen
+    your-trial-ended: Dein Abonnement ist abgelaufen
   the_website: yogamitveronique.de
   till: bis
   time:
