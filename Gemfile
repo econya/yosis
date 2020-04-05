@@ -67,6 +67,7 @@ gem 'rack-attack'
 # Jobs
 gem 'delayed_job_active_record'
 gem 'daemons'
+gem 'delayed_cron_job'
 
 # Pagination
 gem 'pagy', '~> 3.5'
