@@ -1,7 +1,7 @@
 .card
   .card-image
     - if access
-      %video(controls="true" poster="#{url_for lesson.preview_image.variant(resize_to_fill: [320,180]).processed}" preload="auto" id="vs-#{lesson.id}" width="100%" preload="metadata")
+      %video(controls="true" poster="#{url_for lesson.preview_image.variant(resize_to_fill: [320,180]).processed}" id="vs-#{lesson.id}" width="100%" preload="metadata")
         %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
         = t('no-video-support')
       -#:javascript
