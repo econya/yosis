@@ -24,6 +24,8 @@
 
 - if !user_signed_in? || user_admin?
   = render partial: 'ctas'
+- else
+  = render partial: 'subscription_state'
   %br
   %br
 

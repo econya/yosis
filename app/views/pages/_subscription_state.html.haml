@@ -1,0 +1,50 @@
+- access_state = AccessState.new(current_user).state
+
+.box.flame-box
+  .level
+    .level-left
+      %span.icon.is-large.has-text-primary
+        %i.fas.fa-3x.fa-star
+    .level-item
+      .middle.has-text-centered
+        %h2.subtitle
+          - case access_state
+          - when :trial
+            = t('subscription_state.you-are-in-trial-period')
+          - when :trial_ended
+            = t('subscription_state.your-trial-ended')
+          - when :subscribed
+            = t('subscription_state.your-are-subscriped')
+          - when :subscription_ended
+            = t('subscription_state.your-subscription-ended')
+
+        -# Ending in ...
+        - case access_state
+        - when :trial
+          = t('subscription_state.trial_ends_in',
+            how_long_until_end: distance_of_time_in_words_to_now(current_user.confirmed_at + 7.days))
+          %br
+          = t('subscription_state.whats_next?')
+        - when :trial_ended
+          = ":("
+          %br
+          = t('subscription_state.whats_next?')
+        - when :subscribed
+          = t('subscription_state.subscription_ends_in',
+            how_long_until_end: distance_of_time_in_words_to_now(current_user.subscriptions.current.first.date_end))
+        - when :subscription_ended
+          = ":("
+          %br
+          = t('subscription_state.whats_next?')
+
+        %br
+        %b
+          = link_to t('subscription_state.more-info')
+        -#%br
+        -#%br
+        -#%b
+        -#  = link_to t('subscription_state.feedback_contact')
+
+    .level-right
+      %span.icon.is-large.has-text-light
+        %i.fas.fa-3x.fa-star

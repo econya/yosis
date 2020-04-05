@@ -4,6 +4,7 @@
 
 #### Added
 - Add 'impersonate' action for admins from show-single-user page.
+- Show logged in users their current trial/subscription state (#10)
 #### Changed
 #### Fixed
 - Minor visual glitches
