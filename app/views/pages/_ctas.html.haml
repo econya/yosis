@@ -1,0 +1,35 @@
+.columns
+  .column.is-5.has-text-centered
+    .box.has-background-grey-lighter
+      %h2.subtitle.is-4.has-text-primary
+        = t('home.trial-period')
+      .has-text-justified
+        != SiteSetting['trial_period_cta']
+        - if user_admin?
+          = link_to edit_admin_site_setting_path(SiteSetting.find_by(key: 'trial_period_cta')), class: 'button' do
+            %span.icon
+              %i.fas.fa-user-shield
+            %span
+              = t('sitesetting.edit')
+      -# ++ TODO contact feedback link
+      .has-text-centered.is-vcentered
+        .button
+          = t('home.register-for-trial-period')
+  .column.is-2
+  .column.is-5.has-text-centered
+    .box.has-background-grey-lighter
+      %h2.subtitle.is-4.has-text-primary
+        = t('home.already-registered?')
+      .has-text-justified
+        != SiteSetting['register_cta']
+        - if user_admin?
+          = link_to edit_admin_site_setting_path(SiteSetting.find_by(key: 'register_cta')), class: 'button' do
+            %span.icon
+              %i.fas.fa-user-shield
+            %span
+              = t('sitesetting.edit')
+      -# ++ TODO contact feedback link
+      .has-text-centered.is-vcentered
+        .button
+          = t('home.sign-in-with-account')
+
