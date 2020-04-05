@@ -79,7 +79,7 @@ User.create(email: 'adminsemail', password: 'adminspassword',
   role: 'admin')
 ```
 
-To send and do other "background-task", you need to start delayed_job.
+To send mails and do other "background-task", you need to start delayed_job.
 
 Do so with `rake jobs:work` .
 
@@ -87,6 +87,11 @@ Do so with `rake jobs:work` .
 [see some errors in developement](https://github.com/collectiveidea/delayed_job/issues/1099),
 due to usage of Guard (I believe). A half-baked workaround might be to
 create `log/delayed_job.log`.
+
+Recurring Jobs (like sending reminders about expiring trial periods and
+subscriptions) will be created if you run `rails db:migrate` or `rails
+db:schema:load` (given the `Procfile` here, if you have a deployment respecting
+it, you should be safe, due to the defined `release` processes).
 
 ### Configuration
 
