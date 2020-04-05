@@ -43,7 +43,7 @@
           - else
             .image
               = image_tag lesson.preview_image.variant(resize_to_fill: [354,200]).processed
-              = link_to new_user_registration_path, class: 'is-overlay has-text-centered is-vcentered columns' do
+              = link_to new_user_registration_path, class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
                 %span.icon.has-text-primary.is-large.has-text-centered.auto-margin
                   %i.far.fa-play-circle.fa-3x
         .media-content
