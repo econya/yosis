@@ -56,6 +56,9 @@ gem 'redcarpet'
 # mail "tracking"
 gem 'ahoy_email'
 
+# protection
+gem 'invisible_captcha'
+
 # Jobs
 gem 'delayed_job_active_record'
 gem 'daemons'

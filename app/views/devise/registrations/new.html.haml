@@ -15,5 +15,6 @@
     = f.label :password_confirmation
     = f.password_field :password_confirmation, autocomplete: "new-password"
   .actions
+    = invisible_captcha :usernote
     = f.submit t('register.action'), class: 'button is-primary'
 = render "devise/shared/links"
