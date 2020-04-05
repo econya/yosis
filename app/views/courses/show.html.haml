@@ -53,7 +53,7 @@
               = link_to new_user_registration_path, class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
                 %span.icon.has-text-primary.is-large.has-text-centered.auto-margin
                   %i.far.fa-play-circle.fa-3x
-        .media-content
+        .media-content.is-hidden-mobile
           .content
             .level
               .level-left
@@ -88,6 +88,15 @@
               = "%s:" % t('video.length')
               = (lesson.video.metadata[:duration] / 60).round
               = t('video.minutes')
+      .is-hidden-tablet
+        %h3.is-title.is-7.has-text-primary
+          = lesson.name
+        = l lesson.created_at, format: '%A, %d. %B %Y'
+        - if lesson.video.attached? && lesson.video.metadata[:duration]
+          %br/
+          = "%s:" % t('video.length')
+          = (lesson.video.metadata[:duration] / 60).round
+          = t('video.minutes')
 
 
 - if user_admin?
