@@ -58,6 +58,7 @@ gem 'ahoy_email'
 
 # protection
 gem 'invisible_captcha'
+gem 'rack-attack'
 
 # Jobs
 gem 'delayed_job_active_record'
