@@ -27,7 +27,12 @@
       \:
       = (lesson.video.metadata[:duration] / 60).round
       =t('video.minutes')
+
   - if user_admin?
     %footer.card-footer
-      = link_to 'edit', [:admin, lesson.course, lesson], class: 'card-footer-item'
+      = link_to [:admin, lesson.course, lesson], class: 'card-footer-item is-link' do
+        %span.icon.has-text-link
+          %i.fas.fa-user-shield
+        %span
+          = t('video.edit')
 
