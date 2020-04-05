@@ -31,15 +31,22 @@
     =t('courses.no_lessons_yet')
 - first = @course.lessons.active.rank(:row_order).first
 - last  = @course.lessons.active.rank(:row_order).last
-- @course.lessons.active.rank(:row_order).each do |lesson|
+- access_level = AccessState.new(current_user).level
+- @course.lessons.active.rank(:row_order).each_with_index do |lesson, idx|
   .box
     - if lesson.preview_image.attached? && lesson.video.attached?
       %article.media
         %figure.media-left
-          - if user_has_access?
-            %video(controls="true" poster="#{url_for lesson.preview_image.variant(resize_to_fill: [354, 200])}" preload="metadata" id="vs-#{lesson.id}" width="240")
+          - if access_level == :admin || access_level == :full || (access_level == :trial && idx < 3)
+            %video(controls="true" poster="#{url_for lesson.preview_image.variant(resize_to_fill: [354, 200])}" preload="metadata" id="vs-#{lesson.id}" width="354")
               %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
               = t('no-video-support')
+          - elsif access_level == :trial
+            .image
+              = image_tag lesson.preview_image.variant(resize_to_fill: [354,200]).processed
+              = link_to explanation_path, class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
+                %span.icon.has-text-primary.is-large.has-text-centered.auto-margin
+                  %i.far.fa-play-circle.fa-3x
           - else
             .image
               = image_tag lesson.preview_image.variant(resize_to_fill: [354,200]).processed
