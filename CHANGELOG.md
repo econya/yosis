@@ -21,9 +21,6 @@ Initial version regarding the Changelog.
 
 #### Added
 - Added CHANGELOG.md
-#### Changed
-#### Fixed
-#### Removed
 
 [unreleased]: https://github.com/econya/yosis/compare/0.2.4...HEAD
 [0.2.4]: https://github.com/econya/yosis/compare/0.2.3...0.2.4
