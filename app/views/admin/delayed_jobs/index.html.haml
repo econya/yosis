@@ -46,3 +46,4 @@
             -#  = job
           %td
             = link_to t('admin.delayed_jobs.destroy'), admin_delayed_job_url(job), method: :delete, data: { confirm: t('Are you sure?') }, class: 'button is-danger'
+            = link_to t('admin.delayed_jobs.trigger_now'), admin_delayed_job_execution_url(job), method: :post, class: 'button is-warning'

@@ -37,7 +37,9 @@ Rails.application.routes.draw do
       resource :position, only: [:create, :destroy], controller: 'course/position'
     end
 
-    resources :delayed_jobs, only: [:index, :show, :destroy]
+    resources :delayed_jobs, only: [:index, :show, :destroy] do
+      resource :execution, only: [:create], controller: 'delayed_jobs/execution'
+    end
 
     resources :emails, only: [:index, :show]
 
