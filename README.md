@@ -204,4 +204,5 @@ arriving at http://127.0.0.1:1080 .
 
 ## And even more todos
 
-* Services (job queues, cache servers, search engines, etc.)
+* Trigger recurring "cron" jobs
+

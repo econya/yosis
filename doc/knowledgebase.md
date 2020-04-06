@@ -18,6 +18,7 @@
   + [Storage backends for videos](#storage-backends-for-videos)
     * [Video Players](#videoplayers)
     * [ffmpeg](#ffmpeg)
+  + [Bulma](#bulma)
 - [ActiveRecord](#activerecord)
 - [Licensing](#licensing)
 - [Known optimizabilities](#know-optimizabilities)
@@ -177,6 +178,13 @@ more, like [plyr](https://github.com/sampotts/plyr.)
     model)
 * via ladspa: https://github.com/werman/noise-suppression-for-voice/issues/11
 
+### Bulma
+
+Nice and mostly responsive (be careful with `levels` and `media` elements).
+Custom color-types and shades could be implemented:
+https://github.com/jgthms/bulma/issues/2244 (undocumented)
+
+
 ## ActiveRecord
 
 Scoped not exists (e.g. User#in_trial :-> has no Subscription#current) might be
@@ -202,7 +210,7 @@ optimizations might become necessary.
 
 + ActiveRecord generally is not being used up to its shinyness (find_eachs, scope
 definitions, joins, includes, N+1 queries, ...).
-+ Caching can be improved
++ Caching can be implemented/improved
 + ActiveStorages local disk service and the service_urls, expiration stuff seems
   odd and would need investigation. It might just be an odd pick for this
 scenario (especially look at things like the Logo which is user provided and
