@@ -36,6 +36,6 @@
   - course.lessons.active.rank(:row_order).first(3).each_with_index do |lesson, idx|
     .column.is-3
       = render partial: 'shared/video_card', locals: { lesson: lesson, access_level: access_level }
-  - if course.lessons.active.rank(:row_order).count >= 3
+  - if course.lessons.active.rank(:row_order).count > 3
     .column.is-3
       = render partial: 'shared/video_more_than', locals: { course: course, access_level: access_level }
