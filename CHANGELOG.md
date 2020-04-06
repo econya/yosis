@@ -11,6 +11,7 @@ release. It is mainly targeted towards Users.
 - Send out reminders via mail regularly: two days before trial period ends, 5
   days before subscriptions end.
 - A contact/feedback form and mailer.
+- Background jobs can manually be triggered (interesting for cron jobs).
 #### Changed
 - Allow users in trial to watch the first (last) three videos of every course.
 - When more than 4 video cards were shown on home, display three and one to link
