@@ -14,6 +14,7 @@ cannot do that for free).
 ## Contents of README
 
 - [Synopsis](#synopsis)
+  + [Features](#features)
 - [Installation](#installation)
   * [Test/Example Data](#test-example-data)
   * [Deployment](#deployment)
@@ -39,6 +40,20 @@ cannot do that for free).
 
 Project had extremely tight deadlines and is totally adapted to a single use and
 business case as of now. And German interface (but i18n fully prepared).
+
+### Features
+
+* Site owner can upload videos assigned to courses and announce appointments.
+* Users can register and upon mail confirmation enter a 7-day trial period.
+  + within the trial period, users can see the 3 last videos in each course and
+    all appointment details.
+  + two days before end of trial period, users get informed via a mail that
+    trial period (and thus access to videos and appointments) will end soon.
++ Site owner can add subscriptions to users
+  + users with subscription can see all videos and all appointments
+  + five days before end of subscription, users get informed via a mail that
+    subscription (and thus access to videos and appointments) will end soon.
++ Users can contact site owner via a contact form.
 
 ## Installation
 
