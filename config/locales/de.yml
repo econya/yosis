@@ -346,6 +346,9 @@ de:
     logo:
       default: Default
       help: Lade Dein Logo hoch
+    payment_details:
+      default: '(bitte nachfragen)'
+      help: Werden bei "reminder" E-Mails (vor Ablauf der Schnupperwoche oder Abonnement) erwähnt.
     privacy_statement:
       default: Deine Datenschutzbestimmung (markdown)
       help: Datenschutzerklärung im Footer
