@@ -6,6 +6,13 @@ release. It is mainly targeted towards Users.
 ## [Unreleased]
 
 #### Added
+#### Changed
+#### Fixed
+#### Removed
+
+## [0.3.0] - 2020-04-06
+
+#### Added
 - Add 'impersonate' action for admins from show-single-user page.
 - Show logged in users their current trial/subscription state (#10).
 - Send out reminders via mail regularly: two days before trial period ends, 5
@@ -17,8 +24,7 @@ release. It is mainly targeted towards Users.
 - When more than 4 video cards were shown on home, display three and one to link
   to "more".
 #### Fixed
-- Minor visual glitches
-#### Removed
+- Minor visual glitches.
 
 ## [0.2.4] - 2020-04-05
 
@@ -35,6 +41,7 @@ Initial version regarding the Changelog.
 #### Added
 - Added CHANGELOG.md
 
-[unreleased]: https://github.com/econya/yosis/compare/0.2.4...HEAD
+[unreleased]: https://github.com/econya/yosis/compare/0.3.0...HEAD
+[0.3.0]: https://github.com/econya/yosis/compare/0.2.4...0.3.0
 [0.2.4]: https://github.com/econya/yosis/compare/0.2.3...0.2.4
 [0.2.3]: https://github.com/econya/yosis/releases/tag/0.2.3
