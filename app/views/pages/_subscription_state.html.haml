@@ -1,10 +1,8 @@
 - access_state = AccessState.new(current_user).state
 
-.box.flame-box
-  .level
+.box.flame-box.unpadded-tbr
+  .level.is-mobile
     .level-left
-      %span.icon.is-large.has-text-primary
-        %i.fas.fa-3x.fa-star
     .level-item
       .middle.has-text-centered
         %h2.subtitle
@@ -46,5 +44,5 @@
         -#  = link_to t('subscription_state.feedback_contact')
 
     .level-right
-      %span.icon.is-large.has-text-light
-        %i.fas.fa-3x.fa-star
+      %figure.image
+        = image_tag ('Logo_white_left_half.png')
