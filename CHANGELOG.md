@@ -8,6 +8,7 @@ release. It is mainly targeted towards Users.
 #### Added
 #### Changed
 #### Fixed
+- Do not show 'more' videos if there are only three.
 #### Removed
 
 ## [0.3.0] - 2020-04-06
