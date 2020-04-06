@@ -7,6 +7,9 @@ class Admin::DelayedJobsController < ApplicationController
   before_action :authorize_admin!
 
   def index
+    if !ScheduledJobCheck.all_scheduled?
+      flash.now[:error] = t('.problem_not_all_jobs_scheduled')
+    end
     @jobs = Delayed::Job.all
   end
 
