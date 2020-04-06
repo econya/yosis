@@ -13,9 +13,6 @@ en:
   Home: Home
   Key: Key
   Lesson: Lesson
-  Lesson was successfully created: Lesson was successfully created
-  Lesson was successfully destroyed: Lesson was successfully destroyed
-  Lesson was successfully updated: Lesson was successfully updated
   Link: Link
   Listing_appointments: Listing appointments
   Name: Name
@@ -23,10 +20,6 @@ en:
   Save: Save
   Settings: Settings
   Show: Show
-  Site setting was successfully updated: Site setting was successfully updated
-  Subscription was successfully created: Subscription was successfully created
-  Subscription was successfully destroyed: Subscription was successfully destroyed
-  Subscription was successfully updated: Subscription was successfully updated
   Value: Value
   about_us: About us
   activemodel:

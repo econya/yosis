@@ -13,9 +13,6 @@ de:
   Home: Start
   Key: Name
   Lesson: Lektion
-  Lesson was successfully created: Video-Lektion erstellt.
-  Lesson was successfully destroyed: Video-Lektion gelöscht.
-  Lesson was successfully updated: Video-Lektion aktualisiert.
   Link: Link
   Listing_appointments: Termin-Liste
   Name: Name
@@ -23,10 +20,6 @@ de:
   Save: Speichern
   Settings: Einstellungen
   Show: Anzeigen
-  Site setting was successfully updated: Einstellung aktualisiert
-  Subscription was successfully created: Abonnement erstellt.
-  Subscription was successfully destroyed: Abonnement gelöscht.
-  Subscription was successfully updated: Abonnement aktualiserit.
   Value: Wert
   about_us: Über uns
   activemodel:
@@ -61,8 +54,8 @@ de:
         one: Lektion
         other: Lektionen
       user:
-        one:   "Benutzer"
-        other: "Benutzer*"
+        one: Benutzer
+        other: Benutzer*
   admin:
     appointment:
       edit: Bearbeiten
@@ -70,9 +63,15 @@ de:
       title: Title
     course:
       lessons:
+        create:
+          lesson-successfully-created: Video-Lektion erstellt.
+        destroy:
+          lesson-destroyed: Video-Lektion gelöscht.
         edit:
           edit:
             title: Kurs bearbeiten
+        update:
+          lesson-updated: Video-Lektion aktualisiert.
       new: Neu
       new_lesson: Neues Video
     courses:
@@ -104,8 +103,16 @@ de:
         to: An
       showing_mail: Mail-Ansicht
       title: E-Mails
+    site_settings:
+      create:
+        sitesetting-successfully-created: Einstellung erstellt.
+      update:
+        site-setting-successfully-updated: Einstellung aktualisiert.
     subscriptions:
+      creation-successfull: Abonnement erstellt.
+      destroy-success: Abonnement gelöscht.
       total: Total
+      update-successful: Abonnement aktualisiert.
     user:
       are-you-sure-to-destroy: "%{email} wirklich löschen?"
       back_to_admin: Zurück als Admin
@@ -125,9 +132,9 @@ de:
     users:
       admin: Admin
       cannot-delete-admins: Admins können so nicht gelöscht werden!
-      cannot-delete-subscribed-users: "Nutzer* mit Subscription können nicht gelöscht werden."
+      cannot-delete-subscribed-users: Nutzer* mit Subscription können nicht gelöscht werden.
       currently_subscribed: Zurzeit subscribed
-      deletion-success: "Nutzer* %{email} gelöscht."
+      deletion-success: Nutzer* %{email} gelöscht.
       invite_new: Einladung verschicken
       its-you: Das bist Du!
       pending_invitation: Einladung steht noch aus
@@ -179,7 +186,7 @@ de:
     sent_thanks: Abgeschickt. Danke! Solltest Du eine Frage geschickt haben werden wir uns bald bei dir melden.
     title: Nachricht schicken
   contact_mailer:
-    contacted: Contacted
+    contacted: Kontakt via Webseite
     contacted_you: hat dich kontaktiert.
     message: Nachricht
     subject: Betreff
@@ -350,7 +357,7 @@ de:
       default: Default
       help: Lade Dein Logo hoch
     payment_details:
-      default: '(bitte nachfragen)'
+      default: "(bitte nachfragen)"
       help: Werden bei "reminder" E-Mails (vor Ablauf der Schnupperwoche oder Abonnement) erwähnt.
     privacy_statement:
       default: Deine Datenschutzbestimmung (markdown)
@@ -384,11 +391,11 @@ de:
       hi: Namaste!
       is_over_in_days: In %{number_days} Tagen ist es vorbei!
       learn_more: Erfahre hier mehr!
+      payment_details: 'Meine Bankdaten:'
       refresh_your_subscription: Um weiter mit uns Yoga zu praktizieren und Zugriff auf alle Videos zu behalten solltest du Dein Abonnement erneuern.
-      payment_details: "Meine Bankdaten:"
       see_you: Bis bald!
-      your_subscription_ends_soon: Dein Abonnement bei %{site} nähert sich dem Ende.
       subject: Dein Abonnement läuft bald ab!
+      your_subscription_ends_soon: Dein Abonnement bei %{site} nähert sich dem Ende.
     trial_ends_soon:
       costs: Das Abo kostet 25€/Monat und Erwachsener/m und erneuert sich nicht von alleine (du entscheidest jeden Monat neu).
       happy_about_feedback:
@@ -396,10 +403,10 @@ de:
       hi: Namaste!
       is_over_in_days: In %{number_days} Tagen ist es so weit.
       learn_more: Mehr Informationen zum Abonnement.
-      payment_details: "Meine Bankdaten:"
-      subscribe_to_continue: Um weiter mit uns Yoga zu praktizieren und Zugriff auf alle Videos zu bekommen, solltest du dich für ein Abonnement anmelden.
+      payment_details: 'Meine Bankdaten:'
       see_you: Bis bald!
       subject: Schnupperwoche endet bald!
+      subscribe_to_continue: Um weiter mit uns Yoga zu praktizieren und Zugriff auf alle Videos zu bekommen, solltest du dich für ein Abonnement anmelden.
       your_trial_ends_soon: Deine Schnupperwoche bei %{site} nähert sich dem Ende.
   subscription_state:
     feedback_contact: Feedback / Kontakt

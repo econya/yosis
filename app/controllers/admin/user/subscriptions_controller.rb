@@ -24,7 +24,7 @@ class Admin::User::SubscriptionsController < ApplicationController
 
     respond_to do |format|
       if @subscription.save
-        format.html { redirect_to [:admin, @subscription.user], notice: t('Subscription was successfully created.') }
+        format.html { redirect_to [:admin, @subscription.user], notice: t('.creation-successfull') }
       else
         format.html { render :new }
       end
@@ -35,7 +35,7 @@ class Admin::User::SubscriptionsController < ApplicationController
   def update
     respond_to do |format|
       if @subscription.update(subscription_params)
-        format.html { redirect_to [:admin, @subscription.user], notice: t('Subscription was successfully updated.') }
+        format.html { redirect_to [:admin, @subscription.user], notice: t('.update-successful') }
       else
         format.html { render :edit }
       end
@@ -46,7 +46,7 @@ class Admin::User::SubscriptionsController < ApplicationController
   def destroy
     @subscription.destroy
     respond_to do |format|
-      format.html { redirect_to [:admin, @subscription.user], notice: t('Subscription was successfully destroyed.') }
+      format.html { redirect_to [:admin, @subscription.user], notice: t('.destroy-success') }
     end
   end
 
