@@ -1,0 +1,27 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+%p
+  = t('.hi')
+%p
+  = t('.your_subscription_ends_soon', site: root_url)
+%p
+  -# TODO
+  = t('.is_over_in_days', number_days: 5)
+%p
+  = t('.refresh_your_subscription')
+%p
+  = link_to t('.learn_more'), explanation_url
+%p
+  = t('.costs')
+%p
+  = t('.payment_details')
+  %br
+  != SiteSetting['payment_details']
+%p
+  != t('.happy_about_feedback.html', link: 'mailto:info@yogamitveronique.de')
+%p
+  = t('.see_you')
+%p
+  = SiteSetting['your_name'] || 'Yosis'

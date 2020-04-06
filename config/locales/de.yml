@@ -9,7 +9,6 @@ de:
   'Date_to:': 'Bis:'
   Delete: Löschen
   Destroy: Löschen
-  emails: E-Mails
   Edit: bearbeiten
   Home: Start
   Key: Name
@@ -104,7 +103,7 @@ de:
         subject: Betreff
         to: An
       showing_mail: Mail-Ansicht
-      title: Title
+      title: E-Mails
     subscriptions:
       total: Total
     user:
@@ -170,7 +169,8 @@ de:
   appointments:
     none_in_future: Keine zukünftigen Termine
     user:
-      subscription-ended: Subscription-ended
+      subscription-ended: Abo abgelaufen
+      trial-ended: Schnupperwoche abgelaufen
     visible_after_login: Link erst nach dem Anmelden sichtbar!
   are_you_sure?: Bist du dir sicher?
   attendence: Attendence
@@ -190,10 +190,10 @@ de:
       edit-lesson: Video bearbeiten
     inactive: Nicht freigeschaltet
     next_appointment: 'Nächster Termin:'
-    total_videos: '%{number_videos} Videos insgesamt'
-    with_subscription_you_can_see_more: 'Mit einem Abo kannst du hier %{number_more} weitere Videos sehen'
+    total_videos: "%{number_videos} Videos insgesamt"
     videos:
-      see_more: 'Du hast ein Abo! %{number_more} weitere Videos sehen'
+      see_more: Du hast ein Abo! %{number_more} weitere Videos sehen
+    with_subscription_you_can_see_more: Mit einem Abo kannst du hier %{number_more} weitere Videos sehen
   course_row:
     course:
       add-video: Video hinzufügen
@@ -243,6 +243,7 @@ de:
         someone_invited_you: Jemand hat dich eingeladen
         subject: Einladung zur Yoga-Platform yogamitveronique
   edit: Bearbeiten
+  emails: E-Mails
   errors:
     messages:
       not_saved: Nicht gespeichert
@@ -309,6 +310,8 @@ de:
   not authorized: Nicht authorisiert
   number_appointments: Anzahl Termine
   number_lessons: Anzahl Lektionen
+  pagy:
+    showing_from_to_total: Zeige %{item_name} %{from}-%{to}  von %{total} gesamt.
   register:
     action: Für Schnupperwoche registrieren
     heading: Schnupperwoche anfangen
@@ -373,6 +376,31 @@ de:
   subscription:
     currently_active: Jetzt aktiv
     new: Neu
+  subscription_reminder_mailer:
+    subscription_ends_soon:
+      costs: Das Abo kostet 25€/Monat und Erwachsener/m und erneuert sich nicht von alleine (du entscheidest jeden Monat neu).
+      happy_about_feedback:
+        html: Wir freuen uns in jedem Fall über ein <a href="%{link}">Feedback</a> von dir! Du kannst auch einfach direkt auf diese E-Mail antworten.
+      hi: Namaste!
+      is_over_in_days: In %{number_days} Tagen ist es vorbei!
+      learn_more: Erfahre hier mehr!
+      refresh_your_subscription: Um weiter mit uns Yoga zu praktizieren und Zugriff auf alle Videos zu behalten solltest du Dein Abonnement erneuern.
+      payment_details: "Meine Bankdaten:"
+      see_you: Bis bald!
+      your_subscription_ends_soon: Dein Abonnement bei %{site} nähert sich dem Ende.
+      subject: Dein Abonnement läuft bald ab!
+    trial_ends_soon:
+      costs: Das Abo kostet 25€/Monat und Erwachsener/m und erneuert sich nicht von alleine (du entscheidest jeden Monat neu).
+      happy_about_feedback:
+        html: Wir freuen uns in jedem Fall über ein <a href="%{link}">Feedback</a> von dir! Du kannst auch einfach direkt auf diese E-Mail antworten.
+      hi: Namaste!
+      is_over_in_days: In %{number_days} Tagen ist es so weit.
+      learn_more: Mehr Informationen zum Abonnement.
+      payment_details: "Meine Bankdaten:"
+      subscribe_to_continue: Um weiter mit uns Yoga zu praktizieren und Zugriff auf alle Videos zu bekommen, solltest du dich für ein Abonnement anmelden.
+      see_you: Bis bald!
+      subject: Schnupperwoche endet bald!
+      your_trial_ends_soon: Deine Schnupperwoche bei %{site} nähert sich dem Ende.
   subscription_state:
     feedback_contact: Feedback / Kontakt
     more-info: Infos über ein Abo
@@ -382,8 +410,8 @@ de:
     whats_next?: Wie geht es weiter?
     you-are-in-trial-period: Du bist in der Schnupperwoche
     your-are-subscriped: Du hast ein Abonnement
-    your-subscription-ended: Deine Schnupperwoche ist abgelaufen
-    your-trial-ended: Dein Abonnement ist abgelaufen
+    your-subscription-ended: Dein Abonnement ist abgelaufen
+    your-trial-ended: Deine Schnupperwoche ist abgelaufen
   the_website: yogamitveronique.de
   till: bis
   time:
@@ -415,5 +443,3 @@ de:
     minutes: Minuten
   videos: Videos
   welcome: Willkommen
-  pagy:
-    showing_from_to_total: "Zeige %{item_name} %{from}-%{to}  von %{total} gesamt."

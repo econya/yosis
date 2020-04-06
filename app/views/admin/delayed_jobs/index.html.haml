@@ -17,6 +17,12 @@
         %tr
           %td
             = job.run_at
+            - if job.cron
+              %br
+              .tag
+                = t('.regularly')
+                &nbsp;
+                = job.cron
           %td
             - jobj = YAML::load(job.handler)
             %b
