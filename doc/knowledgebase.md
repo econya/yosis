@@ -1,5 +1,28 @@
 # Knowledge Base
 
+## Contents
+
+- [Tech Stack](#tech-stack)
+- [Architecture](#architectural-design-designions-and-stuff-to-know)
+  + [Dokku](#dokku)
+  + [JavaScript](#javascript)
+  + [Sitewide Settings](#sitesettings)
+  + [Spam and Security](#spam-and-security)
+    * [Tests and ActiveStorage](#tests-and-activestorage)
+  + [Background Jobs](#jobs)
+    * [Recurring Jobs](#recurring-jobs)
+- [Resources and lessons learned](#resources-and-lessons-learned)
+  + [ActiveStorage](#activestorage)
+  + [Big File upload](#big-file-upload)
+    * [nginx](#nginx)
+  + [Storage backends for videos](#storage-backends-for-videos)
+    * [Video Players](#videoplayers)
+    * [ffmpeg](#ffmpeg)
+- [ActiveRecord](#activerecord)
+- [Licensing](#licensing)
+- [Known optimizabilities](#know-optimizabilities)
+
+
 ## Architectural "design" decisions and stuff to know
 
 This project was hacked with a tight time budget and virtually no resources
@@ -28,7 +51,8 @@ HTML5 video tag seems to work for now, too (other options: see below)
 
 * Global Site Settings implemented by a crude [SiteSettings
   Model](app/model/site_settings). No seed or prepopulation, they are created on
-  the fly in the controller. Tradeoffs made
+  the fly in the controller. Tradeoffs made.
+* Other Side wide settings can be set via environment variables.
 
 ### Spam and Security
 
@@ -52,7 +76,7 @@ Also had to create the key and checksum, see:
 https://stackoverflow.com/questions/50453596/activestorage-fixtures-attachments
 .
 
-
+ 
 ### Jobs
 
 DelayedJob does not need a redis setup, which makes it a simpler for
