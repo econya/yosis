@@ -8,7 +8,7 @@ class ContactMailer < ApplicationMailer
   def feedback()
     @user    = params[:user]
     @contact = Contact.new(subject: params[:subject],
-                           message: [params[:messag]])
+                           message: params[:message])
 
     mail(subject: t('contact_mailer.contacted'), reply_to: @user.email)
   end
