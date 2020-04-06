@@ -7,7 +7,9 @@ class NotifyEndingTrialUsersJob < CronJob
 
   def perform(*args)
     User.trial_started_at(day: Date.current - 5.days).find_each do |user|
-      SubscriptionReminderMailer.trial_ends_soon(user).deliver_later
+      if !user.currently_subscribed?
+        SubscriptionReminderMailer.trial_ends_soon(user).deliver_later
+      end
     end
   end
 end
