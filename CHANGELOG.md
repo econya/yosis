@@ -10,6 +10,7 @@ release. It is mainly targeted towards Users.
 - Show logged in users their current trial/subscription state (#10).
 - Send out reminders via mail regularly: two days before trial period ends, 5
   days before subscriptions end.
+- A contact/feedback form and mailer.
 #### Changed
 - Allow users in trial to watch the first (last) three videos of every course.
 - When more than 4 video cards were shown on home, display three and one to link

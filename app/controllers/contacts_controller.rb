@@ -11,7 +11,9 @@ class ContactsController < ApplicationController
 
   def create
     contact = Contact.new(contact_params)
-    ContactMailer.with(user: current_user, subjec: contact.subject, message: contact.message).feedback().deliver_later
+    ContactMailer.with(user: current_user,
+                       subject: contact.subject,
+                       message: contact.message).feedback().deliver_later
     redirect_to root_path, notice: t('contact.sent_thanks')
   end
 
