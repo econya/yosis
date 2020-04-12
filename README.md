@@ -38,8 +38,11 @@ cannot do that for free).
 
 ## Synopsis
 
-Project had extremely tight deadlines and is totally adapted to a single use and
-business case as of now. And German interface (but i18n fully prepared).
+Project had extremely tight deadlines and is adapted to a single use and
+business case as of now. The interface is German (but i18n is fully prepared).
+
+If you want that we host a page for you, need help with a deployment or some
+other features, send us a message.
 
 ### Features
 
@@ -54,6 +57,10 @@ business case as of now. And German interface (but i18n fully prepared).
   + five days before end of subscription, users get informed via a mail that
     subscription (and thus access to videos and appointments) will end soon.
 + Users can contact site owner via a contact form.
++ Site owner can modify certain elements of the page (mini-CMS).
++ Hopefully responsive design everywhere.
++ Scores 99 for desktop and 90 for mobile on googles PageSpeedInsights on our
+  deployment!
 
 ## Installation
 
@@ -104,9 +111,14 @@ due to usage of Guard (I believe). A half-baked workaround might be to
 create `log/delayed_job.log`.
 
 Recurring Jobs (like sending reminders about expiring trial periods and
-subscriptions) will be created if you run `rails db:migrate` or `rails
-db:schema:load` (given the `Procfile` here, if you have a deployment respecting
-it, you should be safe, due to the defined `release` processes).
+subscriptions) will be created (if they do not yet exist) if you run
+`rails db:migrate`, `rails db:schema:load` or `rails db:schedule_jobs`
+(given the `Procfile` here, if you have a deployment respecting
+it, you should be safe, due to the defined `release` processe).
+
+To generate the sitemap, either run `rails sitemap:refresh:no_ping` or use a
+setup that respects the `Procfile` (the sitemap will be generated in every
+worker via `bin/run.sh`).
 
 ### Configuration
 
