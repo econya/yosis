@@ -71,6 +71,9 @@ gem 'delayed_cron_job'
 # Pagination
 gem 'pagy', '~> 3.5'
 
+# Sitemaps
+gem 'sitemap_generator'
+
 gem 'pg' # production db
 
 group :development, :test do
