@@ -1,5 +1,9 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://www.example.com"
+SitemapGenerator::Sitemap.default_host = ENV['MAILER_HOST'] || 'yosis'
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.

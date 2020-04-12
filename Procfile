@@ -1,4 +1,4 @@
-web: bundle exec puma -C config/puma.rb
+web: bin/run.sh
 worker: rake jobs:work
-release: bin/postdeploy.sh
+release: rails db:migrate
 
