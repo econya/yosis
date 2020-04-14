@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

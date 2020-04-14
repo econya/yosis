@@ -52,8 +52,14 @@ HTML5 video tag seems to work for now, too (other options: see below)
 
 * Global Site Settings implemented by a crude [SiteSettings
   Model](app/model/site_settings). No seed or prepopulation, they are created on
-  the fly in the controller. Tradeoffs made.
-* Other Side wide settings can be set via environment variables.
+  the fly in the controller. Tradeoffs made. Its model allows for a kind and
+  attachments. The kind can be markdown, so that a html-rendered version is
+  stored in the db rather than being rerendered on every page view.
+* Other site wide settings can be set via environment variables.
+
+#### Markdown
+
+Via redcarpet.
 
 ### Spam and Security
 
@@ -140,6 +146,43 @@ https://stackoverflow.com/questions/56649565/when-using-activestorage-in-rails-6
 
 Nginx client_max_body_size is your friend. Others might join,
 https://github.com/Chocobozzz/PeerTube/issues/1359, https://serverfault.com/questions/820597/nginx-does-not-serve-large-files
+
+#### Favicon
+
+Favicons are a tiny bit [more nasty](https://en.wikipedia.org/wiki/Favicon)
+than tought, but still manageable.
+
+Annoyingly and arrogantly Apple and the other walk their own paths.
+
+I settled on this combo:
+  * a `/favicon.ico` 48x48 `x-icon`
+  * a `/favicon-32x32.png` 32x32 png
+  * a `/apple-touch-icon.png` 180x180 png
+
+These need to be uploaded via SiteSetting. The `yosis:copy_favicon` rake task
+takes care of
+putting the relevant files in the `public/` folder. The references in the
+`<html><head>` is done **without checking for existence**, which might be a
+premature optimization, but so what. Just create favicons, and its fine.
+
+`rails yosis:copy_favicons` is automatically called in `bin/run.sh` (which is
+the task to run for `web` workers in herokuish dokku deploys).
+
+
+#### Sitemap
+
+A Sitemap-Controller would be easy to implement, but I chose the
+sitemap_generator gem. Challenge here is to have the sitemap generated and
+"stored" in a herokuish dokku deployment. For this, [`bin/run.sh`](bin/run.sh) is made the
+default `web:` task in the [Procfile](Procfile).
+
+
+#### Procfile, schema migrations and scheduling jobs
+
+The `release` target in a `Procfile` is shot in a one-off container, which is
+okay for db migrations and initial cron schedules, but not for e.g. Sitemap
+generation or asset compilation and stuff (which has to happen in the `web` or
+`worker` targets).
 
 ### Storage backends for videos
 

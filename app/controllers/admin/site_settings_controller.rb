@@ -25,13 +25,22 @@ class Admin::SiteSettingsController < ApplicationController
     SiteSetting.find_or_create_by(key: 'logo',
       value: t('site_settings.logo.default'), kind: 'image')
 
+    SiteSetting.find_or_create_by(key: 'favicon',
+      value: t('site_settings.favicon.default'), kind: 'image')
+
+    SiteSetting.find_or_create_by(key: 'favicon-png',
+      value: t('site_settings.favicon-png.default'), kind: 'image')
+
+    SiteSetting.find_or_create_by(key: 'favicon-apple-touch',
+      value: t('site_settings.favicon-apple-touch.default'), kind: 'image')
+
     SiteSetting.find_or_create_by(key: 'intro_background',
       value: t('site_settings.intro_background.default'), kind: 'image')
 
     SiteSetting.find_or_create_by(key: 'your_name',
       value: t('site_settings.your_name.default'), kind: 'string')
 
-    @general_settings    = SiteSetting.where(key: ['copyright_notice', 'title', 'logo', 'your_name', 'payment_details'])
+    @general_settings    = SiteSetting.where(key: ['copyright_notice', 'title', 'logo', 'favicon', 'favicon-png', 'favicon-apple-touch', 'your_name', 'payment_details'])
     @start_page_settings = SiteSetting.where(key: ['intro', 'intro_background', 'register_cta', 'trial_period_cta'])
     @pages_settings      = SiteSetting.where(key: ['about_us', 'impressum', 'privacy_statement', 'terms', 'explanation'])
   end

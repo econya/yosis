@@ -344,6 +344,15 @@ de:
       help: Sichtbar bei Mehr erfahren-Link
     general: Allgemein
     home-page: Home-page
+    favicon:
+      default: Favicon in .ico Format
+      help: Favicon in .ico Format (e.g. 48x48 px)
+    favicon-png:
+      default: Favicon in .png Format
+      help: Favicon in .png Format (32x32 px)
+    favicon-apple-touch:
+      default: Apple Touch image (png)
+      help: Favicon für apple-touch (180x180 px)
     impressum:
       default: Dein Impressum (markdown)
       help: Impressum im Footer
