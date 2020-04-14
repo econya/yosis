@@ -6,6 +6,8 @@ release. It is mainly targeted towards Users.
 ## [Unreleased]
 
 #### Added
+- Generate a sitemap on `web` Procfile run (#19).
+- favicon upload possibility (#3).
 #### Changed
 #### Fixed
 - Do not show 'more' videos if there are only three.

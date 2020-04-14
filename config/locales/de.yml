@@ -346,13 +346,13 @@ de:
     home-page: Home-page
     favicon:
       default: Favicon in .ico Format
-      help: Favicon in .ico Format (e.g. 48x48 px)
+      help: Favicon in .ico Format (e.g. 48x48 px), braucht Server-Neustart!
     favicon-png:
       default: Favicon in .png Format
-      help: Favicon in .png Format (32x32 px)
+      help: Favicon in .png Format (32x32 px), braucht Server-Neustart!
     favicon-apple-touch:
       default: Apple Touch image (png)
-      help: Favicon für apple-touch (180x180 px)
+      help: Favicon für apple-touch (180x180 px), braucht Server-Neustart!
     impressum:
       default: Dein Impressum (markdown)
       help: Impressum im Footer
