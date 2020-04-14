@@ -81,7 +81,7 @@ Import test/example data with `rails db:fixture:load`.
 
 ### Deployment
 
-Not covered here, but also nothing special.
+Not covering all detail here, but also nothing special.
 
 If you need support and have resources, feel free to get in
 contact with me. Otherwise follow e.g. herokus or phusion passengers
@@ -101,9 +101,8 @@ User.create(email: 'adminsemail', password: 'adminspassword',
   role: 'admin')
 ```
 
-To send mails and do other "background-task", you need to start delayed_job.
-
-Do so with `rake jobs:work` .
+To send mails and do other "background-task", you need to start delayed_job. Do
+so with `rake jobs:work` .
 
 **Note:** While running `bin/delayed_job run` (or `start`) might also work, you will likely
 [see some errors in developement](https://github.com/collectiveidea/delayed_job/issues/1099),
@@ -118,6 +117,10 @@ it, you should be safe, due to the defined `release` processe).
 
 To generate the sitemap, either run `rails sitemap:refresh:no_ping` or use a
 setup that respects the `Procfile` (the sitemap will be generated in every
+worker via `bin/run.sh`).
+
+To update/copy user-provided favicons either run `rails yosis:copy_favicons` or
+use a setup that respects the `Procfile` (the favicons will be copied in every
 worker via `bin/run.sh`).
 
 ### Configuration
@@ -213,8 +216,4 @@ arriving at http://127.0.0.1:1080 .
   [knowledgebase](doc/knowledgebase.md)
 * **Some other infos about the tech stack** are found in the
   [knowledgebase](doc/knowledgebase.md), too.
-
-## And even more todos
-
-* Trigger recurring "cron" jobs
 
