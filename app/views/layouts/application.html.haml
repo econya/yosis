@@ -6,6 +6,7 @@
     %meta{description: 'Online Yoga Kurse und Videos mit Véronique'}/
     %meta{keywords: 'yoga, online, kurse, videos'}/
     %meta{author: 'Véronique Wolfsteller'}/
+    %link{rel: "canonical", href: url_for(:only_path => false, :protocol => 'https')}
     %title
       = SiteSetting['title'] || 'Yosis'
     = csrf_meta_tags
