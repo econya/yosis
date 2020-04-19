@@ -6,12 +6,21 @@ release. It is mainly targeted towards Users.
 ## [Unreleased]
 
 #### Added
+#### Changed
+#### Fixed
+#### Removed
+
+## [0.3.1] - 2020-04-19
+
+#### Added
 - Generate a sitemap on `web` Procfile run (#19).
 - favicon upload possibility (#3).
+- Tags in HTML head (canonical URL, description, author).
 #### Changed
 #### Fixed
 - Do not show 'more' videos if there are only three.
 #### Removed
+
 
 ## [0.3.0] - 2020-04-06
 
@@ -44,7 +53,8 @@ Initial version regarding the Changelog.
 #### Added
 - Added CHANGELOG.md
 
-[unreleased]: https://github.com/econya/yosis/compare/0.3.0...HEAD
+[unreleased]: https://github.com/econya/yosis/compare/0.3.1...HEAD
+[0.3.1]: https://github.com/econya/yosis/compare/0.3.0...0.3.1
 [0.3.0]: https://github.com/econya/yosis/compare/0.2.4...0.3.0
 [0.2.4]: https://github.com/econya/yosis/compare/0.2.3...0.2.4
 [0.2.3]: https://github.com/econya/yosis/releases/tag/0.2.3
