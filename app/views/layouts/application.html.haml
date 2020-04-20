@@ -6,7 +6,19 @@
     %meta{description: 'Online Yoga Kurse und Videos mit Véronique'}/
     %meta{keywords: 'yoga, online, kurse, videos'}/
     %meta{author: 'Véronique Wolfsteller'}/
-    %link{rel: "canonical", href: url_for(:only_path => false, :protocol => 'https')}
+    %meta{property: "og:locale", content: "de_DE"}
+    %meta{property: "og:type",   content: "website"}
+    %meta{property: "og:title",  content: SiteSetting['title'] || 'Yosis'}
+    %meta{property: "og:description", content: "Online Yoga Kurse und Videos mit Véronique"}
+    %meta{property: "og:url",   content: url_for(only_path: false, protocol: 'https')}
+    %meta{property: "og:site_name", content: "yoga mit véronique"}
+    %script{type: 'application/ld+json'}
+      {
+      "@context":"https://schema.org",
+      "@graph": [{"@type":"Organization","@id":"https://online.yogamitveronique.de/","name":"yoga mit véronique","url":"https://online.yogamitveronique.de/#organization","sameAs":["https://yogamitveronique.de"]},{"@type":"WebSite","@id":"https://online.yogamitveronique.de/#website","url":"https://online.yogamitveronique.de/","name":"yoga mit véronique.de","publisher":{"@id":"https://online.yogamitveronique.de/#organization"}},{"@type":"WebPage","@id":"https://online.yogamitveronique.de/#webpage","url":"https://online.yogamitveronique.de/","inLanguage":"de-DE","name":"yoga mit véronique","isPartOf":{"@id":"https://online.yogamitveronique.de/#website"},"about":{"@id":"https://online.yogamitveronique.de/#organization"},"datePublished":"2020-04-02T16:00:00-02:00","dateModified":"2020-04-20T11:40:00-02:00","description":"Online Yoga Kurse und Videos mit Véronique"}]
+      }
+
+    %link{rel: "canonical", href: url_for(only_path: false, protocol: 'https')}
     %title
       = SiteSetting['title'] || 'Yosis'
     = csrf_meta_tags
