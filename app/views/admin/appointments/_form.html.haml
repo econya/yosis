@@ -8,10 +8,10 @@
 
   .field
     = f.label :date_from
-    = f.datetime_select :date_from
+    = f.datetime_select :date_from, { minute_step: 5 }
   .field
     = f.label :date_to
-    = f.datetime_select :date_to
+    = f.datetime_select :date_to, { minute_step: 5 }
   -#.field
   -#  = f.label :lessons
   -#  = f.text_field :lessons

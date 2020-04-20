@@ -7,6 +7,8 @@ release. It is mainly targeted towards Users.
 
 #### Added
 #### Changed
+- Let appointment form show the minutes in 5 minute steps in date fields
+  (instead of showing every minute)
 #### Fixed
 #### Removed
 
