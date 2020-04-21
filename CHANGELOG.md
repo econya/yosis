@@ -6,6 +6,8 @@ release. It is mainly targeted towards Users.
 ## [Unreleased]
 
 #### Added
+- For SEO/structured metadata: add very basic, not configurable LD/JSON and og
+- Courses now have a description.
 #### Changed
 - Let appointment form show the minutes in 5 minute steps in date fields
   (instead of showing every minute)
