@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_111909) do
+ActiveRecord::Schema.define(version: 2020_04_21_104706) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_111909) do
     t.string "slug"
     t.boolean "active"
     t.integer "row_order"
+    t.string "description"
     t.index ["slug"], name: "index_courses_on_slug", unique: true
   end
 

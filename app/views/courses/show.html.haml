@@ -3,6 +3,7 @@
   "@context": "https://schema.org",
   "@type": "Course",
   "name": "#{@course.name}",
+  "description": "#{@course.description}",
   "provider": {
   "@type": "Organization",
   "name": "yoga mit véronique",
@@ -27,6 +28,11 @@
             %i.fas.fa-user-shield
           %span
             = t('course.admin.edit')
+
+- if @course.description.present?
+  %blockquote
+    = @course.description
+  %br
 
 -if @course.appointments.future.empty?
 - else
