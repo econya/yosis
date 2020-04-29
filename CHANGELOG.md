@@ -11,6 +11,8 @@ release. It is mainly targeted towards Users.
 #### Changed
 - Let appointment form show the minutes in 5 minute steps in date fields
   (instead of showing every minute)
+- Let Rails add Cache-Control headers to assets in production when serving them
+- change about-us URL (from about_us)
 #### Fixed
 #### Removed
 
