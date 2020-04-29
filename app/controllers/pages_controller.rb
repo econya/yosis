@@ -12,10 +12,12 @@ class PagesController < ApplicationController
   end
 
   def terms
+    @html_title = t('navigation.pages.terms')
     render 'page', locals: {content: SiteSetting['terms'], site_setting: 'terms'}
   end
 
   def impressum
+    @html_title = t('navigation.pages.impressum')
     render 'page', locals: {content: SiteSetting['impressum'], site_setting: 'impressum'}
   end
 
@@ -24,6 +26,7 @@ class PagesController < ApplicationController
   end
 
   def about_us
+    @html_title = t('about_us')
     render 'page', locals: {content: SiteSetting['about_us'], site_setting: 'about_us'}
   end
 end
