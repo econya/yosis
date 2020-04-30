@@ -13,7 +13,8 @@
       -#= image_tag lesson.video.preview(resize_to_fit: [100, 100])
     - else
       %figure.image.has-text-centered.is-vcentered
-        = image_tag lesson.preview_image.variant(resize_to_fill: [320,240]).processed
+        = image_tag lesson.preview_image.variant(resize_to_fill: [320,240]).processed,
+          alt: t('video.image_alt', video: t('lesson.show.video'), video_title: lesson.name)
         - if user_signed_in?
           = link_to explanation_path, class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
             %span.icon.has-text-primary.is-large.has-text-centered.auto-margin

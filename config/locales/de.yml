@@ -457,5 +457,5 @@ de:
   video:
     length: Länge
     minutes: Minuten
-  videos: Videos
-  welcome: Willkommen
+    image_alt: "%{video}: %{video_title}"
+  view: View
