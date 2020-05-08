@@ -72,6 +72,7 @@ class Admin::Course::LessonsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def lesson_params
       params.require(:lesson).permit(:course_id,
-        :name, :date_start, :date_end, :video, :preview_image, :active)
+        :name, :date_start, :date_end, :video, :preview_image, :active,
+        :description)
     end
 end
