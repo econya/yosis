@@ -29,9 +29,15 @@
   %br
 
 %section#next_appointments
-  %h2.title.is-2
-    = t('home.next_appointments')
-  = render partial: 'appointments', locals: { appointments: Appointment.future }
+  - if Appointment.future.present?
+    %h2.title.is-2
+      = t('home.next_appointments')
+    = render partial: 'appointments', locals: { appointments: Appointment.future }
+  - else
+    %br
+    %br
+    .has-text-centered.is-size-4
+      = t('home.no_appointments')
 
 %br
 %br
