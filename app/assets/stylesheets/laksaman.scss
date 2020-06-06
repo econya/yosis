@@ -1,0 +1,48 @@
+@font-face{
+    font-family: 'Laksaman';
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    src: font-url('WOFF2/Laksaman.woff2') format('woff2'),
+         font-url('WOFF/Laksaman.woff') format('woff'),
+         font-url('OTF/Laksaman.otf') format('opentype'),
+         font-url('TTF/Laksaman.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face{
+    font-family: 'Laksaman';
+    font-weight: 300;
+    font-style: italic;
+    font-stretch: normal;
+    src: font-url('WOFF2/Laksaman-Italic.woff2') format('woff2'),
+         font-url('WOFF/Laksaman-Italic.woff') format('woff'),
+         font-url('OTF/Laksaman-Italic.otf') format('opentype'),
+         font-url('TTF/Laksaman-Italic.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face{
+    font-family: 'Laksaman';
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    src: font-url('WOFF2/Laksaman-Bold.woff2') format('woff2'),
+         font-url('WOFF/Laksaman-Bold.woff') format('woff'),
+         font-url('OTF/Laksaman-Bold.otf') format('opentype'),
+         font-url('TTF/Laksaman-Bold.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face{
+    font-family: 'Laksaman';
+    font-weight: 600;
+    font-style: italic;
+    font-stretch: normal;
+    src: font-url('WOFF2/Laksaman-BoldItalic.woff2') format('woff2'),
+         font-url('WOFF/Laksaman-BoldItalic.woff') format('woff'),
+         font-url('OTF/Laksaman-BoldItalic.otf') format('opentype'),
+         font-url('TTF/Laksaman-BoldItalic.ttf') format('truetype');
+    font-display: swap;
+}
+

@@ -14,12 +14,13 @@
  */
 
 @import "yosis/_base_colors";
-@import "source-sans-pro";
+@import "laksaman";
 @import "direct_upload";
 
-/* Customize Bulma */
-$family-primary:    "Source Sans Pro";
-$family-sans-serif: 'Source Sans Pro';
+
+/* Customize Bulma Variables */
+$family-primary:    "Laksaman";
+$family-sans-serif: 'Laksaman';
 
 $weight-light:    200;
 $weight-normal:   300;
