@@ -35,9 +35,10 @@
 
   - if user_admin?
     %footer.card-footer
-      = link_to [:admin, lesson.course, lesson], class: 'card-footer-item is-link' do
+      = link_to [:admin, lesson.style, lesson], class: 'card-footer-item is-link' do
         %span.icon.has-text-link
           %i.fas.fa-user-shield
         %span
           = t('video.edit')
+
 

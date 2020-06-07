@@ -7,13 +7,13 @@
 appointment_one:
   date_from: 2020-03-22 16:39:10
   date_to: 2020-03-22 16:39:10
-  course: base_yoga
+  style: base_yoga
   notice: MyString
   link: https://github.com
 
 appointment_two:
   date_from: 2021-03-22 16:39:10
   date_to: 2021-03-22 16:39:10
-  course: relaxed_yoga
+  style: relaxed_yoga
   notice: 
   link: https://github.com

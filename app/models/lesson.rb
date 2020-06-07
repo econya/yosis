@@ -6,10 +6,10 @@ class Lesson < ApplicationRecord
   extend FriendlyId
   include RankedModel
 
-  ranks :row_order, with_same: :course_id, scope: :inactive
-  ranks :row_order, with_same: :course_id, scope: :active
+  ranks :row_order, with_same: :style_id, scope: :inactive
+  ranks :row_order, with_same: :style_id, scope: :active
 
-  belongs_to :course
+  belongs_to :style
 
   has_one_attached :video
   has_one_attached :preview_image
