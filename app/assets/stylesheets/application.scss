@@ -26,16 +26,15 @@ $weight-light:    200;
 $weight-normal:   300;
 $weight-medium:   400;
 $weight-semibold: 500;
-$weight-bold:     500;
+$weight-bold:     600;
 
 $title-color:  $bluerple;
 $title-weight: $weight-normal;
 
+@import 'yosis/_navbar';
+
 $primary: $orange;
 $link:    $bluerple;
-
-$navbar-box-shadow-size: 0 8px 0 0;
-$navbar-height: 5.75rem;
 
 $content-heading-color: $bluerple;
 $content-heading-weight: $weight-normal;
@@ -43,23 +42,6 @@ $content-heading-weight: $weight-normal;
 /* Own customization */
 h1, h2, h3 {
   text-transform: uppercase;
-}
-
-/* Own classes */
-.intro-block {
-  border-top:    1px solid $bluerple;
-  border-bottom: 1px solid $bluerple;
-  //background-image: url(vero_yoga_2019_110_t.png);
-  background-size:     contain;
-  background-repeat:   no-repeat;
-  background-position: right;
-}
-
-.intro {
-  padding-top:    1.4em;
-  padding-bottom: 1.4em;
-  //background-image: url(vero_yoga_2019_031.jpg);
-  //margin-bottom: 1em;
 }
 
 .flame-box {
@@ -123,5 +105,8 @@ h1, h2, h3 {
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "bulma";
 
-@import "bulma"
+@import 'yosis/_hero_head';
+
+

@@ -1,0 +1,12 @@
+/** Navbar specific settings */
+
+/* Bulma overrides */
+$navbar-box-shadow-size: 0 8px 0 0;
+$navbar-height: 5.0rem;
+$navbar-item-img-max-height: 3rem;
+
+/* Custom */
+#yosisNavbar .navbar-item {
+  text-transform: uppercase;
+}
+
