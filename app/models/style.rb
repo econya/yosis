@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class Course < ApplicationRecord
+class Style < ApplicationRecord
   extend FriendlyId
   include RankedModel
   ranks :row_order

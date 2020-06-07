@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_155807) do
+ActiveRecord::Schema.define(version: 2020_06_07_112645) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -47,24 +47,13 @@ ActiveRecord::Schema.define(version: 2020_05_08_155807) do
   create_table "appointments", force: :cascade do |t|
     t.datetime "date_from"
     t.datetime "date_to"
-    t.integer "course_id", null: false
+    t.integer "style_id", null: false
     t.string "notice"
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "info"
-    t.index ["course_id"], name: "index_appointments_on_course_id"
-  end
-
-  create_table "courses", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
-    t.boolean "active"
-    t.integer "row_order"
-    t.string "description"
-    t.index ["slug"], name: "index_courses_on_slug", unique: true
+    t.index ["style_id"], name: "index_appointments_on_style_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -93,7 +82,7 @@ ActiveRecord::Schema.define(version: 2020_05_08_155807) do
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.integer "course_id", null: false
+    t.integer "style_id", null: false
     t.string "name"
     t.datetime "date_start"
     t.datetime "date_end"
@@ -103,8 +92,8 @@ ActiveRecord::Schema.define(version: 2020_05_08_155807) do
     t.boolean "active"
     t.integer "row_order"
     t.text "description"
-    t.index ["course_id"], name: "index_lessons_on_course_id"
     t.index ["slug"], name: "index_lessons_on_slug", unique: true
+    t.index ["style_id"], name: "index_lessons_on_style_id"
   end
 
   create_table "site_settings", force: :cascade do |t|
@@ -114,6 +103,17 @@ ActiveRecord::Schema.define(version: 2020_05_08_155807) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "value_rendered"
     t.string "kind"
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.boolean "active"
+    t.integer "row_order"
+    t.string "description"
+    t.index ["slug"], name: "index_styles_on_slug", unique: true
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(version: 2020_05_08_155807) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "appointments", "courses"
-  add_foreign_key "lessons", "courses"
+  add_foreign_key "appointments", "styles"
+  add_foreign_key "lessons", "styles"
   add_foreign_key "subscriptions", "users"
 end

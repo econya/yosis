@@ -5,28 +5,28 @@
         %i.far.fa-play-circle.fa-3x
 
       - if access_level == :admin || access_level == :full
-        = link_to course_path(course), class: 'is-overlay has-text-centered is-vcentered'  do
+        = link_to style_path(style), class: 'is-overlay has-text-centered is-vcentered'  do
           = ""
         .title.is-4(style="padding: 1.5em;")
-          = t('course.videos.see_more', number_more: course.lessons.active.count - 3)
+          = t('course.videos.see_more', number_more: style.lessons.active.count - 3)
       - elsif user_signed_in? || access_level == :trial
         = link_to explanation_path, class: 'is-overlay has-text-centered is-vcentered'  do
           = ""
         .title.is-4(style="padding: 1.5em;")
-          = t('course.with_subscription_you_can_see_more', number_more: course.lessons.active.count - 3)
+          = t('course.with_subscription_you_can_see_more', number_more: style.lessons.active.count - 3)
       - else
         = link_to new_user_registration_path, class: 'is-overlay has-text-centered is-vcentered'  do
           = ""
         .title.is-4(style="padding: 1.5em;")
-          = t('course.with_subscription_you_can_see_more', number_more: course.lessons.active.count - 3)
+          = t('course.with_subscription_you_can_see_more', number_more: style.lessons.active.count - 3)
   %header.card-header
     %p.card-header-title.is-centered.has-background-white-ter
-      = course.name
+      = style.name
   .card-content
-    = t('course.total_videos', number_videos: course.lessons.active.count)
+    = t('course.total_videos', number_videos: style.lessons.active.count)
   - if user_admin?
     %footer.card-footer
-      = link_to [:admin, course], class: 'card-footer-item is-link' do
+      = link_to [:admin, style], class: 'card-footer-item is-link' do
         %span.icon.has-text-link
           %i.fas.fa-user-shield
         %span

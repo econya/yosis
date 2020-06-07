@@ -47,11 +47,11 @@
     = t('home.courses.courses-title')
 %hr
 .columns.is-multiline.is-vcentered
-  - @courses.each do |course|
+  - @styles.each do |style|
     .column.is-2
-      = link_to "#course#{course.id}", class: 'button is-primary is-normal' do
-        %b= course.name
-  - if @courses.empty?
+      = link_to "#course#{style.id}", class: 'button is-primary is-normal' do
+        %b= style.name
+  - if @styles.empty?
     .column.is-2
       = t('home.courses.none_yet')
   - if user_admin?
@@ -64,12 +64,13 @@
 
 %br
 %br
+%a.anchor-offset(name='videos')
 %section.videos
   %h2.title.is-2
     = t('home.videos')
 %hr.has-text-primary.hr.is-divider
-- @courses.each do |course|
-  = render partial: 'course_video_row', locals: { course: course }
-- if @courses.empty?
+- @styles.each do |style|
+  = render partial: 'course_video_row', locals: { style: style }
+- if @styles.empty?
   = t('home.courses.none_yet')
 

@@ -25,12 +25,12 @@ Rails.application.routes.draw do
 
   resource :contacts, only: [:new, :create]
 
-  resources :courses, only: [:index, :show]
+  resources :styles, only: [:index, :show]
 
   namespace :admin do
     resources :appointments
 
-    resources :courses, only: [:index, :edit, :update, :destroy, :new, :create] do
+    resources :styles, only: [:index, :edit, :update, :destroy, :new, :create] do
       resources :lessons, controller: 'course/lessons' do
         resource :position, only: [:create, :destroy], controller: 'course/lesson/position'
       end

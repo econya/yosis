@@ -4,7 +4,7 @@
 
 class PagesController < ApplicationController
   def home
-    @courses = Course.active.rank(:row_order)
+    @styles = Style.active.rank(:row_order)
   end
 
   def privacy
