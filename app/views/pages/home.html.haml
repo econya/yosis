@@ -1,23 +1,9 @@
-- bg_image = SiteSetting.find_by(key: 'intro_background')&.image
-- if bg_image&.attached?
-  - bg_image_url = url_for SiteSetting.find_by(key: 'intro_background')&.image&.variant(resize_to_limit: [1024,720])
-- else
-  - bg_image_url = ''
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
 
-.columns.intro-block(style="background-image: url(#{bg_image_url})")
-  .column.is-half
-    .intro
-      %h1.title.is-1.has-text-centered
-        = t('home.welcome')
-      .content.is-large
-        != SiteSetting['intro']
-        - if user_admin?
-          = link_to edit_admin_site_setting_path(SiteSetting.find_by(key: 'intro')), class: 'button' do
-            %span.icon
-              %i.fas.fa-user-shield
-            %span
-              = t('sitesetting.edit')
-      = link_to t('home.intro.learn_more'), explanation_path
+- content_for(:hero_head) do
+  = render 'pages/home/hero_head'
 
 %br
 
