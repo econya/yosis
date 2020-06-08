@@ -1,0 +1,25 @@
+= form_for [:admin, @place], builder: BulmaFormBuilder::FormBuilder do |f|
+  - if @place.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@place.errors.count, "error")} prohibited this place from being saved:"
+      %ul
+        - @place.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :building_name
+    = f.text_field :building_name
+  .field
+    = f.label :note
+    = f.text_field :note
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :active
+    = f.check_box :active
+  .actions
+    = f.submit 'Save', class: 'button is-link is-outlined'

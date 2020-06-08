@@ -1,0 +1,8 @@
+%h1.title
+  = t("admin.places.edit")
+
+= render 'form'
+
+= link_to 'Show', [:admin, @place]
+\|
+= link_to 'Back', admin_places_path

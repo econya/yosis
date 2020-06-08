@@ -43,6 +43,8 @@ Rails.application.routes.draw do
 
     resources :emails, only: [:index, :show]
 
+    resources :places
+
     resources :site_settings, only: [:index, :show, :edit, :update]
 
     resources :users, only: [:index, :show, :destroy] do

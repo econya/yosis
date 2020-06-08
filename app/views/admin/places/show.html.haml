@@ -1,0 +1,22 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+%h1.title
+  = t('admin.place.title')
+
+%p
+  %b
+    = t('place.name')
+    \:
+  = @place.name
+%p
+  %b=t('building_name')
+  = @place.building_name
+%p
+  %b Note
+  = @place.note
+
+= link_to t('Edit'), edit_admin_place_path(@place)
+\|
+= link_to t('Back'), admin_places_path

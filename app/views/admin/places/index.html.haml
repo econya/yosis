@@ -1,0 +1,11 @@
+%h1.title
+  = t('Listing_places')
+
+- if @places.present?
+  = render partial: 'table', locals: {places: @places}
+- else
+  = t('none')
+%br
+%br
+
+= link_to 'New Place', new_admin_place_path, class: 'button is-primary is-outlined'
