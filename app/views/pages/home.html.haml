@@ -28,6 +28,46 @@
   %br
   %br
 
+%section#news
+  %h2.title.is-3
+    = t('home.news')
+  = t(' news text')
+  .has-text-centered.is-size-4
+    = t('home.no_appointments')
+
+%br
+%br
+
+%section#courses.has-background-grey-lighter
+  .container
+    .doodle.has-text-centered
+      TODO doodle
+      %h2.title.is-3
+        = t('home.courses.courses-title')
+      .subtitle
+        = t('home.courses.subtitle')
+
+    #course_by_place.has-text-centered
+      %h3.title.is-4
+        = t('home.courses.choose_by_place')
+      .columns.is-multiline.is-vcentered.is-centered
+        - @places.each do |place|
+          .column.is-2
+            .box
+              = place.name
+    #course_by_style.has-text-centered
+      %h3.title.is-4
+        = t('home.courses.or_choose_by_style')
+      .columns.is-multiline.is-vcentered.is-centered
+        - @styles.each do |style|
+          .column.is-2
+            .box
+              = style.name
+    #all_courses.has-text-centered
+      %h2.title.is-4
+        = t('home.courses.all-courses-title')
+      .subtitle.is-4
+        = t('home.courses.all-courses-subtitle')
 %section#next_appointments
   - if Appointment.future.present?
     %h2.title.is-2
