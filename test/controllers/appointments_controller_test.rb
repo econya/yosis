@@ -33,7 +33,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
   test "should create appointment and redirect to index" do
     sign_in users(:admin)
     assert_difference('Appointment.count') do
-      post admin_appointments_url, params: { appointment: { date_from: @appointment.date_from, date_to: @appointment.date_to, course_id: @appointment.course_id, link: @appointment.link, notice: @appointment.notice } }
+      post admin_appointments_url, params: { appointment: { date_from: @appointment.date_from, date_to: @appointment.date_to, style_id: @appointment.style_id, link: @appointment.link, notice: @appointment.notice } }
     end
 
     assert_redirected_to admin_appointments_url
@@ -53,7 +53,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update appointment" do
     sign_in users(:admin)
-    patch admin_appointment_url(@appointment), params: { appointment: { date_from: @appointment.date_from, date_to: @appointment.date_to, course_id: @appointment.course_id, link: @appointment.link, notice: @appointment.notice } }
+    patch admin_appointment_url(@appointment), params: { appointment: { date_from: @appointment.date_from, date_to: @appointment.date_to, style_id: @appointment.style_id, link: @appointment.link, notice: @appointment.notice } }
     assert_redirected_to admin_appointment_url(@appointment)
   end
 

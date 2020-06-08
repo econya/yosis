@@ -4,18 +4,18 @@
 
 require 'test_helper'
 
-class CoursesControllerTest < ActionDispatch::IntegrationTest
+class StylesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @course = courses(:studio_north_tuesday)
+    @style = styles(:base_yoga)
   end
 
   test "should get index" do
-    get courses_url
+    get styles_url
     assert_response :success
   end
 
-  test "should show course" do
-    get course_url(@course)
+  test "should show style" do
+    get style_url(@style)
     assert_response :success
   end
 end

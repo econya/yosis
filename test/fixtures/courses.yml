@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+studio_north_tuesday:
+  name: Studio North Tuesday
+  place: north
+  style: base_yoga
+  description: MyString
+  start_time: 2020-06-08 06:15:26
+  end_time: 2020-06-08 06:15:26
+  note: MyString
+
+two:
+  name: MyString
+  place: two
+  style: two
+  description: MyString
+  start_time: 2020-06-08 06:15:26
+  end_time: 2020-06-08 06:15:26
+  note: MyString
