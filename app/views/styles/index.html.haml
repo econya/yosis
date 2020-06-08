@@ -1,0 +1,17 @@
+%h1.title
+  = t('Listing styles')
+
+.columns.is-multiline
+  - @styles.each do |style|
+    .column.is-3
+      .card
+        .card-image
+
+        .card-header
+          %p.card-header-title.is-centered
+            = style.name
+        .card-content
+          = style.name
+          Text
+        %td= link_to t('Show'), style
+
