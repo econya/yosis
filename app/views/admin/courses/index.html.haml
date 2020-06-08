@@ -1,0 +1,60 @@
+%h1.title
+  =t('Listing courses')
+
+%table.table.is-striped.is-fullwidth.is-hoverable
+  %thead
+    %tr
+      %th= t('admin.courses.order')
+      %th
+      %th= t('admin.courses.name')
+      %th= t('admin.courses.place')
+      %th= t('admin.courses.style')
+      %th= t('admin.courses.times')
+      %th= t('admin.courses.description')
+      %th= t('admin.courses.note')
+      %th
+
+  %tbody
+    - first = @courses.first
+    - last  = @courses.last
+    - @courses.each do |course|
+      %tr
+        %td
+          = course.row_order_rank
+          - if course != first
+            = link_to admin_course_position_path(course), method: :post do
+              %span.icon.has-text-primary
+                %i.fas.fa-arrow-up.is-small
+          - else
+            %span.icon.has-text-primary
+              %i.fas.fa-empty.is-small
+          - if course != last
+            = link_to admin_course_position_path(course), method: :delete do
+              %span.icon.has-text-primary
+                %i.fas.fa-arrow-down
+          - else
+            %span.icon.has-text-primary
+              %i.fas.fa-empty.is-small
+        %td
+          - if !course.active?
+            %span.tag.is-danger
+              = t('course.inactive')
+        %td
+          = course.name
+        %td= course.place&.name
+        %td= course.style&.name
+        %td
+          course time
+        %td
+          course description
+        %td
+          course note
+        %td
+          .buttons
+            = link_to t('Show'), [:admin, course], class: 'button is-small'
+            = link_to t('Edit'), edit_admin_course_path(course), class: 'button is-small'
+            = link_to t('Destroy'), [:admin, course], method: :delete, data: { confirm: t('Are you sure?') }, class: 'button is-small is-danger'
+
+%br
+
+= link_to t('admin.course.new'), new_admin_course_path, class: 'button is-link is-outlined'

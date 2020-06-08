@@ -1,0 +1,28 @@
+= form_for [:admin, @course], builder: BulmaFormBuilder::FormBuilder do |f|
+  - if @course.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
+      %ul
+        - @course.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :place
+    = f.collection_select :place_id, @places, :id, :name, prompt: t('Select Place')
+  .field
+    = f.label :style
+    = f.collection_select :style_id, @styles, :id, :name, prompt: t('Select Style')
+  -#.field
+  -#  = f.label :start_date
+  -#  = f.date_field :start_date
+  .field
+    = f.label :active
+    = f.check_box :active
+  .actions
+    = f.submit 'Save', class: 'button'

@@ -1,0 +1,8 @@
+%h1.title
+  = t('admin.courses.edit')
+
+= render 'form'
+
+= link_to t('Show'), [:admin, @course]
+\|
+= link_to ('Back'), admin_courses_path

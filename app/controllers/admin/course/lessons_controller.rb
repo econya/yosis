@@ -7,7 +7,7 @@ class Admin::Course::LessonsController < ApplicationController
   before_action :authorize_admin!
 
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
-  before_action :set_course, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_style, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /lessons
   def index
@@ -20,7 +20,7 @@ class Admin::Course::LessonsController < ApplicationController
 
   # GET /lessons/new
   def new
-    @lesson = @course.lessons.new
+    @lesson = @style.lessons.new
   end
 
   # GET /lessons/1/edit
@@ -44,7 +44,7 @@ class Admin::Course::LessonsController < ApplicationController
   def update
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to [@lesson.course], notice: t('.lesson-updated') }
+        format.html { redirect_to [@lesson.style], notice: t('.lesson-updated') }
       else
         format.html { render :edit }
       end
@@ -55,7 +55,7 @@ class Admin::Course::LessonsController < ApplicationController
   def destroy
     @lesson.destroy
     respond_to do |format|
-      format.html { redirect_to @lesson.course, notice: t('.lesson-destroyed') }
+      format.html { redirect_to @lesson.style, notice: t('.lesson-destroyed') }
     end
   end
 
@@ -65,13 +65,13 @@ class Admin::Course::LessonsController < ApplicationController
       @lesson = Lesson.friendly.find(params[:id])
     end
 
-    def set_course
-      @course = Course.friendly.find(params[:course_id])
+    def set_style
+      @style = Course.friendly.find(params[:style_id])
     end
 
     # Only allow a list of trusted parameters through.
     def lesson_params
-      params.require(:lesson).permit(:course_id,
+      params.require(:lesson).permit(:style_id,
         :name, :date_start, :date_end, :video, :preview_image, :active,
         :description)
     end

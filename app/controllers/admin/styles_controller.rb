@@ -2,68 +2,68 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class Admin::CoursesController < ApplicationController
+class Admin::StylesController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_admin!
 
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_style, only: [:show, :edit, :update, :destroy]
 
-  # GET /courses
+  # GET /styles
   def index
-    @courses = Course.all.rank(:row_order)
+    @styles = Style.all.rank(:row_order)
   end
 
-  # GET /courses/new
+  # GET /style/new
   def new
-    @course = Course.new
+    @style = Course.new
   end
 
-  # GET /courses/1/edit
+  # GET /styles/1/edit
   def edit
   end
 
-  # POST /courses
+  # POST /styles
   def create
-    @course = Course.new(course_params)
+    @style = Course.new(style_params)
 
     respond_to do |format|
-      if @course.save
-        format.html { redirect_to @course, notice: t('admin.courses.creation-succes') }
+      if @style.save
+        format.html { redirect_to @style, notice: t('admin.styles.creation-succes') }
       else
         format.html { render :new }
       end
     end
   end
 
-  # PATCH/PUT /courses/1
+  # PATCH/PUT /styles/1
   def update
     respond_to do |format|
-      if @course.update(course_params)
-        format.html { redirect_to @course, notice: t('admin.courses.update-succes') }
+      if @style.update(style_params)
+        format.html { redirect_to @style, notice: t('admin.styles.update-succes') }
       else
         format.html { render :edit }
       end
     end
   end
 
-  # DELETE /courses/1
+  # DELETE /styles/1
   def destroy
     begin
-      @course.destroy
-      redirect_to courses_url, notice: t('admin.courses.deletion-success')
+      @style.destroy
+      redirect_to styles_url, notice: t('admin.styles.deletion-success')
     rescue ActiveRecord::InvalidForeignKey
-      redirect_to courses_url, alert: t('admin.courses.cannot-delete-with-videos')
+      redirect_to styles_url, alert: t('admin.styles.cannot-delete-with-videos')
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.friendly.find(params[:id])
+    def set_style
+      @style = Course.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
-    def course_params
-      params.require(:course).permit(:name, :description, :active)
+    def style_params
+      params.require(:style).permit(:name, :description, :active)
     end
 end
