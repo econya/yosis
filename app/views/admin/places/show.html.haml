@@ -17,6 +17,8 @@
   %b Note
   = @place.note
 
+= link_to t('Add course'), new_admin_course_path(params: {course: { place_id: @place.id}})
+
 = link_to t('Edit'), edit_admin_place_path(@place)
 \|
 = link_to t('Back'), admin_places_path

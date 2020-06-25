@@ -4,6 +4,7 @@
       %th= t('Name')
       %th= t('Building Name')
       %th= t('Note')
+      %th= t('PricingNote')
       %th= t('Address')
       %th
       %th
@@ -15,6 +16,7 @@
         %td= place.name
         %td= place.building_name
         %td= place.note
+        %td= place.pricing_note
         %td= place.address
         %td= link_to t('Show'), [:admin, place]
         %td= link_to t('Edit'), edit_admin_place_path(place)
