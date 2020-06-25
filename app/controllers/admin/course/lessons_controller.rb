@@ -29,11 +29,11 @@ class Admin::Course::LessonsController < ApplicationController
 
   # POST /lessons
   def create
-    @lesson = @course.lessons.new(lesson_params)
+    @lesson = @style.lessons.new(lesson_params)
 
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to @course, notice: t('.lesson-successfully-created') }
+        format.html { redirect_to @style, notice: t('.lesson-successfully-created') }
       else
         format.html { render :new }
       end

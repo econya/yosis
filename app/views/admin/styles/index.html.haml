@@ -1,5 +1,5 @@
 %h1.title
-  =t('Listing courses')
+  =t('Listing styles')
 
 %table.table.is-striped.is-fullwidth.is-hoverable
   %thead
@@ -36,7 +36,7 @@
         %td
           - if !style.active?
             %span.tag.is-danger
-              = t('course.inactive')
+              = t('style.inactive')
         %td
           = style.name
         %td= style.lessons.length

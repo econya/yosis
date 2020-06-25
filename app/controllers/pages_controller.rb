@@ -5,6 +5,7 @@
 class PagesController < ApplicationController
   def home
     @styles = Style.active.rank(:row_order)
+    @places = Place.active.all
   end
 
   def privacy

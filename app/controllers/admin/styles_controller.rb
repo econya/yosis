@@ -15,7 +15,7 @@ class Admin::StylesController < ApplicationController
 
   # GET /style/new
   def new
-    @style = Course.new
+    @style = Style.new
   end
 
   # GET /styles/1/edit
@@ -24,7 +24,7 @@ class Admin::StylesController < ApplicationController
 
   # POST /styles
   def create
-    @style = Course.new(style_params)
+    @style = Style.new(style_params)
 
     respond_to do |format|
       if @style.save
@@ -59,7 +59,7 @@ class Admin::StylesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_style
-      @style = Course.friendly.find(params[:id])
+      @style = Style.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
