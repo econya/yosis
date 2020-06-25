@@ -24,7 +24,7 @@
 %br
 %br
 
-%section#courses.has-background-grey-lighter
+%section.py-5#courses.has-background-verycleargrey.pb-6
   .container
     .doodle.has-text-centered
       TODO doodle
@@ -33,37 +33,24 @@
       .subtitle
         = t('home.courses.subtitle')
 
-    #course_by_place.has-text-centered
+    #course_by_style.has-text-centered.pt-6.mt-6
       %h3.title.is-4
-        = t('home.courses.choose_by_place')
-      .columns.is-multiline.is-vcentered.is-centered
-        - @places.each do |place|
-          .column.is-2
-            .box
-              = place.name
-    #course_by_style.has-text-centered
-      %h3.title.is-4
-        = t('home.courses.or_choose_by_style')
+        = t('home.courses.styles')
       .columns.is-multiline.is-vcentered.is-centered
         - @styles.each do |style|
           .column.is-2
             .box
+              = image_tag 'blog.png', class: 'round'
               = style.name
-    #all_courses.has-text-centered
-      %h2.title.is-4
+              %br
+              %small
+                = style.description
+
+    #all_courses.has-text-centered.mt-6.pt-6
+      %h3.title.is-4.mb-6
         = t('home.courses.all-courses-title')
-      .subtitle.is-4
-        = t('home.courses.all-courses-subtitle')
-%section#next_appointments
-  - if Appointment.future.present?
-    %h2.title.is-2
-      = t('home.next_appointments')
-    = render partial: 'appointments', locals: { appointments: Appointment.future }
-  - else
-    %br
-    %br
-    .has-text-centered.is-size-4
-      = t('home.no_appointments')
+    #all_courses_details
+      = render partial: 'pages/home/all_courses'
 
 %br
 %br
