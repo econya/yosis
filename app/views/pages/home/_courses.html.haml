@@ -1,0 +1,32 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+.container
+  .doodle.has-text-centered.pt-3
+    = image_tag 'kurse.png', class: 'round'
+    %h2.title.is-3.pt-3
+      = t('home.courses.courses-title')
+    .subtitle
+      = t('home.courses.subtitle')
+
+  #course_by_style.has-text-centered.pt-6.mt-6
+    %h3.title.is-4
+      = t('home.courses.styles')
+    .columns.is-multiline.is-vcentered.is-centered
+      -# TODO only styles with courses/places
+      - @styles.each do |style|
+        .column.is-2
+          .box
+            = image_tag 'blog.png', class: 'round'
+            = style.name
+            %br
+            %small
+              = style.description
+
+  #all_courses.has-text-centered.mt-6.pt-6
+    %h3.title.is-4.mb-6
+      = t('home.courses.all-courses-title')
+  #all_courses_details
+    = render partial: 'pages/home/all_courses'
+
