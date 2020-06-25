@@ -44,11 +44,15 @@
         %td= course.place&.name
         %td= course.style&.name
         %td
-          course time
+          - if course.start_time
+            = l(course.start_time, format: '%H:%m')
+          = "-"
+          - if course.end_time
+            = l(course.end_time, format: '%M:%m')
         %td
-          course description
+          = course.description
         %td
-          course note
+          = course.note
         %td
           .buttons
             = link_to t('Show'), [:admin, course], class: 'button is-small'

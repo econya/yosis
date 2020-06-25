@@ -37,7 +37,7 @@ class Admin::CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to [:admin, @course], notice: t('admin.courses.creation-succes') }
+        format.html { redirect_to admin_courses_path, notice: t('admin.courses.creation-succes') }
       else
         @styles = Style.active.all
         @places = Place.active.all
@@ -50,7 +50,7 @@ class Admin::CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to [:admin, @course], notice: t('admin.courses.update-succes') }
+        format.html { redirect_to admin_courses_path, notice: t('admin.courses.update-succes') }
       else
         @styles = Style.active.all
         @places = Place.active.all
@@ -77,6 +77,6 @@ class Admin::CoursesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:name, :description, :style_id, :place_id, :start_time, :end_time, :active)
+      params.require(:course).permit(:name, :description, :note, :style_id, :place_id, :start_time, :end_time, :active)
     end
 end

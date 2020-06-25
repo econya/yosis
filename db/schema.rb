@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_112645) do
+ActiveRecord::Schema.define(version: 2020_06_08_041526) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,24 @@ ActiveRecord::Schema.define(version: 2020_06_07_112645) do
     t.index ["style_id"], name: "index_appointments_on_style_id"
   end
 
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.integer "place_id", null: false
+    t.integer "style_id", null: false
+    t.string "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "note"
+    t.integer "row_order"
+    t.boolean "active"
+    t.string "slug"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["place_id"], name: "index_courses_on_place_id"
+    t.index ["slug"], name: "index_courses_on_slug", unique: true
+    t.index ["style_id"], name: "index_courses_on_style_id"
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -94,6 +112,20 @@ ActiveRecord::Schema.define(version: 2020_06_07_112645) do
     t.text "description"
     t.index ["slug"], name: "index_lessons_on_slug", unique: true
     t.index ["style_id"], name: "index_lessons_on_style_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.string "building_name"
+    t.string "note"
+    t.string "address"
+    t.integer "row_order"
+    t.boolean "active"
+    t.string "slug"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_places_on_name", unique: true
+    t.index ["slug"], name: "index_places_on_slug", unique: true
   end
 
   create_table "site_settings", force: :cascade do |t|
@@ -163,6 +195,8 @@ ActiveRecord::Schema.define(version: 2020_06_07_112645) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointments", "styles"
+  add_foreign_key "courses", "places"
+  add_foreign_key "courses", "styles"
   add_foreign_key "lessons", "styles"
   add_foreign_key "subscriptions", "users"
 end

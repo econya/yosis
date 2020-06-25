@@ -18,9 +18,15 @@
   .field
     = f.label :style
     = f.collection_select :style_id, @styles, :id, :name, prompt: t('Select Style')
-  -#.field
-  -#  = f.label :start_date
-  -#  = f.date_field :start_date
+  .field
+    = f.label :start_time
+    = f.time_select :start_time
+  .field
+    = f.label :end_time
+    = f.time_select :end_time
+  .field
+    = f.label :note
+    = f.text_field :note
   .field
     = f.label :active
     = f.check_box :active
