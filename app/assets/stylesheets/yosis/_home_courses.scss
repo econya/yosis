@@ -6,10 +6,25 @@
 
 /** Full row */
 section #courses {
- width: 100vw;
- position: relative;
- margin-left: -50vw;
- //height: 100px;
- margin-top: 100px;
- left: 50%;
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  //height: 100px;
+  margin-top: 100px;
+  left: 50%;
+  @extend .has-background-verycleargrey;
+
+  color: #4a4a4a;
+  .title {
+    color: #4a4a4a;
+  }
+
+  table {
+    td.weekday {
+      padding-right: 2em;
+    }
+    td.time {
+      padding-right: 1em;
+    }
+  }
 }

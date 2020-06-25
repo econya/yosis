@@ -13,10 +13,10 @@
  *= require_self
  */
 
-@import "yosis/_base_colors";
 @import "laksaman";
 @import "direct_upload";
 
+@import "yosis/_base_colors";
 
 /* Customize Bulma Variables */
 $family-primary:    "Laksaman";
@@ -28,20 +28,24 @@ $weight-medium:   400;
 $weight-semibold: 500;
 $weight-bold:     600;
 
-$title-color:  $bluerple;
+$title-color:  $darkgrey;
 $title-weight: $weight-normal;
 
 @import 'yosis/_navbar';
 
 $primary: $orange;
-$link:    $bluerple;
+$link:    $darkgrey;
 
 $content-heading-color: $bluerple;
-$content-heading-weight: $weight-normal;
+$content-heading-weight: $weight-bold;
 
 /* Own customization */
-h1, h2, h3 {
+h1, h2 {
   text-transform: uppercase;
+}
+
+h3 {
+  color: #4a4a4a;
 }
 
 .flame-box {
@@ -109,5 +113,6 @@ h1, h2, h3 {
 
 @import 'yosis/_hero_head';
 @import 'yosis/_home_courses';
+@import 'yosis/_button_bar';
 
 

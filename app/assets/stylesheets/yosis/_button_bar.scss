@@ -1,0 +1,30 @@
+/**
+ * SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+ * 
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+#buttonbar .column {
+  @extend .has-text-centered;
+
+  .button-tag-text {
+    margin-top: -4em;
+  }
+}
+
+#buttonbar .box {
+  @extend .has-background-verycleargrey;
+  @extend .has-text-centered;
+
+  border-radius: 50%;
+
+  box-shadow: 0 0.5em 0.5em -0.1em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  figure {
+    img {
+      padding-left:  20px;
+      padding-right: 20px
+    }
+  }
+
+  padding-bottom: 2em;
+}
