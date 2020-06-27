@@ -19,6 +19,9 @@
     = f.label :style
     = f.collection_select :style_id, @styles, :id, :name, prompt: t('Select Style')
   .field
+    = f.label :dayofweek
+    = f.select :dayofweek, I18n.t(:'date.day_names').zip(0..7), prompt: t('Select Day of week')
+  .field
     = f.label :start_time
     = f.time_select :start_time
   .field

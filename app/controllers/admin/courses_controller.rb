@@ -77,6 +77,6 @@ class Admin::CoursesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:name, :description, :note, :style_id, :place_id, :start_time, :end_time, :active)
+      params.require(:course).permit(:name, :description, :note, :style_id, :place_id, :start_time, :end_time, :dayofweek, :active)
     end
 end

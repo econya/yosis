@@ -50,6 +50,7 @@
             = link_to style do
               = style.name
         %td
+          = I18n.t('date.day_names')[course.dayofweek||0]
           - if course.start_time
             = l(course.start_time, format: '%H:%m')
           = "-"
