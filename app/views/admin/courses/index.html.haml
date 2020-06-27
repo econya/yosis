@@ -41,8 +41,14 @@
               = t('course.inactive')
         %td
           = course.name
-        %td= course.place&.name
-        %td= course.style&.name
+        %td
+          - if place = course.place
+            = link_to place do
+              = place.name
+        %td
+          - if style = course.style
+            = link_to style do
+              = style.name
         %td
           - if course.start_time
             = l(course.start_time, format: '%H:%m')

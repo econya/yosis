@@ -16,6 +16,12 @@
   -#  = f.label :start_date
   -#  = f.date_field :start_date
   .field
+    = f.label :doodle
+    = f.file_field :doodle, direct_upload: true
+  .field
+    = f.label :image
+    = f.file_field :image, direct_upload: true
+  .field
     = f.label :active
     = f.check_box :active
   .actions

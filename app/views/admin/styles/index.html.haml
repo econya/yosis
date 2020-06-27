@@ -6,6 +6,7 @@
     %tr
       %th= t('admin.courses.order')
       %th
+      %th
       %th= t('admin.courses.name')
       %th= t('admin.courses.number_lessons')
       %th= t('admin.courses.number_appointments')
@@ -38,7 +39,11 @@
             %span.tag.is-danger
               = t('style.inactive')
         %td
-          = style.name
+          - if style.image.attached?
+            = image_tag style.image.variant(resize_to_fill: [180,120]).processed, class: (style.active?) ? '' : 'semi-transparent'
+        %td
+          .subtitle
+            = style.name
         %td= style.lessons.length
         %td= style.appointments.length
         %td= style.appointments.future.first&.date_from

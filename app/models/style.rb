@@ -8,7 +8,9 @@ class Style < ApplicationRecord
   ranks :row_order
 
   has_one_attached :image
+  has_one_attached :doodle
 
+  has_many :courses
   has_many :lessons
   has_many :appointments
 
