@@ -19,8 +19,9 @@
           - place.courses.active.each do |course|
             %tr.course
               %td.weekday
-                = l(course.start_time,
-                  format: '%A')
+                - if day = course.dayofweek
+                  = I18n.t(:"date.day_names")[day]
+
               %td.time
                 - if course.start_time
                   = l(course.start_time,

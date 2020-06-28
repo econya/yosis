@@ -5,24 +5,13 @@
 - content_for(:hero_head) do
   = render 'pages/home/hero_head'
 
-%br
+%section.my-5.py-5#buttonbar
+  = render 'pages/home/buttonbar'
 
-- if !user_signed_in? || user_admin?
-  = render partial: 'ctas'
-- else
-  = render partial: 'subscription_state'
-  %br
-  %br
-
-%section#news
-  %h2.title.is-3
+%section.mb-5.py-5.mt-6#news
+  %h2.title.is-3.is-inline-block
     = t('home.news')
-  = t(' news text')
-  .has-text-centered.is-size-4
-    = t('home.no_appointments')
-
-%br
-%br
+  = t('home.no_appointments')
 
 %section.py-5#courses.has-background-verycleargrey.pb-6
   = render partial: 'pages/home/courses'
