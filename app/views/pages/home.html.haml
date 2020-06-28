@@ -43,9 +43,9 @@
 %br
 %br
 %a.anchor-offset(name='videos')
-%section.videos
-  %h2.title.is-2
-    = t('home.videos')
+%section.videos#videos
+  = render partial: 'pages/home/videos'
+
 %hr.has-text-primary.hr.is-divider
 - @styles.each do |style|
   = render partial: 'course_video_row', locals: { style: style }
