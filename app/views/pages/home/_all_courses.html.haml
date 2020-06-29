@@ -10,6 +10,7 @@
           = place.name
           %small
             = place.note
+        = admin_edit_button edit_admin_place_path(place)
       .place-address.mb-3
         %i
           = place.building_name
@@ -19,6 +20,7 @@
           - place.courses.active.each do |course|
             %tr.course
               %td.weekday
+                = admin_edit_button edit_admin_course_path(course)
                 - if day = course.dayofweek
                   = I18n.t(:"date.day_names")[day]
 
