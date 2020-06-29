@@ -36,7 +36,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Assety gems
 gem 'haml-rails',  '~> 2.0'
-gem 'bulma-rails', '~> 0.8'
+gem 'bulma-rails', '~> 0.9'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem "bulma_form_builder", git: 'https://github.com/fwolfst/bulma_form_builder.git'#, branch: 'rails6'
 
