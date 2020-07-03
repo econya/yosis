@@ -54,5 +54,9 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :destroy] do
       resources :subscriptions, only: [:edit, :update, :create, :destroy, :new], controller: 'user/subscriptions'
     end
+
+    namespace :blog do
+      resources :posts, only: [:new, :create, :update, :edit, :destroy, :index]#, controller: 'blog/posts'
+    end
   end
 end

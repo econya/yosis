@@ -1,0 +1,26 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+= form_for [:admin, @post], builder: BulmaFormBuilder::FormBuilder do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this blog post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :content
+    = f.text_area :content
+  .field
+    = f.label :image
+    = f.file_field :image
+  .field
+    = f.label :active
+    = f.check_box :active
+  .actions
+    = f.submit 'Save', class: 'button'

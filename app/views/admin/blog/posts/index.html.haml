@@ -1,0 +1,41 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+%h1.title
+  = t('Listing Blog Posts')
+
+- if @pagy.pages > 1
+  = t('pagy.showing_from_to_total',
+    from: @pagy.from,
+    to: @pagy.to,
+    total: @pagy.count,
+    item_name: t('emails'))
+  != pagy_bulma_nav(@pagy)
+
+
+%table.table.is-striped.is-fullwidth.is-hoverable
+  %thead
+    %tr
+      %th= t('admin.blog.post.image')
+      %th= t('admin.blog.post.title')
+      %th= t('admin.blog.post.content')
+      %th
+
+  %tbody
+    - @posts.each do |post|
+      %tr
+        %td
+          = post.title
+        %td
+          = post.content
+        %td
+        %td
+          .buttons
+            = link_to t('Show'), post, class: 'button is-small'
+            = link_to t('Edit'), edit_admin_blog_post_path(post), class: 'button is-small'
+            -#= link_to t('Destroy'), [:admin, post], method: :delete, data: { confirm: t('Are you sure?') }, class: 'button is-small is-danger'
+
+%br
+
+= link_to t('admin.blog.post.new'), new_admin_blog_post_path, class: 'button is-link is-outlined'
