@@ -39,6 +39,12 @@ class Admin::Blog::PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Blog::Post.friendly.find(params[:id])
+    @post.destroy
+    redirect_to admin_blog_posts_url, notice: t('admin.blog_posts.deletion-success')
+  end
+
   private
 
     def post_params
