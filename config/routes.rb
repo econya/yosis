@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   end
 
   resource :contacts, only: [:new, :create]
+  namespace :blog do
+    resources :posts, only: [:index, :show]
+  end
+
 
   resources :styles, only: [:index, :show]
 

@@ -1,0 +1,33 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- content_for(:hero_head) do
+  = render 'blog/posts/hero_head'
+
+%h1.title
+  = @post.title
+
+.meta-data
+  = t('blog.post.written_by')
+  = t('blog.post.written_when')
+
+.container.content
+  -# TODO do not render markdown in the view
+  -#= @post.content
+  - renderer = Redcarpet::Render::HTML.new(with_toc_data: true)
+  != Redcarpet::Markdown.new(renderer).render(@post.content)
+
+.blog-navigation
+  - next_post = @post.next
+  - if next_post.present?
+    = link_to next_post
+      [Next]
+
+  = link_to blog_posts_path do
+    [Index]
+
+  - previous_post = @post.next
+  - if previous_post.present?
+    = link_to previous_post
+      [Previous]
