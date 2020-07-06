@@ -28,3 +28,42 @@
 
   padding-bottom: 2em;
 }
+
+ul.button-list {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+
+  .nav-button {
+    padding: 10px;
+  }
+
+  circlebutton {
+    @extend .has-background-verycleargrey;
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /*border: 1px solid red;*/
+    box-shadow: 0 0.5em 0.5em -0.1em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    text-align: center;
+    transition: transform 500ms ease;
+    transition: box-shadow 500ms ease;
+  }
+  circlebutton:hover, circlebutton:focus {
+    transition: transform 500ms ease;
+    transition: box-shadow 500ms ease;
+    transform: scale(1.07);
+    box-shadow: 0 0.5em 0.9em 0.7em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  }
+}
