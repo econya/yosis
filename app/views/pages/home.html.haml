@@ -11,7 +11,10 @@
 %section#news.mt-4.pt-5.mb-4.pb-2
   %h2.title.is-3.is-inline-block
     = t('home.news')
-  = t('home.no_appointments')
+  .subtitle.is-inline-block
+    - news_setting = SiteSetting.find_by(key: 'news_line')
+    = admin_edit_button edit_admin_site_setting_path(news_setting)
+    = news_setting.value
 
 %section.py-5#courses.has-background-verycleargrey.pb-6
   = render partial: 'pages/home/courses'

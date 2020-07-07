@@ -21,6 +21,8 @@ class Admin::SiteSettingsController < ApplicationController
 
     SiteSetting.find_or_create_by(key: 'title',
       value: t('site_settings.title.default'))
+    SiteSetting.find_or_create_by(key: 'news_line',
+      value: t('site_settings.news_line.default'))
 
     SiteSetting.find_or_create_by(key: 'logo',
       value: t('site_settings.logo.default'), kind: 'image')
@@ -41,7 +43,7 @@ class Admin::SiteSettingsController < ApplicationController
       value: t('site_settings.your_name.default'), kind: 'string')
 
     @general_settings    = SiteSetting.where(key: ['copyright_notice', 'title', 'logo', 'favicon', 'favicon-png', 'favicon-apple-touch', 'your_name', 'payment_details'])
-    @start_page_settings = SiteSetting.where(key: ['intro', 'intro_background', 'register_cta', 'trial_period_cta'])
+    @start_page_settings = SiteSetting.where(key: ['intro', 'intro_background', 'news_line', 'register_cta', 'trial_period_cta'])
     @pages_settings      = SiteSetting.where(key: ['about_us', 'impressum', 'privacy_statement', 'terms', 'explanation'])
   end
 
