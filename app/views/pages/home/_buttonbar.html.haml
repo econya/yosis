@@ -2,50 +2,48 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-.columns.is-vcentered.is-centered#buttonbar
-  .column
-  .column.is-1
-    .box.has-background-grey-lighter.has-text-centered(style="border-radius: 50%")
-      %figure.has-backround-primary
-        = image_tag 'kurse.jpg', class: 'round'
-        .button-tag-text(style="margin-top: -20%;")
-      = link_to '#styles', class: '' do
-        = t('navigation.courses')
-      %br
-  .column.is-1
-    .box.has-background-grey-lighter.has-text-centered(style="border-radius: 50%")
-      %figure.has-backround-primary
-        = image_tag 'kurse.jpg', class: 'round'
-        .button-tag-text(style="margin-top: -20%;")
-      = link_to '#videos', class: '' do
-        = t('navigation.videos')
-  .column.is-1
-    .box.has-background-grey-lighter.has-text-centered(style="border-radius: 50%")
-      %figure.has-backround-primary
-        = image_tag 'kurse.jpg', class: 'round'
-        .button-tag-text(style="margin-top: -20%;")
-      = link_to '#videos', class: '' do
-        = t('navigation.programs')
-  .column.is-1
-    .box.has-background-grey-lighter.has-text-centered(style="border-radius: 50%")
-      %figure.has-backround-primary
-        = image_tag 'kurse.jpg', class: 'round'
-        .button-tag-text(style="margin-top: -20%;")
-      = link_to '#videos', class: '' do
-        = t('navigation.seminars')
-  .column.is-1
-    .box.has-background-grey-lighter.has-text-centered(style="border-radius: 50%")
-      %figure.has-backround-primary
-        = image_tag 'kurse.jpg', class: 'round'
-        .button-tag-text(style="margin-top: -20%;")
-      = link_to '#videos', class: '' do
-        = t('navigation.blog')
-  .column.is-1
-    .box.has-background-grey-lighter.has-text-centered(style="border-radius: 50%")
-      %figure.has-backround-primary
-        = image_tag 'kurse.jpg', class: 'round'
-        .button-tag-text(style="margin-top: -20%;")
-      = link_to '#videos', class: '' do
-        = t('navigation.contact')
-  .column
+%ul.button-list.is-vcentered.is-centered
+  %li.nav-button
+    = link_to "#courses", data: { turbolinks: false } do
+      %circlebutton
+        %figure
+          = image_tag 'kurse.png', class: 'round'
+        .button-tag-text
+          = t('navigation.courses')
+  %li.nav-button
+    %circlebutton
+      %figure
+        = image_tag 'videos.png', class: 'round'
+      .button-tag-text
+        = link_to '#videos', class: '' do
+          = t('navigation.videos')
+  %li.nav-button
+    %circlebutton
+      %figure
+        = image_tag 'programme.png', class: 'round'
+      .button-tag-text
+        = link_to '#videos', class: '' do
+          = t('navigation.programs')
+  %li.nav-button
+    %circlebutton
+      %figure
+        = image_tag 'seminare.png', class: 'round'
+      .button-tag-text
+        = link_to '#videos', class: '' do
+          = t('navigation.seminars')
+  %li.nav-button
+    %circlebutton
+      %figure
+        = image_tag 'blog.png', class: 'round'
+      .button-tag-text
+        = link_to '#videos', class: '' do
+          = t('navigation.blog')
+  %li.nav-button
+    %circlebutton
+      %figure
+        = image_tag 'kontakt.png', class: 'round'
+      .button-tag-text
+        = link_to anchor: 'videos' do
+          = t('navigation.contact')
+
 
