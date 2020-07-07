@@ -5,10 +5,10 @@
 - content_for(:hero_head) do
   = render 'pages/home/hero_head'
 
-%section.my-5.py-5#buttonbar
+%section#buttonbar.my-5.py-5
   = render 'pages/home/buttonbar'
 
-%section.mb-5.py-5.mt-6#news
+%section#news.mt-4.pt-5.mb-4.pb-2
   %h2.title.is-3.is-inline-block
     = t('home.news')
   = t('home.no_appointments')
