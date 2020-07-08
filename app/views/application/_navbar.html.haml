@@ -2,11 +2,11 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%nav.navbar.is-link.is-fixed-top{"aria-label" => "main navigation", :role => "navigation"}
+%nav.navbar{"aria-label" => "main navigation", :role => "navigation"}
   .navbar-brand
     - if (logo = SiteSetting.find_by_key("logo"))&.image&.attached?
-      = link_to root_path, class: 'is-hidden-desktop' do
-        = image_tag logo.image.variant(resize_to_fill: [128, 128]).processed, class: 'logo'
+      = link_to root_path, class: 'navbar-item' do
+        = image_tag logo.image.variant(resize_to_fit: [600, 80]).processed, class: 'logo'
       .is-hidden-desktop
         .is-size-7
           %br
@@ -19,35 +19,27 @@
       %span{"aria-hidden" => "true"}
   #yosisNavbar.navbar-menu
     .navbar-start
-      = link_to about_us_url, class: 'navbar-item' do
-        %span.icon.has-text-info
-          %i.fa.fa-info-circle
-        %span
-          = t('about_us')
-      = link_to root_url, class: 'navbar-item' do
-        %span.icon.has-text-info
-          %i.fa.fa-heart
-        %span
-          = t('the_website')
-      = link_to 'mailto:info@yogamitveronique.de', class: 'navbar-item' do
-        %span.icon.has-text-info
-          %i.fas.fa-envelope
-        %span
-          = 'info@yogamitveronique.de'
-    - if (logo = SiteSetting.find_by_key("logo"))&.image&.attached?
-      = link_to root_path, class: 'is-hidden-mobile is-hidden-tablet-only' do
-        = image_tag logo.image.variant(resize_to_fill: [100, 100]).processed, class: 'logo'
-
-    = link_to root_path, class: 'navbar-item is-size-3 has-text-light is-hidden-mobile is-hidden-tablet-only' do
-      = SiteSetting['title']
-
     .navbar-end
+      -# TODO deactivate turbolinks only when on landing page.
+      = link_to '#courses', data: { turbolinks: false }, class: 'navbar-item' do
+        = t('navigation.courses')
+      = link_to '#videos', class: 'navbar-item' do
+        = t('navigation.videos')
+      = link_to '#videos', class: 'navbar-item' do
+        = t('navigation.programs')
+      = link_to '#videos', class: 'navbar-item' do
+        = t('navigation.seminars')
+      = link_to '#videos', class: 'navbar-item' do
+        = t('navigation.blog')
+      - if user_signed_in?
+        = link_to t('navigation.user.account'), edit_user_registration_path, class: 'navbar-item'
+      = link_to about_us_url, class: 'navbar-item' do
+        = t('navigation.contact')
+
       - if user_signed_in?
         - if current_user != true_user
           .navbar-item
             = link_to t('admin.user.back_to_admin'), stop_impersonating_users_path, method: :post, class: 'button'
-        = link_to t('navigation.user.settings'), edit_user_registration_path, class: 'navbar-item'
-
         - if user_admin?
           .navbar-item.has-dropdown.is-hoverable
             .navbar-link
@@ -56,17 +48,20 @@
               %span
                 = t('navigation.admin')
             .navbar-dropdown
-              = link_to t('navigation.courses'),   admin_styles_path,   class: 'navbar-item'
+              = link_to t('blog.posts'), admin_blog_posts_path, class: 'navbar-item'
+              = link_to t('blog.new_posts'), new_admin_blog_post_path, class: 'navbar-item'
+              %hr.navbar-divider
+              = link_to t('navigation.courses'),   admin_courses_path,   class: 'navbar-item'
+              = link_to t('navigation.places'),   admin_places_path,   class: 'navbar-item'
+              = link_to t('navigation.styles'),   admin_styles_path,   class: 'navbar-item'
               = link_to t('navigation.appointments'), admin_appointments_path, class: 'navbar-item'
-              = link_to t('navigation.site_settings'), admin_site_settings_path, class: 'navbar-item'
+              %hr.navbar-divider
               = link_to t('navigation.users'), admin_users_path, class: 'navbar-item'
               = link_to t('invite'), new_user_invitation_path, class: 'navbar-item'
+              %hr.navbar-divider
               = link_to t('navigation.background-jobs'), admin_delayed_jobs_path, class: 'navbar-item'
               = link_to t('navigation.emails'), admin_emails_path, class: 'navbar-item'
+              %hr.navbar-divider
+              = link_to t('navigation.site_settings'), admin_site_settings_path, class: 'navbar-item'
 
         = link_to t('sign_out'), destroy_user_session_path, method: :delete, class: "navbar-item"
-      - else
-        .navbar-item
-          = link_to t('devise.sessions.new.sign_in'), new_user_session_path, class: 'button is-light is-outlined'
-        .navbar-item
-          = link_to t('register_new'), new_user_registration_path, class: 'button is-light is-outlined'
