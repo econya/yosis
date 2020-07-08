@@ -1,0 +1,40 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- if !user_signed_in?
+  .columns.mt-5
+    .column.is-1
+    .column.is-3.has-text-centered
+      .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
+        .columns
+          .column.is-one-third.ml-4(style="scale: 92%;")
+            = image_tag 'calendar.png', class: 'round'
+          .column.is-two-thirds.is-vcentered.has-text-centered
+            = link_to new_user_registration_path do
+              %h2.subtitle.is-4.pt-2.mb-2
+                = t('login_row.test')
+              = t('login_row.ten_days_free')
+    .column.is-3.has-text-centered
+      .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
+        .columns
+          .column.is-one-third.ml-4
+            = image_tag 'sitting_person.png', class: 'round'
+          .column.is-two-thirds.is-vcentered.has-text-centered
+            = link_to new_user_session_path do
+              %h2.subtitle.is-4.pt-2.mb-2
+                = t('login_row.sign_in')
+              = t('login_row.have_fun')
+    .column.is-3.has-text-centered
+      .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
+        .columns
+          .column.is-one-third.ml-4(style="scale: 86%;")
+            = image_tag 'programme.png', class: 'round'
+          .column.is-two-thirds.is-vcentered.has-text-centered
+            = link_to new_user_session_path do
+              %h2.subtitle.is-4.pt-2.mb-2
+                = t('navigation.programs')
+              = t('login_row.deep_dive')
+
+    .column.is-1
+

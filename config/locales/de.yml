@@ -294,6 +294,12 @@ de:
       course: Kurs
       video: Video
   lessons: Lektionen
+  login_row:
+    deep_dive: Steige tiefer ein
+    have_fun: Viel Spaß!
+    sign_in: Login
+    test: Testen
+    ten_days_free: "10 kostenlose Tage"
   minutes: Minuten
   navigation:
     admin: Admin

@@ -2,40 +2,26 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-.doodle.has-text-centered.pt-3.mb-6
-  = image_tag 'videos.png', class: 'round'
-  %h2.title.is-3.pt-3
-    = t('home.videos.title')
-  .subtitle
-    = t('home.videos.subtitle')
--#%strong
--#  = t('home.video_explanation1')
--#= t('home.video_explanation2')
-- if !user_signed_in?
-  .columns
-    .column.is-1
-    .column.is-3.has-text-centered
-      .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
-        .columns
-          .column.is-one-third
-            = image_tag 'calendar.png', class: 'round'
-          .column.is-two-thirds.is-vcentered.has-text-centered
-            = link_to new_user_registration_path do
-              %h2.subtitle.is-4
-                = t('testen')
-              = t('10 kostenlose Tage')
-    .column.is-4
-    .column.is-3.has-text-centered
-      .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
-        .columns
-          .column.is-one-third
-            = image_tag 'calendar.png', class: 'round'
-          .column.is-two-thirds.is-vcentered.has-text-centered
-            = link_to new_user_session_path do
-              %h2.subtitle.is-4
-                = t('login')
-              = t('Viel Spaß!')
-    .column.is-1
+.container
+  .doodle.has-text-centered.pt-6.mb-6
+    = image_tag 'videos.png', class: 'round'
+    %h2.title.is-3.pt-3
+      = t('home.videos.title')
+    .subtitle
+      = t('home.videos.subtitle')
+
+  -#%strong
+  -#  = t('home.video_explanation1')
+  -#= t('home.video_explanation2')
+  = render partial: 'pages/home/login_row'
+
+  -#= admin_edit_button edit_admin_style_path(style)
+
+  #video-styles.mt-6.pt-6
+    - @styles.each do |style|
+      = render partial: 'course_video_row', locals: { style: style }
+    - if @styles.empty?
+      = t('home.courses.none_yet')
 
 - @styles.active.each do |style|
   %h3.title.is-5
