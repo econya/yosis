@@ -20,14 +20,13 @@
   #yosisNavbar.navbar-menu
     .navbar-start
     .navbar-end
-      -# TODO deactivate turbolinks only when on landing page.
-      = link_to '#courses', data: { turbolinks: false }, class: 'navbar-item' do
+      = link_to '#courses', data: { turbolinks: !current_page?(action: 'home') }, class: 'navbar-item' do
         = t('navigation.courses')
-      = link_to '#videos', class: 'navbar-item' do
+      = link_to '#videos', data: { turbolinks: !current_page?(action: 'home') }, class: 'navbar-item' do
         = t('navigation.videos')
-      = link_to '#videos', class: 'navbar-item' do
+      = link_to '#videos', data: { turbolinks: !current_page?(action: 'home') }, class: 'navbar-item' do
         = t('navigation.programs')
-      = link_to '#videos', class: 'navbar-item' do
+      = link_to '#videos', data: { turbolinks: !current_page?(action: 'home') }, class: 'navbar-item' do
         = t('navigation.seminars')
       = link_to '#videos', class: 'navbar-item' do
         = t('navigation.blog')
