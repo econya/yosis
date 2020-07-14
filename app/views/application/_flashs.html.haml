@@ -4,7 +4,7 @@
 
 - flash.each do |type, message|
   .notification-wrapper
-    .notification{class: bulma_flash_class[type] || 'is-primary'}
+    .notification.is-radiusless.has-text-centered{class: bulma_flash_class[type] || 'is-primary'}
       %button.delete
       - case type
       - when 'error'
@@ -26,6 +26,4 @@
         -# no icon
 
       = message
-
-%br/
 
