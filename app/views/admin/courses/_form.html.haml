@@ -23,10 +23,10 @@
     = f.select :dayofweek, I18n.t(:'date.day_names').zip(0..7), prompt: t('Select Day of week')
   .field
     = f.label :start_time
-    = f.time_select :start_time
+    = f.time_select :start_time, {minute_step: 5}
   .field
     = f.label :end_time
-    = f.time_select :end_time
+    = f.time_select :end_time, {minute_step: 5}
   .field
     = f.label :note
     = f.text_field :note
@@ -34,4 +34,4 @@
     = f.label :active
     = f.check_box :active
   .actions
-    = f.submit 'Save', class: 'button'
+    = f.submit 'Save', class: 'button is-primary'
