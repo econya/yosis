@@ -59,6 +59,8 @@
     = @style.description
   %br
 
+%hr
+
 -if @style.appointments.future.empty?
   -# 
 - else
@@ -93,129 +95,130 @@
               = course.place.building_name
               = course.place.address
 
-%h2.title.is-4
-  = t('styles.videos')
-
-- if @style.lessons.active.empty?
-  .box
-    =t('styles.no_lessons_yet')
-- first = @style.lessons.active.rank(:row_order).first
-- last  = @style.lessons.active.rank(:row_order).last
-- access_level = AccessState.new(current_user).level
-- @style.lessons.active.rank(:row_order).each_with_index do |lesson, idx|
-  .box
-    - if lesson.preview_image.attached? && lesson.video.attached?
-      %article.media
-        %figure.media-left.is-16by9
-          - if access_level == :admin || access_level == :full || (access_level == :trial && idx < 3)
-            %video(controls="true" poster="#{url_for lesson.preview_image.variant(resize_to_fill: [354, 200])}" preload="metadata" id="vs-#{lesson.id}" width="354")
-              %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
-              = t('no-video-support')
-          - elsif user_signed_in? || access_level == :trial
-            .image
-              = image_tag lesson.preview_image.variant(resize_to_fill: [354,200]).processed,
-                alt: t('video.image_alt', video: t('lesson.show.video'), video_title: lesson.name)
-              = link_to explanation_path, class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
-                %span.icon.has-text-primary.is-large.has-text-centered.auto-margin
-                  %i.far.fa-play-circle.fa-3x
-          - else
-            .image
-              = image_tag lesson.preview_image.variant(resize_to_fill: [354,200]).processed,
-                alt: t('video.image_alt', video: t('lesson.show.video'), video_title: lesson.name)
-              = link_to new_user_registration_path, class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
-                %span.icon.has-text-primary.is-large.has-text-centered.auto-margin
-                  %i.far.fa-play-circle.fa-3x
-        .media-content.is-hidden-mobile
-          .content
-            .level
-              .level-left
-                .level-item
-                  %h3.is-title.is-7.has-text-primary
-                    = lesson.name
-              - if user_admin?
-                .level-right
+- if @style.lessons.active.any?  && !user_admin?
+  %h2.title.is-4
+    = t('styles.videos')
+  
+  - if @style.lessons.active.empty?
+    .box
+      =t('styles.no_lessons_yet')
+  - first = @style.lessons.active.rank(:row_order).first
+  - last  = @style.lessons.active.rank(:row_order).last
+  - access_level = AccessState.new(current_user).level
+  - @style.lessons.active.rank(:row_order).each_with_index do |lesson, idx|
+    .box
+      - if lesson.preview_image.attached? && lesson.video.attached?
+        %article.media
+          %figure.media-left.is-16by9
+            - if access_level == :admin || access_level == :full || (access_level == :trial && idx < 3)
+              %video(controls="true" poster="#{url_for lesson.preview_image.variant(resize_to_fill: [354, 200])}" preload="metadata" id="vs-#{lesson.id}" width="354")
+                %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
+                = t('no-video-support')
+            - elsif user_signed_in? || access_level == :trial
+              .image
+                = image_tag lesson.preview_image.variant(resize_to_fill: [354,200]).processed,
+                  alt: t('video.image_alt', video: t('lesson.show.video'), video_title: lesson.name)
+                = link_to explanation_path, class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
+                  %span.icon.has-text-primary.is-large.has-text-centered.auto-margin
+                    %i.far.fa-play-circle.fa-3x
+            - else
+              .image
+                = image_tag lesson.preview_image.variant(resize_to_fill: [354,200]).processed,
+                  alt: t('video.image_alt', video: t('lesson.show.video'), video_title: lesson.name)
+                = link_to new_user_registration_path, class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
+                  %span.icon.has-text-primary.is-large.has-text-centered.auto-margin
+                    %i.far.fa-play-circle.fa-3x
+          .media-content.is-hidden-mobile
+            .content
+              .level
+                .level-left
+                  .level-item
+                    %h3.is-title.is-7.has-text-primary
+                      = lesson.name
+                - if user_admin?
+                  .level-right
+                    .level-item
+                      .buttons
+                        - if lesson != first
+                          = link_to admin_style_lesson_position_path(lesson.style, lesson_id: lesson.id), method: :post, class: 'button is-primary is-outlined is-small' do
+                            %span.icon.is-small.has-text-primary
+                              %i.fas.fa-arrow-up
+                        - if lesson != last
+                          = link_to admin_style_lesson_position_path(lesson.style, lesson_id: lesson.id), method: :delete, class: 'button is-primary is-outlined is-small' do
+                            %span.icon.is-small.has-text-primary
+                              %i.fas.fa-arrow-down
+                        = link_to edit_admin_style_lesson_path(lesson.style, lesson), class: 'button is-link is-outlined is-small' do
+                          %span.icon.is-small
+                            %i.fas.fa-user-shield
+                          %span
+                            = t('style.admin.edit-lesson')
+                        = link_to [:admin, lesson.style, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined is-small' do
+                          %span.icon.is-small
+                            %i.fas.fa-user-shield
+                          %span
+                            = t('style.admin.destroy-lesson')
+              = l lesson.created_at, format: '%A, %d. %B %Y'
+              - if lesson.video.attached? && lesson.video.metadata[:duration]
+                %br/
+                = "%s:" % t('video.length')
+                = (lesson.video.metadata[:duration] / 60).round
+                = t('video.minutes')
+        .is-hidden-tablet
+          %h3.is-title.is-7.has-text-primary
+            = lesson.name
+          = l lesson.created_at, format: '%A, %d. %B %Y'
+          - if lesson.video.attached? && lesson.video.metadata[:duration]
+            %br/
+            = "%s:" % t('video.length')
+            = (lesson.video.metadata[:duration] / 60).round
+            = t('video.minutes')
+  
+  
+  - if user_admin?
+    %h2.title.is-4
+      = t('styles.videos-inactive')
+  
+    - @style.lessons.inactive.each do |lesson|
+      .box.has-background-danger.has-text-light
+        - if lesson.preview_image.attached? && lesson.video.attached?
+          %article.media
+            %figure.media-left
+              %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="metadata" id="vs-#{lesson.id}" width="240")
+                %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
+                = t('no-video-support')
+            .media-content
+              .content
+                %h3.is-title.is-7
+                  = lesson.name
+                = l lesson.created_at, format: '%A, %d. %B %Y'
+                .level
                   .level-item
                     .buttons
-                      - if lesson != first
-                        = link_to admin_style_lesson_position_path(lesson.style, lesson_id: lesson.id), method: :post, class: 'button is-primary is-outlined is-small' do
-                          %span.icon.is-small.has-text-primary
-                            %i.fas.fa-arrow-up
-                      - if lesson != last
-                        = link_to admin_style_lesson_position_path(lesson.style, lesson_id: lesson.id), method: :delete, class: 'button is-primary is-outlined is-small' do
-                          %span.icon.is-small.has-text-primary
-                            %i.fas.fa-arrow-down
-                      = link_to edit_admin_style_lesson_path(lesson.style, lesson), class: 'button is-link is-outlined is-small' do
+                      = link_to edit_admin_style_lesson_path(lesson.style, lesson), class: 'button is-link is-outlined' do
                         %span.icon.is-small
                           %i.fas.fa-user-shield
                         %span
                           = t('style.admin.edit-lesson')
-                      = link_to [:admin, lesson.style, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined is-small' do
+  
+                      = link_to [:admin, lesson.style, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined' do
                         %span.icon.is-small
                           %i.fas.fa-user-shield
                         %span
                           = t('style.admin.destroy-lesson')
-            = l lesson.created_at, format: '%A, %d. %B %Y'
-            - if lesson.video.attached? && lesson.video.metadata[:duration]
-              %br/
-              = "%s:" % t('video.length')
-              = (lesson.video.metadata[:duration] / 60).round
-              = t('video.minutes')
-      .is-hidden-tablet
-        %h3.is-title.is-7.has-text-primary
-          = lesson.name
-        = l lesson.created_at, format: '%A, %d. %B %Y'
-        - if lesson.video.attached? && lesson.video.metadata[:duration]
-          %br/
-          = "%s:" % t('video.length')
-          = (lesson.video.metadata[:duration] / 60).round
-          = t('video.minutes')
-
-
-- if user_admin?
-  %h2.title.is-4
-    = t('styles.videos-inactive')
-
-  - @style.lessons.inactive.each do |lesson|
-    .box.has-background-danger.has-text-light
-      - if lesson.preview_image.attached? && lesson.video.attached?
-        %article.media
-          %figure.media-left
-            %video(controls="true" poster="#{rails_blob_url(lesson.preview_image)}" preload="metadata" id="vs-#{lesson.id}" width="240")
-              %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
-              = t('no-video-support')
-          .media-content
-            .content
-              %h3.is-title.is-7
-                = lesson.name
-              = l lesson.created_at, format: '%A, %d. %B %Y'
-              .level
-                .level-item
-                  .buttons
-                    = link_to edit_admin_style_lesson_path(lesson.style, lesson), class: 'button is-link is-outlined' do
-                      %span.icon.is-small
-                        %i.fas.fa-user-shield
-                      %span
-                        = t('style.admin.edit-lesson')
-
-                    = link_to [:admin, lesson.style, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined' do
-                      %span.icon.is-small
-                        %i.fas.fa-user-shield
-                      %span
-                        = t('style.admin.destroy-lesson')
-
-  .buttons
-    = link_to new_admin_style_lesson_path(@style), class: 'button' do
-      %span.icon.is-small
-        %i.fas.fa-user-shield
-      %span
-        = t('styles.new-video')
-
-    = link_to edit_admin_style_path(@style), class: 'button is-outlined' do
-      %span.icon.is-small
-        %i.fas.fa-user-shield
-      %span
-        =t('styles.edit')
-
+  
+    .buttons
+      = link_to new_admin_style_lesson_path(@style), class: 'button' do
+        %span.icon.is-small
+          %i.fas.fa-user-shield
+        %span
+          = t('styles.new-video')
+  
+      = link_to edit_admin_style_path(@style), class: 'button is-outlined' do
+        %span.icon.is-small
+          %i.fas.fa-user-shield
+        %span
+          =t('styles.edit')
+  
 %hr
 
 = link_to t('Back'), :back, class: 'button is-link'
