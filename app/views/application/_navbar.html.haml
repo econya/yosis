@@ -28,7 +28,7 @@
         = t('navigation.programs')
       = link_to '#videos', data: { turbolinks: !current_page?(action: 'home') }, class: 'navbar-item' do
         = t('navigation.seminars')
-      = link_to '#videos', class: 'navbar-item' do
+      = link_to blog_posts_path, class: 'navbar-item' do
         = t('navigation.blog')
       - if user_signed_in?
         = link_to t('navigation.user.account'), edit_user_registration_path, class: 'navbar-item'
@@ -48,7 +48,7 @@
                 = t('navigation.admin')
             .navbar-dropdown
               = link_to t('blog.posts'), admin_blog_posts_path, class: 'navbar-item'
-              = link_to t('blog.new_posts'), new_admin_blog_post_path, class: 'navbar-item'
+              = link_to t('blog.new_post'), new_admin_blog_post_path, class: 'navbar-item'
               %hr.navbar-divider
               = link_to t('navigation.courses'),   admin_courses_path,   class: 'navbar-item'
               = link_to t('navigation.places'),   admin_places_path,   class: 'navbar-item'
