@@ -1,0 +1,26 @@
+/*
+ * SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+section #style-courses {
+
+  color: #4a4a4a;
+  .title {
+    color: #4a4a4a;
+  }
+
+  table {
+    td.name {
+      padding-right: 1em;
+    }
+    td.weekday {
+      padding-right: 2em;
+    }
+    td.time {
+      padding-right: 1em;
+    }
+  }
+}
+
