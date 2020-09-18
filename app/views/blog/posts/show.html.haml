@@ -19,15 +19,16 @@
   != Redcarpet::Markdown.new(renderer).render(@post.content)
 
 .blog-navigation
-  - next_post = @post.next
-  - if next_post.present?
-    = link_to next_post
-      [Next]
+  - previous_post = @post.previous
+  - if previous_post.present?
+    = link_to previous_post do
+      = t('blog.navigation.previous')
 
   = link_to blog_posts_path do
     [Index]
 
-  - previous_post = @post.next
-  - if previous_post.present?
-    = link_to previous_post
-      [Previous]
+  - next_post = @post.next
+  - if next_post.present?
+    = link_to next_post do
+      = t('blog.navigation.next')
+

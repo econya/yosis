@@ -3,7 +3,14 @@
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
 %h1.title
-  = t('Blog')
+  = t('blog.title')
 
 - @posts.each do |post|
-  %h2.title.is-4= post.title
+  .post
+    %h2.title.is-4
+      = link_to post.title, post
+    %i
+      = post.created_at
+    = post.summary
+    .read_more
+      = link_to t('blog.post.read_more')

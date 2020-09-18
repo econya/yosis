@@ -61,6 +61,8 @@ de:
       edit: Bearbeiten
       info: Info
       title: Title
+    blog_post:
+      creation_success: Blog Post erstellt.
     course:
       lessons:
         create:
@@ -181,6 +183,15 @@ de:
     visible_after_login: Link erst nach dem Anmelden sichtbar!
   are_you_sure?: Bist du dir sicher?
   attendence: Attendence
+  blog:
+    title: Blog
+    post:
+      read_more: Weiterlesen
+    posts: Blog Posts
+    navigation:
+      next: Nächster Artikel
+      previous: Vorheriger Artikel
+    new_post: Neuer Post
   contact:
     send: Abschicken
     sent_thanks: Abgeschickt. Danke! Solltest Du eine Frage geschickt haben werden wir uns bald bei dir melden.

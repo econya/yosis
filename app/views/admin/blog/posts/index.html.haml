@@ -26,10 +26,11 @@
     - @posts.each do |post|
       %tr
         %td
+          = post.image
+        %td
           = post.title
         %td
           = post.content
-        %td
         %td
           .buttons
             = link_to t('Show'), post, class: 'button is-small'
