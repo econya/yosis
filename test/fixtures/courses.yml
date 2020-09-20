@@ -12,6 +12,9 @@ studio_north_tuesday:
   start_time: 2020-06-08 06:15:26
   end_time: 2020-06-08 06:15:26
   note: MyString
+  dayofweek: 2
+  row_order: 2
+  active: true
 
 two:
   name: MyString
@@ -21,3 +24,4 @@ two:
   start_time: 2020-06-08 06:15:26
   end_time: 2020-06-08 06:15:26
   note: MyString
+  row_order: 1

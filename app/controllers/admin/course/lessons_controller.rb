@@ -33,7 +33,7 @@ class Admin::Course::LessonsController < ApplicationController
 
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to @style, notice: t('.lesson-successfully-created') }
+        format.html { redirect_to @lesson.style, notice: t('.lesson-successfully-created') }
       else
         format.html { render :new }
       end
@@ -66,7 +66,7 @@ class Admin::Course::LessonsController < ApplicationController
     end
 
     def set_style
-      @style = Course.friendly.find(params[:style_id])
+      @style = Style.friendly.find(params[:style_id])
     end
 
     # Only allow a list of trusted parameters through.

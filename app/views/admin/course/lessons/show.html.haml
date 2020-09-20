@@ -1,6 +1,6 @@
 %h2.subtitle
   = t('lesson.show.course')
-  = @lesson.course.name
+  = @lesson.style.name
 
 %h1.title
   = Lesson.model_name.human
@@ -29,5 +29,5 @@
 %br
 %br
 
-= link_to t('Edit'), edit_admin_course_lesson_path(@lesson.course, @lesson), class: 'button is-link is-outlined'
+= link_to t('Edit'), edit_admin_style_lesson_path(@lesson.style, @lesson), class: 'button is-link is-outlined'
 

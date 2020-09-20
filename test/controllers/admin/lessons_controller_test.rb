@@ -8,61 +8,61 @@ class LessonsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not get index when unauthenticated" do
-    get admin_course_lessons_url(@lesson.course)
+    get admin_style_lessons_url(@lesson.style)
     assert_response :redirect
   end
 
   test "should not get index when unauthorized" do
     sign_in users(:user)
-    get admin_course_lessons_url(@lesson.course)
+    get admin_style_lessons_url(@lesson.style)
     assert_response :redirect
   end
 
   test "should get index" do
     sign_in users(:admin)
-    get admin_course_lessons_url(@lesson.course)
+    get admin_style_lessons_url(@lesson.style)
     assert_response :success
   end
 
   test "should get new" do
     sign_in users(:admin)
-    get new_admin_course_lesson_url(@lesson.course)
+    get new_admin_style_lesson_url(@lesson.style)
     assert_response :success
   end
 
   test "should create lesson" do
     sign_in users(:admin)
     assert_difference('Lesson.count') do
-      post admin_course_lessons_url(@lesson.course), params: { lesson: { course_id: @lesson.course_id, date_end: @lesson.date_end, date_start: @lesson.date_start } }
+      post admin_style_lessons_url(@lesson.style), params: { lesson: { style_id: @lesson.style_id, date_end: @lesson.date_end, date_start: @lesson.date_start, name: 'Test-a-less'} }
     end
 
-    assert_redirected_to lesson_url(Lesson.last)
+    assert_redirected_to style_url(Lesson.last.style)
   end
 
   test "should show lesson" do
     sign_in users(:admin)
-    get admin_course_lesson_url(@lesson.course, @lesson)
+    get admin_style_lesson_url(@lesson.style, @lesson)
     assert_response :success
   end
 
   test "should get edit" do
     sign_in users(:admin)
-    get edit_admin_course_lesson_url(@lesson.course, @lesson)
+    get edit_admin_style_lesson_url(@lesson.style, @lesson)
     assert_response :success
   end
 
   test "should update lesson" do
     sign_in users(:admin)
-    patch admin_course_lesson_url(@lesson.course, @lesson), params: { lesson: { course_id: @lesson.course_id, date_end: @lesson.date_end, date_start: @lesson.date_start } }
-    assert_redirected_to course_url(@lesson.course)
+    patch admin_style_lesson_url(@lesson.style, @lesson), params: { lesson: { style_id: @lesson.style_id, date_end: @lesson.date_end, date_start: @lesson.date_start } }
+    assert_redirected_to style_url(@lesson.style)
   end
 
   test "should destroy lesson" do
     sign_in users(:admin)
     assert_difference('Lesson.count', -1) do
-      delete admin_course_lesson_url(@lesson.course, @lesson)
+      delete admin_style_lesson_url(@lesson.style, @lesson)
     end
 
-    assert_redirected_to course_url(@lesson.course)
+    assert_redirected_to style_url(@lesson.style)
   end
 end
