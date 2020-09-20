@@ -14,7 +14,7 @@ relaxed_yoga:
   name: Relaxed Yoga
   row_order: 5
 
-course_without_lessons:
+style_without_lessons:
   name: Prepared Course
   row_order: 6
 
