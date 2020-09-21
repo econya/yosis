@@ -33,7 +33,7 @@ class Admin::User::SubscriptionsController < ApplicationController
   def update
     respond_to do |format|
       if @subscription.update(subscription_params)
-        format.html { redirect_to [:admin, @subscription.user], notice: t('.update-successful') }
+        format.html { redirect_to [:admin, @subscription.user], notice: t('.update-successfull') }
       else
         format.html { render :edit }
       end

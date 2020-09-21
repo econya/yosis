@@ -130,7 +130,15 @@ de:
         edit-title: Abonnement bearbeiten
         subscribed: Abo
         trial: Schnupperwoche
-      subscriptions: Abonnements
+      subscriptions:
+        create:
+          creation-successfull: Abonnement hinzugefügt
+        destroy:
+          destroy-success: Abonnement gelöscht
+        new-title: Neues Abo
+        title: Abonnements
+        update:
+          update-successfull: Abonnement aktualisiert
     users:
       admin: Admin
       cannot-delete-admins: Admins können so nicht gelöscht werden!
