@@ -27,11 +27,11 @@
               %td.time
                 - if course.start_time
                   = l(course.start_time,
-                    format: '%H:%m')
+                    format: '%H:%M')
                 = "-"
                 - if course.end_time
                   = l(course.end_time,
-                    format: '%M:%m')
+                    format: '%H:%M')
               %td.style
                 = link_to course.style do
                   = course.style.name
