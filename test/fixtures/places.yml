@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+north:
+  name: Place One Studio North
+  building_name: MyString
+  note: MyString
+
+place_two:
+  name: Place Two
+  building_name: MyString
+  note: MyString
+  active: true
