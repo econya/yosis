@@ -22,12 +22,10 @@ class Admin::User::SubscriptionsController < ApplicationController
   def create
     @subscription = @user.subscriptions.new(subscription_params)
 
-    respond_to do |format|
-      if @subscription.save
-        format.html { redirect_to [:admin, @subscription.user], notice: t('.creation-successfull') }
-      else
-        format.html { render :new }
-      end
+    if @subscription.save
+      redirect_to [:admin, @subscription.user], notice: t('.creation-successfull')
+    else
+      render :new
     end
   end
 
