@@ -22,8 +22,8 @@
     = f.label :info
     = f.text_field :info
   .field
-    = f.label :course
-    = f.collection_select :course_id, Course.all, :id, :name, prompt: t('Select Course')
+    = f.label :style
+    = f.collection_select :style, Course.all, :id, :name, prompt: t('Select Style')
   .field
     = f.label :link
     = f.text_field :link
