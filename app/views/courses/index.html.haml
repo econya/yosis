@@ -1,5 +1,9 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
 %h1.title
-  = t('Listing courses')
+  = t('courses.title-all')
 
 .columns.is-multiline
   - @courses.each do |course|
@@ -12,6 +16,6 @@
             = course.name
         .card-content
           = course.name
-          Text
+          -#Text
         %td= link_to t('Show'), course
 

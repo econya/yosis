@@ -186,6 +186,8 @@ There could be more.
 
 Run tests with `rails t` (you might have to `sudo sysctl fs.inotify.max_user_watches=524288` if you hit filewatch limits with livereloard/guard/spring).
 
+*System tests* have to be run manually with `rails t test/system`.
+
 #### i18n
 
 During development, add new translation keys with
