@@ -36,7 +36,8 @@
     - @posts.each do |post|
       %tr
         %td
-          = post.image
+          - if post.image.attached?
+            = image_tag post.image.variant(resize_to_fill: [100, 80]).processed, class: (post.active?) ? '' : 'semi-transparent'
         %td
           = post.title
         %td
