@@ -5,6 +5,7 @@
 class Place < ApplicationRecord
   extend FriendlyId
   include RankedModel
+  include Deactivateable
 
   ranks :row_order, scope: :active
 
@@ -12,6 +13,4 @@ class Place < ApplicationRecord
 
   friendly_id :name, use: :slugged
 
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where.not(active: true) }
 end

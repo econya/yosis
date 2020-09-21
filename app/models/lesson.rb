@@ -5,6 +5,7 @@
 class Lesson < ApplicationRecord
   extend FriendlyId
   include RankedModel
+  include Deactivateable
 
   ranks :row_order, with_same: :style_id, scope: :inactive
   ranks :row_order, with_same: :style_id, scope: :active
@@ -18,8 +19,6 @@ class Lesson < ApplicationRecord
   validates :preview_image, presence: true
   validates :video, presence: true
 
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where.not(active: true) }
 
   friendly_id :name, use: :slugged
 end

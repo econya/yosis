@@ -5,6 +5,8 @@
 class Style < ApplicationRecord
   extend FriendlyId
   include RankedModel
+  include Deactivateable
+
   ranks :row_order
 
   has_one_attached :image
@@ -15,8 +17,6 @@ class Style < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 2 }, uniqueness: true
 
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where.not(active: true) }
 
   scope :which_has_courses, -> { where(id: Course.active.select(:style_id)) }
   scope :which_has_videos,  -> { where(id: Lesson.active.select(:style_id)) }

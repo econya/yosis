@@ -5,13 +5,13 @@
 class Course < ApplicationRecord
   extend FriendlyId
   include RankedModel
+  include Deactivateable
+
   ranks :row_order
 
   belongs_to :place
   belongs_to :style
 
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where.not(active: true) }
 
   friendly_id :name, use: :slugged
 
