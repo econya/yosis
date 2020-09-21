@@ -11,7 +11,7 @@ class AppointmentTest < ActiveSupport::TestCase
     assert_equal 1, Appointment.future.count
 
     Appointment.create!(date_from: DateTime.current + 2.days,
-                        course: courses(:base_yoga))
+                        style: styles(:base_yoga))
     assert_equal 2, Appointment.future.count
   end
 end
