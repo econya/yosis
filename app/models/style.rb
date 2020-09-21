@@ -19,6 +19,7 @@ class Style < ApplicationRecord
   scope :inactive, -> { where.not(active: true) }
 
   scope :which_has_courses, -> { where(id: Course.active.select(:style_id)) }
+  scope :which_has_videos,  -> { where(id: Lesson.active.select(:style_id)) }
 
   friendly_id :name, use: :slugged
 end
