@@ -1,5 +1,19 @@
-%h1.title
-  = t('Listing_places')
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+:ruby
+  admin_head_locals = {
+    title: t('Listing Places'),
+    admin: {
+      new: {
+        url: new_admin_place_path,
+        label: t('New Place')
+      }
+    }
+  }
+
+= render partial: 'admin_head_level', locals: admin_head_locals
 
 - if @places.present?
   = render partial: 'table', locals: {places: @places}

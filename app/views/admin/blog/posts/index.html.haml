@@ -2,8 +2,18 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%h1.title
-  = t('Listing Blog Posts')
+:ruby
+  admin_head_locals = {
+    title: t('Listing Blog Posts'),
+    admin: {
+      new: {
+        url: new_admin_blog_post_path,
+        label: t('admin.blog.post.new')
+      }
+    }
+  }
+
+= render partial: 'admin_head_level', locals: admin_head_locals
 
 - if @pagy.pages > 1
   = t('pagy.showing_from_to_total',

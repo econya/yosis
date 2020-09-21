@@ -1,5 +1,18 @@
-%h1.title
-  =t('courses.listing-heading')
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+:ruby
+  admin_head_locals = {
+  title: t('courses.listing-heading'),
+  admin: {
+    new: {
+      url: new_admin_course_path,
+      label: t('admin.course.new')
+    }
+  }}
+
+= render partial: 'admin_head_level', locals: admin_head_locals
 
 %table.table.is-striped.is-fullwidth.is-hoverable
   %thead

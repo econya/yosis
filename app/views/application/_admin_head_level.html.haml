@@ -1,0 +1,17 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+.level
+  .level-left
+    .level-item
+      %h1.title= title
+      -# other places: h1.title.is-2
+  .level-right
+    .level-item.buttons
+      - if defined? admin
+        = link_to admin.dig(:new, :url), class: 'button is-link is-outlined' do
+          %span.icon.is-small
+            %i.fas.fa-user-shield
+          %span
+            = admin.dig(:new, :label)

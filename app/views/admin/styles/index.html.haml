@@ -2,8 +2,18 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%h1.title
-  =t('Listing styles')
+:ruby
+  admin_head_locals = {
+    title: t('Listing Styles'),
+    admin: {
+      new: {
+        url: new_admin_style_path,
+        label: t('admin.style.new')
+      }
+    }
+  }
+
+= render partial: 'admin_head_level', locals: admin_head_locals
 
 %table.table.is-striped.is-fullwidth.is-hoverable
   %thead
