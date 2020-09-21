@@ -23,16 +23,17 @@
       %th
       %th= t('admin.courses.name')
       %th= t('admin.courses.number_lessons')
-      %th= t('admin.courses.number_appointments')
-      %th= t('admin.courses.next_appointment')
+      %th= t('admin.courses.number_courses')
+      -#%th= t('admin.courses.number_appointments')
+      -#%th= t('admin.courses.next_appointment')
       %th
 
   %tbody
-    - first = @styles.first
-    - last  = @styles.last
+    - first, last = @styles.first, @styles.last
+
     - @styles.each do |style|
       %tr
-        %td
+        %td.rank
           = style.row_order_rank
           - if style != first
             = link_to admin_style_position_path(style), method: :post do
@@ -50,22 +51,34 @@
               %i.fas.fa-empty.is-small
         %td
           - if !style.active?
-            %span.tag.is-danger
-              = t('style.inactive')
+            %span.icon.has-text-danger
+              %i.fas.fa-eye-slash
         %td
           - if style.image.attached?
-            = image_tag style.image.variant(resize_to_fill: [180,120]).processed, class: (style.active?) ? '' : 'semi-transparent'
-        %td
+            = image_tag style.image.variant(resize_to_fill: [180,120]).processed,
+              class: (style.active?) ? '' : 'semi-transparent'
+          - else
+            &nbsp;
+
+        %td.name
           .subtitle
             = style.name
-        %td= style.lessons.length
-        %td= style.appointments.length
-        %td= style.appointments.future.first&.date_from
+        %td
+          = style.lessons.length
+        %td
+          = style.courses.active.length
+        -#%td
+        -#  = style.appointments.length
+        -#%td
+        -#  = style.appointments.future.first&.date_from
         %td
           .buttons
             = link_to t('Show'), style, class: 'button is-small'
             = link_to t('Edit'), edit_admin_style_path(style), class: 'button is-small'
-            = link_to t('Destroy'), [:admin, style], method: :delete, data: { confirm: t('Are you sure?') }, class: 'button is-small is-danger'
+            - if !style.active?
+              = link_to t('Destroy'), [:admin, style], method: :delete,
+                data: { confirm: t('Are you sure?') },
+                class: 'button is-small is-danger'
 
 %br
 
