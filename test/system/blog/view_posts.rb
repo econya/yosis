@@ -10,6 +10,7 @@ class ViewPostsTest < ApplicationSystemTestCase
     assert_selector 'h2', text: blog_posts(:first_post).title.upcase
     assert_selector 'h2', text: blog_posts(:second_post).title.upcase
     assert_selector 'h2', text: blog_posts(:third_post).title.upcase
+    assert find(".post > img")
   end
 
   test "visit a single post" do

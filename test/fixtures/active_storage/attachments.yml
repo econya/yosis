@@ -6,3 +6,8 @@ base_yoga_intro_image:
   name: preview_image
   record: base_yoga_intro(Lesson)
   blob: base_yoga_intro_image_blob
+
+blog_post_image:
+  name: image
+  record: first_post(Blog::Post)
+  blob: base_yoga_intro_image_blob

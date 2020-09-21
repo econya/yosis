@@ -18,6 +18,8 @@
   - renderer = Redcarpet::Render::HTML.new(with_toc_data: true)
   != Redcarpet::Markdown.new(renderer).render(@post.content)
 
+%hr
+
 .blog-navigation
   - previous_post = @post.previous
   - if previous_post.present?
