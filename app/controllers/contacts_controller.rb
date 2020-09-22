@@ -11,16 +11,22 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(contact_params)
+    contact_values = contact_params
+    @contact = Contact.new(contact_values)
     if user_signed_in?
       @contact.sender_email = current_user.email
+      sender_mail_param = ActionController::Parameters.new(
+        sender_email: current_user.email).permit(:sender_email)
+      contact_values.merge!(sender_mail_param)
     end
 
     if @contact.valid?
-      ContactMailer.with(contact_params: contact_params).feedback().deliver_later
+      ContactMailer.with(contact_params: contact_values)
+        .feedback().deliver_later
 
       redirect_to root_path, notice: t('contact.sent_thanks')
     else
+      # Need to setup the environment for Pages#home
       @styles = Style.active.rank(:row_order)
       @places = Place.active.all
       render template: 'pages/home'

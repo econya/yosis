@@ -109,11 +109,29 @@ There are at least three solutions for recurring jobs:
 
 `delayed_cron_job` was chosen.
 
+#### Serialization/mail Jobs
+
+In case of the contact form, a tableless `Contact` model instance is created.
+In order to save all needed jobs data to the database, passed objects need to be
+serialized, where `ActiveModel::Serialization` can help, but is not enough (see the [ActiveJob Guide](https://edgeguides.rubyonrails.org/active_job_basics.html#supported-types-for-arguments))
+
+Now, either you spell out all given parameters, you write a Serializer or you
+just pass the params into the job and create the Model-Object within the job at
+"run"-time.
+
+I decided to pass the parameters, which seemed to be the least hazzle.
+
 ### Mail archive
 
 For mail "tracking" (saving outgoing mails to ensure that the right mails got
 sent), `ahoy_email` is used, with the additional `content` column (somewhat
 undocumented feature).
+
+### Mails, generally
+
+E-Mail RFCs are hairy compared to old men. For multipart emails, you can use
+`(mail.html_part || mail.text_part || mail).body.decoded` to access the body in
+a relatively friendly way.
 
 ## Resources and lessons learned
 

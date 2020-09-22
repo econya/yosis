@@ -6,10 +6,13 @@ class ContactMailer < ApplicationMailer
   default to: ENV['SENDER_EMAIL'] || 'yosis'
 
   def feedback()
-    @user    = params[:user]
-    @contact = Contact.new(subject: params[:subject],
-                           message: params[:message])
+    @contact = Contact.new(params[:contact_params])
 
-    mail(subject: t('contact_mailer.contacted'), reply_to: @user.email)
+    mail(subject: t('contact_mailer.contacted'),
+         reply_to: @contact.sender_email || default_sender)
+  end
+
+  def default_sender
+    ENV['SENDER_EMAIL'] || 'yosis'
   end
 end

@@ -7,6 +7,7 @@ require 'test_helper'
 require 'action_mailer/test_helper'
 
 class ContactTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
   include ActionMailer::TestHelper
 
   setup do
@@ -19,6 +20,7 @@ class ContactTest < ApplicationSystemTestCase
     fill_in "Betreff",   with: 'Mail from visitor'
     fill_in "Nachricht", with: 'Content (mail from visitor)'
     fill_in "E-Mail-Adresse", with: 'me@yo.u'
+    fill_in "Telefonnummer", with: '71 7'
 
     assert_emails 1 do
       click_on "Abschicken"
@@ -28,11 +30,15 @@ class ContactTest < ApplicationSystemTestCase
     email_count = ActionMailer::Base.deliveries.size
 
     assert_equal 1, email_count
+
+    assert_equal ['me@yo.u'], last_email.reply_to
+    assert_equal "Kontakt via Webseite", last_email.subject, "Kontakt via Webseite"
+    assert_match /Mail from visitor/, last_email.body.to_s
+    assert_match /Content \(mail from visitor\)/, last_email.body.to_s
+    assert_match /71 7/, last_email.body.to_s
   end
 
-  # TODO test different case (logged in user, user gives phone, invalid form,
-  # ...)
-  test "validates contact form on landing page" do
+  test "validates contact form on landing page (missing email/phone)" do
     visit root_url
 
     fill_in "Betreff",   with: 'Mail from visitor'
@@ -45,6 +51,45 @@ class ContactTest < ApplicationSystemTestCase
     last_email  = ActionMailer::Base.deliveries.last
     email_count = ActionMailer::Base.deliveries.size
 
-    assert_equal 0, email_count
+    assert_selector '#error_explanation', text: 'E-Mail-Adresse Bitte gib eine Telefonnummer oder eine E-Mail-Adresse an.'
+  end
+
+  test "hides email address if user is logged in" do
+    user = users(:user)
+    sign_in users(:user)
+
+    visit root_url
+
+    refute_selector '#contact_sender_email'
+
+    fill_in "Betreff",   with: 'Mail from visitor'
+    fill_in "Nachricht", with: 'Content (mail from visitor)'
+
+    email_count = ActionMailer::Base.deliveries.size
+
+    assert_emails 1 do
+      click_on "Abschicken"
+    end
+
+    last_email  = ActionMailer::Base.deliveries.last
+
+    assert_equal email_count + 1, ActionMailer::Base.deliveries.size
+
+    assert_equal [user.email], last_email.reply_to
+    assert_equal "Kontakt via Webseite", last_email.subject, "Kontakt via Webseite"
+    assert_match /Mail from visitor/, last_email.body.to_s
+    assert_match /Content \(mail from visitor\)/, last_email.body.to_s
+  end
+
+  test "sends mail also if only phone number was given" do
+    visit root_url
+
+    fill_in "Betreff",   with: 'Mail from visitor'
+    fill_in "Nachricht", with: 'Content (mail from visitor)'
+    fill_in "Telefonnummer", with: '72 7'
+
+    assert_emails 1 do
+      click_on "Abschicken"
+    end
   end
 end
