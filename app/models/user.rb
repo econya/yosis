@@ -11,6 +11,13 @@ class User < ApplicationRecord
 
   has_many :subscriptions
 
+  # GDPR sprinkles
+  attribute :tos_agreement
+  validates_acceptance_of :tos_agreement, :allow_nil => false, :on => :create
+
+  attribute :read_privacy_terms
+  validates_acceptance_of :read_privacy_terms, :allow_nil => false, :on => :create
+
   scope :with_current_subscription, -> {
     joins(:subscriptions).merge(Subscription.current)
   }

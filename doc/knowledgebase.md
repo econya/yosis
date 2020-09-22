@@ -19,6 +19,9 @@
     * [Video Players](#videoplayers)
     * [ffmpeg](#ffmpeg)
   + [Bulma](#bulma)
+  + [GDPR](#gdpr)
+    * [Policy agreements](#policy-agreements)
+    * [Rights on data](#rights-on-data)
 - [ActiveRecord](#activerecord)
 - [Licensing](#licensing)
 - [Known optimizabilities](#know-optimizabilities)
@@ -244,6 +247,29 @@ more, like [plyr](https://github.com/sampotts/plyr.)
 Nice and mostly responsive (be careful with `levels` and `media` elements).
 Custom color-types and shades could be implemented:
 https://github.com/jgthms/bulma/issues/2244 (undocumented)
+### GDPR
+
+#### Policy agreements
+
+Two separate policies have to be agreed to (technically, one has only to be
+taken notice of, there cannot be disagreement by click).
+
+As the policies might change, it is important to store the date of the consents.
+
+In order to force users to agree to the policies, the devises User model is
+adjusted to force acceptance via a checkbox. The agreement itself is not stored,
+but timestamped instead (column: ).
+
+After a valid login we have to redirect users to re-agree to the terms/policies
+if they are outdated. To do so there are at least two general approaches.
+
+#### Rights on data
+
+##### Deletion/anonymisation
+Anonymisation will be fine. Make sure to cover the emails as well.
+
+##### Export in machine-readable format
+JSON will do.
 
 
 ## ActiveRecord

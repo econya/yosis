@@ -11,4 +11,10 @@ class RegistrationsController < Devise::RegistrationsController
       AdminMailer.new_registration(@user).deliver_later
     end
   end
+
+  protected
+
+  def sign_up_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :tos_agreement, :read_privacy_terms)
+  end
 end
