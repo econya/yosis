@@ -4,13 +4,13 @@
 
 class ContactsController < ApplicationController
   before_action :authenticate_user!
+  invisible_captcha only: :show, on_spam: :log_spam
 
   def new
     @contact = Contact.new
   end
 
   def create
-
     @contact = Contact.new(contact_params)
     if user_signed_in?
       @contact.sender_email = current_user.email
@@ -34,5 +34,10 @@ class ContactsController < ApplicationController
   private
   def contact_params
     params.require(:contact).permit(:subject, :message, :sender_email, :phone_number)
+  end
+
+  def log_spam
+    Rails.logger.info 'invisible_captcha prevented a spam contact'
+    head 200
   end
 end

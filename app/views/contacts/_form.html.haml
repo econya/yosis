@@ -13,6 +13,8 @@
         - @contact.errors.full_messages.each do |message|
           %li= message
 
+  = invisible_captcha
+
   - if !user_signed_in?
     .field
       = f.label :sender_email
