@@ -1,10 +1,27 @@
-= form_for @contact ||= Contact.new, builder: BulmaFormBuilder::FormBuilder do |f|
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+= form_for @contact ||= Contact.new,
+  url: contacts_path(@contact, anchor: 'contact'),
+  builder: BulmaFormBuilder::FormBuilder do |f|
   - if @contact.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@contact.errors.count, "error")} prohibited this course from being saved:"
+    #error_explanation.notification.has-text-danger
+      %h2
+        = t("errors.prohibited_from_saving", count: @contact.errors.count)
       %ul
         - @contact.errors.full_messages.each do |message|
           %li= message
+
+  - if !user_signed_in?
+    .field
+      = f.label :sender_email
+      = f.text_field :sender_email
+
+    .field
+      = f.label :phone_number
+      = f.text_field :phone_number
+
   .field
     = f.label :subject
     = f.text_field :subject
