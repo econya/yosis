@@ -18,7 +18,7 @@ class ContactTest < ApplicationSystemTestCase
 
     fill_in "Betreff",   with: 'Mail from visitor'
     fill_in "Nachricht", with: 'Content (mail from visitor)'
-    fill_in "Sender email", with: 'me@yo.u'
+    fill_in "E-Mail-Adresse", with: 'me@yo.u'
 
     assert_emails 1 do
       click_on "Abschicken"
@@ -38,7 +38,7 @@ class ContactTest < ApplicationSystemTestCase
     fill_in "Betreff",   with: 'Mail from visitor'
     fill_in "Nachricht", with: 'Content (mail from visitor)'
 
-    assert_emails 1 do
+    assert_emails 0 do
       click_on "Abschicken"
     end
 
