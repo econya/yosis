@@ -74,4 +74,4 @@ class Rack::Attack
   #    {},   # headers
   #    ['']] # body
   # end
-end
+end if !Rails.env.test?
