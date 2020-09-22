@@ -10,11 +10,21 @@ class ContactsController < ApplicationController
   end
 
   def create
-    contact = Contact.new(contact_params)
-    ContactMailer.with(user: current_user,
-                       subject: contact.subject,
-                       message: contact.message).feedback().deliver_later
-    redirect_to root_path, notice: t('contact.sent_thanks')
+
+    @contact = Contact.new(contact_params)
+    if user_signed_in?
+      @contact.sender_email = current_user.email
+    end
+
+    if @contact.valid?
+      ContactMailer.with(contact_params: contact_params).feedback().deliver_later
+
+      redirect_to root_path, notice: t('contact.sent_thanks')
+    else
+      @styles = Style.active.rank(:row_order)
+      @places = Place.active.all
+      render template: 'pages/home'
+    end
   end
 
   def show
@@ -23,6 +33,6 @@ class ContactsController < ApplicationController
 
   private
   def contact_params
-    params.require(:contact).permit(:subject, :message)
+    params.require(:contact).permit(:subject, :message, :sender_email, :phone_number)
   end
 end
