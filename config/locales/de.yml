@@ -274,6 +274,9 @@ de:
   errors:
     messages:
       not_saved: Nicht gespeichert
+    prohibited_from_saving:
+      one: "Es gab ein Problem:"
+      other: "Es gab %{count} Probleme:"
   explanation_text_homepage: Explanation text homepage
   feedback: Feedback
   helpers:
