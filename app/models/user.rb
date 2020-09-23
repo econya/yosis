@@ -18,6 +18,8 @@ class User < ApplicationRecord
   attribute :read_privacy_terms
   validates_acceptance_of :read_privacy_terms, :allow_nil => false, :on => :create
 
+  after_create :accept_terms
+
   scope :with_current_subscription, -> {
     joins(:subscriptions).merge(Subscription.current)
   }
@@ -58,5 +60,9 @@ class User < ApplicationRecord
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
+  end
+
+  def accept_terms
+    update(terms_accepted_at: DateTime.now)
   end
 end

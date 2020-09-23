@@ -256,12 +256,22 @@ taken notice of, there cannot be disagreement by click).
 
 As the policies might change, it is important to store the date of the consents.
 
-In order to force users to agree to the policies, the devises User model is
-adjusted to force acceptance via a checkbox. The agreement itself is not stored,
-but timestamped instead (column: ).
+In order to force users to agree to the policies (at registration), the
+devises User model is adjusted to force acceptance via a checkbox.
+This applies only in the create-phase.
+
+The agreement itself is not stored, but is timestamped instead (column:
+`accepted_terms_at`). To ease things (and we are only dealing with two
+policies), just one timestamp is stored - if the consent becomes invalid
+(because outdated), both policies have to be re-agreed to.
 
 After a valid login we have to redirect users to re-agree to the terms/policies
 if they are outdated. To do so there are at least two general approaches.
+
+To hook into the devise workflow, a custom registrations_controller is
+implemented, that overrides the `sign_up_params`. Futhermore, tableless
+attributes are added to the User model and the registration form is adjusted
+accordingly.
 
 #### Rights on data
 

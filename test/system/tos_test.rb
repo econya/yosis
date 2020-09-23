@@ -45,7 +45,18 @@ class TosTest < ApplicationSystemTestCase
   end
 
   test "when signed up, dates of consent are saved in User model" do
-    skip "tbi"
+    visit new_user_registration_url
+
+    fill_in "E-Mail",   with: 'my@ma.il'
+    fill_in "Passwort", with: 'my@ma.il'
+    fill_in "Passwortbestätigung", with: 'my@ma.il'
+
+    check('Datenschutzhinweise gelesen')
+    check('Stimme AGB zu')
+
+    click_on "Für Schnupperwoche registrieren"
+
+    assert_in_delta DateTime.now.to_i, User.last.terms_accepted_at.to_i, 5
   end
 
   test "when logging in and no consent was given, user is forced to agree or delete account" do
