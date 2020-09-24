@@ -14,3 +14,22 @@ intro:
   value: "**Here** is a longer intro text."
   value_rendered: <p><stong>Here</p></strong> is a longer intro text.**
   kind: markdown
+
+news_line:
+  key: news_line
+  value: "**Here** is a longer intro text."
+  value_rendered: <p><stong>Here</strong> is a longer intro text.</p>
+  kind: markdown
+
+privacy_statement:
+  key: privacy_statement
+  value: "The **privacy statement**"
+  value_rendered: <p>The <stong>privacy statement</strong>
+  kind: markdown
+
+terms:
+  key: terms
+  value: "The **terms**"
+  value_rendered: <p>The <stong>terms</strong>
+  kind: markdown
+

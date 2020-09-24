@@ -16,6 +16,11 @@ user:
   encrypted_password: <%= User.new.send(:password_digest, 'userpwd') %>
   confirmed_at: 2018-01-01
 
+user_without_tos_acceptance:
+  email: 'user2@yo.sis'
+  encrypted_password: <%= User.new.send(:password_digest, 'userpwd') %>
+  confirmed_at: 2018-01-01
+
 unconfirmed_user:
   email: 'lazyuser1@yo.sis'
   encrypted_password: <%= User.new.send(:password_digest, 'userpwd') %>
