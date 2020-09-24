@@ -464,6 +464,11 @@ de:
     your-are-subscriped: Du hast ein Abonnement
     your-subscription-ended: Dein Abonnement ist abgelaufen
     your-trial-ended: Deine Schnupperwoche ist abgelaufen
+  terms_acceptances:
+    create:
+      welcome: Super! Willkommen und viel Spaß!
+    show:
+      have_to_agree: Du musst den AGB zustimmen und die Datenschutzerklärung als gelesen markieren.
   the_website: yogamitveronique.de
   till: bis
   time:

@@ -60,10 +60,25 @@ class TosTest < ApplicationSystemTestCase
   end
 
   test "when logging in and no consent was given, user is forced to agree or delete account" do
-    skip "tbi"
+    visit new_user_session_path
+
+    user = users(:user_without_tos_acceptance)
+
+    fill_in "E-Mail", with: user.email
+    fill_in "Passwort", with: 'userpwd'
+
+    click_on "Anmelden"
+
+    assert_selector '.notification', text: /Du musst/
+    assert_selector 'button', text: 'gelesen'
+    assert_selector 'button', text: 'löschen'
   end
 
   test "admins can update date of tos changes and user has to re-agree or delete account" do
+    skip "tbi"
+  end
+
+  test "admins do not need to accept the terms" do
     skip "tbi"
   end
 end

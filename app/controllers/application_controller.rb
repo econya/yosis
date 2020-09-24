@@ -4,7 +4,7 @@
 
 class ApplicationController < ActionController::Base
   include Pagy::Backend
-  #before_action :authenticate_user!
+  before_action :force_terms_acceptance
   impersonates :user
 
   def authorize_admin!
@@ -13,6 +13,21 @@ class ApplicationController < ActionController::Base
     else
       flash[:error] = t('not authorized')
       redirect_to root_path
+    end
+  end
+
+  def authorize_user!
+    if !user_signed_in?
+      flash[:error] = t('you need to log in')
+      redirect_to root_path
+    end
+  end
+
+  def force_terms_acceptance
+    if user_signed_in? && current_user == true_user
+      if !current_user.admin? && !current_user.terms_accepted_at
+        redirect_to terms_acceptance_path
+      end
     end
   end
 end

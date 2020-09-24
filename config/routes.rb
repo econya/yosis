@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   resources :styles, only: [:index, :show]
 
+  resource :terms_acceptance, only: [:show, :create]
+
   namespace :admin do
     resources :appointments
 
