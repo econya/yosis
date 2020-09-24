@@ -14,13 +14,21 @@
   .content.is-medium.has-text-justified
     != SiteSetting['terms']
 
-= form_with url: terms_acceptance_path, builder: BulmaFormBuilder::FormBuilder do |f|
-  .field
-    = label_tag :accept_terms, t('activerecord.attributes.user.tos_agreement')
-    = f.check_box :accept_terms
-  .field
-    = label_tag :read_privacy_terms, t('activerecord.attributes.user.read_privacy_terms')
-    = f.check_box :read_privacy_terms
-  .actions
-    = f.submit t('Save'), class: 'button is-primary'
-
+.columns
+  .column.is-half
+    %h2.title
+      = t('.acceptance')
+    = form_with url: terms_acceptance_path, builder: BulmaFormBuilder::FormBuilder do |f|
+      .field
+        = f.check_box :accept_terms
+        = label_tag :accept_terms, t('activerecord.attributes.user.tos_agreement')
+      .field
+        = f.check_box :read_privacy_terms
+        = label_tag :read_privacy_terms, t('activerecord.attributes.user.read_privacy_terms')
+      .actions
+        = f.submit t('Save'), class: 'button is-primary'
+  .column.is-half
+    %h2.title
+      = t('.actions')
+    .block
+      = t('.not-happy?')

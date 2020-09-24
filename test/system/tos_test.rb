@@ -70,8 +70,30 @@ class TosTest < ApplicationSystemTestCase
     click_on "Anmelden"
 
     assert_selector '.notification', text: /Du musst/
-    assert_selector 'button', text: 'gelesen'
-    assert_selector 'button', text: 'löschen'
+    assert_selector '.button', text: 'Mein Konto zerstören'
+    assert_selector '.button', text: 'Zeig mir meine Daten!'
+
+    visit root_path
+
+    assert_equal terms_acceptance_path, page.current_path
+
+    assert_selector '.notification', text: /Du musst/
+    assert_selector '.button', text: 'Mein Konto zerstören'
+    assert_selector '.button', text: 'Zeig mir meine Daten!'
+
+    #click_on 'Speichern'
+
+    assert_selector '.notification', text: /Du musst/
+
+    check 'Datenschutzhinweise gelesen'
+    check 'Stimme AGB zu'
+
+    click_on 'Speichern'
+
+    assert_selector '.notification', text: /Willkommen/
+
+    user.reload
+    assert_in_delta DateTime.current.to_i, User.last.terms_accepted_at.to_i, 5
   end
 
   test "admins can update date of tos changes and user has to re-agree or delete account" do
