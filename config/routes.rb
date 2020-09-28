@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get '/up', to: proc {[200, {}, ['is_up']]}
 
-  get 'about-us',    to: 'pages#about_us'
+
   get 'privacy',     to: 'pages#privacy'
   get 'terms',       to: 'pages#terms'
   get 'impressum',   to: 'pages#impressum'
