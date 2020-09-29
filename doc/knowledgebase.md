@@ -11,6 +11,7 @@
     * [Tests and ActiveStorage](#tests-and-activestorage)
   + [Background Jobs](#jobs)
     * [Recurring Jobs](#recurring-jobs)
+  + [Access Policies](#policies)
 - [Resources and lessons learned](#resources-and-lessons-learned)
   + [ActiveStorage](#activestorage)
   + [Big File upload](#big-file-upload)
@@ -123,6 +124,13 @@ just pass the params into the job and create the Model-Object within the job at
 "run"-time.
 
 I decided to pass the parameters, which seemed to be the least hazzle.
+
+
+### Access Policies
+
+Go-to successor of CanCan(Can) is [active_policies](https://github.com/palkan/action_policy).
+
+But so far, I just go with POROs (in `lib/policies/`).
 
 ### Mail archive
 
