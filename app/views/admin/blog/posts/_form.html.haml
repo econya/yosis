@@ -24,6 +24,9 @@
     = f.label :image
     = f.file_field :image
   .field
+    = f.label :published_at
+    = f.datetime_select :published_at, { minute_step: 5, include_blank: true }
+  .field
     = f.label :active
     = f.check_box :active
   .actions

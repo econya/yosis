@@ -30,19 +30,26 @@
       %th= t('admin.blog.post.image')
       %th= t('admin.blog.post.title')
       %th= t('admin.blog.post.content')
+      %th= t('admin.blog.post.published_at')
       %th
 
   %tbody
     - @posts.each do |post|
       %tr
-        %td
+        %td.post-image
           - if post.image.attached?
             = image_tag post.image.variant(resize_to_fill: [100, 80]).processed, class: (post.active?) ? '' : 'semi-transparent'
-        %td
+        %td.post-title
           = post.title
-        %td
+        %td.post-content
           = post.content
-        %td
+        %td.post-published
+          - if !post.active?
+            %span.icon.has-text-danger
+              %i.fas.fa-eye-slash
+          - if post.published_at.present?
+            = l(post.published_at)
+        %td.post-actions
           .buttons
             = link_to t('Show'), post, class: 'button is-small'
             = link_to t('Edit'), edit_admin_blog_post_path(post), class: 'button is-small'
