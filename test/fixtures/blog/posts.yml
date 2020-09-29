@@ -8,6 +8,7 @@ first_post:
   title: First Post
   content: Content of first post
   created_at: 2020-01-01
+  published_at: 2020-01-01
   active: true
   slug: first_post
 

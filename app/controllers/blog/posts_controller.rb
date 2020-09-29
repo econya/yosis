@@ -9,5 +9,8 @@ class Blog::PostsController < ApplicationController
 
   def show
     @post = Blog::Post.friendly.find(params[:id])
+    if !Policies::Policy.can_see_blog_post current_user, @post
+      redirect_to blog_posts_path
+    end
   end
 end
