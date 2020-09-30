@@ -11,6 +11,9 @@
     * [Tests and ActiveStorage](#tests-and-activestorage)
   + [Background Jobs](#jobs)
     * [Recurring Jobs](#recurring-jobs)
+  + [GDPR](#gdpr)
+    * [Policy agreements](#policy-agreements)
+    * [Rights on data](#rights-on-data)
   + [Access Policies](#policies)
 - [Resources and lessons learned](#resources-and-lessons-learned)
   + [ActiveStorage](#activestorage)
@@ -20,9 +23,7 @@
     * [Video Players](#videoplayers)
     * [ffmpeg](#ffmpeg)
   + [Bulma](#bulma)
-  + [GDPR](#gdpr)
-    * [Policy agreements](#policy-agreements)
-    * [Rights on data](#rights-on-data)
+  + [Operations](#operations)
 - [ActiveRecord](#activerecord)
 - [Licensing](#licensing)
 - [Known optimizabilities](#know-optimizabilities)
@@ -36,12 +37,17 @@ done.
 
 ### Dokku
 
-[Is awesome](http://dokku.viewdocs.io). Its doku is great, too. For a brief overview, how to use it with
-rails, read e.g.
+[Is awesome](http://dokku.viewdocs.io). Its documentation is great, too.
+For a brief overview how to use it with a rails app, read e.g.
 https://medium.com/@dpaluy/the-ultimate-guide-to-dokku-and-ruby-on-rails-5-9ecad2dba4a3
 .
 
 ### JavaScript
+
+Tried to go the least pain route and rely on server-side rendering.
+This is a very conservative choice and gamble that developers productivity will
+be higher because of a more stable technique (and more experience with the old
+stuff).
 
 * Removed webpacker, replaced by sprockets in commit
   #033656121a44b25351afb4943bf4bff0bad90352 .
@@ -50,14 +56,14 @@ https://medium.com/@dpaluy/the-ultimate-guide-to-dokku-and-ruby-on-rails-5-9ecad
 * Also removed everything (or most) yarnish in commit
   #037e4aa90b82791f1a85408d926fc19f6486275e .
 
-HTML5 video tag seems to work for now, too (other options: see below)
+HTML5 video tag seems to work for now, too (other options: see below).
 
 ### SiteSettings
 
 * Global Site Settings implemented by a crude [SiteSettings
   Model](app/model/site_settings). No seed or prepopulation, they are created on
-  the fly in the controller. Tradeoffs made. Its model allows for a kind and
-  attachments. The kind can be markdown, so that a html-rendered version is
+  the fly in the controller. Tradeoffs made. Its model allows for a `kind` and
+  attachments. The kind can be `markdown`, so that a html-rendered version is
   stored in the db rather than being rerendered on every page view.
 * Other site wide settings can be set via environment variables.
 
@@ -124,6 +130,40 @@ just pass the params into the job and create the Model-Object within the job at
 "run"-time.
 
 I decided to pass the parameters, which seemed to be the least hazzle.
+
+### GDPR
+
+#### Policy agreements
+
+Two separate policies have to be agreed to (technically, one has only to be
+taken notice of, there cannot be disagreement by click).
+
+As the policies might change, it is important to store the date of the consents.
+
+In order to force users to agree to the policies (at registration), the
+devises User model is adjusted to force acceptance via a checkbox.
+This applies only in the create-phase.
+
+The agreement itself is not stored, but is timestamped instead (column:
+`accepted_terms_at`). To ease things (and we are only dealing with two
+policies), just one timestamp is stored - if the consent becomes invalid
+(because outdated), both policies have to be re-agreed to.
+
+After a valid login we have to redirect users to re-agree to the terms/policies
+if they are outdated. To do so there are at least two general approaches.
+
+To hook into the devise workflow, a custom registrations_controller is
+implemented, that overrides the `sign_up_params`. Futhermore, tableless
+attributes are added to the User model and the registration form is adjusted
+accordingly.
+
+A separate controller and view allow the current user to agree to the policies.
+Users are redirected there if no consent date was found.
+
+#### Rights on data
+
+##### Deletion/anonymisation
+Anonymisation will be fine. Make sure to cover the emails as well.
 
 
 ### Access Policies
@@ -254,41 +294,22 @@ more, like [plyr](https://github.com/sampotts/plyr.)
 
 Nice and mostly responsive (be careful with `levels` and `media` elements).
 Custom color-types and shades could be implemented:
-https://github.com/jgthms/bulma/issues/2244 (undocumented)
-### GDPR
+https://github.com/jgthms/bulma/issues/2244 (undocumented), https://bulma.io/2019/10/15/light-dark-colors/
 
-#### Policy agreements
 
-Two separate policies have to be agreed to (technically, one has only to be
-taken notice of, there cannot be disagreement by click).
 
-As the policies might change, it is important to store the date of the consents.
 
-In order to force users to agree to the policies (at registration), the
-devises User model is adjusted to force acceptance via a checkbox.
-This applies only in the create-phase.
 
-The agreement itself is not stored, but is timestamped instead (column:
-`accepted_terms_at`). To ease things (and we are only dealing with two
-policies), just one timestamp is stored - if the consent becomes invalid
-(because outdated), both policies have to be re-agreed to.
 
-After a valid login we have to redirect users to re-agree to the terms/policies
-if they are outdated. To do so there are at least two general approaches.
+### Operations
 
-To hook into the devise workflow, a custom registrations_controller is
-implemented, that overrides the `sign_up_params`. Futhermore, tableless
-attributes are added to the User model and the registration form is adjusted
-accordingly.
+#### Spam detection
 
-#### Rights on data
+To secure operations against attacks or weird clients, one line of defense is
+within the application. There, two approaches are prepared:
 
-##### Deletion/anonymisation
-Anonymisation will be fine. Make sure to cover the emails as well.
-
-##### Export in machine-readable format
-JSON will do.
-
+* form submission (simple captcha) with [InvisibleCaptcha](https://github.com/markets/invisible_captcha) (alternative to checkout might be [HoneypotCaptcha](https://github.com/curtis/honeypot-captcha))
+* general flooding protection using [Rack::Attack]()
 
 ## ActiveRecord
 
