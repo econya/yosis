@@ -75,6 +75,12 @@ h3 {
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+/* As a test, will lead to e.g. has-backround-verycleargrey . */
+$custom-colors: (
+  "verycleargrey": ($verycleargrey)
+);
+
 @import "bulma";
 
 @import 'yosis/_hero_head';
