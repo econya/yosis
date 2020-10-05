@@ -20,19 +20,32 @@
   #yosisNavbar.navbar-menu
     .navbar-start
     .navbar-end
-      = link_to '#courses', data: { turbolinks: !current_page?(action: 'home') }, class: 'navbar-item' do
+      = link_to root_path(anchor: 'courses'),
+        data: { turbolinks: !current_page?(controller: 'pages', action: 'home') },
+        class: 'navbar-item' do
         = t('navigation.courses')
-      = link_to '#videos', data: { turbolinks: !current_page?(action: 'home') }, class: 'navbar-item' do
+
+      = link_to root_path(anchor: 'videos'),
+        data: { turbolinks: !current_page?(controller: 'pages', action: 'home') },
+        class: 'navbar-item' do
         = t('navigation.videos')
-      = link_to '#videos', data: { turbolinks: !current_page?(action: 'home') }, class: 'navbar-item' do
+
+      = link_to root_path(anchor: 'videos'),
+        data: { turbolinks: !current_page?(controller: 'pages', action: 'home') },
+        class: 'navbar-item' do
         = t('navigation.programs')
-      = link_to '#videos', data: { turbolinks: !current_page?(action: 'home') }, class: 'navbar-item' do
+
+      = link_to root_path(anchor: 'videos'),
+        data: { turbolinks: !current_page?(controller: 'pages', action: 'home') },
+        class: 'navbar-item' do
         = t('navigation.seminars')
+
       = link_to blog_posts_path, class: 'navbar-item' do
         = t('navigation.blog')
+
       - if user_signed_in?
         = link_to t('navigation.user.account'), edit_user_registration_path, class: 'navbar-item'
-      = link_to about_us_url, class: 'navbar-item' do
+      = link_to root_path(anchor: 'contact'), class: 'navbar-item' do
         = t('navigation.contact')
 
       - if user_signed_in?
