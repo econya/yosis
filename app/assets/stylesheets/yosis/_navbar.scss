@@ -1,11 +1,11 @@
-/** Navbar specific settings */
+/*
+ * SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
 
-/* Bulma overrides */
-$navbar-box-shadow-size: 0 8px 0 0 black;
-$navbar-item-img-max-height: 3rem;
+/** Custom navbar stuff*/
 
-/* Custom */
 #yosisNavbar .navbar-item {
   text-transform: uppercase;
 }
-
