@@ -23,9 +23,12 @@
           -#.second-line
           -#  != second.join
           - if user_admin?
-            = link_to edit_admin_site_setting_path(SiteSetting.find_by(key: 'intro')), class: 'button' do
-              %span.icon
-                %i.fas.fa-user-shield
-              %span
-                = t('sitesetting.edit')
+            - intro_setting = SiteSetting.find_by(key: 'intro')
+            - if intro_setting.present?
+              = link_to edit_admin_site_setting_path(intro_setting),
+                class: 'button' do
+                %span.icon
+                  %i.fas.fa-user-shield
+                %span
+                  = t('sitesetting.edit')
 

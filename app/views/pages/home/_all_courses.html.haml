@@ -7,7 +7,7 @@
     .place-courses.mb-6
       .place
         %h4.title.is-5
-          = place.name
+          = link_to place.name, place
           %small
             = place.note
         = admin_edit_button edit_admin_place_path(place)
