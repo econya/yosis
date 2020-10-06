@@ -21,22 +21,22 @@
     .navbar-start
     .navbar-end
       = link_to root_path(anchor: 'courses'),
-        data: { turbolinks: !current_page?(controller: 'pages', action: 'home') },
+        data: { turbolinks: in_controller_action?(controller: 'pages', action: 'home' )},
         class: 'navbar-item' do
         = t('navigation.courses')
 
       = link_to root_path(anchor: 'videos'),
-        data: { turbolinks: !current_page?(controller: 'pages', action: 'home') },
+        data: { turbolinks: in_controller_action?(controller: 'pages', action: 'home' )},
         class: 'navbar-item' do
         = t('navigation.videos')
 
       = link_to root_path(anchor: 'videos'),
-        data: { turbolinks: !current_page?(controller: 'pages', action: 'home') },
+        data: { turbolinks: in_controller_action?(controller: 'pages', action: 'home' )},
         class: 'navbar-item' do
         = t('navigation.programs')
 
       = link_to root_path(anchor: 'videos'),
-        data: { turbolinks: !current_page?(controller: 'pages', action: 'home') },
+        data: { turbolinks: in_controller_action?(controller: 'pages', action: 'home' )},
         class: 'navbar-item' do
         = t('navigation.seminars')
 
