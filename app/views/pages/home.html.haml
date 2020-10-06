@@ -17,35 +17,19 @@
       = admin_edit_button edit_admin_site_setting_path(news_setting)
       = news_setting.value
 
-%section.py-5#courses.has-background-verycleargrey.pb-6
+- last_post = Blog::Post.last_within days: 100
+- if last_post.present?
+  %section#latest-blog.mt-4.pt-5.mb-4.pb-2
+    %h2.title.is-3.is-inline-block
+      = t('home.latest-blog-post')
+    .subtitle.is-inline-block
+      = link_to last_post.title, last_post
+      (#{l(last_post.published_at.to_date)})
+
+%section#courses.py-5.has-background-verycleargrey.pb-6
   = render partial: 'pages/home/courses'
 
 
-%br
-%br
-
-%section.courses-links
-  %h2.title.is-2
-    = t('home.courses.courses-title')
-%hr
-.columns.is-multiline.is-vcentered
-  - @styles.each do |style|
-    .column.is-2
-      = link_to "#course#{style.id}", class: 'button is-primary is-normal' do
-        %b= style.name
-  - if @styles.empty?
-    .column.is-2
-      = t('home.courses.none_yet')
-  - if user_admin?
-    .column.is-2
-      = link_to new_admin_style_path, class: 'button is-primary is-outlined' do
-        %span.icon
-          %i.fas.fa-user-shield
-        %span
-          = t('home.courses.new')
-
-%br
-%br
 %a.anchor-offset(name='videos')
 %section.videos#videos
   = render partial: 'pages/home/videos'
@@ -56,3 +40,5 @@
 - if @styles.empty?
   = t('home.courses.none_yet')
 
+  .container.mt-4
+    = render partial: 'contacts/form'
