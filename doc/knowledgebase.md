@@ -186,6 +186,20 @@ a relatively friendly way.
 
 ## Resources and lessons learned
 
+### ActiveRecord
+
+When introducing new validations, old migrations might fail (e.g. if you
+validate the presence of an attribute that is only added by a later migration).
+
+There are multiple approaches to this, I had to revert to using plain SQL in 
+[db/migrate/20200325204229_add_row_order_to_lessons.rb](db/migrate/20200325204229_add_row_order_to_lessons.rb).
+
+#### Switching database
+
+I had to convert a postgres database to sqlite3, which is relaxingly easy with
+the `sequel` gem: `sequel -C postgres://.... sqlite://...`
+
+
 ### ActiveStorage
 
 ActiveStorage might delete your files on form submission in some cases where
