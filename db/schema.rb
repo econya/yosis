@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_041526) do
+ActiveRecord::Schema.define(version: 2020_09_29_082203) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(version: 2020_06_08_041526) do
     t.index ["style_id"], name: "index_appointments_on_style_id"
   end
 
+  create_table "blog_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "slug"
+    t.boolean "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "summary"
+    t.datetime "published_at"
+    t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.integer "place_id", null: false
@@ -69,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_041526) do
     t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "dayofweek"
     t.index ["place_id"], name: "index_courses_on_place_id"
     t.index ["slug"], name: "index_courses_on_slug", unique: true
     t.index ["style_id"], name: "index_courses_on_style_id"
@@ -124,6 +137,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_041526) do
     t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "pricing_note"
     t.index ["name"], name: "index_places_on_name", unique: true
     t.index ["slug"], name: "index_places_on_slug", unique: true
   end
@@ -184,6 +198,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_041526) do
     t.string "invited_by_type"
     t.integer "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.datetime "terms_accepted_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
