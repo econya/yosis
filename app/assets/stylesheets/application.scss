@@ -19,22 +19,11 @@
 @import "yosis/_base_colors";
 
 /* Customize Bulma Variables */
-$family-primary:    "Laksaman";
-$family-sans-serif: 'Laksaman';
-
-$weight-normal:   400;
-$weight-bold:     700;
-
-$title-color:  $darkgrey;
-$title-weight: $weight-normal;
+@import 'yosis/_bulma_typography';
+@import 'yosis/_bulma_navbar';
+@import 'yosis/_bulma_colors';
 
 @import 'yosis/_navbar';
-
-$primary: $orange;
-$link:    $darkgrey;
-
-$content-heading-color: $bluerple;
-$content-heading-weight: $weight-bold;
 
 /* Own customization */
 h1, h2 {
