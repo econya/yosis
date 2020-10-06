@@ -98,6 +98,7 @@ The initial user can be set up like this (run in `rails c` or `rails run`):
 ```ruby
 User.create(email: 'adminsemail', password: 'adminspassword',
   password_confirmation: 'adminspassword', confirmed_at: DateTime.current,
+  tos_agreement: true, read_privacy_terms: true,
   role: 'admin')
 ```
 
