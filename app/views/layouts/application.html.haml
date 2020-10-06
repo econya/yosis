@@ -32,14 +32,15 @@
     %link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
     %link(rel="shortcut icon" href="/favicon.ico")
     %link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
-  %body.has-navbar-fixed-top
-    = render 'navbar'
-    .main-section
-      %section.hero.is-fullheight-with-navbar#hero-section
-        .hero-head
-          .container
-            = render 'flashs'
-            = yield
-        .hero-body
-        .hero-foot
-          = render 'footer'
+  %body
+    %section.hero
+      .hero-head
+        = render 'navbar'
+        = render 'flashs'
+        - if content_for?(:hero_head)
+          = yield(:hero_head)
+      .hero-body
+        .container
+          = yield
+      .hero-foot
+        = render 'footer'
