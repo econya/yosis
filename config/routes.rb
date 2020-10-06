@@ -40,11 +40,15 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :appointments
 
+    resources :courses, only: [:index, :edit, :update, :destroy, :new, :create, :show] do
+      resource :position, only: [:create, :destroy], controller: 'course/position'
+    end
+
     resources :styles, only: [:index, :edit, :update, :destroy, :new, :create] do
       resources :lessons, controller: 'course/lessons' do
         resource :position, only: [:create, :destroy], controller: 'course/lesson/position'
       end
-      resource :position, only: [:create, :destroy], controller: 'course/position'
+      resource :position, only: [:create, :destroy], controller: 'styles/position'
     end
 
     resources :delayed_jobs, only: [:index, :show, :destroy] do
