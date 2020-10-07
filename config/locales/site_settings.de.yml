@@ -8,6 +8,9 @@ de:
     about_us:
       default: "# Über uns"
       help: Über-Uns-Seite
+    blog_background:
+      default: Header Bild für Blog Übersicht
+      help: Wird auf der Blog-Übersicht gezeigt
     courses_general:
       default: "# Über die Kurse\n**Schnupperstunde ist kostenlos"
       help: Seite/Text mit Hinweisen zu den Kursen

@@ -19,8 +19,8 @@ class Admin::SiteSettingsController < ApplicationController
       key: ['intro', 'intro_background', 'news_line',
             'register_cta', 'trial_period_cta'])
     @pages_settings      = SiteSetting.where(
-      key: ['about_us', 'courses_general', 'impressum', 'privacy_statement',
-            'terms', 'explanation'])
+      key: ['about_us', 'blog_background', 'courses_general', 'impressum',
+            'privacy_statement', 'terms', 'explanation'])
   end
 
   def show
@@ -123,8 +123,8 @@ class Admin::SiteSettingsController < ApplicationController
     end
 
     def find_or_create_image_site_settings
-      image_keys = [:logo, :favicon, "favicon-png", "favicon-apple-touch",
-        :intro_background]
+      image_keys = [:blog_background, :logo, :favicon, "favicon-png",
+         "favicon-apple-touch", :intro_background]
       image_keys.each do |key|
         SiteSetting.find_or_create_by(key: key,
           value: t("site_settings.#{key.to_s}.default"),
