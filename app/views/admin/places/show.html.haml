@@ -7,13 +7,16 @@
 
 %p
   %b
+    # i18n-tasks-use t('activerecord.attributes.place.name')
     = Place.human_attribute_name :name
     \:
   = @place.name
 %p
+  # i18n-tasks-use t('activerecord.attributes.place.building_name')
   %b= Place.human_attribute_name :building_name
   = @place.building_name
 %p
+  # i18n-tasks-use t('activerecord.attributes.place.note')
   %b= Place.human_attribute_name :note
   = @place.note
 
