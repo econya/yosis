@@ -184,6 +184,10 @@ E-Mail RFCs are hairy compared to old men. For multipart emails, you can use
 `(mail.html_part || mail.text_part || mail).body.decoded` to access the body in
 a relatively friendly way.
 
+[The 100% correct way to validate email
+addresses](https://medium.com/hackernoon/the-100-correct-way-to-validate-email-addresses-7c4818f24643)
+with some statistics and a funny twist.
+
 ## Resources and lessons learned
 
 ### ActiveRecord
@@ -324,6 +328,11 @@ within the application. There, two approaches are prepared:
 
 * form submission (simple captcha) with [InvisibleCaptcha](https://github.com/markets/invisible_captcha) (alternative to checkout might be [HoneypotCaptcha](https://github.com/curtis/honeypot-captcha))
 * general flooding protection using [Rack::Attack]()
+
+#### Database switching
+
+I had to convert a postgres database to sqlite3, which is relaxingly easy with
+the `sequel` gem: `sequel -C postgres://.... sqlite://...`
 
 ## ActiveRecord
 
