@@ -18,12 +18,6 @@ de:
               need_either_mail_or_phone: Bitte gib eine Telefonnummer oder eine E-Mail-Adresse an.
   activerecord:
     attributes:
-      appointment:
-        course: Kurs
-        date_from: Start-Zeit
-        date_to: End-Zeit
-        link: Zoom-link
-        notice: Notiz
       lesson:
         date_end: End-Zeit
         date_start: Start-Zeit

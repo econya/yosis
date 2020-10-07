@@ -13,14 +13,9 @@ de:
   Home: Start
   Lesson: Lektion
   Link: Link
-  Listing_appointments: Termin-Liste
   Name: Name
   about_us: Über uns
   admin:
-    appointment:
-      edit: Bearbeiten
-      info: Info
-      title: Title
     course:
       lessons:
         create:
@@ -40,8 +35,7 @@ de:
       deletion-success: Kurs gelöscht.
       edit: Bearbeiten
       name: Name
-      next_appointment: Nächster Termin
-      number_appointments: Anzahl Termine
+      number_courses: Anzahl Kurse
       number_lessons: Anzahl Videos
       order: Position
       update-succes: Kurs aktualisiert.
@@ -133,20 +127,6 @@ de:
   apointments:
     time:
       till: bis
-  appointment:
-    course: Kurs
-    created-success: Termin angelegt.
-    date_from: Von
-    deletion-success: Termin gelöscht.
-    timespan: Zeit
-    update-success: Termin aktualisiert.
-    zoom-link: Zoom-Link
-  appointments:
-    none_in_future: Keine zukünftigen Termine
-    user:
-      subscription-ended: Abo abgelaufen
-      trial-ended: Schnupperwoche abgelaufen
-    visible_after_login: Link erst nach dem Anmelden sichtbar!
   are_you_sure?: Bist du dir sicher?
   attendence: Attendence
   blog:
@@ -173,7 +153,6 @@ de:
       edit: Bearbeiten
       edit-lesson: Video bearbeiten
     inactive: Nicht freigeschaltet
-    next_appointment: 'Nächster Termin:'
     total_videos: "%{number_videos} Videos insgesamt"
     videos:
       see_more: Du hast ein Abo! %{number_more} weitere Videos sehen
@@ -182,8 +161,6 @@ de:
     course:
       add-video: Video hinzufügen
   courses:
-    appointments:
-      upcoming: Nächste Termine
     edit: Bearbeiten
     new: Neu
     new-video: Neues Video
@@ -243,8 +220,6 @@ de:
         subject: Betreff
   home:
     already-registered?: Bereits registriert?
-    appointment:
-      new: Neuen Termin eintragen
     contact:
       title: Über uns / Kontakt
       send-a-message: Schreibe uns
@@ -260,8 +235,6 @@ de:
       learn_more: Mehr erfahren ...
     latest-blog-post: "Letzer Blog-Eintrag:"
     news: "News:"
-    next_appointments: Die nächsten Termine
-    no_appointments: Da die normalen Yoga-Kurse wieder stattfinden können, gibt es zur Zeit keine Zoom-Termine.
     register-for-trial-period: Für Schnupperwoche registrieren
     sign-in-with-account: Mit bestehenden Zugangsdaten anmelden
     styles:
@@ -296,7 +269,6 @@ de:
   minutes: Minuten
   navigation:
     admin: Admin
-    appointments: Termine
     background-jobs: Background Jobs
     contact: Kontakt
     courses: Kurse
@@ -313,13 +285,9 @@ de:
     users: User
     videos: Videos
   new_lesson: Neue Lektion
-  next_appointment: Nächster Termin
-  next_appointments: Die nächsten Termine
   no-video-support: Dein Browser unterstützt keine Videos!
-  no_appointments: Keine Termine
   none: Keine
   not authorized: Nicht authorisiert
-  number_appointments: Anzahl Termine
   number_lessons: Anzahl Lektionen
   pagy:
     showing_from_to_total: Zeige %{item_name} %{from}-%{to}  von %{total} gesamt.
