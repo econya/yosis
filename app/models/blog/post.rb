@@ -14,17 +14,19 @@ class Blog::Post < ApplicationRecord
 
   # Not using a scope here because of 'first'
   def self.last_within days: 7.days
-    active.where('published_at > ?', DateTime.current - days)
+    published.where('published_at > ?', DateTime.current - days)
       .order(published_at: :desc)
       .limit(1)
       .first
   end
 
   def previous
-    Blog::Post.active.where("created_at < ?", created_at).order(created_at: :asc).where.not(id: id).first
+    Blog::Post.published.where("created_at < ?", created_at)
+      .order(created_at: :asc).where.not(id: id).first
   end
 
   def next
-    Blog::Post.active.where("created_at > ?", created_at).order(created_at: :asc).where.not(id: id).first
+    Blog::Post.published.where("created_at > ?", created_at)
+      .order(created_at: :asc).where.not(id: id).first
   end
 end
