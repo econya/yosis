@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 ---
 de:
   Back: Zurück
@@ -7,9 +10,6 @@ de:
   Date_from: Von
   Date_to: Von
   'Date_to:': 'Bis:'
-  Delete: Löschen
-  Destroy: Löschen
-  Edit: bearbeiten
   Home: Start
   Key: Name
   Lesson: Lektion
@@ -19,46 +19,8 @@ de:
   Notice: Notiz
   Save: Speichern
   Settings: Einstellungen
-  Show: Anzeigen
   Value: Wert
   about_us: Über uns
-  activemodel:
-    attributes:
-      contact:
-        message: Nachricht
-        subject: Betreff
-  activerecord:
-    attributes:
-      appointment:
-        course: Kurs
-        date_from: Start-Zeit
-        date_to: End-Zeit
-        link: Zoom-link
-        notice: Notiz
-      lesson:
-        date_end: End-Zeit
-        date_start: Start-Zeit
-        name: Video-Name
-        preview_image: Vorschau-Bild
-        video: Video-Datei
-      user:
-        read_privacy_terms: Stimme AGB zu
-        tos_agreement: Datenschutzhinweise gelesen
-    models:
-      appointment:
-        labels:
-          date_from: Von
-        one: Termin
-        other: Termine
-      course:
-        one: Kurs
-        other: Kurse
-      lesson:
-        one: Lektion
-        other: Lektionen
-      user:
-        one: Benutzer
-        other: Benutzer*
   admin:
     appointment:
       edit: Bearbeiten

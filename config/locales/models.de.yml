@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+---
+de:
+  activemodel:
+    attributes:
+      contact:
+        message: Nachricht
+        subject: Betreff
+        phone_number: Telefonnummer
+        sender_email: E-Mail-Adresse
+    errors:
+      models:
+        contact:
+          attributes:
+            sender_email:
+              need_either_mail_or_phone: Bitte gib eine Telefonnummer oder eine E-Mail-Adresse an.
+  activerecord:
+    attributes:
+      appointment:
+        course: Kurs
+        date_from: Start-Zeit
+        date_to: End-Zeit
+        link: Zoom-link
+        notice: Notiz
+      lesson:
+        date_end: End-Zeit
+        date_start: Start-Zeit
+        name: Video-Name
+        preview_image: Vorschau-Bild
+        video: Video-Datei
+      user:
+        read_privacy_terms: Stimme AGB zu
+        tos_agreement: Datenschutzhinweise gelesen
+    models:
+      appointment:
+        labels:
+          date_from: Von
+        one: Termin
+        other: Termine
+      course:
+        one: Kurs
+        other: Kurse
+      lesson:
+        one: Lektion
+        other: Lektionen
+      user:
+        one: Benutzer
+        # Konto?
+        other: Benutzer*
