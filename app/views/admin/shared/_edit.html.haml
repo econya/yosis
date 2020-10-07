@@ -1,0 +1,15 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+%h1.title
+  = edit_title
+
+= yield
+
+%hr
+
+= link_to back_target, class: 'has-text-danger' do
+  %span.icon
+    %i.fa.fa-arrow-left
+  = t('actions.Back')

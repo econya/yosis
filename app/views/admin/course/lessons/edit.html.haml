@@ -2,12 +2,7 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%h1.title
-  =t('.edit.title')
-
-= render 'form'
-
-= link_to t('Show'), [:admin, @lesson.style, @lesson]
-\|
-= link_to t('Back'), admin_course_path(@lesson.style)
-
+= render layout: 'admin/shared/edit',
+  locals: { edit_title: t('.edit.title'),
+    back_target: admin_course_path(@lesson.style) } do
+  = render 'form'

@@ -2,11 +2,7 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%h1.title
-  = t("admin.places.edit")
-
-= render 'form'
-
-= link_to 'Show', [:admin, @place]
-\|
-= link_to 'Back', admin_places_path
+= render layout: 'admin/shared/edit',
+  locals: { edit_title: t('admin.places.edit'),
+    back_target: admin_places_path } do
+  = render 'form'
