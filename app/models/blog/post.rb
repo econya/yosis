@@ -10,6 +10,8 @@ class Blog::Post < ApplicationRecord
 
   has_one_attached :image
 
+  scope :published, -> { active.where("published_at NOT NULL") }
+
   # Not using a scope here because of 'first'
   def self.last_within days: 7.days
     active.where('published_at > ?', DateTime.current - days)
