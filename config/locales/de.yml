@@ -349,14 +349,6 @@ de:
       welcome: Super! Willkommen und viel Spaß!
     show:
       have_to_agree: Du musst den AGB zustimmen und die Datenschutzerklärung als gelesen markieren.
-  the_website: yogamitveronique.de
-  till: bis
-  time:
-    formats:
-      devise:
-        mailer:
-          invitation_instructions:
-            accept_until_format: "%d. %B %Y"
   user:
     confirmed_at: Bestätigt am
     created_at: Erstellt am

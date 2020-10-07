@@ -20,10 +20,17 @@ class ViewPostsTest < ApplicationSystemTestCase
 
     visit blog_post_path(post)
     assert_selector "h1", text: post.title.upcase
+    assert_text "01. Januar 2020"
   end
 
   test "non admins can not view a inactive unpublished post" do
     post = blog_posts(:intermediate_post)
+
+    visit blog_post_path(post)
+
+    assert_equal blog_posts_path, page.current_path
+
+    sign_in(users(:user))
     visit blog_post_path(post)
 
     assert_equal blog_posts_path, page.current_path

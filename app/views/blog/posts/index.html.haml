@@ -15,7 +15,7 @@
         = link_to post.title, post
       .date
         %i.is-size-7
-          = post.created_at
+          = l(post.published_at, format: :worded)
       = post.summary
       .read_more
         = link_to t('blog.post.read_more'), post

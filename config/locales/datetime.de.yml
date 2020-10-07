@@ -43,4 +43,10 @@ de:
         x_years:
           one: einem Jahr
           other: "%{count} Jahren"
-
+  time:
+    formats:
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%d. %B %Y"
+      worded: "%d. %B %Y"
