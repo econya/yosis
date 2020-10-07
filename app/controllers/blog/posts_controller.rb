@@ -4,7 +4,7 @@
 
 class Blog::PostsController < ApplicationController
   def index
-    @pagy, @posts = pagy(Blog::Post.all)
+    @pagy, @posts = pagy(Blog::Post.published.order(published_at: :desc))
   end
 
   def show
