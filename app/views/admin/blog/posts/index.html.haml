@@ -29,7 +29,7 @@
     %tr
       %th= t('admin.blog.post.image')
       %th= t('admin.blog.post.title')
-      %th= t('admin.blog.post.content')
+      %th= t('admin.blog.post.summary')
       %th= t('admin.blog.post.published_at')
       %th
 
@@ -41,8 +41,8 @@
             = image_tag post.image.variant(resize_to_fill: [100, 80]).processed, class: (post.active?) ? '' : 'semi-transparent'
         %td.post-title
           = post.title
-        %td.post-content
-          = post.content
+        %td.post-summary
+          = post.summary
         %td.post-published
           - if !post.active?
             %span.icon.has-text-danger
