@@ -9,11 +9,6 @@
       = link_to style do
         %h3.title.is-4.has-text-primary
           = style.name
-    - if style.appointments.future.any?
-      .level-right
-        .has-text-light
-          = t('course.next_appointment')
-          = l style.appointments.future.first.date_from
     - if user_admin?
       .level-item-right.buttons
         .button.is-light.is-outlined

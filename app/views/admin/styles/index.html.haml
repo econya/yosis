@@ -24,8 +24,6 @@
       %th= t('admin.courses.name')
       %th= t('admin.courses.number_lessons')
       %th= t('admin.courses.number_courses')
-      -#%th= t('admin.courses.number_appointments')
-      -#%th= t('admin.courses.next_appointment')
       %th
 
   %tbody
@@ -55,6 +53,7 @@
               %i.fas.fa-eye-slash
         %td
           - if style.image.attached?
+            -# darken out if inactive?
             = image_tag style.image.variant(resize_to_fill: [180,120]).processed,
               class: (style.active?) ? '' : 'semi-transparent'
           - else
@@ -67,10 +66,6 @@
           = style.lessons.length
         %td
           = style.courses.active.length
-        -#%td
-        -#  = style.appointments.length
-        -#%td
-        -#  = style.appointments.future.first&.date_from
         %td
           .buttons
             = link_to t('actions.show'), style, class: 'button is-small'

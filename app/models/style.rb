@@ -13,7 +13,6 @@ class Style < ApplicationRecord
 
   has_many :courses
   has_many :lessons
-  has_many :appointments
 
   validates :name, presence: true, length: { minimum: 2 }, uniqueness: true
 

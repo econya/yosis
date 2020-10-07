@@ -61,14 +61,6 @@
 
 %hr
 
--if @style.appointments.future.empty?
-  -# 
-- else
-  .box.flame-box
-    %h3.title.is-4
-      = t('styles.appointments.upcoming')
-    = render partial: 'pages/appointments', locals: { appointments: @style.appointments.future }
-
 - if @style.courses.active.any?
   %section#style-courses.my-6
     = render partial: 'courses'
