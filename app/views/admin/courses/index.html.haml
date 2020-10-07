@@ -62,7 +62,7 @@
           - if style = course.style
             - if course.active?
               %figure.image.is-64x64
-                = image_tag style.image.variant(resize_to_fill: [64, 64]).processed
+                = image_tag style.image.variant(resize_to_fill: [64, 64]).processed if style.image.attached?
             = link_to style do
               = style.name
         %td
