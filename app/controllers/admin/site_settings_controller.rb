@@ -10,37 +10,7 @@ class Admin::SiteSettingsController < ApplicationController
 
   # GET /admin/site_settings
   def index
-    md_keys = [:intro, :explanation, :privacy_statement, :terms, :impressum,
-               :copyright_notice, :about_us, :trial_period_cta,
-               :register_cta, :courses_general, :payment_details]
-    md_keys.each do |key|
-      SiteSetting.find_or_create_by(key: key,
-        kind: "markdown",
-        value: t('site_settings.' + key.to_s + '.default'))
-    end
-
-    SiteSetting.find_or_create_by(key: 'title',
-      value: t('site_settings.title.default'))
-    SiteSetting.find_or_create_by(key: 'news_line',
-      value: t('site_settings.news_line.default'))
-
-    SiteSetting.find_or_create_by(key: 'logo',
-      value: t('site_settings.logo.default'), kind: 'image')
-
-    SiteSetting.find_or_create_by(key: 'favicon',
-      value: t('site_settings.favicon.default'), kind: 'image')
-
-    SiteSetting.find_or_create_by(key: 'favicon-png',
-      value: t('site_settings.favicon-png.default'), kind: 'image')
-
-    SiteSetting.find_or_create_by(key: 'favicon-apple-touch',
-      value: t('site_settings.favicon-apple-touch.default'), kind: 'image')
-
-    SiteSetting.find_or_create_by(key: 'intro_background',
-      value: t('site_settings.intro_background.default'), kind: 'image')
-
-    SiteSetting.find_or_create_by(key: 'your_name',
-      value: t('site_settings.your_name.default'), kind: 'string')
+    find_or_create_settings
 
     @general_settings    = SiteSetting.where(
       key: ['title', 'your_name', 'copyright_notice', 'payment_details',
@@ -101,34 +71,70 @@ class Admin::SiteSettingsController < ApplicationController
       params.require(:site_setting).permit(:key, :value, :image)
     end
 
-  # i18n-tasks-use t('site_settings.about_us.default')
-  # i18n-tasks-use t('site_settings.about_us.help')
-  # i18n-tasks-use t('site_settings.copyright_notice.default')
-  # i18n-tasks-use t('site_settings.copyright_notice.help')
-  # i18n-tasks-use t('site_settings.courses_general.default')
-  # i18n-tasks-use t('site_settings.courses_general.help')
-  # i18n-tasks-use t('site_settings.explanation.default')
-  # i18n-tasks-use t('site_settings.explanation.help')
-  # i18n-tasks-use t('site_settings.favicon-apple-touch.help')
-  # i18n-tasks-use t('site_settings.favicon-png.help')
-  # i18n-tasks-use t('site_settings.favicon.help')
-  # i18n-tasks-use t('site_settings.impressum.default')
-  # i18n-tasks-use t('site_settings.impressum.help')
-  # i18n-tasks-use t('site_settings.intro.default')
-  # i18n-tasks-use t('site_settings.intro.help')
-  # i18n-tasks-use t('site_settings.intro_background.help')
-  # i18n-tasks-use t('site_settings.logo.help')
-  # i18n-tasks-use t('site_settings.news_line.help')
-  # i18n-tasks-use t('site_settings.payment_details.default')
-  # i18n-tasks-use t('site_settings.payment_details.help')
-  # i18n-tasks-use t('site_settings.privacy_statement.default')
-  # i18n-tasks-use t('site_settings.privacy_statement.help')
-  # i18n-tasks-use t('site_settings.register_cta.default')
-  # i18n-tasks-use t('site_settings.register_cta.help')
-  # i18n-tasks-use t('site_settings.terms.default')
-  # i18n-tasks-use t('site_settings.terms.help')
-  # i18n-tasks-use t('site_settings.title.help')
-  # i18n-tasks-use t('site_settings.trial_period_cta.default')
-  # i18n-tasks-use t('site_settings.trial_period_cta.help')
-  # i18n-tasks-use t('site_settings.your_name.help')
+    def find_or_create_settings
+      find_or_create_markdown_site_settings
+      find_or_create_string_site_settings
+      find_or_create_image_site_settings
+    end
+
+    def find_or_create_markdown_site_settings
+      md_keys = [:intro, :explanation, :privacy_statement, :terms, :impressum,
+                 :copyright_notice, :about_us, :trial_period_cta,
+                 :register_cta, :courses_general, :payment_details]
+      md_keys.each do |key|
+        SiteSetting.find_or_create_by(key: key,
+          kind: "markdown",
+          value: t("site_settings.#{key.to_s}.default"))
+      end
+      # i18n-tasks-use t('site_settings.about_us.default')
+      # i18n-tasks-use t('site_settings.about_us.help')
+      # i18n-tasks-use t('site_settings.copyright_notice.default')
+      # i18n-tasks-use t('site_settings.copyright_notice.help')
+      # i18n-tasks-use t('site_settings.courses_general.default')
+      # i18n-tasks-use t('site_settings.courses_general.help')
+      # i18n-tasks-use t('site_settings.explanation.default')
+      # i18n-tasks-use t('site_settings.explanation.help')
+      # i18n-tasks-use t('site_settings.impressum.default')
+      # i18n-tasks-use t('site_settings.impressum.help')
+      # i18n-tasks-use t('site_settings.intro.default')
+      # i18n-tasks-use t('site_settings.intro.help')
+      # i18n-tasks-use t('site_settings.payment_details.default')
+      # i18n-tasks-use t('site_settings.payment_details.help')
+      # i18n-tasks-use t('site_settings.privacy_statement.default')
+      # i18n-tasks-use t('site_settings.privacy_statement.help')
+      # i18n-tasks-use t('site_settings.register_cta.default')
+      # i18n-tasks-use t('site_settings.register_cta.help')
+      # i18n-tasks-use t('site_settings.trial_period_cta.default')
+      # i18n-tasks-use t('site_settings.trial_period_cta.help')
+      # i18n-tasks-use t('site_settings.terms.default')
+      # i18n-tasks-use t('site_settings.terms.help')
+    end
+
+    def find_or_create_string_site_settings
+      string_keys = [:your_name, :title, :news_line]
+      string_keys.each do |key|
+        SiteSetting.find_or_create_by(key: key,
+          value: t("site_settings.#{key.to_s}.default"),
+          kind: 'string')
+      end
+      # i18n-tasks-use t('site_settings.news_line.help')
+      # i18n-tasks-use t('site_settings.title.help')
+      # i18n-tasks-use t('site_settings.your_name.help')
+    end
+
+    def find_or_create_image_site_settings
+      image_keys = [:logo, :favicon, "favicon-png", "favicon-apple-touch",
+        :intro_background]
+      image_keys.each do |key|
+        SiteSetting.find_or_create_by(key: key,
+          value: t("site_settings.#{key.to_s}.default"),
+          kind: 'image')
+      end
+      # i18n-tasks-use t('site_settings.favicon-apple-touch.help')
+      # i18n-tasks-use t('site_settings.favicon-png.help')
+      # i18n-tasks-use t('site_settings.favicon.help')
+      # i18n-tasks-use t('site_settings.intro_background.help')
+      # i18n-tasks-use t('site_settings.logo.help')
+    end
+
 end
