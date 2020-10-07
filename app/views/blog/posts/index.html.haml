@@ -2,12 +2,16 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%h1.title
-  = t('blog.title')
+- content_for(:hero_head) do
+  = render partial: 'shared/hero_head_image_title',
+    locals: { image_url: url_for(SiteSetting.find_by(key: 'blog_background')&.image&.variant(resize_to_fill: [1024,287])),
+      title: t('blog.title')}
+
+%br.pt-3
 
 - @posts.active.each do |post|
   %article.post.media.pb-5
-    %figure.media-left
+    %figure.media-left.pt-1
       - if post.image.attached?
         = image_tag post.image.variant(resize_to_fill: [100, 80]).processed, class: (post.active?) ? '' : 'semi-transparent'
     .media-content
