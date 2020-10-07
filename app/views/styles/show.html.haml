@@ -130,7 +130,7 @@
                             %i.fas.fa-user-shield
                           %span
                             = t('style.admin.edit-lesson')
-                        = link_to [:admin, lesson.style, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined is-small' do
+                        = link_to [:admin, lesson.style, lesson], method: :delete, data: { confirm: t('actions.are_you_sure?') }, class: 'button is-link is-outlined is-small' do
                           %span.icon.is-small
                             %i.fas.fa-user-shield
                           %span

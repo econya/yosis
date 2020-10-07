@@ -24,7 +24,7 @@
         %td= place.address
         %td= link_to t('actions.show'), [:admin, place]
         %td= link_to t('actions.edit'), edit_admin_place_path(place)
-        %td= link_to t('actions.Destroy'), [:admin, place], method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to t('actions.Destroy'), [:admin, place], method: :delete, data: { confirm: t('actions.are_you_sure?') }
 
 %br
 

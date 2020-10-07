@@ -4,9 +4,8 @@
 ---
 de:
   actions:
+    are_you_sure?: Bist du dir sicher?
     Back: Zurück
-    delete: löschen
-    Delete: Löschen
     destroy: löschen
     Destroy: Löschen
     edit: bearbeiten

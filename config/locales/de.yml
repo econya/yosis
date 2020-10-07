@@ -11,15 +11,10 @@ de:
   Date_to: Von
   'Date_to:': 'Bis:'
   Home: Start
-  Key: Name
   Lesson: Lektion
   Link: Link
   Listing_appointments: Termin-Liste
   Name: Name
-  Notice: Notiz
-  Save: Speichern
-  Settings: Einstellungen
-  Value: Wert
   about_us: Über uns
   admin:
     appointment:
@@ -282,7 +277,6 @@ de:
   in_future: Zukünftig
   in_past: Vergangen
   intro: Erklärung
-  intro_text_homepage: Intro text homepage
   invite: Invite
   learn_more: Mehr erfahren ...
   length: Länge
@@ -315,7 +309,7 @@ de:
     seminars: Seminare
     site_settings: Seiten-Einstellungen
     user:
-      settings: Einstellungen
+      account: Mein Konto
     users: User
     videos: Videos
   new_lesson: Neue Lektion
@@ -370,13 +364,13 @@ de:
       see_you: Bis bald!
       subject: Schnupperwoche endet bald!
       subscribe_to_continue: Um weiter mit uns Yoga zu praktizieren und Zugriff auf alle Videos zu bekommen, solltest du dich für ein Abonnement anmelden.
+      your_subscription_ends_soon: Your subscription ends soon
       your_trial_ends_soon: Deine Schnupperwoche bei %{site} nähert sich dem Ende.
   subscription_state:
     feedback_contact: Feedback / Kontakt
     more-info: Infos über ein Abo
     subscription_ends_in: Es endet in %{how_long_until_end}.
     trial_ends_in: Sie endet in %{how_long_until_end}.
-    want_to_leave_feedback?: Want to leave feedback?
     whats_next?: Wie geht es weiter?
     you-are-in-trial-period: Du bist in der Schnupperwoche
     your-are-subscriped: Du hast ein Abonnement
