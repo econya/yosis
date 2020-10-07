@@ -73,10 +73,10 @@
         -#  = style.appointments.future.first&.date_from
         %td
           .buttons
-            = link_to t('Show'), style, class: 'button is-small'
-            = link_to t('Edit'), edit_admin_style_path(style), class: 'button is-small'
+            = link_to t('actions.show'), style, class: 'button is-small'
+            = link_to t('actions.edit'), edit_admin_style_path(style), class: 'button is-small'
             - if !style.active?
-              = link_to t('Destroy'), [:admin, style], method: :delete,
+              = link_to t('actions.Destroy'), [:admin, style], method: :delete,
                 data: { confirm: t('Are you sure?') },
                 class: 'button is-small is-danger'
 

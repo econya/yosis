@@ -78,10 +78,10 @@
           = course.note
         %td
           .buttons
-            = link_to t('Show'), [:admin, course], class: 'button is-small'
-            = link_to t('Edit'), edit_admin_course_path(course), class: 'button is-small'
+            = link_to t('actions.show'), [:admin, course], class: 'button is-small'
+            = link_to t('actions.edit'), edit_admin_course_path(course), class: 'button is-small'
             - if !course.active?
-              = link_to t('Destroy'), [:admin, course], method: :delete,
+              = link_to t('actions.Destroy'), [:admin, course], method: :delete,
                 data: { confirm: t('Are you sure?') },
                 class: 'button is-small is-danger'
 

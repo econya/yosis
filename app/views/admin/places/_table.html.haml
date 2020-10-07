@@ -5,11 +5,11 @@
 %table.table.is-fullwidth
   %thead
     %tr
-      %th= t('Name')
-      %th= t('Building Name')
-      %th= t('Note')
-      %th= t('PricingNote')
-      %th= t('Address')
+      %th= Place.human_attribute_name :name
+      %th= Place.human_attribute_name :building_name
+      %th= Place.human_attribute_name :note
+      %th= Place.human_attribute_name :pricing_note
+      %th= Place.human_attribute_name :address
       %th
       %th
       %th
@@ -22,9 +22,9 @@
         %td= place.note
         %td= place.pricing_note
         %td= place.address
-        %td= link_to t('Show'), [:admin, place]
-        %td= link_to t('Edit'), edit_admin_place_path(place)
-        %td= link_to t('Destroy'), [:admin, place], method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to t('actions.show'), [:admin, place]
+        %td= link_to t('actions.edit'), edit_admin_place_path(place)
+        %td= link_to t('actions.Destroy'), [:admin, place], method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 

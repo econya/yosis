@@ -38,7 +38,7 @@ de:
       default: "(Bild)"
       help: Hintergrund-Bild vom Intro-Block auf Startseite
     logo:
-      default: Default
+      default: Seiten-Logo (wird zB im Menü angezeigt)
       help: Lade Dein Logo hoch
     news_line:
       default: No news is good news!

@@ -28,11 +28,11 @@
               = t('lesson.inactive')
         %td
           .buttons
-            = link_to t('Show'), [:admin, lesson.style, lesson]
+            = link_to t('actions.show'), [:admin, lesson.style, lesson]
         %td
-          = link_to t('Edit'), edit_admin_style_lesson_path(lesson.style, lesson)
+          = link_to t('actions.dit'), edit_admin_style_lesson_path(lesson.style, lesson)
         %td
-          = link_to t('Destroy'), [:admin, lesson.style, lesson], method: :delete, data: { confirm: t('are_you_sure?') }
+          = link_to t('actions.Destroy'), [:admin, lesson.style, lesson], method: :delete, data: { confirm: t('are_you_sure?') }
 
 %br
 

@@ -47,12 +47,12 @@
           %span.icon.is-small
             %i.fas.fa-user-shield
           %span
-            = t('styles.new-video')
+            = t('admin.styles.new-video')
         = link_to edit_admin_style_path(@style), class: 'button is-link is-outlined' do
           %span.icon.is-small
             %i.fas.fa-user-shield
           %span
-            = t('style.admin.edit')
+            = t('actions.edit')
 
 - if @style.description.present?
   %blockquote

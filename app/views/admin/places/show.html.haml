@@ -7,18 +7,18 @@
 
 %p
   %b
-    = t('place.name')
+    = Place.human_attribute_name :name
     \:
   = @place.name
 %p
-  %b=t('building_name')
+  %b= Place.human_attribute_name :building_name
   = @place.building_name
 %p
-  %b Note
+  %b= Place.human_attribute_name :note
   = @place.note
 
-= link_to t('Add course'), new_admin_course_path(params: {course: { place_id: @place.id}})
+= link_to t('admin.places.add_course'), new_admin_course_path(params: {course: { place_id: @place.id}})
 
-= link_to t('Edit'), edit_admin_place_path(@place)
+= link_to t('actions.edit'), edit_admin_place_path(@place)
 \|
-= link_to t('Back'), admin_places_path
+= link_to t('actions.Back'), admin_places_path

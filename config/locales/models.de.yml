@@ -33,6 +33,14 @@ de:
       user:
         read_privacy_terms: Stimme AGB zu
         tos_agreement: Datenschutzhinweise gelesen
+      site_setting:
+        value: Wert
+      place:
+        building_name: Gebäude-Name
+        name: Name
+        note: Hinweis
+        pricing_note: Hinweis zu Kosten
+        address: Adresse
     models:
       appointment:
         labels:

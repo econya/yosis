@@ -22,9 +22,9 @@
         %td= appointment.notice
         %td= appointment.link
         %td= appointment.info
-        %td= link_to t('Show'), [:admin, appointment]
-        %td= link_to t('Edit'), edit_admin_appointment_path(appointment)
-        %td= link_to t('Destroy'), [:admin, appointment], method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to t('actions.show'), [:admin, appointment]
+        %td= link_to t('actions.edit'), edit_admin_appointment_path(appointment)
+        %td= link_to t('actions.Destroy'), [:admin, appointment], method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 

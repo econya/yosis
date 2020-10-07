@@ -11,4 +11,8 @@
 
 = render 'form'
 
-= link_to 'Back', admin_site_settings_path
+%br.is-clearfix
+= link_to admin_site_settings_path, class: 'has-text-danger' do
+  %span.icon
+    %i.fa.fa-arrow-left
+  = t('actions.Back')

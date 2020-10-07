@@ -51,9 +51,9 @@
             = l(post.published_at)
         %td.post-actions
           .buttons
-            = link_to t('Show'), post, class: 'button is-small'
-            = link_to t('Edit'), edit_admin_blog_post_path(post), class: 'button is-small'
-            = link_to t('Destroy'), [:admin, post], method: :delete, data: { confirm: t('Are you sure?') }, class: 'button is-small is-danger'
+            = link_to t('actions.Show'), post, class: 'button is-small'
+            = link_to t('actions.Edit'), edit_admin_blog_post_path(post), class: 'button is-small'
+            = link_to t('actions.Destroy'), [:admin, post], method: :delete, data: { confirm: t('Are you sure?') }, class: 'button is-small is-danger'
 
 %br
 

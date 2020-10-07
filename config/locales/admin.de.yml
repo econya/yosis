@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+---
+de:
+  admin:
+    site_settings:
+      index:
+        listing: Alle Seiten-Einstellungen
+      table:
+        key: Einstellung
+        value: Wert
+    blog:
+      post:
+        new: Neuer Post
+    blog_post:
+      creation_success: Blog Post erstellt.
+      update_success: Post aktualisiert.
+      deletion_success: Post gelöscht.
+    places:
+      add_course: Kurs hinzufügen
+    styles:
+      new-video: Neues Video

@@ -19,7 +19,7 @@ class Admin::Blog::PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: t('admin.blog_post.creation-succes') }
+        format.html { redirect_to @post, notice: t('admin.blog_post.creation_success') }
       else
         format.html { render :new }
       end
@@ -33,7 +33,7 @@ class Admin::Blog::PostsController < ApplicationController
   def update
     @post = Blog::Post.friendly.find(params[:id])
     if @post.update(post_params)
-      redirect_to @post, notice: t('admin.blog_post.update-succes')
+      redirect_to @post, notice: t('admin.blog_post.update_success')
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class Admin::Blog::PostsController < ApplicationController
   def destroy
     @post = Blog::Post.friendly.find(params[:id])
     @post.destroy
-    redirect_to admin_blog_posts_url, notice: t('admin.blog_posts.deletion-success')
+    redirect_to admin_blog_posts_url, notice: t('admin.blog_post.deletion_success')
   end
 
   private
