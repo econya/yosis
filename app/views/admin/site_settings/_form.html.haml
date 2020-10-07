@@ -21,4 +21,4 @@
     - else @site_setting.kind == "image"
       = f.text_field :value
   .actions
-    = f.submit ('Save'), class: 'button is-link'
+    = f.submit t('actions.Save'), class: 'button is-primary is-pulled-right'
