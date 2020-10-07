@@ -9,6 +9,8 @@ class Place < ApplicationRecord
 
   ranks :row_order, scope: :active
 
+  has_many :courses
+
   validates :name, presence: true
 
   friendly_id :name, use: :slugged
