@@ -75,6 +75,8 @@
                 data: { confirm: t('Are you sure?') },
                 class: 'button is-small is-danger'
 
+            = link_to t('admin.styles.new-video'),
+              new_admin_style_lesson_path(style), class: 'button is-small'
 %br
 
 = link_to t('admin.style.new'), new_admin_style_path, class: 'button is-link is-outlined'
