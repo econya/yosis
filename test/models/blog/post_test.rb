@@ -23,10 +23,10 @@ class Blog::PostTest < ActiveSupport::TestCase
 
     assert_equal previous_post, post.previous
 
-    previous_post.update(active: false)
+    previous_post.update!(active: false)
     assert_nil post.previous
 
-    previous_post.update(active: true, published_at: nil)
+    previous_post.update!(active: true, published_at: nil)
     assert_nil post.previous
   end
 
