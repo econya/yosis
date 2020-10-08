@@ -21,16 +21,20 @@
 %hr
 
 .blog-navigation
-  - previous_post = @post.previous
-  - if previous_post.present?
-    = link_to previous_post do
-      = t('blog.navigation.previous')
+  .level
+    .level-left
+      - previous_post = @post.previous
+      - if previous_post.present?
+        = link_to previous_post, class: 'level-item' do
+          = t('blog.navigation.previous')
 
-  = link_to blog_posts_path do
-    = t('blog.navigation.index')
+    .level-item
+      = link_to blog_posts_path do
+        = t('blog.navigation.index')
 
-  - next_post = @post.next
-  - if next_post.present?
-    = link_to next_post do
-      = t('blog.navigation.next')
+    .level-right
+      - next_post = @post.next
+      - if next_post.present?
+        = link_to next_post do
+          = t('blog.navigation.next')
 
