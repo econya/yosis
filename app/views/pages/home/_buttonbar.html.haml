@@ -39,11 +39,10 @@
         .button-tag-text
           = t('navigation.blog')
   %li.nav-button
-    = link_to anchor: 'contact', data: { turbolinks: false } do
+    = link_to '#contact', data: { turbolinks: false } do
       %circlebutton
         %figure
           = image_tag 'kontakt.png'
         .button-tag-text
           = t('navigation.contact')
-
 
