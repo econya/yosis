@@ -26,8 +26,8 @@ class PagesController < ApplicationController
     render 'page', locals: {content: SiteSetting['explanation'], site_setting: 'explanation'}
   end
 
-  def about_us
-    @html_title = t('about_us')
-    render 'page', locals: {content: SiteSetting['about_us'], site_setting: 'about_us'}
+  def courses_general
+    @html_title = t('courses_general')
+    render 'page', locals: {content: SiteSetting['courses_general'], site_setting: 'courses_general'}
   end
 end
