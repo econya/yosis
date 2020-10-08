@@ -27,7 +27,7 @@
       = t('blog.navigation.previous')
 
   = link_to blog_posts_path do
-    [Index]
+    = t('blog.navigation.index')
 
   - next_post = @post.next
   - if next_post.present?

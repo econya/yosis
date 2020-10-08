@@ -135,6 +135,7 @@ de:
       read_more: Weiterlesen
     posts: Blog Posts
     navigation:
+      index: "[Index]"
       next: Nächster Artikel
       previous: Vorheriger Artikel
     new_post: Neuer Post
