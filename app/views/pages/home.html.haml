@@ -29,16 +29,24 @@
 %section#courses.py-5.has-background-verycleargrey.pb-6
   = render partial: 'pages/home/courses'
 
-
 %a.anchor-offset(name='videos')
 %section.videos#videos
   = render partial: 'pages/home/videos'
 
-%hr.has-text-primary.hr.is-divider
-- @styles.each do |style|
-  = render partial: 'course_video_row', locals: { style: style }
-- if @styles.empty?
-  = t('home.courses.none_yet')
+%a.anchor-offset(name='contact')
+%section#contact.py-5.darkgrey_fullwidth.pb-6
+  = render partial: 'pages/home/contact'
+
+  .container.pt-5
+    .columns.is-5.is-variable
+      .colum.has-text-white.pr-4
+        != SiteSetting['about_us']
+      .colum.has-text-white.pl-4
+        != SiteSetting['about_us']
+
+  .container.has-text-centered.has-text-white.mt-6.pt-2
+    %h2.title.is-3.pt-3.has-text-white.my-6
+      = t('home.contact.send-a-message')
 
   .container.mt-4
     = render partial: 'contacts/form'
