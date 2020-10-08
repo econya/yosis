@@ -19,7 +19,7 @@ class Admin::SiteSettingsController < ApplicationController
       key: ['intro', 'intro_background', 'news_line',
             'register_cta', 'trial_period_cta'])
     @pages_settings      = SiteSetting.where(
-      key: ['about_us', 'blog_background', 'courses_general', 'impressum',
+      key: ['about_us_left', 'about_us_right', 'blog_background', 'courses_general', 'impressum',
             'privacy_statement', 'terms', 'explanation'])
   end
 
@@ -79,7 +79,10 @@ class Admin::SiteSettingsController < ApplicationController
 
     def find_or_create_markdown_site_settings
       md_keys = [:intro, :explanation, :privacy_statement, :terms, :impressum,
-                 :copyright_notice, :about_us, :trial_period_cta,
+                 :copyright_notice,
+                 :about_us_left,
+                 :about_us_right,
+                 :trial_period_cta,
                  :register_cta, :courses_general, :payment_details]
       md_keys.each do |key|
         SiteSetting.find_or_create_by(key: key,
@@ -88,6 +91,10 @@ class Admin::SiteSettingsController < ApplicationController
       end
       # i18n-tasks-use t('site_settings.about_us.default')
       # i18n-tasks-use t('site_settings.about_us.help')
+      # i18n-tasks-use t('site_settings.about_us_left.default')
+      # i18n-tasks-use t('site_settings.about_us_left.help')
+      # i18n-tasks-use t('site_settings.about_us_right.default')
+      # i18n-tasks-use t('site_settings.about_us_right.help')
       # i18n-tasks-use t('site_settings.copyright_notice.default')
       # i18n-tasks-use t('site_settings.copyright_notice.help')
       # i18n-tasks-use t('site_settings.courses_general.default')

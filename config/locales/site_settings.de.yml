@@ -5,6 +5,12 @@
 de:
   site_settings:
     ":": ":"
+    about_us_left:
+      default: "# Über uns eins"
+      help: Über-Uns-Seite (linke Spalte)
+    about_us_right:
+      default: "# Über uns zwei"
+      help: Über-Uns-Seite (rechte Spalte)
     about_us:
       default: "# Über uns"
       help: Über-Uns-Seite
