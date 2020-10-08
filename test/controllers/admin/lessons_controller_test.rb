@@ -37,7 +37,13 @@ class LessonsControllerTest < ActionDispatch::IntegrationTest
   test "should create lesson" do
     sign_in users(:admin)
     assert_difference('Lesson.count') do
-      post admin_style_lessons_url(@lesson.style), params: { lesson: { style_id: @lesson.style_id, date_end: @lesson.date_end, date_start: @lesson.date_start, name: 'Test-a-less'} }
+      post admin_style_lessons_url(@lesson.style), params: { lesson:
+        { style_id: @lesson.style_id,
+          date_end: @lesson.date_end,
+          date_start: @lesson.date_start,
+          preview_image: fixture_file_upload('files/white_pixel.png'),
+          video: fixture_file_upload('files/white_pixel.png'),
+          name: 'Test-a-less' } }
     end
 
     assert_redirected_to style_url(Lesson.last.style)
@@ -57,7 +63,15 @@ class LessonsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update lesson" do
     sign_in users(:admin)
-    patch admin_style_lesson_url(@lesson.style, @lesson), params: { lesson: { style_id: @lesson.style_id, date_end: @lesson.date_end, date_start: @lesson.date_start } }
+
+    patch admin_style_lesson_url(@lesson.style, @lesson), params: {
+      lesson: { style_id: @lesson.style_id,
+                date_end: @lesson.date_end,
+                date_start: @lesson.date_start,
+                video: fixture_file_upload('files/white_pixel.png')
+                #preview_image: 'def' } }
+                }}
+
     assert_redirected_to style_url(@lesson.style)
   end
 
