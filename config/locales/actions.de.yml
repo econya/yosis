@@ -4,13 +4,13 @@
 ---
 de:
   actions:
-    are_you_sure?: Bist du dir sicher?
     Back: Zurück
-    destroy: löschen
     Destroy: Löschen
-    edit: bearbeiten
     Edit: Bearbeiten
-    save: speichern
     Save: Speichern
-    show: anzeigen
     Show: Anzeigen
+    are_you_sure?: Bist du dir sicher?
+    destroy: löschen
+    edit: bearbeiten
+    save: speichern
+    show: anzeigen

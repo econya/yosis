@@ -11,17 +11,15 @@ de:
     blog_background:
       default: Header Bild für Blog Übersicht
       help: Wird auf der Blog-Übersicht gezeigt
-    courses_general:
-      default: "# Über die Kurse\n**Schnupperstunde ist kostenlos"
-      help: Seite/Text mit Hinweisen zu den Kursen
     copyright_notice:
       default: Copyright ()
       help: Copyright-Hinweise im Footer
+    courses_general:
+      default: "# Über die Kurse\n**Schnupperstunde ist kostenlos"
+      help: Seite/Text mit Hinweisen zu den Kursen
     explanation:
       default: Details über Dein Business (markdown)
       help: Sichtbar bei Mehr erfahren-Link
-    general: Allgemein
-    home-page: Home-page
     favicon:
       default: Favicon in .ico Format
       help: Favicon in .ico Format (e.g. 48x48 px), braucht Server-Neustart!
@@ -31,6 +29,8 @@ de:
     favicon-apple-touch:
       default: Apple Touch image (png)
       help: Favicon für apple-touch (180x180 px), braucht Server-Neustart!
+    general: Allgemein
+    home-page: Home-page
     impressum:
       default: Dein Impressum (markdown)
       help: Impressum im Footer

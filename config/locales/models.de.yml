@@ -7,9 +7,9 @@ de:
     attributes:
       contact:
         message: Nachricht
-        subject: Betreff
         phone_number: Telefonnummer
         sender_email: E-Mail-Adresse
+        subject: Betreff
     errors:
       models:
         contact:
@@ -24,17 +24,17 @@ de:
         name: Video-Name
         preview_image: Vorschau-Bild
         video: Video-Datei
-      user:
-        read_privacy_terms: Stimme AGB zu
-        tos_agreement: Datenschutzhinweise gelesen
-      site_setting:
-        value: Wert
       place:
+        address: Adresse
         building_name: Gebäude-Name
         name: Name
         note: Hinweis
         pricing_note: Hinweis zu Kosten
-        address: Adresse
+      site_setting:
+        value: Wert
+      user:
+        read_privacy_terms: Stimme AGB zu
+        tos_agreement: Datenschutzhinweise gelesen
     models:
       appointment:
         labels:
