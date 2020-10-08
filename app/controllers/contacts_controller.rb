@@ -3,8 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class ContactsController < ApplicationController
-  before_action :authenticate_user!
-  invisible_captcha only: :show, on_spam: :log_spam
+  invisible_captcha only: [:create, :show], on_spam: :log_spam
 
   def new
     @contact = Contact.new
