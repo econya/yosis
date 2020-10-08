@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_082203) do
+ActiveRecord::Schema.define(version: 2020_10_07_174709) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,18 +42,6 @@ ActiveRecord::Schema.define(version: 2020_09_29_082203) do
     t.text "content"
     t.datetime "sent_at"
     t.index ["user_type", "user_id"], name: "index_ahoy_messages_on_user_type_and_user_id"
-  end
-
-  create_table "appointments", force: :cascade do |t|
-    t.datetime "date_from"
-    t.datetime "date_to"
-    t.integer "style_id", null: false
-    t.string "notice"
-    t.string "link"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "info"
-    t.index ["style_id"], name: "index_appointments_on_style_id"
   end
 
   create_table "blog_posts", force: :cascade do |t|
@@ -209,7 +197,6 @@ ActiveRecord::Schema.define(version: 2020_09_29_082203) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "appointments", "styles"
   add_foreign_key "courses", "places"
   add_foreign_key "courses", "styles"
   add_foreign_key "lessons", "styles"
