@@ -35,5 +35,19 @@
               %td.style
                 = link_to course.style do
                   = course.style.name
+                - if course.note.present?
+                  = "- #{course.note}"
         = place.pricing_note
+
+#general-info.mb-6
+  -#.place
+  %h3.title.is-4.mb-6.has-text-centered
+    = t('home.courses.about-all-courses')
+
+  -#%h4.title.is-5
+  - setting = SiteSetting.find_by(key: 'courses_general')
+  - if !setting.nil?
+    = admin_edit_button edit_admin_site_setting_path(setting)
+    .content
+      != setting.value_rendered
 
