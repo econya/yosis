@@ -12,30 +12,39 @@
           %li= message
 
   .field
+    -# i18n-tasks-use t('activerecord.attributes.course.name')
     = f.label :name
     = f.text_field :name
   .field
+    -# i18n-tasks-use t('activerecord.attributes.course.description')
     = f.label :description
     = f.text_field :description
   .field
+    -# i18n-tasks-use t('activerecord.attributes.course.place')
     = f.label :place
     = f.collection_select :place_id, @places, :id, :name, prompt: t('admin.courses.select_place')
   .field
+    -# i18n-tasks-use t('activerecord.attributes.course.style')
     = f.label :style
     = f.collection_select :style_id, @styles, :id, :name, prompt: t('admin.courses.select_style')
   .field
+    -# i18n-tasks-use t('activerecord.attributes.course.dayofweek')
     = f.label :dayofweek
     = f.select :dayofweek, I18n.t(:'date.day_names').zip(0..7), prompt: t('admin.courses.select_dow')
   .field
+    -# i18n-tasks-use t('activerecord.attributes.course.start_time')
     = f.label :start_time
     = f.time_select :start_time, {minute_step: 5}
   .field
+    -# i18n-tasks-use t('activerecord.attributes.course.end_time')
     = f.label :end_time
     = f.time_select :end_time, {minute_step: 5}
   .field
+    -# i18n-tasks-use t('activerecord.attributes.course.note')
     = f.label :note
     = f.text_field :note
   .field
+    -# i18n-tasks-use t('activerecord.attributes.course.active')
     = f.label :active
     = f.check_box :active
   .actions
