@@ -18,6 +18,13 @@ de:
               need_either_mail_or_phone: Bitte gib eine Telefonnummer oder eine E-Mail-Adresse an.
   activerecord:
     attributes:
+      blog/post:
+        title: Titel
+        summary: Zusammenfassung/Teaser
+        content: Inhalt
+        image: Bild
+        published_at: Veröffentlichung
+        Active: aktiv
       lesson:
         date_end: End-Zeit
         date_start: Start-Zeit
