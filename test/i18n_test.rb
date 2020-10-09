@@ -10,14 +10,14 @@ class I18nTest < ActiveSupport::TestCase
   end
 
   # Drive this down
-  def test_no_more_than_100_missing_keys
-    assert @missing_keys.leaves.count < 100,
+  def test_no_more_than_42_missing_keys
+    assert @missing_keys.leaves.count < 43,
       "Missing #{@missing_keys.leaves.count} i18n keys, run `i18n-tasks missing' to show them"
   end
 
   # Drive this down
-  def test_no_more_than_100_unused_keys
-    assert @unused_keys.leaves.count < 100,
+  def test_no_more_than_80_unused_keys
+    assert @unused_keys.leaves.count < 80,
       "#{@unused_keys.leaves.count} unused i18n keys, run `i18n-tasks unused' to show them"
   end
 

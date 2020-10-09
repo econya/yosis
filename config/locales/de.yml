@@ -3,7 +3,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ---
 de:
-  Back: Zurück
   Course: Kurs
   Courses: Kurse
   Customers: Kund*n
@@ -11,10 +10,6 @@ de:
   Date_to: Von
   'Date_to:': 'Bis:'
   Home: Start
-  Lesson: Lektion
-  Link: Link
-  Name: Name
-  about_us: Über uns
   admin:
     course:
       lessons:
@@ -248,8 +243,6 @@ de:
       subtitle: Praktiziere wo Du willst, wann Du willst
     welcome: Willkommen
   in: in
-  in_future: Zukünftig
-  in_past: Vergangen
   intro: Erklärung
   invite: Invite
   learn_more: Mehr erfahren ...
@@ -285,11 +278,9 @@ de:
       account: Mein Konto
     users: User
     videos: Videos
-  new_lesson: Neue Lektion
   no-video-support: Dein Browser unterstützt keine Videos!
   none: Keine
   not authorized: Nicht authorisiert
-  number_lessons: Anzahl Lektionen
   pagy:
     showing_from_to_total: Zeige %{item_name} %{from}-%{to}  von %{total} gesamt.
   register:
@@ -367,7 +358,6 @@ de:
       timespan: Zeitraum
     unconfirmed: Unbestätigt
     user-heading: User
-  users: Users
   video:
     length: Länge
     minutes: Minuten

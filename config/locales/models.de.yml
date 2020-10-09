@@ -43,11 +43,6 @@ de:
         read_privacy_terms: Stimme AGB zu
         tos_agreement: Datenschutzhinweise gelesen
     models:
-      appointment:
-        labels:
-          date_from: Von
-        one: Termin
-        other: Termine
       course:
         one: Kurs
         other: Kurse
