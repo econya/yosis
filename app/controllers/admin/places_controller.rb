@@ -32,7 +32,7 @@ class Admin::PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.save
-        format.html { redirect_to admin_places_path, notice: t('place.created-success') }
+        format.html { redirect_to admin_places_path, notice: t('admin.place.creation-success') }
       else
         format.html { render :new }
       end
@@ -43,7 +43,7 @@ class Admin::PlacesController < ApplicationController
   def update
     respond_to do |format|
       if @place.update(place_params)
-        format.html { redirect_to admin_places_path, notice: t('place.update-success') }
+        format.html { redirect_to admin_places_path, notice: t('admin.place.update-success') }
       else
         format.html { render :edit }
       end
@@ -54,7 +54,7 @@ class Admin::PlacesController < ApplicationController
   def destroy
     @place.destroy
     respond_to do |format|
-      format.html { redirect_to admin_places_url, notice: t('place.deletion-success') }
+      format.html { redirect_to admin_places_url, notice: t('admin.place.deletion-success') }
     end
   end
 
@@ -66,6 +66,7 @@ class Admin::PlacesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def place_params
-      params.require(:place).permit(:name, :building_name, :note, :pricing_note, :address, :active)
+      params.require(:place).permit(:name, :building_name, :note,
+                                    :pricing_note, :address, :active)
     end
 end

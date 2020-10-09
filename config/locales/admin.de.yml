@@ -17,6 +17,10 @@ de:
       select_dow: Wochentag auswählen
       select_place: Ort auswählen
       select_style: Style auswählen
+    place:
+      creation-success: Ort erstellt
+      deletion-success: Ort gelöscht
+      update-success: Ort aktualisiert
     places:
       add_course: Kurs hinzufügen
       all: Alle Orte
