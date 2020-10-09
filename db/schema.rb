@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_07_174709) do
+ActiveRecord::Schema.define(version: 2020_10_09_052202) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_174709) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "summary"
     t.datetime "published_at"
+    t.text "content_rendered"
     t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
   end
 

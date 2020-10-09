@@ -13,10 +13,7 @@
     = l(@post.published_at, format: :worded)
 
 .container.content
-  -# TODO do not render markdown in the view
-  -#= @post.content
-  - renderer = Redcarpet::Render::HTML.new(with_toc_data: true)
-  != Redcarpet::Markdown.new(renderer).render(@post.content)
+  != @post.content_rendered
 
 %hr
 
