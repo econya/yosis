@@ -27,8 +27,7 @@
           = site_setting.value
         %td
           - if site_setting.kind == "markdown"
-            = link_to t('Show'), [:admin, site_setting]
+            = link_to t('actions.Show'), [:admin, site_setting]
         %td
-          = link_to 'Edit', edit_admin_site_setting_path(site_setting)
-
+          = link_to t('actions.Edit'), edit_admin_site_setting_path(site_setting)
 
