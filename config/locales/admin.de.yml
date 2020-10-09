@@ -14,6 +14,9 @@ de:
     courses:
       edit: Kurs bearbeiten
       new: Neuer Kurs
+      select_dow: Wochentag auswählen
+      select_place: Ort auswählen
+      select_style: Style auswählen
     places:
       add_course: Kurs hinzufügen
       all: Alle Orte

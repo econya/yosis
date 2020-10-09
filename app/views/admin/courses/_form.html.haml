@@ -19,13 +19,13 @@
     = f.text_field :description
   .field
     = f.label :place
-    = f.collection_select :place_id, @places, :id, :name, prompt: t('Select Place')
+    = f.collection_select :place_id, @places, :id, :name, prompt: t('admin.courses.select_place')
   .field
     = f.label :style
-    = f.collection_select :style_id, @styles, :id, :name, prompt: t('Select Style')
+    = f.collection_select :style_id, @styles, :id, :name, prompt: t('admin.courses.select_style')
   .field
     = f.label :dayofweek
-    = f.select :dayofweek, I18n.t(:'date.day_names').zip(0..7), prompt: t('Select Day of week')
+    = f.select :dayofweek, I18n.t(:'date.day_names').zip(0..7), prompt: t('admin.courses.select_dow')
   .field
     = f.label :start_time
     = f.time_select :start_time, {minute_step: 5}
