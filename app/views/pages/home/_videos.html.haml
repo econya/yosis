@@ -18,7 +18,7 @@
   -#= admin_edit_button edit_admin_style_path(style)
 
   #video-styles.mt-6.pt-6
-    - @styles.active.which_has_videos.each do |style|
+    - @styles.which_has_videos.each do |style|
       %div.pb-4{id: dom_id(style)}
         = render partial: 'pages/course_video_row', locals: { style: style }
     - if @styles.empty?

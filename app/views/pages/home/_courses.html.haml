@@ -15,7 +15,7 @@
       = t('home.courses.styles')
     .columns.is-multiline.is-vcentered.is-centered.is-variable.is-8
       -# TODO extract to controller
-      - Style.which_has_courses.each do |style|
+      - @styles.which_has_courses.each do |style|
         .column.is-3.style-column{id: dom_id(style)}
           = admin_edit_button edit_admin_style_path(style)
           .box.pt-0.px-0
