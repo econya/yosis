@@ -6,7 +6,14 @@ de:
   admin:
     blog:
       post:
+        edit: Blog Post bearbeiten
+        image: Bild
         new: Neuer Post
+        published_at: Veröffentlicht am
+        summary: Zusammenfassung/Teaser
+        title: Titel
+      posts:
+        all: Alle Blog-Posts
     blog_post:
       creation_success: Blog Post erstellt.
       deletion_success: Post gelöscht.
