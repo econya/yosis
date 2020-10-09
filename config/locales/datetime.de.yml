@@ -45,6 +45,7 @@ de:
           other: "%{count} Jahren"
   time:
     formats:
+      clock_wordless: '%H:%M'
       devise:
         mailer:
           invitation_instructions:

@@ -15,11 +15,11 @@
       %td.time
         - if course.start_time
           = l(course.start_time,
-            format: '%H:%m')
+            format: :clock_wordless)
         = "-"
         - if course.end_time
           = l(course.end_time,
-            format: '%M:%m')
+            format: :clock_wordless)
       %td.place
         = course.place.name
         %i
