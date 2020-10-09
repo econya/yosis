@@ -17,14 +17,14 @@
 %table.table.is-striped.is-fullwidth.is-hoverable
   %thead
     %tr
-      %th= t('admin.courses.order')
+      %th= t('admin.courses.table.order')
       %th
-      %th= t('admin.courses.name')
-      %th= t('admin.courses.place')
-      %th= t('admin.courses.style')
-      %th= t('admin.courses.times')
-      %th= t('admin.courses.description')
-      %th= t('admin.courses.note')
+      %th= Course.human_attribute_name :name
+      %th= Course.human_attribute_name :place
+      %th= Course.human_attribute_name :style
+      %th= t('admin.courses.table.times')
+      %th= Course.human_attribute_name :description
+      %th= Course.human_attribute_name :note
       %th
 
   %tbody

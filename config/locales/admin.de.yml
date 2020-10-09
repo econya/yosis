@@ -24,6 +24,9 @@ de:
       select_dow: Wochentag auswählen
       select_place: Ort auswählen
       select_style: Style auswählen
+      table:
+        order: Pos.
+        times: Zeiten
     items:
       none: Keine
     place:
