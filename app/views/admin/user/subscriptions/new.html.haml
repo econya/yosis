@@ -1,6 +1,8 @@
+-# spdx
+
 %h1.title
   = t('admin.user.subscriptions.new-title')
 
 = render 'form'
 
-= link_to t('Back'), admin_user_path(@subscription.user)
+= link_to t('actions.Back'), admin_user_path(@subscription.user)
