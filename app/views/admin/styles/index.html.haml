@@ -4,11 +4,11 @@
 
 :ruby
   admin_head_locals = {
-    title: t('Listing Styles'),
+    title: t('admin.styles.index.listing'),
     admin: {
       new: {
         url: new_admin_style_path,
-        label: t('admin.style.new')
+        label: t('admin.styles.new')
       }
     }
   }
@@ -72,11 +72,11 @@
             = link_to t('actions.edit'), edit_admin_style_path(style), class: 'button is-small'
             - if !style.active?
               = link_to t('actions.Destroy'), [:admin, style], method: :delete,
-                data: { confirm: t('Are you sure?') },
+                data: { confirm: t('actions.are_you_sure?') },
                 class: 'button is-small is-danger'
 
             = link_to t('admin.styles.new-video'),
               new_admin_style_lesson_path(style), class: 'button is-small'
 %br
 
-= link_to t('admin.style.new'), new_admin_style_path, class: 'button is-link is-outlined'
+= link_to t('admin.styles.new'), new_admin_style_path, class: 'button is-link is-outlined'

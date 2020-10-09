@@ -24,6 +24,8 @@ de:
       select_dow: Wochentag auswählen
       select_place: Ort auswählen
       select_style: Style auswählen
+    items:
+      none: Keine
     place:
       creation-success: Ort erstellt
       deletion-success: Ort gelöscht

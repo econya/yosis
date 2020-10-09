@@ -20,7 +20,7 @@
     from: @pagy.from,
     to: @pagy.to,
     total: @pagy.count,
-    item_name: t('emails'))
+    item_name: Blog::Post.model_name.human)
   != pagy_bulma_nav(@pagy)
 
 

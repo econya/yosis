@@ -277,7 +277,6 @@ de:
     users: User
     videos: Videos
   no-video-support: Dein Browser unterstützt keine Videos!
-  none: Keine
   not authorized: Nicht authorisiert
   pagy:
     showing_from_to_total: Zeige %{item_name} %{from}-%{to}  von %{total} gesamt.

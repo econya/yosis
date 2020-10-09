@@ -4,11 +4,11 @@
 
 :ruby
   admin_head_locals = {
-    title: t('Listing Places'),
+    title: t('admin.places.all'),
     admin: {
       new: {
         url: new_admin_place_path,
-        label: t('New Place')
+        label: t('admin.places.new')
       }
     }
   }
@@ -18,8 +18,9 @@
 - if @places.present?
   = render partial: 'table', locals: {places: @places}
 - else
-  = t('none')
+  = t('admin.items.none')
 %br
 %br
 
-= link_to 'New Place', new_admin_place_path, class: 'button is-primary is-outlined'
+= link_to t('admin.places.new'), new_admin_place_path,
+  class: 'button is-primary is-outlined'
