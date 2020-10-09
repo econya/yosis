@@ -38,7 +38,8 @@
       %tr
         %td.post-image
           - if post.image.attached?
-            = image_tag post.image.variant(resize_to_fill: [100, 80]).processed, class: (post.active?) ? '' : 'semi-transparent'
+            = image_tag post.image.variant(resize_to_fill: [100, 80]).processed,
+              class: (post.active?) ? '' : 'semi-transparent'
         %td.post-title
           = post.title
         %td.post-summary
@@ -52,9 +53,13 @@
         %td.post-actions
           .buttons
             = link_to t('actions.Show'), post, class: 'button is-small'
-            = link_to t('actions.Edit'), edit_admin_blog_post_path(post), class: 'button is-small'
-            = link_to t('actions.Destroy'), [:admin, post], method: :delete, data: { confirm: t('actions.are_you_sure?') }, class: 'button is-small is-danger'
+            = link_to t('actions.Edit'), edit_admin_blog_post_path(post),
+              class: 'button is-small'
+            = link_to t('actions.Destroy'), [:admin, post],
+              method: :delete, data: { confirm: t('actions.are_you_sure?') },
+              class: 'button is-small is-danger'
 
 %br
 
-= link_to t('admin.blog.post.new'), new_admin_blog_post_path, class: 'button is-link is-outlined'
+= link_to t('admin.blog.post.new'), new_admin_blog_post_path,
+  class: 'button is-link is-outlined'

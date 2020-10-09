@@ -12,7 +12,6 @@
       %th= Place.human_attribute_name :address
       %th
       %th
-      %th
 
   %tbody
     - places.each do |place|
@@ -22,9 +21,12 @@
         %td= place.note
         %td= place.pricing_note
         %td= place.address
-        %td= link_to t('actions.show'), [:admin, place]
-        %td= link_to t('actions.edit'), edit_admin_place_path(place)
-        %td= link_to t('actions.Destroy'), [:admin, place], method: :delete, data: { confirm: t('actions.are_you_sure?') }
+        %td
+          = link_to t('actions.edit'), edit_admin_place_path(place), class: 'button is-small'
+        %td
+          = link_to t('actions.Destroy'), [:admin, place],
+            method: :delete, data: { confirm: t('actions.are_you_sure?') },
+            class: 'button is-small is-danger'
 
 %br
 
