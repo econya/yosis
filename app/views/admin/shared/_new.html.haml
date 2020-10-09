@@ -1,0 +1,17 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+%h1.title
+  = new_title
+
+= yield
+
+.backmatter.is-clearfix.has-clearfix
+  %hr.has-clearfix.is-clearfix
+  
+  = link_to back_target, class: 'has-text-danger' do
+    %span.icon
+      %i.fa.fa-arrow-left
+    = t('actions.Back')
+  

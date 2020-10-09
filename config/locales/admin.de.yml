@@ -11,8 +11,14 @@ de:
       creation_success: Blog Post erstellt.
       deletion_success: Post gelöscht.
       update_success: Post aktualisiert.
+    courses:
+      edit: Kurs bearbeiten
+      new: Neuer Kurs
     places:
       add_course: Kurs hinzufügen
+      all: Alle Orte
+      edit: Ort bearbeiten
+      new: Neuer Ort
     site_settings:
       index:
         listing: Alle Seiten-Einstellungen
@@ -20,4 +26,8 @@ de:
         key: Einstellung
         value: Wert
     styles:
+      edit: Style bearbeiten
+      index:
+        listing: Alle Styles
+      new: Neuer Style
       new-video: Neues Video

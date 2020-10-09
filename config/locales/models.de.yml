@@ -24,7 +24,17 @@ de:
         content: Inhalt
         image: Bild
         published_at: Veröffentlichung
-        Active: aktiv
+        active: aktiv
+      course:
+        dayofweek: Wochentag
+        description: Beschreibung
+        name: Name
+        note: Notiz
+        place: Ort
+        start_time: Anfangszeit
+        style: Style
+        end_time: Endzeit
+        active: Aktiv
       lesson:
         date_end: End-Zeit
         date_start: Start-Zeit

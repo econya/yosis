@@ -137,6 +137,8 @@ class Admin::SiteSettingsController < ApplicationController
           value: t("site_settings.#{key.to_s}.default"),
           kind: 'image')
       end
+      # i18n-tasks-use t('site_settings.blog_background.help')
+      # i18n-tasks-use t('site_settings.favicon-png.help')
       # i18n-tasks-use t('site_settings.favicon-apple-touch.help')
       # i18n-tasks-use t('site_settings.favicon-png.help')
       # i18n-tasks-use t('site_settings.favicon.help')

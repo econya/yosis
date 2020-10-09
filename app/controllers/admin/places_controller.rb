@@ -43,7 +43,7 @@ class Admin::PlacesController < ApplicationController
   def update
     respond_to do |format|
       if @place.update(place_params)
-        format.html { redirect_to [:admin, @place], notice: t('place.update-success') }
+        format.html { redirect_to admin_places_path, notice: t('place.update-success') }
       else
         format.html { render :edit }
       end
