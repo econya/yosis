@@ -33,8 +33,12 @@ de:
         key: Einstellung
         value: Wert
     styles:
+      cannot-delete-with-videos: Kann Style nicht löschen wenn noch Videos zugeordnet sind.
+      creation-success: Style erstellt
+      deletion-success: Style gelöscht
       edit: Style bearbeiten
       index:
         listing: Alle Styles
       new: Neuer Style
       new-video: Neues Video
+      update-success: Style aktualisiert
