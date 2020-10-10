@@ -5,7 +5,7 @@
 .level
   .level-left
     %h1.title
-      = t('user.user-heading')
+      = t('admin.user.user-heading')
   .level-right
     .level-item
       = link_to t('admin.user.impersonate'), impersonate_user_path(@user), method: :post, class: 'button'
@@ -24,7 +24,7 @@
 = @user.confirmed_at
 - if @user.confirmed_at.nil?
   %span.tag
-    = t('user.unconfirmed')
+    = t('admin.user.unconfirmed')
 
 %p
   %b= t('admin.user.sign_in_count')
@@ -35,7 +35,7 @@
 = @user.last_sign_in_at
 - if @user.last_sign_in_at.nil?
   %span.tag
-    = t('user.never-signed-in')
+    = t('admin.user.never-signed-in')
 
 %br
 %br
@@ -73,8 +73,13 @@
           %td
             = subscription.notes
           %td
-            = link_to t('edit'), edit_admin_user_subscription_path(subscription.user, subscription), class: 'button'
-            = link_to t('delete'), [:admin, subscription.user, subscription], method: :delete, date: { confirm: t('are_you_sure?') }, class: 'button'
+            = link_to t('edit'),
+              edit_admin_user_subscription_path(subscription.user, subscription),
+              class: 'button'
+            = link_to t('delete'), [:admin, subscription.user, subscription],
+              method: :delete,
+              data: { confirm: t('actions.are_you_sure?') },
+              class: 'button'
     %tr
       %td(colspan=2)
         = link_to new_admin_user_subscription_path(user_id: @user), class: 'button' do

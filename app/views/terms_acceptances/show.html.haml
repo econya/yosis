@@ -9,7 +9,7 @@
     != SiteSetting['privacy_statement']
 
 %h1.title
-  = t('terms')
+  = t('pages.terms.title')
 .container.mb-5
   .content.is-medium.has-text-justified
     != SiteSetting['terms']
@@ -26,7 +26,7 @@
         = f.check_box :read_privacy_terms
         = label_tag :read_privacy_terms, t('activerecord.attributes.user.read_privacy_terms')
       .actions
-        = f.submit t('Save'), class: 'button is-primary'
+        = f.submit t('actions.Save'), class: 'button is-primary'
   .column.is-half
     %h2.title
       = t('.actions')

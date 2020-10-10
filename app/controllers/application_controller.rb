@@ -11,14 +11,14 @@ class ApplicationController < ActionController::Base
     if true_user&.admin?
       # happy face
     else
-      flash[:error] = t('not authorized')
+      flash[:error] = t('problems.not_authorized')
       redirect_to root_path
     end
   end
 
   def authorize_user!
     if !user_signed_in?
-      flash[:error] = t('you need to log in')
+      flash[:error] = t('problems.you_need_to_log_in')
       redirect_to root_path
     end
   end

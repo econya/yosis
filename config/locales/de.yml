@@ -269,17 +269,20 @@ de:
       impressum: Impressum
       privacy_statement: Datenschutzhinweise
       terms: AGB
+    places: Orte
     programs: Programme
     seminars: Seminare
     site_settings: Seiten-Einstellungen
+    styles: Styles
     user:
       account: Mein Konto
     users: User
     videos: Videos
   no-video-support: Dein Browser unterstützt keine Videos!
-  not authorized: Nicht authorisiert
   pages:
     courses_general: Allgemeines zu den Kursen
+    terms:
+      title: AGB
   pagy:
     showing_from_to_total: Zeige %{item_name} %{from}-%{to}  von %{total} gesamt.
   register:
@@ -336,10 +339,16 @@ de:
     your-subscription-ended: Dein Abonnement ist abgelaufen
     your-trial-ended: Deine Schnupperwoche ist abgelaufen
   terms_acceptances:
+    actions: Aktionen
     create:
       welcome: Super! Willkommen und viel Spaß!
+    privacy_statement: Datenschutzerklärung
     show:
+      acceptance: Zustimmung
+      anonymize: Mein Konto zerstören
+      get_my_data: Zeig mir meine Daten!
       have_to_agree: Du musst den AGB zustimmen und die Datenschutzerklärung als gelesen markieren.
+      not-happy?: Wenn Du den AGBs nicht zustimmen möchtest oder die Angabe Deiner Daten zu heikel ist, musst Du Dein Konto bei uns leider aufgeben.
   user:
     confirmed_at: Bestätigt am
     created_at: Erstellt am

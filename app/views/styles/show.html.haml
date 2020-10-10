@@ -121,12 +121,15 @@
                           %span.icon.is-small
                             %i.fas.fa-user-shield
                           %span
-                            = t('style.admin.edit-lesson')
-                        = link_to [:admin, lesson.style, lesson], method: :delete, data: { confirm: t('actions.are_you_sure?') }, class: 'button is-link is-outlined is-small' do
+                            = t('admin.styles.edit-lesson')
+                        = link_to [:admin, lesson.style, lesson],
+                          method: :delete,
+                          data: { confirm: t('actions.are_you_sure?') },
+                          class: 'button is-link is-outlined is-small' do
                           %span.icon.is-small
                             %i.fas.fa-user-shield
                           %span
-                            = t('style.admin.destroy-lesson')
+                            = t('admin.styles.destroy-lesson')
               = l lesson.created_at, format: '%A, %d. %B %Y'
               - if lesson.video.attached? && lesson.video.metadata[:duration]
                 %br/
@@ -168,13 +171,13 @@
                         %span.icon.is-small
                           %i.fas.fa-user-shield
                         %span
-                          = t('style.admin.edit-lesson')
+                          = t('admin.styles.edit-lesson')
   
-                      = link_to [:admin, lesson.style, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-link is-outlined' do
+                      = link_to [:admin, lesson.style, lesson], method: :delete, data: { confirm: t('actions.are_you_sure?') }, class: 'button is-link is-outlined' do
                         %span.icon.is-small
                           %i.fas.fa-user-shield
                         %span
-                          = t('style.admin.destroy-lesson')
+                          = t('admin.styles.destroy-lesson')
   
     .buttons
       = link_to new_admin_style_lesson_path(@style), class: 'button' do
@@ -191,4 +194,4 @@
   
 %hr
 
-= link_to t('Back'), :back, class: 'button is-link'
+= link_to t('actions.Back'), :back, class: 'button is-primary'

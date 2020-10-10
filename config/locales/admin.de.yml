@@ -51,9 +51,16 @@ de:
       cannot-delete-with-videos: Kann Style nicht löschen wenn noch Videos zugeordnet sind.
       creation-success: Style erstellt
       deletion-success: Style gelöscht
+      destroy-lesson: Video löschen
       edit: Style bearbeiten
+      edit-lesson: Video bearbeiten
       index:
         listing: Alle Styles
       new: Neuer Style
       new-video: Neues Video
       update-success: Style aktualisiert
+    admin:
+      user:
+        never-signed-in: Noch nie eingeloggt
+        unconfirmed: unbestätigt
+        user-heading: User
