@@ -28,7 +28,7 @@ class Admin::StylesController < ApplicationController
 
     respond_to do |format|
       if @style.save
-        format.html { redirect_to @style, notice: t('admin.styles.creation-succes') }
+        format.html { redirect_to @style, notice: t('admin.styles.creation-success') }
       else
         format.html { render :new }
       end
@@ -39,7 +39,7 @@ class Admin::StylesController < ApplicationController
   def update
     respond_to do |format|
       if @style.update(style_params)
-        format.html { redirect_to @style, notice: t('admin.styles.update-succes') }
+        format.html { redirect_to @style, notice: t('admin.styles.update-success') }
       else
         format.html { render :edit }
       end

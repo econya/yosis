@@ -29,9 +29,12 @@ de:
         times: Zeiten
     items:
       none: Keine
+    lessons:
+      edit: Video bearbeiten
     place:
       creation-success: Ort erstellt
       deletion-success: Ort gelöscht
+      title: Ort
       update-success: Ort aktualisiert
     places:
       add_course: Kurs hinzufügen

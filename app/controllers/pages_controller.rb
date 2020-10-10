@@ -27,7 +27,7 @@ class PagesController < ApplicationController
   end
 
   def courses_general
-    @html_title = t('courses_general')
+    @html_title = t('pages.courses_general')
     render 'page', locals: {content: SiteSetting['courses_general'], site_setting: 'courses_general'}
   end
 end
