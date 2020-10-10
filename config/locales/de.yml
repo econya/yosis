@@ -105,7 +105,6 @@ de:
       title: User
       total: Total
       trial-ended: Trial-ended
-      unconfirmed: Unbestätigt
       unsubscribed: Unsubscribed
   admin_mailer:
     invitation_accepted:
@@ -207,7 +206,6 @@ de:
       one: "Es gab ein Problem:"
       other: "Es gab %{count} Probleme:"
   explanation_text_homepage: Explanation text homepage
-  feedback: Feedback
   helpers:
     label:
       contact:
@@ -241,10 +239,8 @@ de:
       subtitle: Praktiziere wo Du willst, wann Du willst
     welcome: Willkommen
   in: in
-  intro: Erklärung
   invite: Invite
   learn_more: Mehr erfahren ...
-  length: Länge
   lesson:
     inactive: Nicht freigeschaltet
     new: Neu
@@ -258,10 +254,10 @@ de:
     sign_in: Login
     test: Testen
     ten_days_free: "10 kostenlose Tage"
-  minutes: Minuten
   navigation:
     admin: Admin
     background-jobs: Background Jobs
+    blog: Blog
     contact: Kontakt
     courses: Kurse
     emails: E-Mails
