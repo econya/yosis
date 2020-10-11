@@ -75,5 +75,9 @@ Rails.application.routes.draw do
     namespace :blog do
       resources :posts, only: [:new, :create, :update, :edit, :destroy, :index]#, controller: 'blog/posts'
     end
+
+    namespace :markdown do
+      resource :render, only: [:create], controller: 'render'
+    end
   end
 end

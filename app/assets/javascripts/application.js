@@ -7,5 +7,11 @@
 //= require rails-ujs
 //= require turbolinks
 //= require activestorage
+
+//= require stimulus
+//= require initializers/stimulus
+//= require controllers/render_md_preview_controller
+//= require controllers/reveal_controller
+
 //= require_tree .
 

@@ -13,12 +13,29 @@
 
   = f.hidden_field :key
   .field
-    = f.label :value
     - if @site_setting.kind == "markdown"
-      = f.text_area :value, rows: 20
+      .columns{ data: { controller: 'render_md_preview reveal', reveal: { shown: "false" } } }
+        .column
+          = f.label :value
+          %button{ data: { action: 'render_md_preview#render reveal#reveal' },
+            class: 'button' }
+            = t('actions.preview')
+          = f.text_area :value, rows: 20, data: { target: 'render_md_preview.source' }
+        .column#reveal-content{ data: { target: 'reveal.content' } }
+          .label
+            = t('actions.preview')
+          %button{ data: { action: 'reveal#hide' }, class: 'button' }
+            = t('actions.hide')
+          %button{ data: { action: 'render_md_preview#render' }, class: 'button' }
+            = t('actions.refresh')
+          .content
+            #preview{ data: { target: 'render_md_preview.result' } }
+
     - elsif @site_setting.kind == "image"
+      = f.label :value
       = f.file_field :image
     - else @site_setting.kind == "image"
+      = f.label :value
       = f.text_field :value
   .actions
     = f.submit t('actions.Save'), class: 'button is-primary is-pulled-right'

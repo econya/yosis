@@ -12,6 +12,9 @@ de:
     are_you_sure?: Bist du dir sicher?
     destroy: löschen
     edit: bearbeiten
+    hide: verbergen
+    preview: Vorschau anzeigen
+    refresh: neu laden
     save: speichern
     show: anzeigen
   problems:

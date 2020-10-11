@@ -40,6 +40,9 @@ gem 'bulma-rails', '~> 0.9'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem "bulma_form_builder", git: 'https://github.com/fwolfst/bulma_form_builder.git'#, branch: 'rails6'
 
+gem 'babel-transpiler'
+gem 'stimulusjs-rails', '~> 1.1.1'
+
 # Authentication
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
