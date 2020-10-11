@@ -2,9 +2,8 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%h1.title
-  = t('New Blog Post')
+= render layout: 'admin/shared/new',
+  locals: { new_title: t('admin.blog.post.new'),
+    back_target: admin_blog_posts_path } do
+  = render 'form'
 
-= render 'form'
-
-= link_to t('actions.Back'), admin_places_path

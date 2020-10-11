@@ -2,11 +2,8 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%h1.title
-  = t("admin.blog.post.edit")
+= render layout: 'admin/shared/edit',
+  locals: { edit_title: t('admin.blog.post.edit'),
+    back_target: admin_blog_posts_path } do
+  = render 'form'
 
-= render 'form'
-
-%br
-
-= link_to t('actions.Back'), admin_blog_posts_path, class: 'button is-small is-danger'
