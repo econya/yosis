@@ -18,8 +18,24 @@
     = f.label :summary
     = f.text_area :summary
   .field
-    = f.label :content
-    = f.text_area :content
+    .columns{data: { controller: 'render_md_preview reveal',
+      reveal: { shown: "true" } } }
+      .column
+        = f.label :content
+        %button{ data: { action: 'render_md_preview#render reveal#reveal' },
+          class: 'button' }
+          = t('actions.preview')
+        = f.text_area :content, rows: 15, data: { target: 'render_md_preview.source' }
+      .column
+        .label
+          = t('actions.preview')
+        %button{ data: { action: 'reveal#hide' }, class: 'button' }
+          = t('actions.hide')
+        %button{ data: { action: 'render_md_preview#render' }, class: 'button' }
+          = t('actions.refresh')
+        .content
+          #preview{data: {target: 'render_md_preview.result'}}
+            != @post.content_rendered
   .field
     = f.label :image
     = f.file_field :image

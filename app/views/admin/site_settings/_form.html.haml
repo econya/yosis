@@ -30,7 +30,7 @@
             = t('actions.refresh')
           .content
             #preview{ data: { target: 'render_md_preview.result' } }
-
+              != @site_setting.value_rendered
     - elsif @site_setting.kind == "image"
       = f.label :value
       = f.file_field :image
