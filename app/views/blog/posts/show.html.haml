@@ -5,15 +5,16 @@
 - content_for(:hero_head) do
   = render 'blog/posts/hero_head'
 
-%h1.title
-  = @post.title
-
-.meta-data
-  - if @post.published_at.present?
-    = l(@post.published_at, format: :worded)
-
-.container.content
-  != @post.content_rendered
+- admin_edit_area edit_path: edit_admin_blog_post_path(@post) do
+  %h1.title
+    = @post.title
+  
+  .meta-data
+    - if @post.published_at.present?
+      = l(@post.published_at, format: :worded)
+  
+  .container.content
+    != @post.content_rendered
 
 %hr
 

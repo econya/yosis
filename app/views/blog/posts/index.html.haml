@@ -10,16 +10,17 @@
 %br.pt-3
 
 - @posts.active.each do |post|
-  %article.post.media.pb-5
-    %figure.media-left.pt-1
-      - if post.image.attached?
-        = image_tag post.image.variant(resize_to_fill: [100, 80]).processed, class: (post.active?) ? '' : 'semi-transparent'
-    .media-content
-      %h2.title.is-4.mb-1
-        = link_to post.title, post
-      .date
-        %i.is-size-7
-          = l(post.published_at, format: :worded)
-      = post.summary
-      .read_more
-        = link_to t('blog.post.read_more'), post
+  - admin_edit_area edit_path: edit_admin_blog_post_path(post) do
+    %article.post.media.pb-5
+      %figure.media-left.pt-1
+        - if post.image.attached?
+          = image_tag post.image.variant(resize_to_fill: [100, 80]).processed, class: (post.active?) ? '' : 'semi-transparent'
+      .media-content
+        %h2.title.is-4.mb-1
+          = link_to post.title, post
+        .date
+          %i.is-size-7
+            = l(post.published_at, format: :worded)
+        = post.summary
+        .read_more
+          = link_to t('blog.post.read_more'), post
