@@ -1,7 +1,15 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
 .card
   .card-image
     - if access_level == :trial || access_level == :full || access_level == :admin
-      %video(controls="true" poster="#{url_for lesson.preview_image.variant(resize_to_fill: [320,180]).processed}" id="vs-#{lesson.id}" width="100%" preload="metadata")
+      %video{controls: "true",
+        poster: "#{url_for lesson.preview_image.variant(resize_to_fill: [320,180]).processed}",
+        id: dom_id(lesson),
+        width: "100%",
+        preload: "metadata"}
         %source{src: rails_blob_url(lesson.video), type:"video/mp4"}
         = t('no-video-support')
       -#:javascript
@@ -16,11 +24,13 @@
         = image_tag lesson.preview_image.variant(resize_to_fill: [320,240]).processed,
           alt: t('video.image_alt', video: t('lesson.show.video'), video_title: lesson.name)
         - if user_signed_in?
-          = link_to explanation_path, class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
+          = link_to explanation_path,
+            class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
             %span.icon.has-text-primary.is-large.has-text-centered.auto-margin
               %i.far.fa-play-circle.fa-3x
         - else
-          = link_to new_user_registration_path, class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
+          = link_to new_user_registration_path,
+            class: 'is-overlay has-text-centered is-vcentered columns is-flex' do
             %span.icon.has-text-primary.is-large.has-text-centered.auto-margin
               %i.far.fa-play-circle.fa-3x
   %header.card-header
