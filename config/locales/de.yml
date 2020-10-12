@@ -6,9 +6,6 @@ de:
   Course: Kurs
   Courses: Kurse
   Customers: Kund*n
-  Date_from: Von
-  Date_to: Von
-  'Date_to:': 'Bis:'
   Home: Start
   admin:
     course:
@@ -33,14 +30,6 @@ de:
       number_lessons: Anzahl Videos
       order: Position
       update-succes: Kurs aktualisiert.
-    delayed_job:
-      deleted: Gelöscht
-    delayed_jobs:
-      actions: Actions
-      background-jobs: Background Jobs
-      destroy: Löschen
-      what: Was
-      when: Wann
     emails:
       back_to_mails: Zurück zu E-Mails
       mails_table:
@@ -205,7 +194,6 @@ de:
     prohibited_from_saving:
       one: "Es gab ein Problem:"
       other: "Es gab %{count} Probleme:"
-  explanation_text_homepage: Explanation text homepage
   helpers:
     label:
       contact:
@@ -237,7 +225,6 @@ de:
     videos:
       title: Videos
       subtitle: Praktiziere wo Du willst, wann Du willst
-    welcome: Willkommen
   in: in
   invite: Invite
   learn_more: Mehr erfahren ...

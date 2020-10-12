@@ -33,9 +33,10 @@
               = t('admin.delayed_jobs.job_class')
             = jobj.job_data["job_class"]
             %br
-            %b
-              = t('admin.delayed_jobs.arguments')
-            = debug jobj.job_data["arguments"]
+            - if !jobj.job_data["arguments"].empty?
+              %b
+                = t('admin.delayed_jobs.arguments')
+              = debug jobj.job_data["arguments"]
           %td
             = truncate job.last_error, length: 120
             - if job.last_error
@@ -49,5 +50,11 @@
             -#  = YAML::load(job.handler)
             -#  = job
           %td
-            = link_to t('admin.delayed_jobs.destroy'), admin_delayed_job_url(job), method: :delete, data: { confirm: t('Are you sure?') }, class: 'button is-danger'
-            = link_to t('admin.delayed_jobs.trigger_now'), admin_delayed_job_execution_url(job), method: :post, class: 'button is-warning'
+            = link_to t('actions.destroy'), admin_delayed_job_url(job),
+              method: :delete,
+              data: { confirm: t('actions.are_you_sure?') },
+              class: 'button is-danger'
+            = link_to t('admin.delayed_jobs.trigger_now'),
+              admin_delayed_job_execution_url(job),
+              method: :post,
+              class: 'button is-warning'

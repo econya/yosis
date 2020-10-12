@@ -8,7 +8,7 @@ de:
       post:
         edit: Blog Post bearbeiten
         image: Bild
-        new: Neuer Post
+        new: Neuer Blog Post
         published_at: Veröffentlicht am
         summary: Zusammenfassung/Teaser
         title: Titel
@@ -27,6 +27,22 @@ de:
       table:
         order: Pos.
         times: Zeiten
+    delayed_job:
+      deleted: Job gelöscht.
+      execution:
+        triggered: Job getriggert.
+    delayed_jobs:
+      actions: Aktionen
+      arguments: Parameter
+      attempts: Versuche
+      background-jobs: Background Jobs
+      index:
+        problem_not_all_jobs_scheduled: "Problem: Nicht alle Jobs gestartet!"
+        regularly: Regelmäßig
+      job_class: Job Klasse
+      trigger_now: "Triggern!"
+      what: Was
+      when: Wann
     items:
       none: Keine
     lessons:
