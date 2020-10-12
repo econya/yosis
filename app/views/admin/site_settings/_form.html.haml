@@ -11,6 +11,8 @@
         - @site_setting.errors.full_messages.each do |message|
           %li= message
 
+  = hidden_field_tag 'back_path', params[:back_path]
+
   = f.hidden_field :key
   .field
     - if @site_setting.kind == "markdown"

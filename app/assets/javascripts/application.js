@@ -10,6 +10,7 @@
 
 //= require stimulus
 //= require initializers/stimulus
+//= require controllers/class_toggle_controller
 //= require controllers/render_md_preview_controller
 //= require controllers/reveal_controller
 

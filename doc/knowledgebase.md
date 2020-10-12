@@ -15,6 +15,7 @@
     * [Policy agreements](#policy-agreements)
     * [Rights on data](#rights-on-data)
   + [Access Policies](#policies)
+  + [UX](#ux)
 - [Resources and lessons learned](#resources-and-lessons-learned)
   + [ActiveStorage](#activestorage)
   + [Big File upload](#big-file-upload)
@@ -172,6 +173,27 @@ Go-to successor of CanCan(Can) is [active_policies](https://github.com/palkan/ac
 
 But so far, I just go with POROs (in `lib/policies/`).
 
+### UX
+
+#### Admin: CMS
+
+Administrative users want to be able to look at the home page and edit stuff
+without too much admin menu navigation. Thus implemented a simple way to display
+modifiyable content and link it to the appropriate "admin" area. This is a WIP
+and not yet thought through, neither visually nor from the business logic side.
+Sure enough, live editing or modals would be convenient to have for
+administrative users.
+
+#### Admin: Forms
+
+##### Flow
+Try to make the flow left-top to bottom-right. Confirmative action on the right
+(page-flipping direction).
+
+##### Markdown
+Implemented a simple straightforward markdown preview renderer that renders
+manually and server-side. This was done using jummy stimulusJS-controllers.
+
 ### Mail archive
 
 For mail "tracking" (saving outgoing mails to ensure that the right mails got
@@ -328,6 +350,12 @@ within the application. There, two approaches are prepared:
 
 * form submission (simple captcha) with [InvisibleCaptcha](https://github.com/markets/invisible_captcha) (alternative to checkout might be [HoneypotCaptcha](https://github.com/curtis/honeypot-captcha))
 * general flooding protection using [Rack::Attack]()
+
+### StimulusJS
+
+While Rails 6 and stimulusjs via sprockets might seem like an odd idea, it works
+pretty well with a workaround (to transpile es6 to es5): include babel and do
+not name your js files \*.js but \*.es6 .
 
 #### Database switching
 

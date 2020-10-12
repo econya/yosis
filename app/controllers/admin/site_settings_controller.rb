@@ -52,8 +52,8 @@ class Admin::SiteSettingsController < ApplicationController
   def update
     respond_to do |format|
       if @site_setting.update(site_setting_params)
-        # Nicer redirection, please!
-        format.html { redirect_to admin_site_settings_path, notice: t('.site-setting-successfully-updated') }
+        format.html { redirect_to back_url_or(admin_site_settings_path),
+                      notice: t('.site-setting-successfully-updated') }
       else
         format.html { render :edit }
       end
@@ -61,9 +61,17 @@ class Admin::SiteSettingsController < ApplicationController
   end
 
   private
+
+    def back_url_or other_url
+      params[:back_path] || other_url
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_site_setting
       @site_setting = SiteSetting.find(params[:id])
+      if !@site_setting.present?
+        find_or_create_settings
+      end
     end
 
     # Only allow a list of trusted parameters through.
@@ -145,5 +153,4 @@ class Admin::SiteSettingsController < ApplicationController
       # i18n-tasks-use t('site_settings.intro_background.help')
       # i18n-tasks-use t('site_settings.logo.help')
     end
-
 end

@@ -8,3 +8,18 @@
   position: absolute;
   opacity: 0.6;
 }
+
+/* hidden when mouse not hovering the area */
+.admin-button {
+  display: none;
+}
+
+.has-black-border {
+  border: 1px solid black;
+}
+
+.admin-edit-area.has-black-border {
+  .admin-button {
+    display: block;
+  }
+}
