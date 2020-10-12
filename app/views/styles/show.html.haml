@@ -21,7 +21,7 @@
 -#+    -#-#= link_to lesson.name, lesson
 -#+    -#= lesson.name
 
-- content_for(:html_title) { @style.name }
+- set_title @style.name
 
 %script{type: "application/ld+json"}
   {

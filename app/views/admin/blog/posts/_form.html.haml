@@ -11,6 +11,8 @@
         - @post.errors.full_messages.each do |message|
           %li= message
 
+  = hidden_field_tag 'back_path', params[:back_path]
+
   .field
     = f.label :title
     = f.text_field :title
