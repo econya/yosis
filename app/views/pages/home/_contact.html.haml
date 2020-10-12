@@ -11,11 +11,11 @@
 .container.pt-5
   .columns.is-5.is-variable
     .column.has-text-white.pr-4
-      - admin_edit_area edit_path: edit_admin_site_setting_path(SiteSetting.find_by_key('about_us_left')),
+      - admin_edit_area edit_path: edit_admin_site_setting_path(SiteSettings.fetch('about_us_left')),
         back_anchor: 'contact' do
         != SiteSetting['about_us_left']
     .column.has-text-white.pl-4
-      - admin_edit_area edit_path: edit_admin_site_setting_path(SiteSetting.find_by_key('about_us_right')),
+      - admin_edit_area edit_path: edit_admin_site_setting_path(SiteSettings.fetch('about_us_right')),
         back_anchor: 'contact' do
         != SiteSetting['about_us_right']
 

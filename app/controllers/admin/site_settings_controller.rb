@@ -67,6 +67,7 @@ class Admin::SiteSettingsController < Admin::AdminController
       @site_setting = SiteSetting.find(params[:id])
       if !@site_setting.present?
         find_or_create_settings
+        @site_setting = SiteSetting.find(params[:id])
       end
     end
 
@@ -82,71 +83,14 @@ class Admin::SiteSettingsController < Admin::AdminController
     end
 
     def find_or_create_markdown_site_settings
-      md_keys = [:intro, :explanation, :privacy_statement, :terms, :impressum,
-                 :copyright_notice,
-                 :about_us_left,
-                 :about_us_right,
-                 :trial_period_cta,
-                 :register_cta, :courses_general, :payment_details]
-      md_keys.each do |key|
-        SiteSetting.find_or_create_by(key: key,
-          kind: "markdown",
-          value: t("site_settings.#{key.to_s}.default"))
-      end
-      # i18n-tasks-use t('site_settings.about_us.default')
-      # i18n-tasks-use t('site_settings.about_us.help')
-      # i18n-tasks-use t('site_settings.about_us_left.default')
-      # i18n-tasks-use t('site_settings.about_us_left.help')
-      # i18n-tasks-use t('site_settings.about_us_right.default')
-      # i18n-tasks-use t('site_settings.about_us_right.help')
-      # i18n-tasks-use t('site_settings.copyright_notice.default')
-      # i18n-tasks-use t('site_settings.copyright_notice.help')
-      # i18n-tasks-use t('site_settings.courses_general.default')
-      # i18n-tasks-use t('site_settings.courses_general.help')
-      # i18n-tasks-use t('site_settings.explanation.default')
-      # i18n-tasks-use t('site_settings.explanation.help')
-      # i18n-tasks-use t('site_settings.impressum.default')
-      # i18n-tasks-use t('site_settings.impressum.help')
-      # i18n-tasks-use t('site_settings.intro.default')
-      # i18n-tasks-use t('site_settings.intro.help')
-      # i18n-tasks-use t('site_settings.payment_details.default')
-      # i18n-tasks-use t('site_settings.payment_details.help')
-      # i18n-tasks-use t('site_settings.privacy_statement.default')
-      # i18n-tasks-use t('site_settings.privacy_statement.help')
-      # i18n-tasks-use t('site_settings.register_cta.default')
-      # i18n-tasks-use t('site_settings.register_cta.help')
-      # i18n-tasks-use t('site_settings.trial_period_cta.default')
-      # i18n-tasks-use t('site_settings.trial_period_cta.help')
-      # i18n-tasks-use t('site_settings.terms.default')
-      # i18n-tasks-use t('site_settings.terms.help')
+      SiteSettings.find_or_create_markdown_site_settings
     end
 
     def find_or_create_string_site_settings
-      string_keys = [:your_name, :title, :news_line]
-      string_keys.each do |key|
-        SiteSetting.find_or_create_by(key: key,
-          value: t("site_settings.#{key.to_s}.default"),
-          kind: 'string')
-      end
-      # i18n-tasks-use t('site_settings.news_line.help')
-      # i18n-tasks-use t('site_settings.title.help')
-      # i18n-tasks-use t('site_settings.your_name.help')
+      SiteSettings.find_or_create_string_site_settings
     end
 
     def find_or_create_image_site_settings
-      image_keys = [:blog_background, :logo, :favicon, "favicon-png",
-         "favicon-apple-touch", :intro_background]
-      image_keys.each do |key|
-        SiteSetting.find_or_create_by(key: key,
-          value: t("site_settings.#{key.to_s}.default"),
-          kind: 'image')
-      end
-      # i18n-tasks-use t('site_settings.blog_background.help')
-      # i18n-tasks-use t('site_settings.favicon-png.help')
-      # i18n-tasks-use t('site_settings.favicon-apple-touch.help')
-      # i18n-tasks-use t('site_settings.favicon-png.help')
-      # i18n-tasks-use t('site_settings.favicon.help')
-      # i18n-tasks-use t('site_settings.intro_background.help')
-      # i18n-tasks-use t('site_settings.logo.help')
+      SiteSettings.find_or_create_image_site_settings
     end
 end

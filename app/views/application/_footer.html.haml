@@ -11,7 +11,7 @@
           = link_to t('navigation.pages.terms'), terms_path
           \|
           = link_to t('navigation.pages.privacy_statement'), privacy_path
-      - admin_edit_area edit_path: edit_admin_site_setting_path(SiteSetting.find_by_key('copyright_notice')),
+      - admin_edit_area edit_path: edit_admin_site_setting_path(SiteSettings.fetch('copyright_notice')),
         back_anchor: 'footer' do
         .level-right
           .level-item
