@@ -5,9 +5,7 @@
 namespace :db do
   desc 'Schedule all cron jobs'
   task schedule_jobs: :environment do
-    glob = Rails.root.join('app', 'jobs', '**', '*_job.rb')
-    Dir.glob(glob).each {|f| require f}
-    CronJob.subclasses.each { |job| job.schedule }
+    ScheduledJobCheck.schedule_all!
   end
 end
 
