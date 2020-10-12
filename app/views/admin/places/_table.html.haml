@@ -8,7 +8,9 @@
       %th= Place.human_attribute_name :name
       %th= Place.human_attribute_name :building_name
       %th= Place.human_attribute_name :note
+      -# i18n-tasks-use t('activerecord.attributes.place.pricing_note')
       %th= Place.human_attribute_name :pricing_note
+      -# i18n-tasks-use t('activerecord.attributes.place.address')
       %th= Place.human_attribute_name :address
       %th
       %th

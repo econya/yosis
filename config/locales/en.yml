@@ -53,6 +53,9 @@ en:
       lesson:
         one: Lektion
         other: Lektionen
+      user:
+        one: Benutzer
+        other: Benutzer*
   admin:
     appointment:
       edit: Edit

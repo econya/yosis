@@ -11,6 +11,7 @@
   
   .meta-data
     - if @post.published_at.present?
+      -# i18n-tasks-use t('time.formats.worded')
       = l(@post.published_at, format: :worded)
   
   .container.content

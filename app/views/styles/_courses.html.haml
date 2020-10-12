@@ -18,6 +18,7 @@
             format: :clock_wordless)
         = "-"
         - if course.end_time
+          -# i18n-tasks-use t('time.formats.clock_wordless')
           = l(course.end_time,
             format: :clock_wordless)
       %td.place

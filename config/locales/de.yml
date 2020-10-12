@@ -6,7 +6,6 @@ de:
   Course: Kurs
   Courses: Kurse
   Customers: Kund*n
-  Home: Start
   admin:
     course:
       lessons:
@@ -105,11 +104,6 @@ de:
     new_registration:
       new_user_registered: Ein Mensch hat sich neu registriert.
       subject: Neue* Benutzer* registriert!
-  already_registered?: Schon Kund/in?
-  apointments:
-    time:
-      till: bis
-  attendence: Attendence
   blog:
     title: Blog
     post:
@@ -129,12 +123,10 @@ de:
     contacted_you: hat dich kontaktiert.
     message: Nachricht
     subject: Betreff
+    with_phone_number: "Telefonnummer: "
   course:
     admin:
-      destroy-lesson: Video löschen
       edit: Bearbeiten
-      edit-lesson: Video bearbeiten
-    inactive: Nicht freigeschaltet
     total_videos: "%{number_videos} Videos insgesamt"
     videos:
       see_more: Du hast ein Abo! %{number_more} weitere Videos sehen
@@ -144,12 +136,8 @@ de:
       add-video: Video hinzufügen
   courses:
     edit: Bearbeiten
-    new: Neu
-    new-video: Neues Video
-    no_lessons_yet: Noch keine Videos
+    listing-heading: Alle Kurse
     title-all: Alle Kurse
-    videos: Videos
-    videos-inactive: Nicht freigeschaltete Videos
   customers: Kund*n
   delete: Löschen
   devise:
@@ -211,8 +199,6 @@ de:
       none_yet: Noch keine Kurse
       styles: Yoga-Stile
       subtitle: Etabliere Deine regelmäßige Yoga-Praxis
-    intro:
-      learn_more: Mehr erfahren ...
     latest-blog-post: "Letzer Blog-Eintrag:"
     news: "News:"
     register-for-trial-period: Für Schnupperwoche registrieren
@@ -225,16 +211,13 @@ de:
     videos:
       title: Videos
       subtitle: Praktiziere wo Du willst, wann Du willst
-  in: in
   invite: Invite
-  learn_more: Mehr erfahren ...
   lesson:
     inactive: Nicht freigeschaltet
     new: Neu
     show:
       course: Kurs
       video: Video
-  lessons: Lektionen
   login_row:
     deep_dive: Steige tiefer ein
     have_fun: Viel Spaß!

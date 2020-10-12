@@ -18,8 +18,12 @@
 %br
 %br
 
+-# i18n-tasks-use t('activerecord.models.user')
 - if @pagy.pages > 1
-  = t('pagy.showing_from_to_total', from: @pagy.from, to: @pagy.to, total: @pagy.count, item_name: User.model_name.human)
+  = t('pagy.showing_from_to_total',
+    from: @pagy.from, to: @pagy.to,
+    total: @pagy.count,
+    item_name: User.model_name.human)
   != pagy_bulma_nav(@pagy)
 
 %table.table.is-fullwidth
