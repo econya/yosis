@@ -102,6 +102,7 @@ ignore_missing:
 ignore_unused:
   - 'datetime.distance_in_words.dativ.*'
   - 'activerecord.attributes.user.*'
+  - 'errors.messages.*'
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
