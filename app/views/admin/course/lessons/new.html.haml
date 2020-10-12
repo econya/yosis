@@ -2,8 +2,8 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%h1.title
-  =t('admin.course.new_lesson')
-
-= render 'form'
+= render layout: 'admin/shared/new',
+  locals: { new_title: t('admin.courses.new_lesson_for', style: @style.name),
+    back_target: courses_path } do
+  = render 'form'
 

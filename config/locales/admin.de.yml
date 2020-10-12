@@ -18,9 +18,16 @@ de:
       creation_success: Blog Post erstellt.
       deletion_success: Post gelöscht.
       update_success: Post aktualisiert.
+    course:
+      lessons:
+        create:
+          lesson-successfully-created: Video erstellt.
+        destroy:
+          lesson-destroyed: Video gelöscht.
     courses:
       edit: Kurs bearbeiten
       new: Neuer Kurs
+      new_lesson_for: "Neues Video für %{style}"
       select_dow: Wochentag auswählen
       select_place: Ort auswählen
       select_style: Style auswählen

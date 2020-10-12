@@ -10,16 +10,12 @@ de:
     course:
       lessons:
         create:
-          lesson-successfully-created: Video-Lektion erstellt.
-        destroy:
-          lesson-destroyed: Video-Lektion gelöscht.
         edit:
           edit:
             title: Kurs bearbeiten
         update:
           lesson-updated: Video-Lektion aktualisiert.
       new: Neu
-      new_lesson: Neues Video
     courses:
       cannot-delete-with-videos: Termin kann nicht gelöscht werden (hat noch Videos).
       creation-succes: Kurs erstellt.
