@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class Admin::Blog::PostsController < ApplicationController
+class Admin::Blog::PostsController < Admin::AdminController
   before_action :authenticate_user!
   before_action :authorize_admin!
 
@@ -33,7 +33,7 @@ class Admin::Blog::PostsController < ApplicationController
   def update
     @post = Blog::Post.friendly.find(params[:id])
     if @post.update(post_params)
-      redirect_to @post, notice: t('admin.blog_post.update_success')
+      redirect_to back_url_or(@post), notice: t('admin.blog_post.update_success')
     else
       render :edit
     end

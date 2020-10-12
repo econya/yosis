@@ -7,3 +7,21 @@
     = image_tag 'kontakt.png', class: 'round'
     %h2.title.is-3.pt-3.has-text-white
       = t('home.contact.title')
+
+.container.pt-5
+  .columns.is-5.is-variable
+    .column.has-text-white.pr-4
+      - admin_edit_area edit_path: edit_admin_site_setting_path(SiteSetting.find_by_key('about_us_left')),
+        back_anchor: 'contact' do
+        != SiteSetting['about_us_left']
+    .column.has-text-white.pl-4
+      - admin_edit_area edit_path: edit_admin_site_setting_path(SiteSetting.find_by_key('about_us_right')),
+        back_anchor: 'contact' do
+        != SiteSetting['about_us_right']
+
+.container.has-text-centered.has-text-white.mt-6.pt-2
+  %h2.title.is-3.pt-3.has-text-white.my-6
+    = t('home.contact.send-a-message')
+
+.container.mt-4
+  = render partial: 'contacts/form'

@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class Admin::PlacesController < ApplicationController
+class Admin::PlacesController < Admin::AdminController
   before_action :authenticate_user!
   before_action :authorize_admin!
 
@@ -43,7 +43,7 @@ class Admin::PlacesController < ApplicationController
   def update
     respond_to do |format|
       if @place.update(place_params)
-        format.html { redirect_to admin_places_path, notice: t('admin.place.update-success') }
+        format.html { redirect_to back_url_or(admin_places_path), notice: t('admin.place.update-success') }
       else
         format.html { render :edit }
       end

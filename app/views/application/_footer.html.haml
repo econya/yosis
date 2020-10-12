@@ -1,4 +1,4 @@
-%footer.footer
+%footer.footer#footer
   .content
     .level
       .level-item
@@ -11,12 +11,13 @@
           = link_to t('navigation.pages.terms'), terms_path
           \|
           = link_to t('navigation.pages.privacy_statement'), privacy_path
-      .level-right
-        .level-item
-          = link_to "https://github.com/econya/yosis" do
-            %span.icon
-              %i.fab.fa-github
-        .level-item
-          -#Copyright 2020 Véronique Wolfsteller
-          != SiteSetting['copyright_notice']
+      - admin_edit_area edit_path: edit_admin_site_setting_path(SiteSetting.find_by_key('copyright_notice')),
+        back_anchor: 'footer' do
+        .level-right
+          .level-item
+            = link_to "https://github.com/econya/yosis" do
+              %span.icon
+                %i.fab.fa-github
+          .level-item
+            != SiteSetting['copyright_notice']
 

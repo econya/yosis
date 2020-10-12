@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class Admin::SiteSettingsController < ApplicationController
+class Admin::SiteSettingsController < Admin::AdminController
   before_action :authenticate_user!
   before_action :authorize_admin!
 
@@ -61,10 +61,6 @@ class Admin::SiteSettingsController < ApplicationController
   end
 
   private
-
-    def back_url_or other_url
-      params[:back_path] || other_url
-    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_site_setting

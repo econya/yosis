@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class Admin::CoursesController < ApplicationController
+class Admin::CoursesController < Admin::AdminController
   before_action :authenticate_user!
   before_action :authorize_admin!
 
@@ -50,7 +50,7 @@ class Admin::CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to admin_courses_path, notice: t('admin.courses.update-succes') }
+        format.html { redirect_to back_url_or(admin_courses_path), notice: t('admin.courses.update-succes') }
       else
         @styles = Style.active.all
         @places = Place.active.all

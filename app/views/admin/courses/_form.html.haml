@@ -11,6 +11,8 @@
         - @course.errors.full_messages.each do |message|
           %li= message
 
+  = hidden_field_tag 'back_path', params[:back_path]
+
   .field
     -# i18n-tasks-use t('activerecord.attributes.course.name')
     = f.label :name

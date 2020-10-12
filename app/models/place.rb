@@ -15,4 +15,5 @@ class Place < ApplicationRecord
 
   friendly_id :name, use: :slugged
 
+  scope :which_has_courses, -> { where(id: Course.active.select(:place_id)) }
 end
