@@ -20,7 +20,7 @@
   #video-styles.mt-6.pt-6
     - @styles.which_has_videos.each do |style|
       %div.pb-4{id: dom_id(style)}
-        = render partial: 'pages/course_video_row', locals: { style: style }
+        = render partial: 'pages/home/videos/row', locals: { style: style }
     - if @styles.empty?
       = t('home.courses.none_yet')
 
