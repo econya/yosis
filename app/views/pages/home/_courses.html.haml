@@ -3,16 +3,14 @@
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
 .container
-  .doodle.has-text-centered.pt-3
-    = image_tag 'kurse.png', class: 'round'
-    %h2.title.is-3.pt-3
-      = t('home.courses.courses-title')
-    .subtitle
-      = t('home.courses.subtitle')
+  .doodle-head-wrap.pt-3
+    .doodle-head.has-background-white
+      .inside
+        = image_tag 'kurse.png'
+        %h2.title.is-3.pt-3.button-tag-text
+          = t('home.courses.courses-title')
 
   #course_by_style.has-text-centered.pt-4.mt-6
-    %h3.title.is-4.pb-5
-      = t('home.courses.styles')
     .columns.is-multiline.is-vcentered.is-centered.is-variable.is-8
       -# TODO extract to controller
       - @styles.which_has_courses.each do |style|

@@ -3,10 +3,16 @@
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
 .container
-  .doodle.has-text-centered.pt-6.mb-6
-    = image_tag 'kontakt.png', class: 'round'
-    %h2.title.is-3.pt-3.has-text-white
-      = t('home.contact.title')
+  -#.doodle.has-text-centered.pt-6.mb-6
+  -#  = image_tag 'kontakt.png', class: 'round'
+  -#  %h2.title.is-3.pt-3.has-text-white
+  -#    = t('home.contact.title')
+  .doodle-head-wrap.pt-6.mb-6
+    .doodle-head.has-background-verycleargrey
+      .inside
+        = image_tag 'kontakt.png'
+        %h2.title.is-3.pt-3
+          = t('home.contact.title')
 
 .container.pt-5
   .columns.is-5.is-variable

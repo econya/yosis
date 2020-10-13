@@ -3,13 +3,16 @@
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
 .container
-  .doodle.has-text-centered.pt-6.mb-6
-    = image_tag 'videos.png', class: 'round'
-    %h2.title.is-3.pt-3
-      = t('home.videos.title')
-    .subtitle
-      = t('home.videos.subtitle')
 
+  .doodle-head-wrap.pt-6.mb-6
+    .doodle-head.has-background-verycleargrey
+      .inside
+        = image_tag 'videos.png'
+        %h2.title.is-3.pt-3
+          = t('home.videos.title')
+
+  .subtitle
+    = t('home.videos.subtitle')
   -#%strong
   -#  = t('home.video_explanation1')
   -#= t('home.video_explanation2')
