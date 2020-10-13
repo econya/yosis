@@ -12,6 +12,14 @@
   margin-top: 100px;
   left: 50%;
   @extend .has-background-verycleargrey;
+  @include mobile {
+    padding-left:  2em;
+    padding-right: 2em;
+  }
+  @include tablet {
+    padding-left:  2em;
+    padding-right: 2em;
+  }
 }
 
 .darkgrey_fullwidth {
@@ -24,6 +32,14 @@
   background-color: #26232A;
   //@extend .has-background-grey;
   font-color: findColorInvert(#26232A);
+  @include tablet {
+    padding-left:  2em;
+    padding-right: 2em;
+  }
+  @include mobile {
+    padding-left:  2em;
+    padding-right: 2em;
+  }
 }
 
 /* 1:1 ratio circle thing */
