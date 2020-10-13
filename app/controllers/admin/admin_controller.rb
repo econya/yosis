@@ -5,7 +5,11 @@
 class Admin::AdminController < ApplicationController
   private
     def back_url_or other_url
-      params[:back_path] || other_url
+      if params[:back_path].empty?
+        other_url
+      else
+        params[:back_path]
+      end
     end
 end
 
