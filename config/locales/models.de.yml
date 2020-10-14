@@ -50,6 +50,11 @@ de:
         name: Name
         note: Hinweis
         pricing_note: Hinweis zu Kosten
+      style:
+        name: Name
+        description: Beschreibung
+        image: Bild
+        active: Aktiv?
       site_setting:
         value: Wert
       user:

@@ -12,18 +12,22 @@
           %li= message
 
   .field
+    -# i18n-tasks-use t('activerecord.attributes.style.name')
     = f.label :name
     = f.text_field :name
   .field
+    -# i18n-tasks-use t('activerecord.attributes.style.description')
     = f.label :description
     = f.text_field :description
   -#.field
   -#  = f.label :start_date
   -#  = f.date_field :start_date
   .field
+    -# i18n-tasks-use t('activerecord.attributes.style.image')
     = f.label :image
     = f.file_field :image, direct_upload: true
   .field
+    -# i18n-tasks-use t('activerecord.attributes.style.active')
     = f.label :active
     = f.check_box :active
   .actions
