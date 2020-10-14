@@ -74,3 +74,10 @@ $custom-colors: (
 
 @import 'admin';
 
+#error_explanation {
+  @extend .content.notification.has-text-danger;
+  h2 {
+    @extend .has-text-danger;
+    @extend .is-size-5;
+  }
+}
