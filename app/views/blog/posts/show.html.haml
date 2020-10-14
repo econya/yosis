@@ -3,7 +3,10 @@
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - content_for(:hero_head) do
-  = render 'blog/posts/hero_head'
+  = render partial: 'shared/hero_head_image_title',
+    locals: { image_url: header_image_variant_url(@post.image),
+      title: t('blog.title'),
+      title_edit_url: edit_admin_blog_post_path(@post) }
 
 - admin_edit_area edit_path: edit_admin_blog_post_path(@post) do
   %h1.title

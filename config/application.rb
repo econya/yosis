@@ -10,6 +10,8 @@ module Yosis
   class Application < Rails::Application
     VERSION = '0.3.1'.freeze
 
+    HEADER_IMAGE_SIZE= [1024,287].freeze
+
     config.time_zone = "Berlin"
     config.active_record.default_timezone = :local
 

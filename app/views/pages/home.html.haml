@@ -2,8 +2,15 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
+- intro_background_setting = SiteSetting.find_by(key: 'intro_background')
+- intro_text_setting       = SiteSetting.find_by(key: 'intro')
+
 - content_for(:hero_head) do
-  = render 'pages/home/hero_head'
+  = render partial: 'shared/hero_head_image_title',
+    locals: { image_url: header_image_variant_url(intro_background_setting&.image),
+      title: intro_text_setting&.value_rendered,
+      title_edit_url: edit_admin_site_setting_path(intro_text_setting),
+      image_edit_url: edit_admin_site_setting_path(intro_background_setting) }
 
 %section#buttonbar.my-5.py-5
   = render 'pages/home/buttonbar'

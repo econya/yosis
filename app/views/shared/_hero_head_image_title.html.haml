@@ -2,11 +2,30 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%figure.image.is-vcentered.has-background-grey-lighter#head
-  = image_tag image_url
+%figure.image.is-vcentered.has-background-grey-lighter#head{style: "background: url(#{image_url});"}
+  %img{src: image_url, height: '287', width: '1024'}
   .columns.slogan-block.is-overlay
     .column.is-half
       .slogan
         .content.has-text-white
           .first-line.has-text-centered
-            = title
+            != title
+          - if user_admin?
+            - if defined?(title_edit_url) && title_edit_url
+              = link_to title_edit_url,
+                class: 'button' do
+                %span.icon
+                  %i.fas.fa-user-shield
+                %span.icon
+                  %i.fas.fa-comment-dots
+                %span
+                  = t('actions.edit')
+            - if defined?(image_edit_url) && image_edit_url
+              = link_to image_edit_url,
+                class: 'button' do
+                %span.icon
+                  %i.fas.fa-user-shield
+                %span.icon
+                  %i.fas.fa-image
+                %span
+                  = t('actions.edit')

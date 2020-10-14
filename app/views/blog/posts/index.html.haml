@@ -2,10 +2,13 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
+- blog_head_setting = SiteSetting.find_by(key: 'blog_background')
+
 - content_for(:hero_head) do
   = render partial: 'shared/hero_head_image_title',
-    locals: { image_url: url_for(SiteSetting.find_by(key: 'blog_background')&.image&.variant(resize_to_fill: [1024,287])),
-      title: t('blog.title')}
+    locals: { image_url: header_image_variant_url(blog_head_setting&.image),
+      title: t('blog.title'),
+      image_edit_url: edit_admin_site_setting_path(blog_head_setting) }
 
 %br.pt-3
 
