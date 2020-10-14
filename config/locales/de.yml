@@ -5,7 +5,6 @@
 de:
   Course: Kurs
   Courses: Kurse
-  Customers: Kund*n
   admin:
     course:
       new: Neu
@@ -29,11 +28,6 @@ de:
         sitesetting-successfully-created: Einstellung erstellt.
       update:
         site-setting-successfully-updated: Einstellung aktualisiert.
-    subscriptions:
-      creation-successfull: Abonnement erstellt.
-      destroy-success: Abonnement gelöscht.
-      total: Total
-      update-successful: Abonnement aktualisiert.
     user:
       are-you-sure-to-destroy: "%{email} wirklich löschen?"
       back_to_admin: Zurück als Admin
@@ -123,8 +117,6 @@ de:
     edit: Bearbeiten
     listing-heading: Alle Kurse
     title-all: Alle Kurse
-  customers: Kund*n
-  delete: Löschen
   devise:
     failure:
       invited: Du hast noch eine ausstehende Einladung, akzeptiere sie um Dein Konto zu erstellen.
@@ -211,6 +203,7 @@ de:
     ten_days_free: "10 kostenlose Tage"
   navigation:
     admin: Admin
+    asana-lexicon: Asana-Lexikon
     background-jobs: Background Jobs
     blog: Blog
     contact: Kontakt
@@ -250,6 +243,11 @@ de:
   sign_out: Abmelden
   sitesetting:
     edit: Edit
+  styles:
+    new-video: Neues Video
+    no-videos-yet: Noch keine Videos
+    videos: Videos
+    videos-inactive: Nicht aktive Videos
   subscription:
     currently_active: Jetzt aktiv
     new: Neu
@@ -290,33 +288,18 @@ de:
     your-subscription-ended: Dein Abonnement ist abgelaufen
     your-trial-ended: Deine Schnupperwoche ist abgelaufen
   terms_acceptances:
-    actions: Aktionen
     create:
       welcome: Super! Willkommen und viel Spaß!
-    privacy_statement: Datenschutzerklärung
     show:
       acceptance: Zustimmung
+      actions: Aktionen
       anonymize: Mein Konto zerstören
       get_my_data: Zeig mir meine Daten!
       have_to_agree: Du musst den AGB zustimmen und die Datenschutzerklärung als gelesen markieren.
       not-happy?: Wenn Du den AGBs nicht zustimmen möchtest oder die Angabe Deiner Daten zu heikel ist, musst Du Dein Konto bei uns leider aufgeben.
+      privacy_statement: Datenschutzerklärung
   user:
-    confirmed_at: Bestätigt am
-    created_at: Erstellt am
-    email: E-Mail
-    in_trial_till: Schnupperphase bis
-    last_sign_in_at: Zuletzt eingeloggt am
-    never-signed-in: Noch nie eingeloggt
-    sign_in_count: Anzahl Anmeldungen
-    subsciptions:
-      admins_no_need: Admins brauchen das nicht
-    subscription_till: Subscription bis
-    subscriptions:
-      none: Keine
-      notes: Notizen
-      timespan: Zeitraum
-    unconfirmed: Unbestätigt
-    user-heading: User
+    your_data: Deine Daten
   video:
     length: Länge
     minutes: Minuten

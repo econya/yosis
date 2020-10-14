@@ -71,7 +71,7 @@
   
   - if @style.lessons.active.empty?
     .box
-      =t('styles.no_lessons_yet')
+      =t('styles.no-videos-yet')
   - first = @style.lessons.active.rank(:row_order).first
   - last  = @style.lessons.active.rank(:row_order).last
   - access_level = AccessState.new(current_user).level
@@ -190,7 +190,7 @@
         %span.icon.is-small
           %i.fas.fa-user-shield
         %span
-          =t('styles.edit')
+          =t('admin.styles.edit')
   
 %hr
 

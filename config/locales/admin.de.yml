@@ -24,6 +24,10 @@ de:
           lesson-successfully-created: Video erstellt.
         destroy:
           lesson-destroyed: Video gelöscht.
+        edit:
+          title: Video bearbeiten
+        update:
+          lesson-updated: Video aktualisiert.
     courses:
       creation-succes: Kurs erstellt.
       deletion-success: Kurs gelöscht.
@@ -86,8 +90,16 @@ de:
       new: Neuer Style
       new-video: Neues Video
       update-success: Style aktualisiert
-    admin:
-      user:
-        never-signed-in: Noch nie eingeloggt
-        unconfirmed: unbestätigt
-        user-heading: User
+    subscriptions:
+      total: Gesamt
+    user:
+      never-signed-in: Noch nie eingeloggt
+      subscriptions:
+        admins_no_need: Admins brauchen kein Abo
+        none: Keines
+        notes: Notizen
+        timespan: Zeitraum
+      unconfirmed: unbestätigt
+      user-heading: User
+    users:
+      unconfirmed: Unbestätigt

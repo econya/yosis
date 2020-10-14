@@ -12,22 +12,28 @@
           %li= message
 
   .field
+    -# i18n-tasks-use t('activerecord.attributes.lesson.name')
     = f.label :name
     = f.text_field :name
   .field
+    -# i18n-tasks-use t('activerecord.attributes.lesson.description')
     = f.label :description
     = f.text_area :description
   .field
+    -# i18n-tasks-use t('activerecord.attributes.lesson.date_start')
     = f.label :date_start
     = f.datetime_select :date_start
   .field
+    -# i18n-tasks-use t('activerecord.attributes.lesson.date_end')
     = f.label :date_end
     = f.datetime_select :date_end
   .field
+    -# i18n-tasks-use t('activerecord.attributes.lesson.video')
     = f.label :video
     = f.file_field :video, direct_upload: true
     -#= f.hidden_field :video, value: video.signed_id
   .field
+    -# i18n-tasks-use t('activerecord.attributes.lesson.preview_image')
     = f.label :preview_image
     .media
       .media-left
@@ -38,6 +44,7 @@
       .media-content
         = f.file_field :preview_image
     .field
+      -# i18n-tasks-use t('activerecord.attributes.lesson.active')
       = f.label :active
       = f.check_box :active
   .actions

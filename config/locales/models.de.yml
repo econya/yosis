@@ -36,6 +36,8 @@ de:
         end_time: Endzeit
         active: Aktiv
       lesson:
+        active: Aktiv
+        course: Kurs
         date_end: End-Zeit
         date_start: Start-Zeit
         description: Beschreibung
@@ -51,6 +53,7 @@ de:
       site_setting:
         value: Wert
       user:
+        id: Datenbank-ID
         email: E-Mail
         read_privacy_terms: Stimme AGB zu
         tos_agreement: Datenschutzhinweise gelesen

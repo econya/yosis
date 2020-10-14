@@ -47,19 +47,19 @@
   %thead
     %tr
       %th
-        = t('user.subscriptions.timespan')
+        = t('admin.user.subscriptions.timespan')
       %th
-        = t('user.subscriptions.notes')
+        = t('admin.user.subscriptions.notes')
       %th
   %tbody
     - if @user.role == "admin"
       %tr
         %td(colspan=2)
-          = t('user.subsciptions.admins_no_need')
+          = t('admin.user.subscriptions.admins_no_need')
     - elsif @user.subscriptions.empty?
       %tr
         %td(colspan=2)
-          = t('user.subscriptions.none')
+          = t('admin.user.subscriptions.none')
     - else
       - @user.subscriptions.each do |subscription|
         %tr
@@ -73,10 +73,10 @@
           %td
             = subscription.notes
           %td
-            = link_to t('edit'),
+            = link_to t('actions.edit'),
               edit_admin_user_subscription_path(subscription.user, subscription),
               class: 'button'
-            = link_to t('delete'), [:admin, subscription.user, subscription],
+            = link_to t('actions.delete'), [:admin, subscription.user, subscription],
               method: :delete,
               data: { confirm: t('actions.are_you_sure?') },
               class: 'button'
