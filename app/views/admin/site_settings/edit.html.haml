@@ -2,17 +2,10 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%h1.title
-  = t('settings.site.title')
-  = @site_setting.key
+= render layout: 'admin/shared/edit',
+  locals: { edit_title: t('settings.site.title') + ' ' + @site_setting.key,
+    back_target: admin_styles_path } do
+  .subtitle
+    = t('site_settings.' + @site_setting.key + '.help')
+  = render 'form'
 
-.subtitle
-  = t('site_settings.' + @site_setting.key + '.help')
-
-= render 'form'
-
-%br.is-clearfix
-= link_to admin_site_settings_path, class: 'has-text-danger' do
-  %span.icon
-    %i.fa.fa-arrow-left
-  = t('actions.Back')

@@ -18,6 +18,7 @@ de:
     refresh: neu laden
     save: speichern
     show: anzeigen
+    show-all: alle ansehen
   problems:
     not_authorized: Du bist dazu nicht autorisiert.
     you_need_to_log_in: Du musst dich einloggen um diese Seite zu sehen.

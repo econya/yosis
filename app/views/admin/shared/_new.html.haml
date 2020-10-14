@@ -2,16 +2,27 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%h1.title
-  = new_title
+.level
+  .level-left
+    .level-item
+      %h1.title
+        = new_title
+  .level-right
+    .level-item
+      = link_to back_target,
+        class: 'button is-danger is-outlined is-small' do
+        = t('actions.show-all')
 
 = yield
 
-.backmatter.is-clearfix.has-clearfix
-  %hr.has-clearfix.is-clearfix
-  
-  = link_to back_target, class: 'has-text-danger' do
+%br.is-clearfix
+%hr
+
+.backmatter
+  = link_to back_target,
+    class: 'button is-danger is-outlined is-small' do
     %span.icon
       %i.fa.fa-arrow-left
-    = t('actions.Back')
+    %span
+      = t('actions.Back')
   
