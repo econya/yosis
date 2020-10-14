@@ -79,6 +79,9 @@ gem 'sitemap_generator'
 
 gem 'pg' # production db
 
+# Placeholder images
+gem 'geo_pattern'
+
 
 gem 'uglifier'
 
