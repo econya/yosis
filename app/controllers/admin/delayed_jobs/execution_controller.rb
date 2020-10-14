@@ -9,7 +9,9 @@ class Admin::DelayedJobs::ExecutionController < ApplicationController
   def create
     @job = Delayed::Job.find(params[:delayed_job_id])
     @job.update(run_at: DateTime.current)
-    redirect_to admin_delayed_jobs_url, notice: ('admin.delayed_job.execution.triggered')
+
+    redirect_to admin_delayed_jobs_url,
+      notice: t('admin.delayed_job.execution.triggered')
   end
 end
 

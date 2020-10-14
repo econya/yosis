@@ -25,15 +25,19 @@ de:
         destroy:
           lesson-destroyed: Video gelöscht.
     courses:
+      creation-succes: Kurs erstellt.
+      deletion-success: Kurs gelöscht.
       edit: Kurs bearbeiten
       new: Neuer Kurs
       new_lesson_for: "Neues Video für %{style}"
+      order: Position
       select_dow: Wochentag auswählen
       select_place: Ort auswählen
       select_style: Style auswählen
       table:
         order: Pos.
         times: Zeiten
+      update-succes: Kurs aktualisiert.
     delayed_job:
       deleted: Job gelöscht.
       execution:

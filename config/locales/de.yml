@@ -8,23 +8,12 @@ de:
   Customers: Kund*n
   admin:
     course:
-      lessons:
-        create:
-        edit:
-          edit:
-            title: Kurs bearbeiten
-        update:
-          lesson-updated: Video-Lektion aktualisiert.
       new: Neu
     courses:
       cannot-delete-with-videos: Termin kann nicht gelöscht werden (hat noch Videos).
-      creation-succes: Kurs erstellt.
-      deletion-success: Kurs gelöscht.
       name: Name
       number_courses: Anzahl Kurse
       number_lessons: Anzahl Videos
-      order: Position
-      update-succes: Kurs aktualisiert.
     emails:
       back_to_mails: Zurück zu E-Mails
       mails_table:

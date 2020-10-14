@@ -17,18 +17,22 @@
 
   - if !user_signed_in?
     .field
+      -# i18n-tasks-use t('activemodel.attributes.contact.sender_email')
       = f.label :sender_email, class: 'has-text-white'
       = f.text_field :sender_email
 
     .field
+      -# i18n-tasks-use t('activemodel.attributes.contact.phone_number')
       = f.label :phone_number, class: 'has-text-white'
       = f.text_field :phone_number
 
   .field
+    -# i18n-tasks-use t('activemodel.attributes.contact.subject')
     = f.label :subject, class: 'has-text-white'
     = f.text_field :subject
 
   .field
+    -# i18n-tasks-use t('activemodel.attributes.contact.message')
     = f.label :message, class: 'has-text-white'
     = f.text_area :message
 
