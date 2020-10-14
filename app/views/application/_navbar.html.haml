@@ -21,24 +21,29 @@
     .navbar-start
     .navbar-end
       = link_to root_path(anchor: 'courses'),
-        data: { turbolinks: in_controller_action?(controller: 'pages', action: 'home' )},
+        data: { turbolinks: !in_controller_action?(controller: 'pages', action: 'home' )},
         class: 'navbar-item' do
         = t('navigation.courses')
 
       = link_to root_path(anchor: 'videos'),
-        data: { turbolinks: in_controller_action?(controller: 'pages', action: 'home' )},
+        data: { turbolinks: !in_controller_action?(controller: 'pages', action: 'home' )},
         class: 'navbar-item' do
         = t('navigation.videos')
 
       = link_to root_path(anchor: 'videos'),
-        data: { turbolinks: in_controller_action?(controller: 'pages', action: 'home' )},
+        data: { turbolinks: !in_controller_action?(controller: 'pages', action: 'home' )},
         class: 'navbar-item' do
         = t('navigation.programs')
 
       = link_to root_path(anchor: 'videos'),
-        data: { turbolinks: in_controller_action?(controller: 'pages', action: 'home' )},
+        data: { turbolinks: !in_controller_action?(controller: 'pages', action: 'home' )},
         class: 'navbar-item' do
         = t('navigation.seminars')
+
+      = link_to root_path(anchor: 'videos'),
+        data: { turbolinks: !in_controller_action?(controller: 'pages', action: 'home' )},
+        class: 'navbar-item' do
+        = t('navigation.asana-lexicon')
 
       = link_to blog_posts_path, class: 'navbar-item' do
         = t('navigation.blog')
