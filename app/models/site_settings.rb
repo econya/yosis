@@ -3,17 +3,15 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class SiteSettings
-  IMAGE_SETTING_KEYS = [:blog_background,
-                        :logo, :favicon, "favicon-png",
-                        "favicon-apple-touch".to_sym, :intro_background]
-  MARKDOWN_SETTING_KEYS = [:intro, :explanation, :privacy_statement,
-                           :terms, :impressum,
-                           :copyright_notice,
-                           :about_us_left,
-                           :about_us_right,
-                           :trial_period_cta,
-                           :register_cta, :courses_general, :payment_details]
-  STRING_SETTING_KEYS = [:your_name, :title, :news_line]
+  IMAGE_SETTING_KEYS = %i[blog_background
+                          logo favicon favicon-png favicon-apple-touch
+                          intro_background]
+  MARKDOWN_SETTING_KEYS = %i[intro explanation
+                             privacy_statement terms impressum copyright_notice
+                             about_us_left about_us_right
+                             trial_period_cta register_cta courses_general
+                             payment_details]
+  STRING_SETTING_KEYS = %i[your_name title news_line]
 
   def self.find_or_create_settings
     find_or_create_markdown_site_settings
