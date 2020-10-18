@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+class Asana < ApplicationRecord
+  has_many :asana_names, inverse_of: :asana
+
+  has_many :german_asana_names,
+    -> {where(asana_names: { language_code: AsanaName::DE })},
+    source: :asana_name,
+    class_name: 'AsanaName'
+  has_many :english_asana_names,
+    -> {where(asana_names: { language_code: AsanaName::EN })},
+    class_name: 'AsanaName'
+  has_many :sanskrit_asana_names,
+    -> {where(asana_names: { language_code: AsanaName::SANSKRIT })},
+    class_name: 'AsanaName'
+
+  accepts_nested_attributes_for :asana_names,
+    allow_destroy: true, reject_if: :empty_name_or_language_code?
+  accepts_nested_attributes_for :german_asana_names,
+    allow_destroy: true, reject_if: :empty_name_or_language_code?
+  accepts_nested_attributes_for :english_asana_names,
+    allow_destroy: true, reject_if: :empty_name_or_language_code?
+  accepts_nested_attributes_for :sanskrit_asana_names,
+    allow_destroy: true, reject_if: :empty_name_or_language_code?
+
+  private
+    def empty_name_or_language_code?(attributes)
+      attributes['language_code'].blank? || attributes['name'].blank?
+    end
+end

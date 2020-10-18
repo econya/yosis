@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_052202) do
+ActiveRecord::Schema.define(version: 2020_10_15_074116) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,21 @@ ActiveRecord::Schema.define(version: 2020_10_09_052202) do
     t.text "content"
     t.datetime "sent_at"
     t.index ["user_type", "user_id"], name: "index_ahoy_messages_on_user_type_and_user_id"
+  end
+
+  create_table "asana_names", force: :cascade do |t|
+    t.string "name"
+    t.string "language_code"
+    t.integer "asana_id", null: false
+    t.boolean "main"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["asana_id"], name: "index_asana_names_on_asana_id"
+  end
+
+  create_table "asanas", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "blog_posts", force: :cascade do |t|
@@ -198,6 +213,7 @@ ActiveRecord::Schema.define(version: 2020_10_09_052202) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "asana_names", "asanas"
   add_foreign_key "courses", "places"
   add_foreign_key "courses", "styles"
   add_foreign_key "lessons", "styles"

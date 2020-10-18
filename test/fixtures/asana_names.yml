@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+first_asana_first_de:
+  name: Erstes Asana
+  language_code: de
+  asana: first_asana
+
+first_asana_second_de:
+  name: Allererstes Asana
+  language_code: de
+  asana: first_asana
+
+first_asana_first_en:
+  name: First Asana
+  language_code: en
+  asana: first_asana
+
+first_asana_first_sanskrit:
+  name: Premiasana
+  language_code: sanskrit
+  asana: first_asana
