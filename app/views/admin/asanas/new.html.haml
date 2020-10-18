@@ -1,0 +1,8 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+= render layout: 'admin/shared/new',
+  locals: { new_title: t('admin.asanas.new'),
+    back_target: admin_asanas_path } do
+  = render 'form'

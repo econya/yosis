@@ -18,6 +18,14 @@ de:
               need_either_mail_or_phone: Bitte gib eine Telefonnummer oder eine E-Mail-Adresse an.
   activerecord:
     attributes:
+      asana:
+        english_asana_names:
+          name: Englischer Name
+        german_asana_names:
+          name: Deutscher Name
+        image: Bild
+        sanskrit_asana_names:
+          name: Name auf Sanskrit
       blog/post:
         title: Titel
         summary: Zusammenfassung/Teaser

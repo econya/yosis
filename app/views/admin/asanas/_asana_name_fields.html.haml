@@ -1,0 +1,19 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+.field{ data: { controller: 'association_form reveal',
+  target: 'reveal.content',
+  reveal: {shown: true}} }
+  = f.hidden_field :id,
+    disabled: defined?(disabled)
+  = f.hidden_field :_destroy,
+    data: { target: 'association_form.destroy_field' },
+    disabled: defined?(disabled)
+  = f.hidden_field :language_code,
+    disabled: defined?(disabled)
+
+  = f.text_field :name,
+    disabled: defined?(disabled)
+  .delete.is-pulled-right{ data: { action: 'click->reveal#hide click->association_form#delete' } }
+

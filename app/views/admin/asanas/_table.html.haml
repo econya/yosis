@@ -1,0 +1,49 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+%table.table.is-fullwidth.is-striped
+  %thead
+    %tr.has-background-primary
+      %th
+        -# images
+        -# links
+        -# family
+      %th
+        = t('activerecord.attributes.asana.german_asana_names.name')
+      %th
+        = t('activerecord.attributes.asana.english_asana_names.name')
+      %th
+        = t('activerecord.attributes.asana.sanskrit_asana_names.name')
+      %th
+
+  %tbody
+    - asanas.each do |asana|
+      %tr
+        %td
+        %td
+          - asana.asana_names.in_de.each do |name|
+            = name.name
+            %br
+
+        %td
+          - asana.english_asana_names.each do |name|
+            = name.name
+            %br
+        %td
+          - asana.sanskrit_asana_names.each do |name|
+            = name.name
+            %br
+        %td
+          .buttons.is-pulled-right
+            = link_to t('actions.edit'),
+              edit_admin_asana_path(asana),
+              class: 'button is-small'
+            = link_to t('actions.Destroy'),
+              [:admin, asana],
+              method: :delete, data: { confirm: t('actions.are_you_sure?') },
+              class: 'button is-small is-danger'
+
+%br
+
+

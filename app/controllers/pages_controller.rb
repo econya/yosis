@@ -8,6 +8,11 @@ class PagesController < ApplicationController
     @places = Place.active.rank(:row_order)
   end
 
+  def asana_lexicon
+    @html_title = t('navigation.asana-lexicon')
+    @asanas = Asana.all
+  end
+
   def privacy
     render 'page', locals: {content: SiteSetting['privacy_statement'], site_setting: 'privacy_statement'}
   end

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'terms',           to: 'pages#terms'
   get 'impressum',       to: 'pages#impressum'
   get 'explanation',     to: 'pages#explanation'
+  get 'asana-lexicon',   to: 'pages#asana_lexicon'
 
   # Devise and user
   devise_for :users, controllers: {
@@ -46,6 +47,7 @@ Rails.application.routes.draw do
   # All things admin
   namespace :admin do
     resources :appointments
+    resources :asanas
 
     resources :courses, only: [:index, :edit, :update, :destroy, :new, :create, :show] do
       resource :position, only: [:create, :destroy], controller: 'course/position'

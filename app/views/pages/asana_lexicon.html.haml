@@ -1,0 +1,39 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- set_title(@html_title)
+
+%h1.title
+  = t('navigation.asana-lexicon')
+
+.container
+  .content.is-medium
+    %table.table.is-striped.is-fullwidth
+      %thead
+        %tr
+          %th
+          %th
+            = t('activerecord.attributes.asana.german_asana_names.name')
+          %th
+            = t('activerecord.attributes.asana.english_asana_names.name')
+          %th
+            = t('activerecord.attributes.asana.sanskrit_asana_names.name')
+          %th
+      %tbody
+        - @asanas.each do |asana|
+          %tr
+            %td
+              - asana.german_asana_names.each do |name|
+                .asana-name
+                  = name.name
+            %td
+              - asana.english_asana_names.each do |name|
+                .asana-name
+                  = name.name
+            %td
+              - asana.sanskrit_asana_names.each do |name|
+                .asana-name
+                  = name.name
+            %td
+

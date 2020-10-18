@@ -1,0 +1,83 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+= form_for [:admin, @asana], builder: BulmaFormBuilder::FormBuilder do |f|
+  - if @asana.errors.any?
+    #error_explanation
+      %h2
+        = t("errors.prohibited_from_saving", count: @asana.errors.count)
+      %ul
+        - @asana.errors.full_messages.each do |message|
+          %li= message
+
+  = hidden_field_tag 'back_path', params[:back_path]
+
+  .field
+    .columns
+      .column
+        .field
+          = f.label :german_name_true
+        = f.fields_for :german_asana_names do |f_asana_name|
+          = render 'asana_name_fields', f: f_asana_name
+
+        -# Always have at least one new
+        = f.fields_for :asana_names,
+          @asana.german_asana_names.build do |f|
+          = render 'asana_name_fields', f: f
+
+        .actions{ data: { controller: 'association_form',
+          target: 'association_form.root' } }
+          .template{style: 'display: none;',
+            data: { target: 'association_form.template' }}
+            = f.fields_for :asana_names,
+              @asana.german_asana_names.build, child_index: 'REPLACE' do |f|
+              = render 'asana_name_fields', f: f, disabled: true
+          .div{ data: { action: 'click->association_form#add' } }
+            = t('actions.add')
+
+      .column
+        .field
+          = f.label :english_name_true
+
+        = f.fields_for :english_asana_names do |f_asana_name|
+          = render 'asana_name_fields', f: f_asana_name
+
+        -# Always have at least one new
+        = f.fields_for :asana_names, @asana.english_asana_names.build do |f|
+          = render 'asana_name_fields', f: f
+
+        .actions{ data: { controller: 'association_form',
+          target: 'association_form.root' } }
+          .template{style: 'display: none;',
+            data: { target: 'association_form.template' }}
+            = f.fields_for :asana_names,
+              @asana.english_asana_names.build, child_index: 'REPLACE' do |f|
+              = render 'asana_name_fields', f: f, disabled: true
+          .div{ data: { action: 'click->association_form#add' } }
+            = t('actions.add')
+
+      .column
+        .field
+          = f.label :sanskrit_name_true
+
+        = f.fields_for :sanskrit_asana_names do |f_de_name|
+          = render 'asana_name_fields', f: f_de_name
+
+        -# Always have at least one new
+        = f.fields_for :asana_names, @asana.sanskrit_asana_names.build do |f|
+          = render 'asana_name_fields', f: f
+
+        .actions{ data: { controller: 'association_form',
+          target: 'association_form.root' } }
+          .template{style: 'display: none;',
+            data: { target: 'association_form.template' }}
+            = f.fields_for :asana_names,
+              @asana.sanskrit_asana_names.build, child_index: 'REPLACE' do |f|
+              = render 'asana_name_fields', f: f, disabled: true
+          .div{ data: { action: 'click->association_form#add' } }
+            = t('actions.add')
+
+  .actions
+    = f.submit t('actions.save'),
+      class: 'button is-primary is-pulled-right'

@@ -1,0 +1,27 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+:ruby
+  admin_head_locals = {
+    title: t('admin.asanas.all'),
+    admin: {
+      new: {
+        url: new_admin_asana_path,
+        label: t('admin.asanas.new')
+      }
+    }
+  }
+
+= render partial: 'admin_head_level', locals: admin_head_locals
+
+- if @asanas.present?
+  = render partial: 'table', locals: {asanas: @asanas}
+- else
+  = t('admin.items.none')
+%br
+%br
+
+= link_to t('admin.asanas.new'), new_admin_asana_path,
+  class: 'button is-primary is-outlined'
+

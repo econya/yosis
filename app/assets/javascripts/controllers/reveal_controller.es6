@@ -15,10 +15,16 @@ window.application.register('reveal',
 
       if (this.data.get("shown") == "true") {
         //this.reveal(null);
-        document.getElementById('reveal-content').style.display = "block";
+        reveal_content_elem = document.getElementById('reveal-content');
+        if (reveal_content_elem) {
+          reveal_content_elem.style.display = "block";
+        }
       } else {
         //this.hide(null);
-        document.getElementById('reveal-content').style.display = "none";
+        reveal_content_elem = document.getElementById('reveal-content');
+        if (reveal_content_elem) {
+          reveal_content_elem.style.display = "none";
+        }
       }
     }
 
