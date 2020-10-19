@@ -4,8 +4,13 @@
 
 - set_title(@html_title)
 
-%h1.title
-  = t('navigation.asana-lexicon')
+- header_image_setting = SiteSettings.fetch('asana_lexicon_header_image')
+
+- content_for(:hero_head) do
+  = render partial: 'shared/hero_head_image_title',
+    locals: { image_url: header_image_variant_url(header_image_setting&.image),
+      title: t('navigation.asana-lexicon'),
+      image_edit_url: edit_admin_site_setting_path(header_image_setting) }
 
 .container
   .content.is-medium
