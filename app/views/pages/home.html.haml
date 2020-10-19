@@ -2,8 +2,8 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-- intro_background_setting = SiteSetting.find_by(key: 'intro_background')
-- intro_text_setting       = SiteSetting.find_by(key: 'intro')
+- intro_background_setting = SiteSettings.fetch('intro_background')
+- intro_text_setting       = SiteSettings.fetch('intro')
 
 - content_for(:hero_head) do
   = render partial: 'shared/hero_head_image_title',
