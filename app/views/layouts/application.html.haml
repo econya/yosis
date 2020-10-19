@@ -33,13 +33,13 @@
     %link(rel="shortcut icon" href="/favicon.ico")
     %link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
   %body
-    %section.hero
+    %section.hero.is-fullheight
       .hero-head
         = render 'navbar'
         = render 'flashs'
         - if content_for?(:hero_head)
           = yield(:hero_head)
-      .hero-body
+      .hero-body.pb-3
         .container
           = yield
       .hero-foot
