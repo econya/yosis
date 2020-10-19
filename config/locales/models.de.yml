@@ -19,11 +19,15 @@ de:
   activerecord:
     attributes:
       asana:
+        asana_family: Familie
+        english_names: Englische Bezeichnungen
         english_asana_names:
           name: Englischer Name
+        german_names: Namen (deutsch)
         german_asana_names:
           name: Deutscher Name
         image: Bild
+        sanskrit_names: Namen auf Sanskrit
         sanskrit_asana_names:
           name: Name auf Sanskrit
       blog/post:

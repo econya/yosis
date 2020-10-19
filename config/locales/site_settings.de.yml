@@ -11,6 +11,8 @@ de:
     about_us_right:
       default: "# Über uns zwei"
       help: Über-Uns-Seite (rechte Spalte)
+    asana_lexicon_header_image:
+      help: Header Bild für Asana Lexikon
     about_us:
       default: "# Über uns"
       help: Über-Uns-Seite

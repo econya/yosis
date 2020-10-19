@@ -8,7 +8,8 @@
       %th
         -# images
         -# links
-        -# family
+      %th
+        = t('activerecord.attributes.asana.asana_family')
       %th
         = t('activerecord.attributes.asana.german_asana_names.name')
       %th
@@ -21,6 +22,9 @@
     - asanas.each do |asana|
       %tr
         %td
+        %td
+          - asana.asana_families.each do |family|
+            = family.name
         %td
           - asana.asana_names.in_de.each do |name|
             = name.name

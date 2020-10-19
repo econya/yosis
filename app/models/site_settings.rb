@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class SiteSettings
-  IMAGE_SETTING_KEYS    = %i[blog_background
+  IMAGE_SETTING_KEYS    = %i[blog_background asana_lexicon_header_image
                              logo favicon favicon-png favicon-apple-touch
                              intro_background]
   MARKDOWN_SETTING_KEYS = %i[intro explanation
@@ -23,6 +23,7 @@ class SiteSettings
     IMAGE_SETTING_KEYS.each do |key|
       find_or_create(key: key, kind: 'image')
     end
+    # i18n-tasks-use t('site_settings.asana_lexicon_header_image.help')
     # i18n-tasks-use t('site_settings.blog_background.help')
     # i18n-tasks-use t('site_settings.favicon-png.help')
     # i18n-tasks-use t('site_settings.favicon-apple-touch.help')

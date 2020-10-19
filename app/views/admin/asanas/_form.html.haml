@@ -14,10 +14,20 @@
   = hidden_field_tag 'back_path', params[:back_path]
 
   .field
+    = f.label :asana_family
+    = f.collection_select :asana_family_ids,
+      AsanaFamily.all,
+      :id, :name,
+      prompt: t('admin.asanas.select_asana_family'), multiple: true
+    = t('admin.forms.or_create_new')
+    = text_field_tag :new_family
+
+  .field
     .columns
       .column
         .field
-          = f.label :german_name_true
+          -# i18n-tasks-use t('activerecord.attributes.asana.german_names')
+          = f.label :german_names
         = f.fields_for :german_asana_names do |f_asana_name|
           = render 'asana_name_fields', f: f_asana_name
 
@@ -33,12 +43,13 @@
             = f.fields_for :asana_names,
               @asana.german_asana_names.build, child_index: 'REPLACE' do |f|
               = render 'asana_name_fields', f: f, disabled: true
-          .div{ data: { action: 'click->association_form#add' } }
+          .div{ data: { action: 'click->association_form#add' }, class: 'button'}
             = t('actions.add')
 
       .column
         .field
-          = f.label :english_name_true
+          -# i18n-tasks-use t('activerecord.attributes.asana.english_names')
+          = f.label :english_names
 
         = f.fields_for :english_asana_names do |f_asana_name|
           = render 'asana_name_fields', f: f_asana_name
@@ -54,12 +65,13 @@
             = f.fields_for :asana_names,
               @asana.english_asana_names.build, child_index: 'REPLACE' do |f|
               = render 'asana_name_fields', f: f, disabled: true
-          .div{ data: { action: 'click->association_form#add' } }
+          .div{ data: { action: 'click->association_form#add' }, class: 'button'}
             = t('actions.add')
 
       .column
         .field
-          = f.label :sanskrit_name_true
+          -# i18n-tasks-use t('activerecord.attributes.asana.sanskrit_names')
+          = f.label :sanskrit_names
 
         = f.fields_for :sanskrit_asana_names do |f_de_name|
           = render 'asana_name_fields', f: f_de_name
@@ -75,7 +87,7 @@
             = f.fields_for :asana_names,
               @asana.sanskrit_asana_names.build, child_index: 'REPLACE' do |f|
               = render 'asana_name_fields', f: f, disabled: true
-          .div{ data: { action: 'click->association_form#add' } }
+          .div{ data: { action: 'click->association_form#add' }, class: 'button'}
             = t('actions.add')
 
   .actions

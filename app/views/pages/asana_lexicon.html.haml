@@ -13,6 +13,7 @@
       %thead
         %tr
           %th
+            = t('activerecord.attributes.asana.asana_family')
           %th
             = t('activerecord.attributes.asana.german_asana_names.name')
           %th
@@ -23,6 +24,10 @@
       %tbody
         - @asanas.each do |asana|
           %tr
+            %td
+              - asana.asana_families.each do |family|
+                .asana-family
+                  = family.name
             %td
               - asana.german_asana_names.each do |name|
                 .asana-name

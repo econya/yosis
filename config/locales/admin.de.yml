@@ -4,6 +4,15 @@
 ---
 de:
   admin:
+    asana:
+      creation-success: Asana erstellt
+      deletion-success: Asana gelöscht
+      update-success:   Asana aktualisiert
+    asanas:
+      all:  Alle Asanas
+      edit: Asana bearbeiten
+      new:  Neues Asana
+      select_asana_family: Asana-Famile auswählen
     blog:
       post:
         edit: Blog Post bearbeiten
@@ -58,6 +67,9 @@ de:
       trigger_now: "Triggern!"
       what: Was
       when: Wann
+    forms:
+      current_image: Aktuelles Bild
+      or_create_new: oder neu anlegen
     items:
       none: Keine
     lessons:

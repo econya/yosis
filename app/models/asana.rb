@@ -16,6 +16,11 @@ class Asana < ApplicationRecord
     -> {where(asana_names: { language_code: AsanaName::SANSKRIT })},
     class_name: 'AsanaName'
 
+  has_many :asana_asana_families, inverse_of: :asana
+  has_many :asana_families, through: :asana_asana_families, inverse_of: :asanas
+
+  has_one_attached :image
+
   accepts_nested_attributes_for :asana_names,
     allow_destroy: true, reject_if: :empty_name_or_language_code?
   accepts_nested_attributes_for :german_asana_names,
