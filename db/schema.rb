@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_074116) do
+ActiveRecord::Schema.define(version: 2020_10_18_074053) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,19 @@ ActiveRecord::Schema.define(version: 2020_10_15_074116) do
     t.text "content"
     t.datetime "sent_at"
     t.index ["user_type", "user_id"], name: "index_ahoy_messages_on_user_type_and_user_id"
+  end
+
+  create_table "asana_asana_families", force: :cascade do |t|
+    t.integer "asana_id", null: false
+    t.integer "asana_family_id", null: false
+    t.index ["asana_family_id"], name: "index_asana_asana_families_on_asana_family_id"
+    t.index ["asana_id"], name: "index_asana_asana_families_on_asana_id"
+  end
+
+  create_table "asana_families", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "asana_names", force: :cascade do |t|
@@ -213,6 +226,8 @@ ActiveRecord::Schema.define(version: 2020_10_15_074116) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "asana_asana_families", "asana_families"
+  add_foreign_key "asana_asana_families", "asanas"
   add_foreign_key "asana_names", "asanas"
   add_foreign_key "courses", "places"
   add_foreign_key "courses", "styles"
