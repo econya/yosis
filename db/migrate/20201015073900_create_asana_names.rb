@@ -8,7 +8,7 @@ class CreateAsanaNames < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :language_code
       t.references :asana, null: false, foreign_key: true
-      t.boolean :active
+      t.boolean :main
 
       t.timestamps
     end
