@@ -40,8 +40,7 @@
         class: 'navbar-item' do
         = t('navigation.seminars')
 
-      = link_to root_path(anchor: 'videos'),
-        data: { turbolinks: !in_controller_action?(controller: 'pages', action: 'home' )},
+      = link_to asana_lexicon_path,
         class: 'navbar-item' do
         = t('navigation.asana-lexicon')
 
@@ -67,6 +66,8 @@
             .navbar-dropdown
               = link_to t('blog.posts'), admin_blog_posts_path, class: 'navbar-item'
               = link_to t('blog.new_post'), new_admin_blog_post_path, class: 'navbar-item'
+              %hr.navbar-divider
+              = link_to t('navigation.asana-lexicon'), admin_asanas_path, class: 'navbar-item'
               %hr.navbar-divider
               = link_to t('navigation.courses'),   admin_courses_path,   class: 'navbar-item'
               = link_to t('navigation.places'),   admin_places_path,   class: 'navbar-item'
