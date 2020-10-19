@@ -30,6 +30,12 @@ class Admin::AsanasController < Admin::AdminController
   def create
     @asana = Asana.new(asana_params)
 
+    # Make first one of each language the 'main'
+    mained = [AsanaName::DE, AsanaName::EN, AsanaName::SANSKRIT]
+    @asana.asana_names.each do |asana_name|
+      asana_name.update(main: mained.delete(asana_name.language_code))
+    end
+
     if params[:new_family]
       family = AsanaFamily.find_or_create_by!(name: params[:new_family])
       @asana.asana_families << family
@@ -48,6 +54,12 @@ class Admin::AsanasController < Admin::AdminController
   # PATCH/PUT /asanas/1
   def update
     update_success = @asana.update(asana_params)
+
+    # Make first one of each language the 'main'
+    mained = [AsanaName::DE, AsanaName::EN, AsanaName::SANSKRIT]
+    @asana.asana_names.each do |asana_name|
+      asana_name.update(main: mained.delete(asana_name.language_code))
+    end
 
     if params[:new_family]
       family = AsanaFamily.find_or_create_by!(name: params[:new_family])

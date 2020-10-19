@@ -13,7 +13,11 @@
   = f.hidden_field :language_code,
     disabled: defined?(disabled)
 
-  = f.text_field :name,
-    disabled: defined?(disabled)
-  .delete.is-pulled-right{ data: { action: 'click->reveal#hide click->association_form#delete' } }
+  .field.has-addons
+    .control
+      = f.text_field :name,
+        disabled: defined?(disabled)
+    .control
+      .button.is-grey
+        .delete{ data: { action: 'click->reveal#hide click->association_form#delete' } }
 

@@ -27,16 +27,30 @@
             = family.name
         %td
           - asana.asana_names.in_de.each do |name|
-            = name.name
+            - if name.main
+              .has-text-weight-bold
+                = name.name
+            - else
+              .is-italic
+                = name.name
             %br
 
         %td
           - asana.english_asana_names.each do |name|
-            = name.name
-            %br
+            - if name.main
+              .has-text-weight-bold
+                = name.name
+            - else
+              .is-italic
+                = name.name
         %td
           - asana.sanskrit_asana_names.each do |name|
-            = name.name
+            - if name.main
+              .has-text-weight-bold
+                = name.name
+            - else
+              .is-italic
+                = name.name
             %br
         %td
           .buttons.is-pulled-right

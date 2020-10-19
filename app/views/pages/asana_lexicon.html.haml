@@ -36,14 +36,29 @@
             %td
               - asana.german_asana_names.each do |name|
                 .asana-name
-                  = name.name
+                  - if name.main
+                    .has-text-weight-bold
+                      = name.name
+                  - else
+                    .is-italic
+                      = name.name
             %td
               - asana.english_asana_names.each do |name|
                 .asana-name
-                  = name.name
+                  - if name.main
+                    .has-text-weight-bold
+                      = name.name
+                  - else
+                    .is-italic
+                      = name.name
             %td
               - asana.sanskrit_asana_names.each do |name|
                 .asana-name
-                  = name.name
+                  - if name.main
+                    .has-text-weight-bold
+                      = name.name
+                  - else
+                    .is-italic
+                      = name.name
             %td
 
