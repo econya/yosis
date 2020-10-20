@@ -2,9 +2,10 @@
 
 ## Contents
 
-- [Tech Stack](#tech-stack)
-- [Architecture](#architectural-design-designions-and-stuff-to-know)
-  + [Dokku](#dokku)
+- [1 Tech Stack](#1-tech-stack)
+- [2 Architecture](#2-architectural-design-designions-and-stuff-to-know)
+  + [2.1 Dokku](#2.1-dokku)
+  + [i18n](#i18n)
   + [JavaScript](#javascript)
   + [Sitewide Settings](#sitesettings)
   + [Spam and Security](#spam-and-security)
@@ -24,24 +25,53 @@
     * [Video Players](#videoplayers)
     * [ffmpeg](#ffmpeg)
   + [Bulma](#bulma)
+  + [Fonts](#fonts)
   + [Operations](#operations)
+  + [StimulusJS](#stimulusjs)
 - [ActiveRecord](#activerecord)
 - [Licensing](#licensing)
 - [Known optimizabilities](#know-optimizabilities)
 
 
-## Architectural "design" decisions and stuff to know
+## 1 Tech Stack
+
+Mentionable (uncommon or outstanding) pieces of functionality:
+
+* [fontawesome](): popular clean icon font
+* [bulma](https://bulma.io): flex-based customizable CSS library
+* [ruby]() and [ruby on rails] not-so-popular-anymore programming language and
+  web-application framework that are both a joy to work with
+* [ahoy_email](): usually for mail-tracking, used for mail archieve
+* [friendly_id](): makes pretty URLs (https://mysite/mydrawer/mystuff) pretty
+  easy
+* [stimulusjs](): organized, well-interweaved front-end code
+* [i18n-tasks](): handy tool to inspect your translation coverage
+* many really useful gems: yeah, thats a helpful statement
+
+## 2 Architectural "design" decisions and stuff to know
 
 This project was hacked with a tight time budget and virtually no resources
 (besides server space). It couldnt be made clean and lots of tradeoffs had to be
 done.
 
-### Dokku
+### 2.1 Dokku
 
 [Is awesome](http://dokku.viewdocs.io). Its documentation is great, too.
 For a brief overview how to use it with a rails app, read e.g.
 https://medium.com/@dpaluy/the-ultimate-guide-to-dokku-and-ruby-on-rails-5-9ecad2dba4a3
 .
+
+Bottom line: host your own heroku. Deploy using `git push <myserver>`.
+
+### i18n
+
+The translation files ([conf/locales][conf/locales]) are only roughly split in
+thematic chunks.
+
+To inspect the translation coverage `i18n-tasks` can be used. There is a
+[test case](test/i18n_test.rb) for unused and missing translation keys prepared
+that will fire above a threshold.
+
 
 ### JavaScript
 
@@ -57,6 +87,9 @@ stuff).
 * Also removed everything (or most) yarnish in commit
   #037e4aa90b82791f1a85408d926fc19f6486275e .
 
+However, turbolinks is still active and stimulusjs is used for some "backend"
+(admin) sugar.
+
 HTML5 video tag seems to work for now, too (other options: see below).
 
 ### SiteSettings
@@ -66,22 +99,26 @@ HTML5 video tag seems to work for now, too (other options: see below).
   the fly in the controller. Tradeoffs made. Its model allows for a `kind` and
   attachments. The kind can be `markdown`, so that a html-rendered version is
   stored in the db rather than being rerendered on every page view.
+* SiteSetting can be accessed by `SiteSettings.fetch` which will initialize the
+  setting with a default value.
 * Other site wide settings can be set via environment variables.
 
 #### Markdown
 
-Via redcarpet.
+Is used for content like blog posts or text blocks. Rendered via redcarpet.
 
 ### Spam and Security
 
 Using `invisible_captcha` on login.
-And `Rack::Attack` against password brute-force. I know that there is plenty of
+And `Rack::Attack` against password brute-force. Plenty of
 room for improvements.
 
 ### Storage
 
 Settled on ActiveStorage, also other implementations and services offer some
 nifty features like working previews and variants for videos.
+However for the local storage scenario its a suboptimal choice (e.g. more
+redirects than necessary).
 
 #### Tests and ActiveStorage
 
@@ -105,6 +142,9 @@ For production, `worker: rake jobs:work` should do the trick.
 
 DelayedJob has two Web UIs (https://github.com/ejschmitt/delayed_job_web and ... ), but it was simple to roll ones own.
 It also has a cron-like addition: https://github.com/codez/delayed_cron_job .
+
+Overview about schedule job runs is provided via
+`admin/controllers/delayed_jobs_controller`.
 
 #### Recurring Jobs
 
