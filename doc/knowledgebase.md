@@ -184,7 +184,37 @@ and not yet thought through, neither visually nor from the business logic side.
 Sure enough, live editing or modals would be convenient to have for
 administrative users.
 
+The admin user will be directed to the form that corresponds to the item that is
+to be edited. A special parameter (`back_path`) is set and 'persisted' across
+the requests using a parameter. The controller that saves the changes looks for
+the parameter and redirects back to that page if present. An optional anchor is
+included in the link so that the user is hopefully shown more or less the place
+where the change is shown.
+
 #### Admin: Forms
+
+##### Dynamic Associations
+
+For the `Asana Lexicon` a one-to-many form is implemented. This works with
+`accepts_nested_attributes_for` and `language_code` scopes.
+
+The form always displays at least one input field set for an `AsnaName`
+(`fields_for` on in-form created AsanaName).
+
+In order to add and delete more entries dynamically, a stimulus controller was
+implemented
+([`association_form_controller`](app/assets/javascripts/controllers/association_form_controller.es6)).
+
+###### Deletion
+
+Simply set the `destroy_fieldTarget.value` to true on button click and use the
+`reveal_controller` to hide the element.
+
+###### Addition
+
+Clone a given template form and insert it into the DOM. This works similarly to
+a [tutorial on pluralsight](https://www.pluralsight.com/guides/ruby-on-rails-nested-attributes), with a small change: if the sumitted parameters like `asana[asana_names][REPLACE][name]='First Asana'` includes a string instead of an integer index (in the example: REPLACE), the controller will reject the parameters. Thus, the template form parts should not be submitted themselves, which is accomplished by marking them `disabled`.
+
 
 ##### Flow
 Try to make the flow left-top to bottom-right. Confirmative action on the right
