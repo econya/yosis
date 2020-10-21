@@ -94,6 +94,7 @@ class Admin::AsanasController < Admin::AdminController
     def asana_params
       params.require(:asana).permit(
         :asana_family_ids,
+        :image,
         asana_names_attributes: [:language_code, :name, :id, :_destroy],
         german_asana_names_attributes: [:language_code, :name, :id, :_destroy],
         english_asana_names_attributes: [:language_code, :name, :id, :_destroy],

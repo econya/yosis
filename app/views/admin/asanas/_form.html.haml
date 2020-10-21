@@ -22,6 +22,19 @@
     = t('admin.forms.or_create_new')
     = text_field_tag :new_family
 
+  .columns
+    .column
+      .field
+        -# i18n-tasks-use t('activerecord.attributes.asana.image')
+        = f.label :image
+        = f.file_field :image, direct_upload: true
+    - if @asana.image.attached?
+      .column
+        %label.label
+          = t('admin.forms.current_image')
+        = image_tag preview_image_variant_url(@asana.image)
+        %hr
+        = link_to @asana.image.filename, rails_blob_path(@asana.image, disposition: 'attachment')
   .field
     .columns
       .column

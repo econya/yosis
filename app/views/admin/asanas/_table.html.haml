@@ -22,6 +22,8 @@
     - asanas.each do |asana|
       %tr
         %td
+          - if asana.image.attached?
+            = image_tag preview_image_variant_url(asana.image)
         %td
           - asana.asana_families.each do |family|
             = family.name

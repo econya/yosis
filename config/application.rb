@@ -10,7 +10,10 @@ module Yosis
   class Application < Rails::Application
     VERSION = '0.3.1'.freeze
 
-    HEADER_IMAGE_SIZE= [1024,287].freeze
+    VIDEO_PREVIEW_SIZE=    [320, 180].freeze
+    HEADER_IMAGE_SIZE=     [1024,287].freeze
+    STYLE_CARD_IMAGE_SIZE= [354, 200].freeze
+    IMAGE_128x128=         [128, 128].freeze
 
     config.time_zone = "Berlin"
     config.active_record.default_timezone = :local
