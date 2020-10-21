@@ -14,51 +14,54 @@
 
 .container
   .content.is-medium
-    %table.table.is-striped.is-fullwidth
-      %thead
-        %tr
-          %th
-            = t('activerecord.attributes.asana.asana_family')
-          %th
-            = t('activerecord.attributes.asana.german_asana_names.name')
-          %th
-            = t('activerecord.attributes.asana.english_asana_names.name')
-          %th
-            = t('activerecord.attributes.asana.sanskrit_asana_names.name')
-          %th
-      %tbody
-        - @asanas.each do |asana|
+    - admin_edit_area(edit_path: admin_asanas_path) do
+      %table.table.is-striped.is-fullwidth
+        %thead
           %tr
-            %td
-              - asana.asana_families.each do |family|
-                .asana-family
-                  = family.name
-            %td
-              - asana.german_asana_names.each do |name|
-                .asana-name
-                  - if name.main
-                    .has-text-weight-bold
-                      = name.name
-                  - else
-                    .is-italic
-                      = name.name
-            %td
-              - asana.english_asana_names.each do |name|
-                .asana-name
-                  - if name.main
-                    .has-text-weight-bold
-                      = name.name
-                  - else
-                    .is-italic
-                      = name.name
-            %td
-              - asana.sanskrit_asana_names.each do |name|
-                .asana-name
-                  - if name.main
-                    .has-text-weight-bold
-                      = name.name
-                  - else
-                    .is-italic
-                      = name.name
-            %td
+            %th
+              = t('activerecord.attributes.asana.asana_family')
+            %th
+              = t('activerecord.attributes.asana.german_asana_names.name')
+            %th
+              = t('activerecord.attributes.asana.english_asana_names.name')
+            %th
+              = t('activerecord.attributes.asana.sanskrit_asana_names.name')
+            %th
+        %tbody
+          - @asanas.each do |asana|
+            %tr
+              %td
+                - asana.asana_families.each do |family|
+                  .asana-family
+                    = family.name
+              %td
+                - asana.german_asana_names.each do |name|
+                  .asana-name
+                    - if name.main
+                      .has-text-weight-bold
+                        = name.name
+                    - else
+                      .is-italic
+                        = name.name
+              %td
+                - asana.english_asana_names.each do |name|
+                  .asana-name
+                    - if name.main
+                      .has-text-weight-bold
+                        = name.name
+                    - else
+                      .is-italic
+                        = name.name
+              %td
+                - asana.sanskrit_asana_names.each do |name|
+                  .asana-name
+                    - if name.main
+                      .has-text-weight-bold
+                        = name.name
+                    - else
+                      .is-italic
+                        = name.name
+              %td
+                - if user_signed_in? && current_user.admin?
+                  = admin_edit_button edit_admin_asana_path(asana)
 

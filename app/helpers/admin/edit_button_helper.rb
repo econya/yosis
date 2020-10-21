@@ -38,13 +38,22 @@ module Admin::EditButtonHelper
 
   def admin_edit_button path
     return if !user_signed_in? || current_user.role != 'admin'
-    content_tag :div, class: 'admin_edit_button' do
-      @content = content_tag :a, href: path, class: 'button is-dark' do
+
+    back_url = path + '?' + URI.
+      encode_www_form([['back_path', request.path]])
+
+    content_tag :div, class: 'admin_edit_button', data: {controller: 'admin_button'} do
+      @content = content_tag :a, href: back_url,
+        class: 'button is-dark',
+        data: {action: 'mouseenter->admin_button#highlight ' +
+                       'mouseleave->admin_button#downlight'} do
         content_tag(:span, class: 'icon') do
           tag.i(class: "fas fa-user-shield")
         end
       end
-      @content << content_tag(:a, class: 'button', class: 'delete hide-admin-button', onclick: 'hide_admin_buttons();') do
+      @content << content_tag(:a, class: 'button',
+                              class: 'delete hide-admin-button',
+                              onclick: 'hide_admin_buttons();') do
         "hide"
       end
     end
