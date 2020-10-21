@@ -117,7 +117,8 @@
                           = link_to admin_style_lesson_position_path(lesson.style, lesson_id: lesson.id), method: :delete, class: 'button is-primary is-outlined is-small' do
                             %span.icon.is-small.has-text-primary
                               %i.fas.fa-arrow-down
-                        = link_to edit_admin_style_lesson_path(lesson.style, lesson), class: 'button is-link is-outlined is-small' do
+                        = link_to edit_admin_style_lesson_path(lesson.style, lesson),
+                          class: 'button is-link is-outlined is-small' do
                           %span.icon.is-small
                             %i.fas.fa-user-shield
                           %span

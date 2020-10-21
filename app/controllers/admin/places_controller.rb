@@ -32,7 +32,8 @@ class Admin::PlacesController < Admin::AdminController
 
     respond_to do |format|
       if @place.save
-        format.html { redirect_to admin_places_path, notice: t('admin.place.creation-success') }
+        format.html { redirect_to admin_places_path,
+                        notice: t('admin.place.creation-success') }
       else
         format.html { render :new }
       end
@@ -43,7 +44,8 @@ class Admin::PlacesController < Admin::AdminController
   def update
     respond_to do |format|
       if @place.update(place_params)
-        format.html { redirect_to back_url_or(admin_places_path), notice: t('admin.place.update-success') }
+        format.html { redirect_to back_url_or(admin_places_path),
+                        notice: t('admin.place.update-success') }
       else
         format.html { render :edit }
       end
@@ -54,7 +56,8 @@ class Admin::PlacesController < Admin::AdminController
   def destroy
     @place.destroy
     respond_to do |format|
-      format.html { redirect_to admin_places_url, notice: t('admin.place.deletion-success') }
+      format.html { redirect_to admin_places_url,
+                      notice: t('admin.place.deletion-success') }
     end
   end
 

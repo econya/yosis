@@ -16,7 +16,6 @@ class Style < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 2 }, uniqueness: true
 
-
   scope :which_has_courses, -> { where(id: Course.active.select(:style_id)) }
   scope :which_has_videos,  -> { where(id: Lesson.active.select(:style_id)) }
 

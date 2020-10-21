@@ -19,6 +19,5 @@ class Lesson < ApplicationRecord
   validates :preview_image, presence: true
   validates :video, presence: true
 
-
   friendly_id :name, use: :slugged
 end
