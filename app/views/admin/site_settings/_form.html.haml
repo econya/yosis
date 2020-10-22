@@ -16,19 +16,22 @@
   = f.hidden_field :key
   .field
     - if @site_setting.kind == "markdown"
-      .columns{ data: { controller: 'render_md_preview reveal', reveal: { shown: "false" } } }
+      .columns{ data: { controller: 'render_md_preview reveal auto_resize_height',
+        reveal: { shown: "false" } } }
         .column
           = f.label :value
           %button{ data: { action: 'render_md_preview#render reveal#reveal' },
             class: 'button' }
             = t('actions.preview')
-          = f.text_area :value, rows: 20, data: { target: 'render_md_preview.source' }
+          = f.text_area :value, rows: 20,
+            data: { target: 'render_md_preview.source auto_resize_height.input',
+            action: 'keyup->auto_resize_height#update' }
         .column#reveal-content{ data: { target: 'reveal.content' } }
           .label
             = t('actions.preview')
-          %button{ data: { action: 'reveal#hide' }, class: 'button' }
+          %button.button{ data: { action: 'reveal#hide' } }
             = t('actions.hide')
-          %button{ data: { action: 'render_md_preview#render' }, class: 'button' }
+          %button.button{ data: { action: 'render_md_preview#render' } }
             = t('actions.refresh')
           .content
             #preview{ data: { target: 'render_md_preview.result' } }
