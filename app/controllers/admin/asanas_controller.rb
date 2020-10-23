@@ -10,7 +10,9 @@ class Admin::AsanasController < Admin::AdminController
 
   # GET /asanas
   def index
-    @asanas = Asana.all
+    @asanas = Asana.includes(:german_asana_names,
+                             :english_asana_names,
+                             :sanskrit_asana_names).all
   end
 
   # GET /asanas/1
