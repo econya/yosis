@@ -4,20 +4,25 @@
 
 - [1 Tech Stack](#1-tech-stack)
 - [2 Architecture](#2-architectural-design-designions-and-stuff-to-know)
-  + [2.1 Dokku](#2.1-dokku)
-  + [i18n](#i18n)
-  + [JavaScript](#javascript)
-  + [Sitewide Settings](#sitesettings)
-  + [Spam and Security](#spam-and-security)
+  + [2.1 Dokku](#21-dokku)
+  + [2.2 i18n](#22-i18n)
+  + [2.3 JavaScript](#23-javascript)
+  + [2.4 Sitewide Settings](#24-sitesettings)
+    * [2.4.1 Markdown](#241-markdown)
+  + [2.5 Spam and Security](#25-spam-and-security)
     * [Tests and ActiveStorage](#tests-and-activestorage)
-  + [Background Jobs](#jobs)
-    * [Recurring Jobs](#recurring-jobs)
-  + [GDPR](#gdpr)
-    * [Policy agreements](#policy-agreements)
-    * [Rights on data](#rights-on-data)
-  + [Access Policies](#policies)
-  + [UX](#ux)
-- [Resources and lessons learned](#resources-and-lessons-learned)
+  + [2.6 Background Jobs](#26-jobs)
+    * [2.6.1 Recurring Jobs](#261-recurring-jobs)
+    * [2.6.2 Serialization/mail Jobs](#262-serializaion-mailjobs)
+  + [2.7 GDPR](#27-gdpr)
+    * [2.7.1 Policy agreements](#271-policy-agreements)
+    * [2.7.2 Rights on data](#272-rights-on-data)
+  + [2.8 Access Policies](#28-policies)
+  + [2.9 UX](#29-ux)
+    * [2.9.1 Admin: CMS](#291-admin-cms)
+    * [2.9.2 Admin: Forms](#292-admin-forms)
+- [3 Resources and lessons learned](#3-resources-and-lessons-learned)
+  + [ActiveRecord](#activerecord)
   + [ActiveStorage](#activestorage)
   + [Big File upload](#big-file-upload)
     * [nginx](#nginx)
@@ -63,7 +68,7 @@ https://medium.com/@dpaluy/the-ultimate-guide-to-dokku-and-ruby-on-rails-5-9ecad
 
 Bottom line: host your own heroku. Deploy using `git push <myserver>`.
 
-### i18n
+### 2.2 i18n
 
 The translation files ([conf/locales][conf/locales]) are only roughly split in
 thematic chunks.
@@ -73,7 +78,7 @@ To inspect the translation coverage `i18n-tasks` can be used. There is a
 that will fire above a threshold.
 
 
-### JavaScript
+### 2.3 JavaScript
 
 Tried to go the least pain route and rely on server-side rendering.
 This is a very conservative choice and gamble that developers productivity will
@@ -92,7 +97,7 @@ However, turbolinks is still active and stimulusjs is used for some "backend"
 
 HTML5 video tag seems to work for now, too (other options: see below).
 
-### SiteSettings
+### 2.4 SiteSettings
 
 * Global Site Settings implemented by a crude [SiteSettings
   Model](app/model/site_settings). No seed or prepopulation, they are created on
@@ -103,11 +108,11 @@ HTML5 video tag seems to work for now, too (other options: see below).
   setting with a default value.
 * Other site wide settings can be set via environment variables.
 
-#### Markdown
+#### 2.4.1 Markdown
 
 Is used for content like blog posts or text blocks. Rendered via redcarpet.
 
-### Spam and Security
+### 2.5 Spam and Security
 
 Using `invisible_captcha` on login.
 And `Rack::Attack` against password brute-force. Plenty of
@@ -132,7 +137,7 @@ https://stackoverflow.com/questions/50453596/activestorage-fixtures-attachments
 .
 
  
-### Jobs
+### 2.6 Jobs
 
 DelayedJob does not need a redis setup, which makes it a simpler for
 development but only suitable for periodic jobs or database-insensitive apps.
@@ -146,7 +151,7 @@ It also has a cron-like addition: https://github.com/codez/delayed_cron_job .
 Overview about schedule job runs is provided via
 `admin/controllers/delayed_jobs_controller`.
 
-#### Recurring Jobs
+#### 2.6.1 Recurring Jobs
 
 There are at least three solutions for recurring jobs:
 
@@ -159,8 +164,9 @@ There are at least three solutions for recurring jobs:
 - use something like delayed_cron within Rails: https://github.com/sellect/delayed_cron
 
 `delayed_cron_job` was chosen.
+The initial job enqueue will happen
 
-#### Serialization/mail Jobs
+#### 2.6.2 Serialization/mail Jobs
 
 In case of the contact form, a tableless `Contact` model instance is created.
 In order to save all needed jobs data to the database, passed objects need to be
@@ -172,9 +178,9 @@ just pass the params into the job and create the Model-Object within the job at
 
 I decided to pass the parameters, which seemed to be the least hazzle.
 
-### GDPR
+### 2.7 GDPR
 
-#### Policy agreements
+#### 2.7.1 Policy agreements
 
 Two separate policies have to be agreed to (technically, one has only to be
 taken notice of, there cannot be disagreement by click).
@@ -201,21 +207,22 @@ accordingly.
 A separate controller and view allow the current user to agree to the policies.
 Users are redirected there if no consent date was found.
 
-#### Rights on data
+#### 2.7.2 Rights on data
 
-##### Deletion/anonymisation
+##### 2.7.2.1 Deletion/anonymisation
 Anonymisation will be fine. Make sure to cover the emails as well.
 
+##### 2.7.2.2 Export in machine-readable format
 
-### Access Policies
+### 2.8 Access Policies
 
 Go-to successor of CanCan(Can) is [active_policies](https://github.com/palkan/action_policy).
 
 But so far, I just go with POROs (in `lib/policies/`).
 
-### UX
+### 2.9 UX
 
-#### Admin: CMS
+#### 2.9.1 Admin: CMS
 
 Administrative users want to be able to look at the home page and edit stuff
 without too much admin menu navigation. Thus implemented a simple way to display
@@ -231,9 +238,9 @@ the parameter and redirects back to that page if present. An optional anchor is
 included in the link so that the user is hopefully shown more or less the place
 where the change is shown.
 
-#### Admin: Forms
+#### 2.9.2 Admin: Forms
 
-##### Dynamic Associations
+##### 2.9.2.1 Dynamic Associations
 
 For the `Asana Lexicon` a one-to-many form is implemented. This works with
 `accepts_nested_attributes_for` and `language_code` scopes.
