@@ -31,16 +31,25 @@
       .column
         .label
           = t('actions.preview')
-        %button{ data: { action: 'reveal#hide' }, class: 'button' }
+        %button.button{ data: { action: 'reveal#hide' } }
           = t('actions.hide')
-        %button{ data: { action: 'render_md_preview#render' }, class: 'button' }
+        %button.button{ data: { action: 'render_md_preview#render' } }
           = t('actions.refresh')
         .content
           #preview{data: {target: 'render_md_preview.result'}}
             != @post.content_rendered
-  .field
-    = f.label :image
-    = f.file_field :image
+  .columns
+    .column
+      .field
+        = f.label :image
+        = f.file_field :image
+    .column
+      - if @post.image.attached?
+        %label.label
+          = t('admin.forms.current_image')
+        = image_tag preview_image_variant_url(@post.image)
+        %hr
+        = link_to @post.image.filename, rails_blob_path(@post.image, disposition: 'attachment')
   .field
     = f.label :published_at
     = f.datetime_select :published_at, { minute_step: 5, include_blank: true }

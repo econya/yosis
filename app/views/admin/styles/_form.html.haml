@@ -11,10 +11,20 @@
         - @style.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    -# i18n-tasks-use t('activerecord.attributes.style.name')
-    = f.label :name
-    = f.text_field :name
+  .columns
+    .column
+      .field
+        -# i18n-tasks-use t('activerecord.attributes.style.name')
+        = f.label :name
+        = f.text_field :name
+    - if @style.image.attached?
+      .column
+        %label.label
+          = t('admin.forms.current_image')
+        = image_tag preview_image_variant_url(@style.image)
+        %hr
+        = link_to @style.image.filename, rails_blob_path(@style.image, disposition: 'attachment')
+
   .field
     -# i18n-tasks-use t('activerecord.attributes.style.description')
     = f.label :description
