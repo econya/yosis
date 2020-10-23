@@ -49,6 +49,8 @@ Rails.application.routes.draw do
     resources :appointments
     resources :asanas
 
+    resources :help, only: [:index]
+
     resources :courses, only: [:index, :edit, :update, :destroy, :new, :create, :show] do
       resource :position, only: [:create, :destroy], controller: 'course/position'
     end

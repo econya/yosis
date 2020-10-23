@@ -1,0 +1,29 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+%h1.title= t('admin.help.markdown-syntax')
+
+%form.form
+  - { markdown_headers:    @markdown_headers,
+      markdown_paragraphs: @markdown_paragraphs,
+      markdown_typography: @markdown_typography,
+      markdown_lists:      @markdown_lists,
+      markdown_links_etc:  @markdown_links_etc }.each do |name, data|
+    .columns
+      .column
+        %label.label= t("admin.help.markdown-#{name}")
+        = text_area_tag :markdown, data,
+          class: 'input',
+          readonly: true,
+          data: { controller: 'auto_resize_height',
+            target: 'auto_resize_height.input',
+            action: ''}
+      .column
+        .label
+          = t('admin.forms.preview')
+        .content
+          #preview
+            != Markdown.new(data, with_toc_data: true).to_html
+
+

@@ -69,7 +69,16 @@ de:
       when: Wann
     forms:
       current_image: Aktuelles Bild
+      markdown: Markdown
       or_create_new: oder neu anlegen
+      preview: Vorschau
+    help:
+      markdown-syntax: Markdown Syntax
+      markdown_headers: Überschriften
+      markdown_paragraphs: Abschnitte
+      markdown_typography: Typographie
+      markdown_lists: Listen
+      markdown_links_etc: Links und anderes
     items:
       none: Keine
     lessons:
