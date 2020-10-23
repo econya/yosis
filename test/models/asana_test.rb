@@ -13,6 +13,8 @@ class AsanaTest < ActiveSupport::TestCase
     assert_equal 1, first_asana.asana_names.in_en.count
     assert_equal 1, first_asana.asana_names.in_sanskrit.count
 
+    assert_equal 1, first_asana.asana_names.in_de.main.count
+
     assert_equal 2, first_asana.german_asana_names.count
     assert_equal 1, first_asana.english_asana_names.count
     assert_equal 1, first_asana.sanskrit_asana_names.count

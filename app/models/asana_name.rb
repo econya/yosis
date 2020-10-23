@@ -13,6 +13,8 @@ class AsanaName < ApplicationRecord
   scope :in_en,       -> { where(language_code: EN) }
   scope :in_sanskrit, -> { where(language_code: SANSKRIT) }
 
+  scope :main,        -> { where(main: true) }
+
   def in_de?
     self.language_code == DE
   end

@@ -11,6 +11,7 @@ first_asana_second_de:
   name: Allererstes Asana
   language_code: de
   asana: first_asana
+  main: true
 
 first_asana_first_en:
   name: First Asana

@@ -6,14 +6,14 @@ class Asana < ApplicationRecord
   has_many :asana_names, inverse_of: :asana
 
   has_many :german_asana_names,
-    -> {where(asana_names: { language_code: AsanaName::DE })},
+    -> { in_de },
     source: :asana_name,
     class_name: 'AsanaName'
   has_many :english_asana_names,
-    -> {where(asana_names: { language_code: AsanaName::EN })},
+    -> { in_en },
     class_name: 'AsanaName'
   has_many :sanskrit_asana_names,
-    -> {where(asana_names: { language_code: AsanaName::SANSKRIT })},
+    -> { in_sanskrit },
     class_name: 'AsanaName'
 
   has_many :asana_asana_families, inverse_of: :asana
