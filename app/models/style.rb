@@ -11,8 +11,8 @@ class Style < ApplicationRecord
 
   has_one_attached :image
 
-  has_many :courses
-  has_many :lessons
+  has_many :courses, inverse_of: :style
+  has_many :lessons, inverse_of: :style
 
   validates :name, presence: true, length: { minimum: 2 }, uniqueness: true
 

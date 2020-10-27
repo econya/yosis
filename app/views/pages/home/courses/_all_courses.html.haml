@@ -2,8 +2,8 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-- @places.which_has_courses.each do |place|
-  - if place.courses.active.any?
+- @places.which_has_active_courses.with_active_course_info.each do |place|
+  - if true
     .columns.place-courses.mb-6.is-4
       .column.is-one-third.has-text-centered(style="padding: 2em;")
         - admin_edit_area(edit_path: edit_admin_place_path(place)) do
@@ -18,7 +18,7 @@
       .column.is-two-third.pb-4
         .courses
           %table.table.is-narrow(style="background-color: transparent;")
-            - place.courses.active.each do |course|
+            - place.active_courses.each do |course|
               %tr.course
                 %td.weekday
                   - admin_edit_area(edit_path: edit_admin_course_path(course),
