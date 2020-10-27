@@ -7,6 +7,7 @@ class SiteSettings
                              logo favicon favicon-png favicon-apple-touch
                              intro_background]
   MARKDOWN_SETTING_KEYS = %i[intro explanation
+                             seminars_text
                              privacy_statement terms impressum copyright_notice
                              about_us_left about_us_right
                              trial_period_cta register_cta courses_general
@@ -59,6 +60,8 @@ class SiteSettings
     # i18n-tasks-use t('site_settings.privacy_statement.help')
     # i18n-tasks-use t('site_settings.register_cta.default')
     # i18n-tasks-use t('site_settings.register_cta.help')
+    # i18n-tasks-use t('site_settings.seminars_text.default')
+    # i18n-tasks-use t('site_settings.seminars_text.help')
     # i18n-tasks-use t('site_settings.trial_period_cta.default')
     # i18n-tasks-use t('site_settings.trial_period_cta.help')
     # i18n-tasks-use t('site_settings.terms.default')
