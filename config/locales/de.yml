@@ -166,8 +166,9 @@ de:
   home:
     already-registered?: Bereits registriert?
     contact:
-      title: Über uns / Kontakt
+      about_us: Über uns
       send-a-message: Schreibe uns
+      title: Kontakt
     courses:
       about-all-courses: Wissenswertes über die Kurse
       all-courses-title: Alle Kurse auf einen Blick

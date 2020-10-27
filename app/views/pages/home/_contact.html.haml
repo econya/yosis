@@ -15,6 +15,8 @@
           = t('home.contact.title')
 
 .container.pt-5
+  %h3.title.is-3.mb-6.has-text-weight-bold.has-text-white.has-text-centered
+    = t('home.contact.about_us')
   .columns.is-5.is-variable
     .column.has-text-white.pr-4
       - admin_edit_area edit_path: edit_admin_site_setting_path(SiteSettings.fetch('about_us_left')),
