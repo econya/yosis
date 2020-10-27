@@ -12,7 +12,7 @@ class Contact
   attribute :phone_number
 
   validate :phone_or_mail_present
-  validates :message, :subject, presence: true
+  validates :message, :subject, presence: true, length: { minimum: 10 }
   validates :sender_email, format: { with: /.+@.+\..+/}, allow_blank: true
 
   def phone_or_mail_present
