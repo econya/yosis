@@ -8,8 +8,9 @@
     .column.is-half
       .slogan
         .content.has-text-white
-          .first-line.has-text-centered
-            != title
+          .first-line
+            %h1.title.has-text-centered.has-text-white
+              != title
           - if user_admin?
             - if defined?(title_edit_url) && title_edit_url
               = link_to title_edit_url,
