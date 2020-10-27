@@ -9,11 +9,12 @@ class SiteSettings
                              intro_background]
   MARKDOWN_SETTING_KEYS = %i[intro explanation
                              seminars_text
-                             privacy_statement terms impressum copyright_notice
+                             privacy_statement terms impressum
+                             news_line
                              about_us_left about_us_right
                              trial_period_cta register_cta courses_general
                              payment_details]
-  STRING_SETTING_KEYS   = %i[your_name title news_line]
+  STRING_SETTING_KEYS   = %i[your_name title copyright_notice]
 
   def self.find_or_create_settings
     find_or_create_markdown_site_settings
