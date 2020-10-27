@@ -5,7 +5,7 @@
 %h2.title.is-4.mb-4
   = t('home.styles.courses')
 %table
-  - @style.courses.active.each do |course|
+  - @style.active_courses.each do |course|
     %tr.course
       %td.name= course.name
       %td.weekday

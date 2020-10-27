@@ -14,6 +14,11 @@ class Style < ApplicationRecord
   has_many :courses, inverse_of: :style
   has_many :lessons, inverse_of: :style
 
+  has_many :active_courses, -> { active },
+    source: :course,
+    class_name: 'Course',
+    inverse_of: :style
+
   validates :name, presence: true, length: { minimum: 2 }, uniqueness: true
 
   scope :which_has_courses, -> { where(id: Course.active.select(:style_id)) }

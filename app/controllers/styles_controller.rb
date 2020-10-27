@@ -7,7 +7,7 @@ class StylesController < ApplicationController
 
   # GET /styles
   def index
-    @styles = Style.active.rank(:row_order)
+    @styles = Style.active.with_attached_image.rank(:row_order)
   end
 
   # GET /style/1
@@ -17,6 +17,6 @@ class StylesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_style
-      @style = Style.friendly.find(params[:id])
+      @style = Style.with_attached_image.includes(:lessons, active_courses: :place).friendly.find(params[:id])
     end
 end
