@@ -63,6 +63,8 @@ de:
     register_cta:
       default: Für 25€/Monat erhälst du einen regulären Zugang ("Abonement", verlängert sich nicht automatisch).
       help: Bereits-Registriert-Info-Box-Text auf Start-Seite.
+    seminars_header_image:
+      help: Header-Bild für die Seminare-Seite
     seminars_text:
       default: Meine Seminare
       help: Text auf der Seminare-Seite

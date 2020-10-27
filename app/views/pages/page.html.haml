@@ -4,9 +4,19 @@
 
 - set_title(@html_title)
 
+- if defined?(header_image_setting)
+  - header_image_setting = SiteSettings.fetch(header_image_setting)
+  
+  - content_for(:hero_head) do
+    = render partial: 'shared/hero_head_image_title',
+      locals: { image_url: header_image_variant_url(header_image_setting&.image),
+        title: @html_title,
+        image_edit_url: edit_admin_site_setting_path(header_image_setting) }
+
+
+- setting = SiteSettings.fetch(site_setting)
 .container
-  .content.is-medium.has-text-justified{id: site_setting}
-    - setting = SiteSetting.find_by(key: site_setting)
+  .content.is-medium.has-text-justified{id: setting}
     - admin_edit_area edit_path: edit_admin_site_setting_url(setting.id) do
-      != content
+      != setting.value_rendered
 
