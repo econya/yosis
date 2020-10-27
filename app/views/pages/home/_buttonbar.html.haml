@@ -17,13 +17,14 @@
           = image_tag 'videos.png'
         .button-tag-text
           = t('navigation.videos')
-  %li.nav-button
-    = link_to '#videos', data: { turbolinks: false } do
-      %circlebutton
-        %figure
-          = image_tag 'programme.png'
-        .button-tag-text
-          = t('navigation.programs')
+  - if false
+    %li.nav-button
+      = link_to '#videos', data: { turbolinks: false } do
+        %circlebutton
+          %figure
+            = image_tag 'programme.png'
+          .button-tag-text
+            = t('navigation.programs')
   %li.nav-button
     = link_to '#videos', data: { turbolinks: false } do
       %circlebutton
