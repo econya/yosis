@@ -23,7 +23,7 @@ class ContactsController < ApplicationController
       ContactMailer.with(contact_params: contact_values)
         .feedback().deliver_later
 
-      redirect_to root_path, notice: t('contact.sent_thanks')
+      redirect_to root_path(anchor: 'top'), notice: t('contact.sent_thanks')
     else
       # Need to setup the environment for Pages#home
       @styles = Style.active.rank(:row_order)

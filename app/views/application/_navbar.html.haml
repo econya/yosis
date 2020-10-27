@@ -2,7 +2,7 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%nav.navbar{"aria-label" => "main navigation", :role => "navigation"}
+%nav.navbar#top{"aria-label" => "main navigation", :role => "navigation"}
   .navbar-brand
     - if (logo = SiteSetting.find_by_key("logo"))&.image&.attached?
       = link_to root_path, class: 'navbar-item' do
