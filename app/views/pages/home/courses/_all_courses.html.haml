@@ -3,53 +3,52 @@
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - @places.which_has_active_courses.with_active_course_info.each do |place|
-  - if true
-    .columns.place-courses.mb-6.is-4
-      .column.is-one-third.has-text-centered(style="padding: 2em;")
-        - admin_edit_area(edit_path: edit_admin_place_path(place)) do
-          .place
-            %h4.title.is-5
-              = link_to place.name, place
-            = place.note
-          .place-address.mb-3
-            %i
-              = place.building_name
-              = place.address
-      .column.is-two-third.pb-4
-        .courses
-          %table.table.is-narrow(style="background-color: transparent;")
-            - place.active_courses.each do |course|
-              %tr.course
-                %td.weekday
-                  - admin_edit_area(edit_path: edit_admin_course_path(course),
-                    back_anchor: 'all_courses') do
-                    - if day = course.dayofweek
-                      = I18n.t(:"date.day_names")[day]
+  .columns.place-courses.mb-6.is-4
+    .column.is-one-third.has-text-centered(style="padding: 2em;")
+      - admin_edit_area(edit_path: edit_admin_place_path(place)) do
+        .place
+          %h4.title.is-5
+            = link_to place.name, place
+          = place.note
+        .place-address.mb-3
+          %i
+            = place.building_name
+            = place.address
+    .column.is-two-third.pb-4
+      .courses
+        %table.table.is-narrow(style="background-color: transparent;")
+          - place.active_courses.each do |course|
+            %tr.course
+              %td.weekday
+                - admin_edit_area(edit_path: edit_admin_course_path(course),
+                  back_anchor: 'all_courses') do
+                  - if day = course.dayofweek
+                    = I18n.t(:"date.day_names")[day]
 
-                %td.time
-                  - admin_edit_area(edit_path: edit_admin_course_path(course),
-                    back_anchor: 'all_courses') do
-                    - if course.start_time
-                      = l(course.start_time,
-                        format: :clock_wordless)
-                %td.time
-                  = "-"
-                %td.time
-                  - admin_edit_area(edit_path: edit_admin_course_path(course),
-                    back_anchor: 'all_courses') do
-                    - if course.end_time
-                      = l(course.end_time,
-                        format: :clock_wordless)
-                %td.style
-                  - admin_edit_area(edit_path: edit_admin_course_path(course),
-                    back_anchor: 'all_courses') do
-                    = link_to course.style do
-                      = course.style.name
-                    - if course.note.present?
-                      %br
-                      = "- #{course.note}"
-          .price-note.has-text-weight-bold
-            = place.pricing_note
+              %td.time
+                - admin_edit_area(edit_path: edit_admin_course_path(course),
+                  back_anchor: 'all_courses') do
+                  - if course.start_time
+                    = l(course.start_time,
+                      format: :clock_wordless)
+              %td.time
+                = "-"
+              %td.time
+                - admin_edit_area(edit_path: edit_admin_course_path(course),
+                  back_anchor: 'all_courses') do
+                  - if course.end_time
+                    = l(course.end_time,
+                      format: :clock_wordless)
+              %td.style
+                - admin_edit_area(edit_path: edit_admin_course_path(course),
+                  back_anchor: 'all_courses') do
+                  = link_to course.style do
+                    = course.style.name
+                  - if course.note.present?
+                    %br
+                    = "- #{course.note}"
+        .price-note.has-text-weight-bold
+          = place.pricing_note
 
 #general-info.mb-6.mt-5
   %h3.title.is-3.mb-6.has-text-centered.has-text-weight-bold
