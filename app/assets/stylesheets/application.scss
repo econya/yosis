@@ -81,3 +81,9 @@ $custom-colors: (
     @extend .is-size-5;
   }
 }
+
+form#edit_user {
+  .field {
+    padding-bottom: 1em;
+  }
+}
