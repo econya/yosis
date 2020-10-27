@@ -36,7 +36,7 @@
           class: 'navbar-item' do
           = t('navigation.programs')
 
-      = link_to root_path(anchor: 'videos'),
+      = link_to seminars_path,
         data: { turbolinks: !in_controller_action?(controller: 'pages', action: 'home' )},
         class: 'navbar-item' do
         = t('navigation.seminars')

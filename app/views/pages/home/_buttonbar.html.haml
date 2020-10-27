@@ -26,7 +26,7 @@
           .button-tag-text
             = t('navigation.programs')
   %li.nav-button
-    = link_to '#videos', data: { turbolinks: false } do
+    = link_to seminars_path, data: { turbolinks: true } do
       %circlebutton
         %figure
           = image_tag 'seminare.png'

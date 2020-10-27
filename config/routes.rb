@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'impressum',       to: 'pages#impressum'
   get 'explanation',     to: 'pages#explanation'
   get 'asana-lexicon',   to: 'pages#asana_lexicon'
+  get 'seminars',        to: 'pages#seminars'
 
   # Devise and user
   devise_for :users, controllers: {
