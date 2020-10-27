@@ -12,7 +12,9 @@ class PagesController < ApplicationController
     @html_title = t('navigation.asana-lexicon')
     @asanas = Asana.includes(:german_asana_names,
                              :english_asana_names,
-                             :sanskrit_asana_names).all
+                             :sanskrit_asana_names,
+                             :asana_families,
+                             :image_attachment).all
   end
 
   def privacy
