@@ -24,8 +24,9 @@
             class: 'button' }
             = t('actions.preview')
           = f.text_area :value, rows: 20,
-            data: { target: 'render_md_preview.source auto_resize_height.input',
-            action: 'keyup->auto_resize_height#update' }
+            data: { target: 'render_md_preview.source' }
+          %p.help
+            = link_to t('admin.forms.markdown_help'), '', target: :_blank
         .column#reveal-content{ data: { target: 'reveal.content' } }
           .label
             = t('actions.preview')
