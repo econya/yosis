@@ -11,7 +11,7 @@
     = render partial: 'shared/hero_head_image_title',
       locals: { image_url: header_image_variant_url(header_image_setting&.image),
         title: @html_title,
-        image_edit_url: edit_admin_site_setting_path(header_image_setting) }
+        image_edit_url: edit_admin_site_setting_path(header_image_setting, back_path: request.path) }
 
 
 - setting = SiteSettings.fetch(site_setting)

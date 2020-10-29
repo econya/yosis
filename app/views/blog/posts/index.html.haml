@@ -8,7 +8,7 @@
   = render partial: 'shared/hero_head_image_title',
     locals: { image_url: header_image_variant_url(blog_head_setting&.image),
       title: t('blog.title'),
-      image_edit_url: edit_admin_site_setting_path(blog_head_setting) }
+      image_edit_url: edit_admin_site_setting_path(blog_head_setting, back_path: request.path) }
 
 %br.pt-3
 
