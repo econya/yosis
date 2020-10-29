@@ -26,7 +26,7 @@
           = f.text_area :value, rows: 20,
             data: { target: 'render_md_preview.source' }
           %p.help
-            = link_to t('admin.forms.markdown_help'), '', target: :_blank
+            = link_to t('admin.forms.markdown_help'), admin_help_index_path , target: :_blank
         .column#reveal-content{ data: { target: 'reveal.content' } }
           .label
             = t('actions.preview')
