@@ -68,6 +68,9 @@ de:
     seminars_text:
       default: Meine Seminare
       help: Text auf der Seminare-Seite
+    subtitle:
+      default: Untertitel Deiner Seite
+      help: Untertitel Deiner Seite
     sub-pages: Unter-Seiten
     terms:
       default: AGB

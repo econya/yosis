@@ -14,7 +14,7 @@ class SiteSettings
                              about_us_left about_us_right
                              trial_period_cta register_cta courses_general
                              payment_details]
-  STRING_SETTING_KEYS   = %i[your_name title copyright_notice]
+  STRING_SETTING_KEYS   = %i[your_name title subtitle copyright_notice]
 
   def self.find_or_create_settings
     find_or_create_markdown_site_settings
@@ -77,6 +77,7 @@ class SiteSettings
     end
     # i18n-tasks-use t('site_settings.news_line.help')
     # i18n-tasks-use t('site_settings.title.help')
+    # i18n-tasks-use t('site_settings.subtitle.help')
     # i18n-tasks-use t('site_settings.your_name.help')
   end
 

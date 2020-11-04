@@ -12,6 +12,11 @@
       title_edit_url: edit_admin_site_setting_path(intro_text_setting, back_path: request.path),
       image_edit_url: edit_admin_site_setting_path(intro_background_setting, back_path: request.path) }
 
+- subtitle_setting = SiteSettings.fetch('subtitle')
+- admin_edit_area(edit_path: edit_admin_site_setting_path(id: subtitle_setting&.id)) do
+  .title.is-3.has-text-centered.pt-5
+    = subtitle_setting.value
+
 %section#buttonbar.my-5.py-5
   = render 'pages/home/buttonbar'
 
