@@ -27,17 +27,27 @@
       = t('home.news')
     .subtitle.is-inline-block
       - if news_setting.present?
-        = news_setting.value
+        =! news_setting.value_rendered
+
+- online_news_setting = SiteSettings.fetch('online_news_line')
+- admin_edit_area(edit_path: edit_admin_site_setting_path(id: online_news_setting&.id)) do
+  %section#latest-online.mt-4.pt-5.mb-4.pb-2
+    %h2.title.is-3.is-inline-block
+      = t('home.online')
+      .subtitle.is-inline-block
+        = online_news_setting.value
 
 - last_post = Blog::Post.last_within days: 100
 - if last_post.present?
   %section#latest-blog.mt-4.pt-5.mb-4.pb-2
     - admin_edit_area(edit_path: admin_blog_posts_path) do
-      %h2.title.is-3.is-inline-block
-        = t('home.latest-blog-post')
+      = link_to last_post do
+        %h2.title.is-3.is-inline-block
+          = t('home.latest-blog-post')
       .subtitle.is-inline-block
         = link_to last_post.title, last_post
         (#{l(last_post.published_at.to_date)})
+
 
 %section#courses.py-5.has-background-verycleargrey.pb-6
   = render partial: 'pages/home/courses'

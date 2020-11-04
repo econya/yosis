@@ -10,7 +10,7 @@ class SiteSettings
   MARKDOWN_SETTING_KEYS = %i[intro explanation
                              seminars_text
                              privacy_statement terms impressum
-                             news_line
+                             news_line online_news_line
                              about_us_left about_us_right
                              trial_period_cta register_cta courses_general
                              payment_details]
@@ -57,6 +57,10 @@ class SiteSettings
     # i18n-tasks-use t('site_settings.impressum.help')
     # i18n-tasks-use t('site_settings.intro.default')
     # i18n-tasks-use t('site_settings.intro.help')
+    # i18n-tasks-use t('site_settings.news_line.default')
+    # i18n-tasks-use t('site_settings.news_line.help')
+    # i18n-tasks-use t('site_settings.online_news_line.default')
+    # i18n-tasks-use t('site_settings.online_news_line.help')
     # i18n-tasks-use t('site_settings.payment_details.default')
     # i18n-tasks-use t('site_settings.payment_details.help')
     # i18n-tasks-use t('site_settings.privacy_statement.default')
@@ -75,7 +79,6 @@ class SiteSettings
     STRING_SETTING_KEYS.each do |key|
       find_or_create(key: key, kind: 'string')
     end
-    # i18n-tasks-use t('site_settings.news_line.help')
     # i18n-tasks-use t('site_settings.title.help')
     # i18n-tasks-use t('site_settings.subtitle.help')
     # i18n-tasks-use t('site_settings.your_name.help')
@@ -101,5 +104,4 @@ class SiteSettings
 
     raise
   end
-
 end

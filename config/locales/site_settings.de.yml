@@ -54,6 +54,9 @@ de:
     news_line:
       default: No news is good news!
       help: Die News-Zeile auf der landing page.
+    online_news_line:
+      default: (online) News
+      help: News über den Online Bereich (wird auf landing page angezeigt)
     payment_details:
       default: "(bitte nachfragen)"
       help: Werden bei "reminder" E-Mails (vor Ablauf der Schnupperwoche oder Abonnement) erwähnt.
