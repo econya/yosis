@@ -177,8 +177,9 @@ de:
       none_yet: Noch keine Kurse
       styles: Yoga-Stile
       subtitle: Etabliere Deine regelmäßige Yoga-Praxis
-    latest-blog-post: "Letzer Blog-Eintrag:"
+    latest-blog-post: "Letzer Blog-Post:"
     news: "News:"
+    online: "Online:"
     register-for-trial-period: Für Schnupperwoche registrieren
     sign-in-with-account: Mit bestehenden Zugangsdaten anmelden
     styles:
@@ -201,7 +202,7 @@ de:
     have_fun: Viel Spaß!
     sign_in: Login
     test: Testen
-    ten_days_free: "10 kostenlose Tage"
+    ten_days_free: "10 Tage kostenlos"
   navigation:
     admin: Admin
     asana-lexicon: Asana-Lexikon
