@@ -27,7 +27,7 @@
       = t('home.news')
     .subtitle.is-inline-block
       - if news_setting.present?
-        =! news_setting.value_rendered
+        != news_setting.value_rendered
 
 - online_news_setting = SiteSettings.fetch('online_news_line')
 - admin_edit_area(edit_path: edit_admin_site_setting_path(id: online_news_setting&.id)) do
