@@ -34,8 +34,8 @@
   %section#latest-online.mt-4.pt-5.mb-4.pb-2
     %h2.title.is-3.is-inline-block
       = t('home.online')
-      .subtitle.is-inline-block
-        = online_news_setting.value
+    .subtitle.is-inline-block
+      = online_news_setting.value
 
 - last_post = Blog::Post.last_within days: 100
 - if last_post.present?
