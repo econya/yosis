@@ -5,6 +5,7 @@
 class SiteSettings
   IMAGE_SETTING_KEYS    = %i[blog_background asana_lexicon_header_image
                              seminars_header_image
+                             navbar_right_logo
                              logo favicon favicon-png favicon-apple-touch
                              intro_background]
   MARKDOWN_SETTING_KEYS = %i[intro explanation
@@ -14,7 +15,8 @@ class SiteSettings
                              about_us_left about_us_right
                              trial_period_cta register_cta courses_general
                              payment_details]
-  STRING_SETTING_KEYS   = %i[your_name title subtitle copyright_notice]
+  STRING_SETTING_KEYS   = %i[your_name title subtitle copyright_notice
+                             navbar_right_logo_url]
 
   def self.find_or_create_settings
     find_or_create_markdown_site_settings
@@ -33,6 +35,7 @@ class SiteSettings
     # i18n-tasks-use t('site_settings.favicon-png.help')
     # i18n-tasks-use t('site_settings.favicon.help')
     # i18n-tasks-use t('site_settings.intro_background.help')
+    # i18n-tasks-use t('site_settings.navbar_right_logo.help')
     # i18n-tasks-use t('site_settings.logo.help')
     # i18n-tasks-use t('site_settings.seminars_header_image.help')
   end
@@ -81,6 +84,7 @@ class SiteSettings
     end
     # i18n-tasks-use t('site_settings.title.help')
     # i18n-tasks-use t('site_settings.subtitle.help')
+    # i18n-tasks-use t('site_settings.navbar_right_logo_url.help')
     # i18n-tasks-use t('site_settings.your_name.help')
   end
 

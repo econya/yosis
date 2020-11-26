@@ -14,7 +14,8 @@ class Admin::SiteSettingsController < Admin::AdminController
 
     @general_settings    = SiteSetting.where(
       key: ['title', 'your_name', 'copyright_notice', 'payment_details',
-            'logo', 'favicon', 'favicon-png', 'favicon-apple-touch'])
+            'logo', 'favicon', 'favicon-png', 'favicon-apple-touch',
+            'navbar_right_logo', 'navbar_right_logo_url'])
     @start_page_settings = SiteSetting.where(
       key: ['intro', 'intro_background', 'news_line',
             'register_cta', 'trial_period_cta'])
