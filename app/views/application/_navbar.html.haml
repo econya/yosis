@@ -84,6 +84,8 @@
 
         = link_to t('sign_out'), destroy_user_session_path, method: :delete, class: "navbar-item"
       - if (navbar_right_logo = SiteSettings.fetch('navbar_right_logo'))&.image&.attached?
-        .navbar-item
-          = image_tag navbar_right_logo.image.variant(resize_to_fit: [600, 80]).processed, class: 'logo'
+        - right_logo_url_setting_value = SiteSettings.fetch('navbar_right_logo_url')&.value
+        - right_logo_url = right_logo_url_setting_value.present? ? right_logo_url_setting_value : root_path
+        = link_to  right_logo_url, class: 'navbar-item' do
+          = image_tag navbar_right_logo.image.variant(resize_to_fit: [360, 48]).processed
 
