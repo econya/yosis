@@ -13,16 +13,18 @@ cannot do that for free).
 
 ## Contents of README
 
-- [Synopsis](#synopsis)
-  + [Features](#features)
-- [Installation](#installation)
-  * [Test/Example Data](#test-example-data)
-  * [Deployment](#deployment)
-  * [Configuration](#configuration)
-    + [Database](#database)
-    + [Mail](#mail)
+- [1 Synopsis](#1-synopsis)
+  + [1.1 Features](#11-features)
+- [2 Installation](#2-installation)
+  * [2.1 Test/Example Data](#21-test-example-data)
+  * [2.2 Deployment](#22-deployment)
+  * [2.3 Configuration](#23-configuration)
+    + [2.3.1 Database](#231-database)
+    + [2.3.2 Mail](#232-mail)
+    + [2.3.3 In-app configuration](#233-in-app-configuration)
+  * [Update](#update)
 - [User/Admin Documentation](#lengthier-user/admin-documentation)
-- [Development](#development)
+- [3 Development](#3-development)
   * [License](#license)
   * [Contributions](#contributions)
   * [Workflows](#workflows)
@@ -36,7 +38,7 @@ cannot do that for free).
 
 ---
 
-## Synopsis
+## 1 Synopsis
 
 Project had extremely tight deadlines and is adapted to a single use and
 business case as of now. The interface is German (but i18n is fully prepared).
@@ -44,7 +46,7 @@ business case as of now. The interface is German (but i18n is fully prepared).
 If you want that we host a page for you, need help with a deployment or some
 other features, send us a message.
 
-### Features
+### 1.1 Features
 
 * Site owner can upload videos assigned to courses and announce appointments.
 * Users can register and upon mail confirmation enter a 7-day trial period.
@@ -62,7 +64,7 @@ other features, send us a message.
 + Scores 99 for desktop and 90 for mobile on googles PageSpeedInsights on our
   deployment!
 
-## Installation
+## 2 Installation
 
 Currently it is assumed that you run Ruby >= 2.6 <= 3 . Then, follow a typical
 rails development workflow:
@@ -74,12 +76,12 @@ rails db:setup
 rails s # (development server)
 ```
 
-### Test / example data
+### 2.1 Test / example data
 
 Not very strong yet. Sorry.
 Import test/example data with `rails db:fixture:load`.
 
-### Deployment
+### 2.2 Deployment
 
 Not covering all detail here, but also nothing special.
 
@@ -124,17 +126,17 @@ To update/copy user-provided favicons either run `rails yosis:copy_favicons` or
 use a setup that respects the `Procfile` (the favicons will be copied in every
 worker via `bin/run.sh`).
 
-### Configuration
+### 2.3 Configuration
 
-#### Database
+#### 2.3.1 Database
 
 Set
 
-    DATABASEURL=postgres://aksdjl:aslkalksd@djief:342/aksdu
+    DATABASEURL=postgres://user:pass@host:port/dbname
 
-for production db usage (herokuisih).
+for production database usage (*"herokuish"*).
 
-#### Mail
+#### 2.3.2 Mail
 
 To send mails you need to configure your mail credentials. Set following
 environment variables:
