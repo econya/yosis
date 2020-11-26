@@ -55,6 +55,7 @@ de:
       help: Logo oben rechts in der Menüleiste
     navbar_right_logo_url:
       help: Link/URL ("Sprungziel") für das Logo navbar_right_logo (Bild oben rechts in der Menüleiste)
+      default: ''
     news_line:
       default: No news is good news!
       help: Die News-Zeile auf der landing page.
