@@ -13,7 +13,7 @@
             = link_to new_user_session_path do
               %h2.subtitle.is-4.pt-2.mb-2
                 = t('login_row.sign_in')
-              = t('login_row.login_sub')
+        = t('login_row.login_sub')
     .column.is-4.has-text-centered
       .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
         .columns
@@ -23,7 +23,7 @@
             = link_to new_user_registration_path do
               %h2.subtitle.is-4.pt-2.mb-2
                 = t('login_row.test')
-              = t('login_row.test_sub')
+        = t('login_row.test_sub')
     -#.column.is-3.has-text-centered
     -#  .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
     -#    .columns
@@ -82,7 +82,7 @@
         .column.is-two-thirds.is-vcentered.has-text-centered
           %h2.subtitle.is-4.pt-2.mb-2
             = t('home.contact.title')
-          = t('login_row.feedback_head')
-          = link_to '#contact-form', data: { turbolinks: false } do
-            = t('login_row.feedback_click')
+      = t('login_row.feedback_head')
+      = link_to '#contact-form', data: { turbolinks: false } do
+        = t('login_row.feedback_click')
   

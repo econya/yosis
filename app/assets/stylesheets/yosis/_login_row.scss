@@ -8,5 +8,9 @@
   align-items: stretch;
   .box {
     height: 100%;
+    .columns {
+      align-items: center;
+      margin-bottom: 0em;
+    }
   }
 }
