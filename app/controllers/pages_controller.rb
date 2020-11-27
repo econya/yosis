@@ -10,6 +10,7 @@ class PagesController < ApplicationController
 
   def asana_lexicon
     @html_title = t('navigation.asana-lexicon')
+    @asana_families = AsanaFamily.all
     @asanas = Asana.includes(:german_asana_names,
                              :english_asana_names,
                              :sanskrit_asana_names,

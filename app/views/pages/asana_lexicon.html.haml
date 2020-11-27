@@ -15,57 +15,8 @@
 .container
   .content.is-medium
     - admin_edit_area(edit_path: admin_asanas_path) do
-      %table.table.is-striped.is-fullwidth
-        %thead
-          %tr
-            %th
-            %th
-              = t('activerecord.attributes.asana.asana_family')
-            %th
-              = t('activerecord.attributes.asana.german_asana_names.name')
-            %th
-              = t('activerecord.attributes.asana.english_asana_names.name')
-            %th
-              = t('activerecord.attributes.asana.sanskrit_asana_names.name')
-            %th
-        %tbody
-          - @asanas.each do |asana|
-            %tr
-              %td
-                - if asana.image.attached?
-                  = image_tag preview_image_variant_url(asana.image)
-              %td
-                - asana.asana_families.each do |family|
-                  .asana-family
-                    = family.name
-              %td
-                - asana.german_asana_names.each do |name|
-                  .asana-name
-                    - if name.main
-                      .has-text-weight-bold
-                        = name.name
-                    - else
-                      .is-italic
-                        = name.name
-              %td
-                - asana.english_asana_names.each do |name|
-                  .asana-name
-                    - if name.main
-                      .has-text-weight-bold
-                        = name.name
-                    - else
-                      .is-italic
-                        = name.name
-              %td
-                - asana.sanskrit_asana_names.each do |name|
-                  .asana-name
-                    - if name.main
-                      .has-text-weight-bold
-                        = name.name
-                    - else
-                      .is-italic
-                        = name.name
-              %td
-                - if user_signed_in? && current_user.admin?
-                  = admin_edit_button edit_admin_asana_path(asana)
+    
+      - @asana_families.each do |family|
+        %h2= family.name
 
+        = render partial: 'asana_lexicon_family_table', locals: {family: family}

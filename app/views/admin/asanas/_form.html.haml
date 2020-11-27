@@ -35,8 +35,31 @@
         = image_tag preview_image_variant_url(@asana.image)
         %hr
         = link_to @asana.image.filename, rails_blob_path(@asana.image, disposition: 'attachment')
+
   .field
     .columns
+      .column
+        .field
+          -# i18n-tasks-use t('activerecord.attributes.asana.sanskrit_names')
+          = f.label :sanskrit_names
+
+        = f.fields_for :sanskrit_asana_names do |f_de_name|
+          = render 'asana_name_fields', f: f_de_name
+
+        -# Always have at least one new
+        = f.fields_for :asana_names, @asana.sanskrit_asana_names.build do |f|
+          = render 'asana_name_fields', f: f
+
+        .actions{ data: { controller: 'association_form',
+          target: 'association_form.root' } }
+          .template{style: 'display: none;',
+            data: { target: 'association_form.template' }}
+            = f.fields_for :asana_names,
+              @asana.sanskrit_asana_names.build, child_index: 'REPLACE' do |f|
+              = render 'asana_name_fields', f: f, disabled: true
+          .div{ data: { action: 'click->association_form#add' }, class: 'button'}
+            = t('actions.add')
+
       .column
         .field
           -# i18n-tasks-use t('activerecord.attributes.asana.german_names')
@@ -77,28 +100,6 @@
             data: { target: 'association_form.template' }}
             = f.fields_for :asana_names,
               @asana.english_asana_names.build, child_index: 'REPLACE' do |f|
-              = render 'asana_name_fields', f: f, disabled: true
-          .div{ data: { action: 'click->association_form#add' }, class: 'button'}
-            = t('actions.add')
-
-      .column
-        .field
-          -# i18n-tasks-use t('activerecord.attributes.asana.sanskrit_names')
-          = f.label :sanskrit_names
-
-        = f.fields_for :sanskrit_asana_names do |f_de_name|
-          = render 'asana_name_fields', f: f_de_name
-
-        -# Always have at least one new
-        = f.fields_for :asana_names, @asana.sanskrit_asana_names.build do |f|
-          = render 'asana_name_fields', f: f
-
-        .actions{ data: { controller: 'association_form',
-          target: 'association_form.root' } }
-          .template{style: 'display: none;',
-            data: { target: 'association_form.template' }}
-            = f.fields_for :asana_names,
-              @asana.sanskrit_asana_names.build, child_index: 'REPLACE' do |f|
               = render 'asana_name_fields', f: f, disabled: true
           .div{ data: { action: 'click->association_form#add' }, class: 'button'}
             = t('actions.add')
