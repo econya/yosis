@@ -21,7 +21,8 @@ class Admin::SiteSettingsController < Admin::AdminController
             'register_cta', 'trial_period_cta'])
     @pages_settings      = SiteSetting.where(
       key: ['about_us_left', 'about_us_right', 'blog_background', 'courses_general', 'impressum',
-            'privacy_statement', 'seminars_text', 'seminars_header_image', 'terms', 'explanation'])
+            'privacy_statement', 'seminars_text', 'seminars_header_image', 'terms',
+            'explanation', 'explanation_trial'])
   end
 
   def show

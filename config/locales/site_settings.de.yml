@@ -27,7 +27,10 @@ de:
       help: Seite/Text mit Hinweisen zu den Kursen
     explanation:
       default: Details über Dein Business (markdown)
-      help: Sichtbar bei Mehr erfahren-Link
+      help: Sichtbar bei Wie-Geths-Weiter-Link
+    explanation_trial:
+      default: Warum anmelden?
+      help: Sichtbar bei den Signup und Login- Masken
     favicon:
       default: Favicon in .ico Format
       help: Favicon in .ico Format (e.g. 48x48 px), braucht Server-Neustart!
