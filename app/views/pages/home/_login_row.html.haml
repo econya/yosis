@@ -55,25 +55,23 @@
               - when :subscription_ended
                 = t('subscription_state.your-subscription-ended')
               
-            - case access_state
-            - when :trial
-              = t('subscription_state.you_have_x_days_trial_left',
-                how_long_until_end: distance_of_time_in_words_to_now(current_user.confirmed_at + 7.days))
-              = t('subscription_state.logged_in_as', logged_in_email: current_user.email)
-              %br
-              = link_to explanation_path do
-                = t('subscription_state.whats_next?')
-            - when :trial_ended
-            - when :subscribed
-              = t('subscription_state.your_subscription_ends_in',
-                how_long_until_end: distance_of_time_in_words_to_now(current_user.subscriptions.current.first.date_end))
-              = t('subscription_state.logged_in_as', logged_in_email: current_user.email)
-            - when :subscription_ended
-            -#%br
-            -#= t('subscription_state.logged_in_as', logged_in_email: current_user.email)
-            %br
-            = link_to explanation_path do
-              = t('subscription_state.whats_next?')
+        - case access_state
+        - when :trial
+          = t('subscription_state.you_have_x_days_trial_left',
+            how_long_until_end: distance_of_time_in_words_to_now(current_user.confirmed_at + 7.days))
+          = t('subscription_state.logged_in_as', logged_in_email: current_user.email)
+          %br
+          = link_to explanation_path do
+            = t('subscription_state.whats_next?')
+        - when :trial_ended
+        - when :subscribed
+          = t('subscription_state.your_subscription_ends_in',
+            how_long_until_end: distance_of_time_in_words_to_now(current_user.subscriptions.current.first.date_end))
+          = t('subscription_state.logged_in_as', logged_in_email: current_user.email)
+        - when :subscription_ended
+        %br
+        = link_to explanation_path do
+          = t('subscription_state.whats_next?')
   .column.is-4.has-text-centered
     .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
       .columns
