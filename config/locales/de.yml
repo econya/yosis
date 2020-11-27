@@ -199,9 +199,13 @@ de:
       video: Video
   login_row:
     deep_dive: Steige tiefer ein
+    feedback_click: Klicke hier um uns eine Nachricht zu senden.
+    feedback_head: Du hast eine Frage, einen Kommentar, einen Wunsch ...
     have_fun: Viel Spaß!
+    login_sub: Du hast dich für 10 Tage kostenlose Probe oder ein Abo angemeldet. Hier kannst du dich einloggen.
     sign_in: Login
     test: Testen
+    test_sub: Hier kannst du dich für 10 Tage kostenlose Probe anmelden.
     ten_days_free: "10 Tage kostenlos"
   navigation:
     admin: Admin
@@ -233,7 +237,7 @@ de:
     showing_from_to_total: Zeige %{item_name} %{from}-%{to}  von %{total} gesamt.
   register:
     action: Für Schnupperwoche registrieren
-    heading: Schnupperwoche anfangen
+    heading: Deine Daten eingeben
   register_new: Schnupperwoche anfangen
   register_or_sign_in: Anmelden oder Schnupperwoche anfangen
   sessions:
@@ -280,15 +284,16 @@ de:
       your_subscription_ends_soon: Your subscription ends soon
       your_trial_ends_soon: Deine Schnupperwoche bei %{site} nähert sich dem Ende.
   subscription_state:
+    abonnement: Abonnement
     feedback_contact: Feedback / Kontakt
+    logged_in_as: Du bist eingeloggt als %{logged_in_email}
     more-info: Infos über ein Abo
-    subscription_ends_in: Es endet in %{how_long_until_end}.
     trial_ends_in: Sie endet in %{how_long_until_end}.
-    whats_next?: Wie geht es weiter?
-    you-are-in-trial-period: Du bist in der Schnupperwoche
-    your-are-subscriped: Du hast ein Abonnement
+    whats_next?: Hier kannst du erfahren wie es danach weitergeht
+    you_have_x_days_trial_left: Du hast noch %{how_long_until_end} kostenlose Probe.
     your-subscription-ended: Dein Abonnement ist abgelaufen
-    your-trial-ended: Deine Schnupperwoche ist abgelaufen
+    your-trial-ended: Deine 10 Tage kostenlose Probe sind zu Ende gekommen
+    your_subscription_ends_in: Dein Abo endet in %{how_long_until_end}.
   terms_acceptances:
     create:
       welcome: Super! Willkommen und viel Spaß!

@@ -2,20 +2,9 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-- if !user_signed_in?
-  .columns.mt-5.is-vcentered.is-centered.is-variable.is-6
-    .column.is-1
-    .column.is-3.has-text-centered
-      .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
-        .columns
-          .column.is-one-third.ml-4(style="scale: 92%;")
-            = image_tag 'calendar.png', class: 'round'
-          .column.is-two-thirds.is-vcentered.has-text-centered
-            = link_to new_user_registration_path do
-              %h2.subtitle.is-4.pt-2.mb-2
-                = t('login_row.test')
-              = t('login_row.ten_days_free')
-    .column.is-3.has-text-centered
+.columns.mt-5.is-vcentered.is-centered.is-variable.is-6
+  - if !user_signed_in?
+    .column.is-4.has-text-centered
       .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
         .columns
           .column.is-one-third.ml-4
@@ -24,7 +13,17 @@
             = link_to new_user_session_path do
               %h2.subtitle.is-4.pt-2.mb-2
                 = t('login_row.sign_in')
-              = t('login_row.have_fun')
+              = t('login_row.login_sub')
+    .column.is-4.has-text-centered
+      .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
+        .columns
+          .column.is-one-third.ml-4(style="scale: 92%;")
+            = image_tag 'calendar.png', class: 'round'
+          .column.is-two-thirds.is-vcentered.has-text-centered
+            = link_to new_user_registration_path do
+              %h2.subtitle.is-4.pt-2.mb-2
+                = t('login_row.test')
+              = t('login_row.test_sub')
     -#.column.is-3.has-text-centered
     -#  .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
     -#    .columns
@@ -36,5 +35,54 @@
     -#            = t('navigation.programs')
     -#          = t('login_row.deep_dive')
 
-    .column.is-1
+  - else
+    .column.is-5.has-text-centered
+      .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
+        .columns
+          .column.is-one-third.ml-4(style="scale: 92%;")
+            = image_tag 'calendar.png', class: 'round'
+          .column.is-two-thirds.is-vcentered.has-text-centered
+            - access_state = AccessState.new(current_user).state
 
+            %h2.subtitle.is-4.pt-2.mb-2
+              - case access_state
+              - when :trial
+                = t('login_row.test')
+              - when :trial_ended
+                = t('subscription_state.your-trial-ended')
+              - when :subscribed
+                = t('subscription_state.abonnement')
+              - when :subscription_ended
+                = t('subscription_state.your-subscription-ended')
+              
+            - case access_state
+            - when :trial
+              = t('subscription_state.you_have_x_days_trial_left',
+                how_long_until_end: distance_of_time_in_words_to_now(current_user.confirmed_at + 7.days))
+              = t('subscription_state.logged_in_as', logged_in_email: current_user.email)
+              %br
+              = link_to explanation_path do
+                = t('subscription_state.whats_next?')
+            - when :trial_ended
+            - when :subscribed
+              = t('subscription_state.your_subscription_ends_in',
+                how_long_until_end: distance_of_time_in_words_to_now(current_user.subscriptions.current.first.date_end))
+              = t('subscription_state.logged_in_as', logged_in_email: current_user.email)
+            - when :subscription_ended
+            -#%br
+            -#= t('subscription_state.logged_in_as', logged_in_email: current_user.email)
+            %br
+            = link_to explanation_path do
+              = t('subscription_state.whats_next?')
+  .column.is-4.has-text-centered
+    .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
+      .columns
+        .column.is-one-third.ml-4(style="scale: 92%;")
+          = image_tag 'kontakt.png', class: 'round'
+        .column.is-two-thirds.is-vcentered.has-text-centered
+          %h2.subtitle.is-4.pt-2.mb-2
+            = t('home.contact.title')
+          = t('login_row.feedback_head')
+          = link_to '#contact-form', data: { turbolinks: false } do
+            = t('login_row.feedback_click')
+  
