@@ -33,3 +33,12 @@ section #courses {
   min-height: 232px;
 }
 
+#course_by_style {
+  .columns {
+    align-items: stretch;
+
+    .style-column .box {
+      height: 100%;
+    }
+  }
+}
