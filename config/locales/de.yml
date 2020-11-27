@@ -237,7 +237,7 @@ de:
     showing_from_to_total: Zeige %{item_name} %{from}-%{to}  von %{total} gesamt.
   register:
     action: Für Schnupperwoche registrieren
-    heading: Deine Daten eingeben
+    heading: Neues kostenloses Konto erstellen
   register_new: Schnupperwoche anfangen
   register_or_sign_in: Anmelden oder Schnupperwoche anfangen
   sessions:
