@@ -39,7 +39,14 @@
 .level
   .level-left
     .level-item
+      %figure.image
+        = image_tag style_card_image_variant_url(@style.image), class: 'is-rounded'
+    .level-item.is-flex-direction-column
       %h1.title.is-2= @style.name
+      - if @style.description.present?
+        %br.is-clearfix.has-clearfix
+        %blockquote
+          = @style.description
   - if user_admin?
     .level-right
       .level-item.buttons
@@ -54,10 +61,6 @@
           %span
             = t('actions.edit')
 
-- if @style.description.present?
-  %blockquote
-    = @style.description
-  %br
 
 %hr
 
