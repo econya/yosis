@@ -65,7 +65,7 @@
   %section#style-courses.my-6
     = render partial: 'courses'
 
-- if @style.lessons.active.any?  && !user_admin?
+- if @style.lessons.active.any?
   %h2.title.is-4
     = t('styles.videos')
   
