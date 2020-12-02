@@ -4,27 +4,42 @@
 
 %h2.title
   = t('register.heading')
-= form_for(resource, as: resource_name, url: registration_path(resource_name), builder: BulmaFormBuilder::FormBuilder) do |f|
+= form_for(resource, as: resource_name, url: registration_path(resource_name), builder: BulmaFormBuilder::HorizontalBulmaFormBuilder) do |f|
   = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em= t('devise.shared.minimum_password_length', count: @minimum_password_length)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :tos_agreement
+  .field.is-horizontal.pt-3
+    .field-label
+      = f.label :email, class: 'label'
+    .field-body
+      .field
+        .control
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'input'
+  .field.is-horizontal
+    .field-label
+      = f.label :password, class: 'label'
+    .field-body
+      .field
+        .control
+          = f.password_field :password, autocomplete: "new-password", class: 'input'
+        - if @minimum_password_length
+          %p.help
+            = t('devise.shared.minimum_password_length', count: @minimum_password_length)
+  .field.is-horizontal
+    .field-label
+      = f.label :password_confirmation, class: 'label'
+    .field-body
+      .field
+        .control
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'input'
+
+  .field.pt-5
     = f.check_box :tos_agreement
+    = f.label :tos_agreement
   .field
-    = f.label :read_privacy_terms
     = f.check_box :read_privacy_terms
-  .actions
+    = f.label :read_privacy_terms
+  .actions.pb-3
+    %br
     = invisible_captcha :usernote
     = f.submit t('register.action'), class: 'button is-primary'
+
 = render "devise/shared/links"

@@ -4,6 +4,7 @@
 
 class RegistrationsController < Devise::RegistrationsController
   invisible_captcha only: [:create], honeypot: :usernote
+  layout 'devise_wide', only: [:create, :new]
 
   def create
     super

@@ -1,0 +1,12 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+= render layout: 'layouts/application' do
+  .columns.is-centered
+    .column.is-4
+      .box.content
+        != SiteSetting['explanation_trial']
+    .column.is-6
+      .box
+        = yield
