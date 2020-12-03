@@ -16,9 +16,12 @@
   .field
     = f.label :asana_family
     = f.collection_select :asana_family_ids,
-      AsanaFamily.all,
+      AsanaFamily.all.where.not(name: ''),
       :id, :name,
-      prompt: t('admin.asanas.select_asana_family'), multiple: true
+      { seleced: @asana.asana_family_ids, prompt: t('admin.asanas.select_asana_family') } ,
+      { size: 10, multiple: true }
+    %p.help= t('admin.forms.hold_ctrl_for_multiple_select')
+    %br
     = t('admin.forms.or_create_new')
     = text_field_tag :new_family
 

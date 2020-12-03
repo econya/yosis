@@ -38,7 +38,7 @@ class Admin::AsanasController < Admin::AdminController
       asana_name.update(main: mained.delete(asana_name.language_code))
     end
 
-    if params[:new_family]
+    if params[:new_family].present?
       family = AsanaFamily.find_or_create_by!(name: params[:new_family])
       @asana.asana_families << family
     end
@@ -63,7 +63,7 @@ class Admin::AsanasController < Admin::AdminController
       asana_name.update(main: mained.delete(asana_name.language_code))
     end
 
-    if params[:new_family]
+    if params[:new_family].present?
       family = AsanaFamily.find_or_create_by!(name: params[:new_family])
       @asana.asana_families << family
     end
@@ -95,12 +95,12 @@ class Admin::AsanasController < Admin::AdminController
 
     def asana_params
       params.require(:asana).permit(
-        :asana_family_ids,
         :image,
+        asana_family_ids: [],
         asana_names_attributes: [:language_code, :name, :id, :_destroy],
         german_asana_names_attributes: [:language_code, :name, :id, :_destroy],
         english_asana_names_attributes: [:language_code, :name, :id, :_destroy],
-        sanskrit_asana_names_attributes: [:language_code, :name, :id, :_destroy],
+        sanskrit_asana_names_attributes: [:language_code, :name, :id, :_destroy]
       )
     end
 end
