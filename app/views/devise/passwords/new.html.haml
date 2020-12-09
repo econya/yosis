@@ -4,13 +4,19 @@
 
 %h2.title.is-3
   = t('.forgot_your_password')
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+= form_for(resource, as: resource_name, url: password_path(resource_name), builder: BulmaFormBuilder::HorizontalBulmaFormBuilder, html: { method: :post }) do |f|
   = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
+
+  .field.is-horizontal.pt-3
+    .field-label
+      = f.label :email, class: 'label'
+    .field-body
+      .field
+        .control
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'input'
+
+  .actions.pb-3
     %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
     = f.submit t('.send_me_reset_password_instructions'), class: 'button is-fullwidth is-primary'
-    %br/
+
 = render "devise/shared/links"

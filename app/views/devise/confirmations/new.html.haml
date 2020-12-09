@@ -4,14 +4,18 @@
 
 %h2.title.is-4
   = t('.resend_confirmation_instructions')
-= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+= form_for(resource, as: resource_name, url: confirmation_path(resource_name), builder: BulmaFormBuilder::HorizontalBulmaFormBuilder, html: { method: :post }) do |f|
   = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
+
+  .field.is-horizontal.pt-3
+    .field-label
+      = f.label :email, class: 'label'
+    .field-body
+      .field
+        .control
+          = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'input'
+  .actions.pb-3
     %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
-  .actions
     = f.submit t('.resend_confirmation_instructions'), class: 'button is-primary'
-    %br/
-    %br/
+
 = render "devise/shared/links"
