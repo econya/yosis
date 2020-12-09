@@ -14,6 +14,16 @@ class SubscriptionReminderMailer < ApplicationMailer
   def trial_ends_soon(user)
     @user = user#params[:user]
 
-    mail(to: user.email, subject: t('subscription_reminder_mailer.trial_ends_soon.subject'))
+    mail(to: user.email,
+         subject: prepend_title(
+           t('subscription_reminder_mailer.trial_ends_soon.subject'))
+    )
   end
+
+  private
+
+  def prepend_title string
+    "%s: %s" % [SiteSettings.fetch('title').value, string]
+  end
+
 end
