@@ -6,6 +6,7 @@
   = t('register.heading')
 = form_for(resource, as: resource_name, url: registration_path(resource_name), builder: BulmaFormBuilder::HorizontalBulmaFormBuilder) do |f|
   = render "devise/shared/error_messages", resource: resource
+
   .field.is-horizontal.pt-3
     .field-label
       = f.label :email, class: 'label'
@@ -13,6 +14,7 @@
       .field
         .control
           = f.email_field :email, autofocus: true, autocomplete: "email", class: 'input'
+
   .field.is-horizontal
     .field-label
       = f.label :password, class: 'label'
@@ -23,6 +25,7 @@
         - if @minimum_password_length
           %p.help
             = t('devise.shared.minimum_password_length', count: @minimum_password_length)
+
   .field.is-horizontal
     .field-label
       = f.label :password_confirmation, class: 'label'

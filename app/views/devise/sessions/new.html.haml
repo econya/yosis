@@ -1,17 +1,29 @@
 %h2.title
   = t('.sign_in')
-= form_for(resource, as: resource_name, url: session_path(resource_name), builder: BulmaFormBuilder::FormBuilder) do |f|
-  .field
-    = f.label :email
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    = f.password_field :password, autocomplete: "current-password"
+= form_for(resource, as: resource_name, url: session_path(resource_name), builder: BulmaFormBuilder::HorizontalBulmaFormBuilder, class: 'has-text-left') do |f|
+  .field.is-horizontal.pt-3
+    .field-label
+      = f.label :email, class: 'label'
+    .field-body
+      .field
+        .control
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+
+  .field.is-horizontal
+    .field-label
+      = f.label :password, class: 'label'
+    .field-body
+      .field
+        .control
+          = f.password_field :password, autocomplete: "current-password"
+
   - if devise_mapping.rememberable?
-    .field
-      = f.label :remember_me
+    .field.pt-5
       = f.check_box :remember_me
-  .actions
+      = f.label :remember_me
+
+  .actions.pb-3
+    %br
     = f.submit t('.sign_in'), class: 'button is-primary'
-  %br/
+
 = render "devise/shared/links"

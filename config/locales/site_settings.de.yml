@@ -28,9 +28,12 @@ de:
     explanation:
       default: Details über Dein Business (markdown)
       help: Sichtbar bei Wie-Geths-Weiter-Link
+    explanation_login:
+      default: Hier kannst du dich anmelden
+      help: Sichtbar bei den Login- Masken
     explanation_trial:
       default: Warum anmelden?
-      help: Sichtbar bei den Signup und Login- Masken
+      help: Sichtbar bei den Signup - Masken
     favicon:
       default: Favicon in .ico Format
       help: Favicon in .ico Format (e.g. 48x48 px), braucht Server-Neustart!

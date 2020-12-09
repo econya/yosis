@@ -9,7 +9,7 @@ class SiteSettings
                              logo favicon favicon-png favicon-apple-touch
                              intro_background]
   MARKDOWN_SETTING_KEYS = %i[intro explanation
-                             explanation_trial
+                             explanation_trial explanation_login
                              seminars_text
                              privacy_statement terms impressum
                              news_line online_news_line
@@ -59,6 +59,8 @@ class SiteSettings
     # i18n-tasks-use t('site_settings.explanation.help')
     # i18n-tasks-use t('site_settings.explanation_trial.default')
     # i18n-tasks-use t('site_settings.explanation_trial.help')
+    # i18n-tasks-use t('site_settings.explanation_login.help')
+    # i18n-tasks-use t('site_settings.explanation_login.default')
     # i18n-tasks-use t('site_settings.impressum.default')
     # i18n-tasks-use t('site_settings.impressum.help')
     # i18n-tasks-use t('site_settings.intro.default')

@@ -34,8 +34,8 @@ de:
       confirmed: Ihre E-Mail-Adresse wurde erfolgreich bestätigt.
       new:
         resend_confirmation_instructions: Anleitung zur Bestätigung noch mal schicken
-      send_instructions: Sie erhalten in wenigen Minuten eine E-Mail, mit der Sie Ihre Registrierung bestätigen können.
-      send_paranoid_instructions: Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail, mit der Sie Ihre Registrierung bestätigen können.
+      send_instructions: Du erhälst in wenigen Minuten eine E-Mail, mit der du deine Registrierung bestätigen können.
+      send_paranoid_instructions: Falls deine E-Mail-Adresse in unserer Datenbank existiert, erhälst du in wenigen Minuten eine E-Mail, mit der du deine Registrierung bestätigen können.
     failure:
       already_authenticated: Sie sind bereits angemeldet.
       inactive: Ihr Konto ist noch nicht aktiv.
@@ -142,7 +142,7 @@ de:
         forgot_your_password: Passwort vergessen?
         sign_in: Anmelden
         sign_in_with_provider: Mit %{provider} anmelden
-        sign_up: Registrieren
+        sign_up: Noch kein (kostenloses) Konto bei uns?
       minimum_password_length:
         one: "(mindestens %{count} Zeichen)"
         other: "(mindestens %{count} Zeichen)"
