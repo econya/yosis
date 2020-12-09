@@ -238,6 +238,7 @@ de:
   register:
     action: Abschicken
     heading: Neues kostenloses Konto erstellen
+    error: Konto konnte nicht angelegt werden
   register_new: Schnupperwoche anfangen
   register_or_sign_in: Anmelden oder Schnupperwoche anfangen
   sessions:

@@ -34,8 +34,8 @@ de:
       confirmed: Ihre E-Mail-Adresse wurde erfolgreich bestätigt.
       new:
         resend_confirmation_instructions: Anleitung zur Bestätigung noch mal schicken
-      send_instructions: Du erhälst in wenigen Minuten eine E-Mail, mit der du deine Registrierung bestätigen können.
-      send_paranoid_instructions: Falls deine E-Mail-Adresse in unserer Datenbank existiert, erhälst du in wenigen Minuten eine E-Mail, mit der du deine Registrierung bestätigen können.
+      send_instructions: Du erhälst in wenigen Minuten eine E-Mail, mit der du deine Registrierung bestätigen kannst.
+      send_paranoid_instructions: Falls deine E-Mail-Adresse in unserer Datenbank existiert, erhälst du in wenigen Minuten eine E-Mail, mit der du deine Registrierung bestätigen kannst.
     failure:
       already_authenticated: Sie sind bereits angemeldet.
       inactive: Ihr Konto ist noch nicht aktiv.
@@ -101,8 +101,8 @@ de:
         confirm_new_password: Neues Passwort bestätigen
         new_password: Neues Passwort
       new:
-        forgot_your_password: Haben Sie Ihr Passwort vergessen?
-        send_me_reset_password_instructions: Schicken Sie mir die Anleitung, mein Passwort zurückzusetzen
+        forgot_your_password: Hast du dein Passwort vergessen?
+        send_me_reset_password_instructions: Schicke mir die Anleitung, mein Passwort zurückzusetzen
       no_token: Sie können sich nicht auf dieser Seite anmelden, wenn Sie nicht von einer Passwort-Zurücksetzen-E-Mail kommen. Wenn Sie von solch einer E-Mail kommen, überprüfen Sie bitte, ob Sie die gesamte URL verwendet haben.
       send_instructions: Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können.
       send_paranoid_instructions: Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können.
