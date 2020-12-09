@@ -201,10 +201,10 @@ de:
     feedback_click: Klicke hier um uns eine Nachricht zu senden.
     feedback_head: Du hast eine Frage, einen Kommentar, einen Wunsch ...
     have_fun: Viel Spaß!
-    login_sub: Du hast dich für 10 Tage kostenlose Probe oder ein Abo angemeldet. Hier kannst du dich einloggen.
+    login_sub: Du hast dich für 10 Tage kostenlose Probezeit oder ein Abo angemeldet. Hier kannst du dich einloggen.
     sign_in: Login
     test: Testen
-    test_sub: Hier kannst du dich für 10 Tage kostenlose Probe anmelden.
+    test_sub: Hier kannst du dich für 10 Tage kostenlose Probezeit anmelden.
     ten_days_free: "10 Tage kostenlos"
   navigation:
     admin: Admin
@@ -290,9 +290,9 @@ de:
     more-info: Infos über ein Abo
     trial_ends_in: Sie endet in %{how_long_until_end}.
     whats_next?: Hier kannst du erfahren wie es danach weitergeht
-    you_have_x_days_trial_left: Du hast noch %{how_long_until_end} kostenlose Probe.
+    you_have_x_days_trial_left: Du hast noch %{how_long_until_end} kostenlose Probezeit.
     your-subscription-ended: Dein Abonnement ist abgelaufen
-    your-trial-ended: Deine 10 Tage kostenlose Probe sind zu Ende gekommen
+    your-trial-ended: Deine 10 Tage kostenlose Probezeit sind zu Ende gekommen
     your_subscription_ends_in: Dein Abo endet in %{how_long_until_end}.
   terms_acceptances:
     create:
