@@ -31,7 +31,7 @@ de:
         other: Benutzer
   devise:
     confirmations:
-      confirmed: Ihre E-Mail-Adresse wurde erfolgreich bestätigt.
+      confirmed: Deine E-Mail-Adresse wurde erfolgreich bestätigt.
       new:
         resend_confirmation_instructions: Anleitung zur Bestätigung noch mal schicken
       send_instructions: Du erhälst in wenigen Minuten eine E-Mail, mit der du deine Registrierung bestätigen kannst.
@@ -76,12 +76,13 @@ de:
       reset_password_instructions:
         action: Passwort ändern
         greeting: Hallo %{recipient}!
-        instruction: Jemand hat einen Link angefordert, um Dein Passwort zu ändern. Klicke bitte auf den unten aufgeführten Link um es zu ändern.
-        instruction_2: Bitte ignoriere diese E-Mail, wenn Du kein neues Passwort angefordert haben.
+        instruction: Jemand hat einen Link angefordert, um dein Passwort zu ändern.
+        please_click_to_change: Klicke bitte auf den unten aufgeführten Link um es zu ändern.
+        instruction_2: Bitte ignoriere diese E-Mail, wenn du kein neues Passwort angefordert hast.
         instruction_3: Das Passwort wird nicht geändert bis Du den obenstehenden Link aufrufst und ein neues Passwort bestimmst.
         see_you: Danke und bis bald,
         author: "%{author}"
-        subject: Anleitung zum Zurücksetzen Deines Passwortes
+        subject: Zurücksetzen deines Passwortes
       unlock_instructions:
         action: Mein Konto entsperren
         greeting: Hallo %{recipient}!
@@ -105,13 +106,13 @@ de:
         send_me_reset_password_instructions: Schicke mir die Anleitung, mein Passwort zurückzusetzen
       no_token: Sie können sich nicht auf dieser Seite anmelden, wenn Sie nicht von einer Passwort-Zurücksetzen-E-Mail kommen. Wenn Sie von solch einer E-Mail kommen, überprüfen Sie bitte, ob Sie die gesamte URL verwendet haben.
       send_instructions: Du erhälst in wenigen Minuten eine E-Mail mit der Anleitung, wie du dein Passwort zurücksetzen kannst.
-      send_paranoid_instructions: Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können.
-      updated: Ihr Passwort wurde geändert. Sie sind jetzt angemeldet.
-      updated_not_active: Ihr Passwort wurde erfolgreich geändert.
+      send_paranoid_instructions: Falls deine E-Mail-Adresse in unserer Datenbank existiert, erhälst du in wenigen Minuten eine E-Mail mit der Anleitung, wie du dein Passwort zurücksetzen kannst.
+      updated: Dein Passwort wurde geändert. Du bist jetzt angemeldet.
+      updated_not_active: Dein Passwort wurde erfolgreich geändert.
     registrations:
-      destroyed: Ihr Konto wurde gelöscht. Wir hoffen, dass wir Sie bald wiedersehen.
+      destroyed: Dein Konto wurde gelöscht. Wir hoffen, dass wir dich bald wiedersehen.
       edit:
-        are_you_sure: Sind Sie sicher?
+        are_you_sure: Bist du sicher?
         cancel_my_account: Konto löschen
         currently_waiting_confirmation_for_email: Warte auf Bestätigung von %{email}.
         leave_blank_if_you_don_t_want_to_change_it: freilassen, wenn Sie das nicht ändern wollen
@@ -121,7 +122,7 @@ de:
         we_need_your_current_password_to_confirm_your_changes: wir benötigen Ihr aktuelles Passwort, um die Änderung zu bestätigen
       new:
         sign_up: Registrieren
-      signed_up: Sie haben sich erfolgreich registriert.
+      signed_up: Du hast dich erfolgreich registriert.
       signed_up_but_inactive: Sie haben sich erfolgreich registriert. Wir konnten Sie jedoch nicht anmelden, weil Ihr Konto noch nicht aktiviert ist.
       signed_up_but_locked: Sie haben sich erfolgreich registriert. Wir konnten Sie jedoch nicht anmelden, weil Ihr Konto gesperrt ist.
       signed_up_but_unconfirmed: Du erhälst in wenigen Minuten eine E-Mail mit einem Link für die Bestätigung der Registrierung. Klicke auf den Link um dein Konto zu aktivieren.
@@ -150,7 +151,7 @@ de:
       new:
         resend_unlock_instructions: Anleitung zum Entsperren noch mal schicken
       send_instructions: Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Konto entsperren können.
-      send_paranoid_instructions: Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail, mit der Anleitung, wie Sie Ihr Konto entsperren können.
+      send_paranoid_instructions: Falls deine E-Mail-Adresse in unserer Datenbank existiert, erhälst du in wenigen Minuten eine E-Mail, mit der Anleitung, wie du dein Konto entsperren kannst.
       unlocked: Ihr Konto wurde entsperrt. Bitte melden Sie sich an, um fortzufahren.
   errors:
     messages:

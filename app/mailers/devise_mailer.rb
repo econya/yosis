@@ -6,8 +6,21 @@ class DeviseMailer < Devise::Mailer
 
   def confirmation_instructions(record, token, opts={})
     mail = super
-    mail.subject = "%s: %s" % [SiteSettings.fetch('title').value, mail.subject]
+    mail.subject = prepend_title mail.subject
     mail
+  end
+
+  def reset_password_instructions(record, token, opts = {})
+    mail = super
+    mail.subject = prepend_title mail.subject
+    mail
+  end
+
+
+  private
+
+  def prepend_title string
+    "%s: %s" % [SiteSettings.fetch('title').value, string]
   end
 
 end
