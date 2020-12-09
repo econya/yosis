@@ -3,3 +3,4 @@
 %p= link_to t('.action'), confirmation_url(@resource, confirmation_token: @token)
 %p= t('.trial_period_procedure')
 %p= t('.see_you')
+%p= SiteSettings.fetch('your_name').value.split(" ").first

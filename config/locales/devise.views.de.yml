@@ -50,10 +50,10 @@ de:
       confirmation_instructions:
         action: Mein Konto bestätigen
         greeting: Willkommen %{recipient}!
-        instruction: 'Folge dem untenstehenden Link, um Dein Konto auf %{site} zu bestätigen:'
-        subject: Anleitung zur Bestätigung Deines Kontos
+        instruction: 'Klicke auf den untenstehenden Link, um dein Konto auf %{site} zu bestätigen:'
+        subject: Bestätigung deines Kontos
         see_you: "Danke und bis bald!"
-        trial_period_procedure: "Die Schnupperwoche ist kostenlos und es entstehen keine weiteren Verpflichtungen. Am Ende der Schnupperwoche wirst du nicht automatisch für das Abonement (25€/Monat) angemeldet."
+        trial_period_procedure: "Deine ersten zehn Tage sind kostenlos und du erhälst damit Zugang zu allen Videos. Danach kannst du dich für ein Abo entscheiden (14€/Monat) ... oder nicht: es gibt keinen automatischen Übergang in das Abonnement."
       email_changed:
         greeting: Hallo %{recipient}!
         message: Wir schreiben Ihnen, um Sie darüber zu informieren, dass Ihre E-Mail-Adresse zu %{email} geändert wurde.
