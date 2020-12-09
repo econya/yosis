@@ -104,7 +104,7 @@ de:
         forgot_your_password: Hast du dein Passwort vergessen?
         send_me_reset_password_instructions: Schicke mir die Anleitung, mein Passwort zurückzusetzen
       no_token: Sie können sich nicht auf dieser Seite anmelden, wenn Sie nicht von einer Passwort-Zurücksetzen-E-Mail kommen. Wenn Sie von solch einer E-Mail kommen, überprüfen Sie bitte, ob Sie die gesamte URL verwendet haben.
-      send_instructions: Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können.
+      send_instructions: Du erhälst in wenigen Minuten eine E-Mail mit der Anleitung, wie du dein Passwort zurücksetzen kannst.
       send_paranoid_instructions: Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können.
       updated: Ihr Passwort wurde geändert. Sie sind jetzt angemeldet.
       updated_not_active: Ihr Passwort wurde erfolgreich geändert.
@@ -124,8 +124,8 @@ de:
       signed_up: Sie haben sich erfolgreich registriert.
       signed_up_but_inactive: Sie haben sich erfolgreich registriert. Wir konnten Sie jedoch nicht anmelden, weil Ihr Konto noch nicht aktiviert ist.
       signed_up_but_locked: Sie haben sich erfolgreich registriert. Wir konnten Sie jedoch nicht anmelden, weil Ihr Konto gesperrt ist.
-      signed_up_but_unconfirmed: Sie erhalten in wenigen Minuten eine E-Mail mit einem Link für die Bestätigung der Registrierung. Klicken Sie auf den Link um Ihr Konto zu aktivieren.
-      update_needs_confirmation: Ihre Daten wurden aktualisiert, aber Sie müssen Ihre neue E-Mail-Adresse bestätigen. Sie erhalten in wenigen Minuten eine E-Mail, mit der Sie die Änderung Ihrer E-Mail-Adresse abschließen können.
+      signed_up_but_unconfirmed: Du erhälst in wenigen Minuten eine E-Mail mit einem Link für die Bestätigung der Registrierung. Klicke auf den Link um dein Konto zu aktivieren.
+      update_needs_confirmation: Deine Daten wurden aktualisiert, aber du musst deine neue E-Mail-Adresse bestätigen. Du erhälst in wenigen Minuten eine E-Mail, mit der du die Änderung deiner E-Mail-Adresse abschließen kannst.
       updated: Ihre Daten wurden aktualisiert.
       updated_but_not_signed_in: Ihre Daten wurden aktualisiert, aber da sich Ihr Passwort geändert hat, müssen Sie sich erneut anmelden
     sessions:
