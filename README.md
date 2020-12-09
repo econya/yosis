@@ -78,12 +78,14 @@ rails s # (development server)
 
 ### 2.1 Test / example data
 
-Not very strong yet. Sorry.
-Import test/example data with `rails db:fixture:load`.
+Currently no example data is shipped, sorry.
+You can try to import the testing-data with `rails db:fixture:load` though.
 
 ### 2.2 Deployment
 
-Not covering all detail here, but also nothing special.
+This section cannot replace a proper tutorial, so not all details are
+covered, but yosis does not require anything special, as compared to a typical
+Ruby on Rails- application.
 
 If you need support and have resources, feel free to get in
 contact with me. Otherwise follow e.g. herokus or phusion passengers
@@ -204,6 +206,11 @@ refreshing itself when view files are changed. To do so, before starting your
 development server (`rails s`), fire up guard (`guard`) in a separate shell.
 
 #### Mails and debugging them in development
+
+Mails are sent asynchronously (via background-jobs), which means that in order
+to the mails being sent you need to have a worker running (except in testing
+environment). You can start job processing via `delayed_job` with
+`rails jobs:work`.
 
 Install mailcatcher (`gem install mailcatcher`), start it and watch mails
 arriving at http://127.0.0.1:1080 .
