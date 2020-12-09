@@ -38,7 +38,7 @@ class ContactsController < ApplicationController
 
   private
   def contact_params
-    params.require(:contact).permit(:subject, :message, :sender_email, :phone_number)
+    params.require(:contact).permit(:subject, :message, :sender_email)
   end
 
   def log_spam

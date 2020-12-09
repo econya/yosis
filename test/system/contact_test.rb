@@ -20,7 +20,6 @@ class ContactTest < ApplicationSystemTestCase
     fill_in "Betreff",   with: 'Mail from visitor'
     fill_in "Nachricht", with: 'Content (mail from visitor)'
     fill_in "E-Mail-Adresse", with: 'me@yo.u'
-    fill_in "Telefonnummer", with: '71 7'
 
     assert_emails 1 do
       click_on "Abschicken"
@@ -35,10 +34,9 @@ class ContactTest < ApplicationSystemTestCase
     assert_equal "Kontakt via Webseite", last_email.subject, "Kontakt via Webseite"
     assert_match /Mail from visitor/, last_email.body.to_s
     assert_match /Content \(mail from visitor\)/, last_email.body.to_s
-    assert_match /71 7/, last_email.body.to_s
   end
 
-  test "validates contact form on landing page (missing email/phone)" do
+  test "validates contact form on landing page (missing email)" do
     visit root_url
 
     fill_in "Betreff",   with: 'Mail from visitor'
@@ -51,7 +49,7 @@ class ContactTest < ApplicationSystemTestCase
     last_email  = ActionMailer::Base.deliveries.last
     email_count = ActionMailer::Base.deliveries.size
 
-    assert_selector '#error_explanation', text: 'E-Mail-Adresse Bitte gib eine Telefonnummer oder eine E-Mail-Adresse an.'
+    assert_selector '#error_explanation', text: 'E-Mail-Adresse ist nicht gültig'
   end
 
   test "hides email address if user is logged in" do
@@ -79,17 +77,5 @@ class ContactTest < ApplicationSystemTestCase
     assert_equal "Kontakt via Webseite", last_email.subject, "Kontakt via Webseite"
     assert_match /Mail from visitor/, last_email.body.to_s
     assert_match /Content \(mail from visitor\)/, last_email.body.to_s
-  end
-
-  test "sends mail also if only phone number was given" do
-    visit root_url
-
-    fill_in "Betreff",   with: 'Mail from visitor'
-    fill_in "Nachricht", with: 'Content (mail from visitor)'
-    fill_in "Telefonnummer", with: '72 7'
-
-    assert_emails 1 do
-      click_on "Abschicken"
-    end
   end
 end

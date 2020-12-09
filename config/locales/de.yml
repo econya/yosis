@@ -102,7 +102,6 @@ de:
     contacted_you: hat dich kontaktiert.
     message: Nachricht
     subject: Betreff
-    with_phone_number: "Telefonnummer: "
   course:
     admin:
       edit: Bearbeiten

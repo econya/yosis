@@ -7,15 +7,8 @@ de:
     attributes:
       contact:
         message: Nachricht
-        phone_number: Telefonnummer
         sender_email: E-Mail-Adresse
         subject: Betreff
-    errors:
-      models:
-        contact:
-          attributes:
-            sender_email:
-              need_either_mail_or_phone: Bitte gib eine Telefonnummer oder eine E-Mail-Adresse an.
   activerecord:
     attributes:
       asana:
