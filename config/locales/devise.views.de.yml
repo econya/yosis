@@ -137,7 +137,7 @@ de:
     shared:
       links:
         back: Zurück
-        didn_t_receive_confirmation_instructions: Keine Anleitung zur Bestätigung erhalten?
+        didn_t_receive_confirmation_instructions: Keine E-Mail zur Bestätigung deines kostenlosen Kontos bekommen?
         didn_t_receive_unlock_instructions: Keine Anleitung zum Entsperren erhalten?
         forgot_your_password: Passwort vergessen?
         sign_in: Anmelden
