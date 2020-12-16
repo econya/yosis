@@ -9,6 +9,7 @@ class DataCopyAboutUsLeftAndRight < ActiveRecord::Migration[6.0]
     if old_about_us.present?
       new_setting = SiteSetting.find_or_create_by(
         key: 'about_us_left',
+        kind: 'markdown',
         value: old_about_us.value || I18n.t('site_settings.about_us_left.default'),
         value_rendered: old_about_us.value_rendered
       )
