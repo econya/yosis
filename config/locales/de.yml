@@ -292,6 +292,7 @@ de:
     logged_in_as: Du bist eingeloggt als %{logged_in_email}
     more-info: Infos über ein Abo
     trial_ends_in: Sie endet in %{how_long_until_end}.
+    we_are_processing_your_payment: Wir sind dabei deine Zahlung zu bearbeiten.
     whats_next?: Hier kannst du erfahren wie es danach weitergeht
     you_have_x_days_trial_left: Du hast noch %{how_long_until_end} kostenlose Probezeit.
     your-subscription-ended: Dein Abonnement ist abgelaufen

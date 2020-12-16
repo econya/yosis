@@ -35,7 +35,7 @@
     -#            = t('navigation.programs')
     -#          = t('login_row.deep_dive')
 
-  - else
+  - else # user_signed_in
     .column.is-5.has-text-centered
       .box.has-background-verycleargrey(style="border-radius: 15%/50%;")
         .columns
@@ -65,8 +65,11 @@
             = t('subscription_state.whats_next?')
         - when :trial_ended
         - when :subscribed
-          = t('subscription_state.your_subscription_ends_in',
-            how_long_until_end: distance_of_time_in_words_to_now(current_user.subscriptions.current.first.date_end))
+          - if payment_in_process? current_user
+            = t('subscription_state.we_are_processing_your_payment')
+          - else
+            = t('subscription_state.your_subscription_ends_in',
+              how_long_until_end: distance_of_time_in_words_to_now(current_user.subscriptions.current.first.date_end))
           = t('subscription_state.logged_in_as', logged_in_email: current_user.email)
         - when :subscription_ended
         -#%br
