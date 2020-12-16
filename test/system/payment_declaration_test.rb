@@ -10,7 +10,7 @@ class PaymentDeclarationTest < ApplicationSystemTestCase
 
   test "user should not see 'pay now' button if not logged in" do
     visit explanation_url
-    refute_selector "a[href='#{user_payment_declaration_path}']"
+    refute_selector i_have_paid_link_selector
   end
 
   test "user should see 'pay now' button if in trial" do
@@ -32,7 +32,8 @@ class PaymentDeclarationTest < ApplicationSystemTestCase
     assert user.currently_subscribed?
 
     visit explanation_url
-    refute_selector "a[href='#{user_payment_declaration_path}']"
+
+    refute_selector i_have_paid_link_selector
   end
 
   test "user should see 'we are working on it' message if marked paid" do
@@ -53,5 +54,23 @@ class PaymentDeclarationTest < ApplicationSystemTestCase
     visit root_path
 
     assert_selector '#login_row', text: 'Wir sind dabei deine Zahlung zu bearbeiten'
+  end
+
+  test "subscribed user should see i-have-paid button only 5 days before subscription end" do
+    user = users(:user)
+    sign_in users(:user)
+
+    user.subscriptions.create(date_start: DateTime.current,
+                              date_end:   DateTime.current + 10.days,
+                              notes:      'ends in 10 days')
+
+    visit explanation_path
+
+    refute_selector i_have_paid_link_selector
+  end
+
+  private
+  def i_have_paid_link_selector
+    "a[href='#{user_payment_declaration_path}']"
   end
 end
