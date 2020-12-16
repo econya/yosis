@@ -14,7 +14,9 @@ class User::PaymentDeclarationsController < ApplicationController
     current_user.update(mark_paid_at: DateTime.current)
 
     if current_user.currently_subscribed?
-
+      current_subscription = current_user.subscriptions.current.first
+      current_subscription.update(date_end: current_subscription.date_end + 2.days,
+                                  notes: current_subscription.notes + "\n(temporarily extended)")
     else
       current_user.subscriptions.create(date_start: DateTime.current,
                                         date_end: DateTime.current + 2.days,

@@ -67,9 +67,24 @@ class PaymentDeclarationTest < ApplicationSystemTestCase
     visit explanation_path
 
     refute_selector i_have_paid_link_selector
+
+    user.subscriptions.current.update(
+      date_end:   DateTime.current + 5.days)
+
+    visit explanation_path
+
+    assert_selector i_have_paid_link_selector
+
+    click_on "Ich habe bezahlt"
+
+    current_subscription = user.reload.subscriptions.current.first
+
+    assert current_subscription.date_end.between?(DateTime.current, DateTime.current + 8.days)
+    assert_equal "ends in 10 days\n(temporarily extended)", current_subscription.notes
   end
 
   private
+
   def i_have_paid_link_selector
     "a[href='#{user_payment_declaration_path}']"
   end

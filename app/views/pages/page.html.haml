@@ -19,6 +19,6 @@
   .content.is-medium.has-text-justified{id: setting}
     - admin_edit_area edit_path: edit_admin_site_setting_url(setting.id) do
       != setting.value_rendered
-- if user_signed_in? && in_controller_action?(controller: 'pages', action: 'explanation') && !payment_in_process?(current_user)
+- if user_signed_in? && in_controller_action?(controller: 'pages', action: 'explanation') && !payment_in_process?(current_user) && (!current_user.subscriptions.current.exists? || !current_user.subscribed_at?(DateTime.current + 6.days))
   = link_to user_payment_declaration_path, method: 'POST', class: 'button is-primary is-pulled-right' do
     = t('user.i_have_paid')
