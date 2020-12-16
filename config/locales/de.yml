@@ -309,6 +309,10 @@ de:
       not-happy?: Wenn Du den AGBs nicht zustimmen möchtest oder die Angabe Deiner Daten zu heikel ist, musst Du Dein Konto bei uns leider aufgeben.
       privacy_statement: Datenschutzerklärung
   user:
+    i_have_paid: Ich habe bezahlt
+    payment_declaration:
+      received: Danke! Wir sind dabei, deine Zahlung zu bearbeiten. Du hast solange zwei (weitere) Tage vollen Zugang zu allen Videos.
+      temporary_subscription: Temporäres Abo (hat auf bezahlt geklickt)
     your_data: Deine Daten
   video:
     length: Länge

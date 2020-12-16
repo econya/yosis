@@ -19,9 +19,20 @@ class PaymentDeclarationTest < ApplicationSystemTestCase
 
     visit explanation_url
 
+    assert user.mark_paid_at.nil?
+    refute user.currently_subscribed?
+
     assert_emails 1 do
       click_on "Ich habe bezahlt"
     end
+
+    assert_selector '.notification', text: 'Danke'
+
+    refute user.reload.mark_paid_at.nil?
+    assert user.currently_subscribed?
+
+    visit explanation_url
+    refute_selector "a[href='#{user_payment_declaration_path}']"
 
   end
 end

@@ -27,5 +27,9 @@ module UserAccessHelper
 
     7 - (Date.current - user.confirmed_at.to_date).to_i
   end
+
+  def payment_in_process? user
+    user.mark_paid_at
+  end
 end
 
