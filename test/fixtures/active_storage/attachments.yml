@@ -11,3 +11,8 @@ blog_post_image:
   name: image
   record: first_post(Blog::Post)
   blob: base_yoga_intro_image_blob
+
+base_yoga_intro_video:
+  name: video
+  record: base_yoga_intro(Lesson)
+  blob: base_yoga_intro_image_blob
