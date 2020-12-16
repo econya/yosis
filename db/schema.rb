@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_114547) do
+ActiveRecord::Schema.define(version: 2020_12_16_145349) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -216,6 +216,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_114547) do
     t.integer "invited_by_id"
     t.integer "invitations_count", default: 0
     t.datetime "terms_accepted_at"
+    t.datetime "mark_paid_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
