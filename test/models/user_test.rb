@@ -64,4 +64,15 @@ class UserTest < ActiveSupport::TestCase
     userx.update(confirmed_at: DateTime.current - 6.days)
     assert_equal [], User.trial_started_at(day: DateTime.current - 7.days)
   end
+
+  test 'scope #subscriptions.current' do
+    user = users(:user)
+
+    refute user.reload.subscriptions.current.exists?
+
+    user.subscriptions.create(date_start: DateTime.current - 1.days,
+                              date_end: DateTime.current + 1.days,
+                             notes: 'test note')
+    assert user.reload.subscriptions.current.exists?
+  end
 end

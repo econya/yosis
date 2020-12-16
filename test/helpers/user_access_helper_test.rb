@@ -26,4 +26,18 @@ class UserAccessHelperTest < ActionView::TestCase
 
     assert_nil days_till_end_of_trial(users(:admin))
   end
+
+  test "#payment_in_process" do
+    sue = User.create(email: 'sue@s.an', password: 'password',
+                      password_confirmation: 'password', confirmed_at: DateTime.now - 1.days)
+    refute sue.payment_in_process?
+
+    sue.update(:mark_paid_at, DateTime.current)
+
+    assert sue.payment_in_process?
+
+    sue.update(:mark_paid_at, DateTime.current - 3.days)
+
+    refute sue.payment_in_process?
+  end
 end
