@@ -21,4 +21,9 @@ class AdminMailer < ApplicationMailer
     @user = user
     mail(subject: t('admin_mailer.invitation_accepted.subject'))
   end
+
+  def user_has_paid(user)
+    @user = user
+    mail(subject: t('admin_mailer.user_has_paid.subject'))
+  end
 end

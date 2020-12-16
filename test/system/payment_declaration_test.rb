@@ -6,6 +6,7 @@ require "application_system_test_case"
 
 class PaymentDeclarationTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
+  include ActionMailer::TestHelper
 
   test "user should not see 'pay now' button if not logged in" do
     visit explanation_url
@@ -17,6 +18,10 @@ class PaymentDeclarationTest < ApplicationSystemTestCase
     sign_in users(:user)
 
     visit explanation_url
+
+    assert_emails 1 do
+      click_on "Ich habe bezahlt"
+    end
 
   end
 end

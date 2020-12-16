@@ -6,6 +6,7 @@ class User::PaymentDeclarationsController < ApplicationController
   before_action :authorize_user!
 
   def create
+    AdminMailer.user_has_paid(current_user).deliver_later
     raise 'tbi'
   end
 end

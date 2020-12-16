@@ -83,6 +83,9 @@ de:
     new_registration:
       new_user_registered: Ein Mensch hat sich neu registriert.
       subject: Neue* Benutzer* registriert!
+    user_has_paid:
+      somebody_paid: Jemand hat bezahlt!
+      subject: "Nutzer:in hat bezahlt"
   blog:
     title: Blog
     post:
