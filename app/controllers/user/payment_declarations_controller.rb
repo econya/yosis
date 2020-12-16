@@ -6,6 +6,10 @@ class User::PaymentDeclarationsController < ApplicationController
   before_action :authorize_user!
 
   def create
+    if current_user.mark_paid_at
+      redirect_to root_path, error: t('user.payment_declaration.rejected')
+    end
+
     AdminMailer.user_has_paid(current_user).deliver_later
     current_user.update(mark_paid_at: DateTime.current)
 

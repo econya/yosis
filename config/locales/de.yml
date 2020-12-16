@@ -313,6 +313,7 @@ de:
     i_have_paid: Ich habe bezahlt
     payment_declaration:
       received: Danke! Wir sind dabei, deine Zahlung zu bearbeiten. Du hast solange zwei (weitere) Tage vollen Zugang zu allen Videos.
+      rejected: Deine Zahlung ist bereits in Bearbeitung.
       temporary_subscription: Temporäres Abo (hat auf bezahlt geklickt)
     your_data: Deine Daten
   video:
