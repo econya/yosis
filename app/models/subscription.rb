@@ -12,6 +12,8 @@ class Subscription < ApplicationRecord
 
   scope :current, -> { where("date_start <= ? AND date_end >= ?", DateTime.current, DateTime.current) }
 
+  scope :at, ->(day: DateTime.current) { where("date_start <= ? AND date_end >= ?", day, day) }
+
   def start_before_end
     if date_end < date_start
       errors.add(:date_end, :must_be_before_start_date)
