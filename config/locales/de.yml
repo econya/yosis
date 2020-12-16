@@ -259,14 +259,14 @@ de:
     new: Neu
   subscription_reminder_mailer:
     subscription_ends_soon:
-      costs: Das Abo kostet 25€/Monat und Erwachsener/m und erneuert sich nicht von alleine (du entscheidest jeden Monat neu).
+      costs: Das Abo kostet 14€/Monat und verlängert sich nicht automatisch.
       happy_about_feedback:
         html: Wir freuen uns in jedem Fall über ein <a href="%{link}">Feedback</a> von dir! Du kannst auch einfach direkt auf diese E-Mail antworten.
       hi: Namaste!
       is_over_in_days: In %{number_days} Tagen ist es vorbei!
       learn_more: Erfahre hier mehr!
       payment_details: 'Meine Bankdaten:'
-      refresh_your_subscription: Um weiter mit uns Yoga zu praktizieren und Zugriff auf alle Videos zu behalten solltest du Dein Abonnement erneuern.
+      refresh_your_subscription: Um weiter auf dieser Plattform Yoga zu praktizieren und Zugriff auf alle Videos zu behalten solltest du Dein Abonnement erneuern.
       see_you: Bis bald!
       subject: Dein Abonnement läuft bald ab!
       your_subscription_ends_soon: Dein Abonnement bei %{site} nähert sich dem Ende.
