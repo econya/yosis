@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   namespace :user do
     resource :data, only: [:show, :destroy]
+    resource :payment_declaration, only: [:create]
   end
 
   # Blog
