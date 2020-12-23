@@ -25,7 +25,7 @@ module Admin::EditButtonHelper
       end
 
       concat content_tag(:div,
-        content + edit_button.html_safe,
+        content.to_s + edit_button.html_safe,
         class: 'admin-edit-area',
         data: { controller: 'class_toggle',
                 action: 'mouseenter->class_toggle#highlight ' +
