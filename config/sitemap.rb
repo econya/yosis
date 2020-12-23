@@ -28,16 +28,35 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
-  Course.active.find_each do |course|
-    add course_path(course), lastmod: [course.updated_at,
-                                       course.lessons.active.order(updated_at: :desc).limit(1).pluck(:updated_at).first,
-                                       course.appointments.order(updated_at: :desc).limit(1).pluck(:updated_at).first
-    ].compact.max, changefreq: 'weekly'
+
+
+  # Rather static stuff
+  #add about_us_path,    lastmod: SiteSetting.find_by_key('about_us').updated_at
+  add explanation_path, lastmod: SiteSetting.find_by_key('explanation').updated_at
+  add privacy_path,     lastmod: SiteSetting.find_by_key('privacy_statement').updated_at
+  add impressum_path,   lastmod: SiteSetting.find_by_key('impressum').updated_at
+  add terms_path,       lastmod: SiteSetting.find_by_key('terms').updated_at
+  add seminars_path,    lastmod: SiteSetting.find_by_key('seminars_text').updated_at
+
+  # Asana Lexicon
+  add asana_lexicon_path, lastmod: Asana.maximum(:updated_at)
+
+  # Blog stuff
+  add blog_posts_path, lastmod: Blog::Post.published.maximum(:updated_at)
+  Blog::Post.published.find_each do |blog_post|
+    add blog_post_path(blog_post),
+      lastmod: blog_post.updated_at
   end
 
-  add about_us_path, lastmod: SiteSetting.find_by_key('about_us').updated_at
-  add explanation_path, lastmod: SiteSetting.find_by_key('explanation').updated_at
-  add privacy_path, lastmod: SiteSetting.find_by_key('privacy_statement').updated_at
-  add impressum_path, lastmod: SiteSetting.find_by_key('impressum').updated_at
-  add terms_path, lastmod: SiteSetting.find_by_key('terms').updated_at
+  # Place stuff
+  Place.find_each do |place|
+    add place_path(place), lastmod: place.updated_at
+  end
+
+  # Style stuff
+  Style.active.each do |style|
+    # TODO include its lessons/videos
+    add style_path(style), lastmod: style.updated_at
+  end
+
 end
