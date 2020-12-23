@@ -21,7 +21,7 @@
   = render 'pages/home/buttonbar'
 
 %section#news.mt-4.pt-5.mb-4.pb-2
-  - news_setting = SiteSetting.find_by(key: 'news_line')
+  - news_setting = SiteSettings.fetch('news_line')
   - admin_edit_area(edit_path: edit_admin_site_setting_path(id: news_setting&.id)) do
     %h2.title.is-3.is-inline-block
       = t('home.news')
