@@ -23,7 +23,7 @@
     * [2.9.2 Admin: Forms](#292-admin-forms)
 - [3 Resources and lessons learned](#3-resources-and-lessons-learned)
   + [ActiveRecord](#activerecord)
-  + [ActiveStorage](#activestorage)
+  + [3.2 ActiveStorage](#32-activestorage)
   + [Big File upload](#big-file-upload)
     * [nginx](#nginx)
   + [Storage backends for videos](#storage-backends-for-videos)
@@ -303,7 +303,7 @@ I had to convert a postgres database to sqlite3, which is relaxingly easy with
 the `sequel` gem: `sequel -C postgres://.... sqlite://...`
 
 
-### ActiveStorage
+### 3.2 ActiveStorage
 
 ActiveStorage might delete your files on form submission in some cases where
 you'd prefer to keep them. I think this is more an issue for multiple
@@ -316,6 +316,22 @@ https://stackoverflow.com/questions/56649565/when-using-activestorage-in-rails-6
   fiddle with something like 
   https://stackoverflow.com/questions/49808950/secure-active-storage-with-devise
   to improve the situation slightly. 
+
+
+#### 3.2.2 Populating/Repairing storage
+
+If files are missing in `./storage` (e.g. because you imported a production
+database dump), the rake task `fake_missing_blobs` can be used:
+
+```bash
+rails yosis:fake_missing_blobs
+```
+
+It will ask whether you want to create a (or all) missing files (thus cannot
+easily be run non-interactively).
+
+To check whether all blobs have corresponding data on the disk, you can use
+`rails yosis:check_blobs`.
 
 ### Big file upload
 
