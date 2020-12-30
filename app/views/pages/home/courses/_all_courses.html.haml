@@ -8,7 +8,8 @@
       - admin_edit_area(edit_path: edit_admin_place_path(place)) do
         .place
           %h4.title.is-5
-            = link_to place.name, place
+            -#= link_to place.name, place
+            = place.name
           = place.note
         .place-address.mb-3
           %i

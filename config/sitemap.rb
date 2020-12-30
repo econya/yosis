@@ -49,9 +49,9 @@ SitemapGenerator::Sitemap.create do
   end
 
   # Place stuff
-  Place.find_each do |place|
-    add place_path(place), lastmod: place.updated_at
-  end
+  #Place.find_each do |place|
+  #  add place_path(place), lastmod: place.updated_at
+  #end
 
   # Style stuff
   Style.active.each do |style|
