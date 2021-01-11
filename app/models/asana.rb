@@ -3,6 +3,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class Asana < ApplicationRecord
+  include RankedModel
+
+  ranks :row_order
+
   has_many :asana_names, inverse_of: :asana
 
   has_many :german_asana_names,
