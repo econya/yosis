@@ -14,7 +14,7 @@
         = t('activerecord.attributes.asana.english_asana_names.name')
       %th
   %tbody
-    - family.asanas.each do |asana|
+    - family.asanas.rank(:row_order).each do |asana|
       %tr
         %td
           - if asana.image.attached?
