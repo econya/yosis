@@ -12,7 +12,7 @@ class Admin::AsanasController < Admin::AdminController
   def index
     @asanas = Asana.includes(:german_asana_names,
                              :english_asana_names,
-                             :sanskrit_asana_names).all
+                             :sanskrit_asana_names).rank(:row_order).all
   end
 
   # GET /asanas/1

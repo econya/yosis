@@ -9,6 +9,7 @@
         -# images
         -# links
       %th
+      %th
         = t('activerecord.attributes.asana.asana_family')
       %th
         = t('activerecord.attributes.asana.sanskrit_asana_names.name')
@@ -19,14 +20,39 @@
       %th
 
   %tbody
-    - asanas.each do |asana|
+    - previous_asana_rank = nil
+    - asana = nil
+
+    -# TODO Explain the chaining in knowledgebase
+    - [nil].chain(asanas).chain([nil]).each do |peek_asana|
+      - next_asana_rank = peek_asana&.row_order_rank
+
+      - if asana.nil?
+        - asana = peek_asana
+        - next
+
       %tr
         %td
           - if asana.image.attached?
             = image_tag preview_image_variant_url(asana.image)
+        %td.rank
+          - if previous_asana_rank
+            = link_to admin_asana_position_path(asana, params: {position: (previous_asana_rank)}), method: :put do
+              %span.icon.has-text-primary
+                %i.fas.fa-arrow-up.is-small
+          - else
+            %span.icon.has-text-primary
+              %i.fas.fa-empty.is-small
+          - if next_asana_rank
+            = link_to admin_asana_position_path(asana, params: {position: (next_asana_rank)}), method: :put do
+              %span.icon.has-text-primary
+                %i.fas.fa-arrow-down
+          - else
+            %span.icon.has-text-primary
+              %i.fas.fa-empty.is-small
         %td
           - asana.asana_families.each do |family|
-            = family.name
+            = link_to family.name, [:admin, family]
         %td
           - asana.sanskrit_asana_names.each do |name|
             - if name.main
@@ -64,6 +90,8 @@
               method: :delete, data: { confirm: t('actions.are_you_sure?') },
               class: 'button is-small is-danger'
 
-%br
+      - previous_asana_rank = asana&.row_order_rank
+      - asana = peek_asana
 
+%br
 
