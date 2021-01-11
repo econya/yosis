@@ -1,0 +1,23 @@
+-# SPDX-FileCopyrightText: 2020,2021 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+:ruby
+  admin_head_locals = {
+    title: @asana_family.name, # TODO i18n: "family: "
+    admin: {
+      new: {
+        url: new_admin_asana_path,
+        label: t('admin.asanas.new')
+      }
+    }
+  }
+
+= render partial: 'admin_head_level', locals: admin_head_locals
+
+- if @asana_family.asanas.present?
+  = render partial: 'admin/asanas/table', locals: {asanas: @asana_family.asanas.rank(:row_order)}
+- else
+  = t('admin.items.none')
+%br
+%br

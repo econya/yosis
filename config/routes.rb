@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+# SPDX-FileCopyrightText: 2020,2021 Felix Wolfsteller
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -44,12 +44,14 @@ Rails.application.routes.draw do
   resources :place, only: :show
   resources :styles, only: [:index, :show]
 
+  # TODO somewhere else
   resource :terms_acceptance, only: [:show, :create]
 
   # All things admin
   namespace :admin do
     resources :appointments
-    resources :asanas
+    resources :asana_families, only: [:index, :show]
+
 
     resources :help, only: [:index]
 
