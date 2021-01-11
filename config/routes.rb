@@ -50,6 +50,9 @@ Rails.application.routes.draw do
   # All things admin
   namespace :admin do
     resources :appointments
+    resources :asanas do
+      resource :position, only: [:create, :destroy, :update], controller: 'asana/position'
+    end
     resources :asana_families, only: [:index, :show]
 
 

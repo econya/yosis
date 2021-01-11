@@ -8,13 +8,21 @@ class Admin::PositionController < ApplicationController
 
   #before_action :set_entity, only: [:create, :destroy]
 
+  # One position up
   def create
-   entity.update(row_order_position: :up)
+    entity.update(row_order_position: :up)
     redirect_back fallback_location: :root_path
   end
 
+  # One position down
   def destroy
     entity.update(row_order_position: :down)
+    redirect_back fallback_location: :root_path
+  end
+
+  # To defined position
+  def update
+    entity.update(row_order_position: position_params)
     redirect_back fallback_location: :root_path
   end
 
@@ -33,6 +41,10 @@ class Admin::PositionController < ApplicationController
 
     def referenced_model_id_param_name
       (referenced_model.to_s.downcase + "_id").to_sym
+    end
+
+    def position_params
+      params.permit(:position)[:position]
     end
 end
 
