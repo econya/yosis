@@ -22,19 +22,18 @@ cannot do that for free).
     + [2.3.1 Database](#231-database)
     + [2.3.2 Mail](#232-mail)
     + [2.3.3 In-app configuration](#233-in-app-configuration)
-  * [Update](#update)
+  * [2.4 Update](#24-update)
 - [User/Admin Documentation](#lengthier-user/admin-documentation)
 - [3 Development](#3-development)
-  * [License](#license)
-  * [Contributions](#contributions)
-  * [Workflows](#workflows)
-    + [Tests](#tests)
-    + [i18n](#i18n)
-    + [Live reloading of browser sessions](#live-reloading-of-browser-sessions)
-    + [Mails and debugging them in_development](#mails-and-debugging-them-in-development)
-    + [Releasing](#releasing)
-- [Developerish Documentation](#developerish-documentation)
-- [And even more todos](#and-even-more-todos)
+  * [3.1 License](#31-license)
+  * [3.2 Contributions](#32-contributions)
+  * [3.3 Workflows](#33-workflows)
+    + [3.3.1 Tests](#331-tests)
+    + [3.3.2 i18n](#332-i18n)
+    + [3.3.3 Live reloading of browser sessions](#333-live-reloading-of-browser-sessions)
+    + [3.3.4 Mails and debugging them in_development](#334-mails-and-debugging-them-in-development)
+    + [3.3.5 Releasing](#335-releasing)
+- [4 Developerish Documentation](#4-developerish-documentation)
 
 ---
 
@@ -154,16 +153,22 @@ environment variables:
     SMTP_USER=iaowur32oalks
     RAILS_SERVE_STATIC_FILES=yes
 
-#### In-App configuration
+#### 2.3.3 In-App configuration
 
 Any account with administrator role can edit various SiteSettings from the admin
 menu (content, layout, title, ...).
 
+### 2.4 Updates
+
+So far, a git pull and `rails db:migrate` worked. When you use heroku/dokku/git
+push style deployments that respect the Procfile, everything should work out of
+the box.
+
 ## Lenghtier user/admin documentation
 
-## Development
+## 3 Development
 
-### License
+### 3.1 License(s)
 
 yosis is copyright 2020 Felix Wolfsteller and released under the
 [AGPLv3+](LICENSE).
@@ -174,7 +179,8 @@ This repositories bundles third party assets:
 
 * [app/assets/fonts](app/assets/fonts): The Font **"Source Sans Pro"** from Adobe (https://github.com/adobe-fonts/source-sans-pro), published under the OFL-1.1 . The "black" variant (weight 900) is omitted.
 
-### Contributions
+
+### 3.2 Contributions
 
 Contributions are more than welcome. For a pleasant experience, mail me or
 create issues before you dive deep.
@@ -183,9 +189,11 @@ Code is released under the AGPLv3+ (exceptions see below), Copyright 2020 Felix
 Wolfsteller. Copyright transfer of contributions is assumed (or get into
 contact).
 
-### Workflows
+### 3.3 Workflows
 
-#### Tests
+
+
+#### 3.3.1 Tests
 
 There could be more.
 
@@ -193,19 +201,20 @@ Run tests with `rails t` (you might have to `sudo sysctl fs.inotify.max_user_wat
 
 *System tests* have to be run manually with `rails t test/system`.
 
-#### i18n
+
+#### 3.3.2 i18n
 
 During development, add new translation keys with
 
 `i18n-tasks add-missing` .
 
-#### Live reloading of browser sessions
+#### 3.3.3 Live reloading of browser sessions
 
 With [rack-livereload] and [guard-livereload] you can have your browser
 refreshing itself when view files are changed. To do so, before starting your
 development server (`rails s`), fire up guard (`guard`) in a separate shell.
 
-#### Mails and debugging them in development
+#### 3.3.4 Mails and debugging them in development
 
 Mails are sent asynchronously (via background-jobs), which means that in order
 to the mails being sent you need to have a worker running (except in testing
@@ -215,14 +224,14 @@ environment). You can start job processing via `delayed_job` with
 Install mailcatcher (`gem install mailcatcher`), start it and watch mails
 arriving at http://127.0.0.1:1080 .
 
-#### Releasing
+#### 3.3.5 Releasing
 
 * Modify version in `config/application.rb` .
 * Modify [CHANGELOG.md](CHANGELOG.md) ([https://github.com/olivierlacan/keep-a-changelog/](https://github.com/olivierlacan/keep-a-changelog/))
 * Tag the repositories state.
 * Push.
 
-## Developerish Documentation
+## 4 Developerish Documentation
 
 * **Design decisions and resources** are found in the
   [knowledgebase](doc/knowledgebase.md)
