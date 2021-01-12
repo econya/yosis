@@ -22,20 +22,23 @@
     * [2.9.1 Admin: CMS](#291-admin-cms)
     * [2.9.2 Admin: Forms](#292-admin-forms)
 - [3 Resources and lessons learned](#3-resources-and-lessons-learned)
-  + [ActiveRecord](#activerecord)
+  + [3.1 ActiveRecord](#31-activerecord)
   + [3.2 ActiveStorage](#32-activestorage)
-  + [Big File upload](#big-file-upload)
-    * [nginx](#nginx)
-  + [Storage backends for videos](#storage-backends-for-videos)
-    * [Video Players](#videoplayers)
-    * [ffmpeg](#ffmpeg)
-  + [Bulma](#bulma)
-  + [Fonts](#fonts)
-  + [Operations](#operations)
-  + [StimulusJS](#stimulusjs)
-- [ActiveRecord](#activerecord)
-- [Licensing](#licensing)
-- [Known optimizabilities](#know-optimizabilities)
+    * [3.2.2 Populationg/Repairing storage](#322-populationg-repairing-storage)
+  + [3.3 Big File upload](#33-big-file-upload)
+    * [3.3.1 nginx](#331-nginx)
+  + [3.x Storage backends for videos](#storage-backends-for-videos)
+    * [3.4.1 Video Players](#341-videoplayers)
+    * [3.4.2 ffmpeg](#342-ffmpeg)
+  + [3.4 Favicon](#34-favicon)
+  + [3.5 Bulma](#35-bulma)
+  + [3.6 Fonts](#36-fonts)
+  + [3.7 Operations](#37-operations)
+    * [3.7.1 Spam detection](#371-operations)
+  + [3.8 StimulusJS](#38-stimulusjs)
+- [4 ActiveRecord](#4-activerecord)
+- [5 Licensing](#5-licensing)
+- [6 Known optimizabilities](#6-know-optimizabilities)
 
 
 ## 1 Tech Stack
@@ -289,7 +292,7 @@ with some statistics and a funny twist.
 
 ## Resources and lessons learned
 
-### ActiveRecord
+### 3.1 ActiveRecord
 
 When introducing new validations, old migrations might fail (e.g. if you
 validate the presence of an attribute that is only added by a later migration).
@@ -297,7 +300,7 @@ validate the presence of an attribute that is only added by a later migration).
 There are multiple approaches to this, I had to revert to using plain SQL in 
 [db/migrate/20200325204229_add_row_order_to_lessons.rb](db/migrate/20200325204229_add_row_order_to_lessons.rb).
 
-#### Switching database
+#### 3.1.1 Switching database
 
 I had to convert a postgres database to sqlite3, which is relaxingly easy with
 the `sequel` gem: `sequel -C postgres://.... sqlite://...`
@@ -317,6 +320,15 @@ https://stackoverflow.com/questions/56649565/when-using-activestorage-in-rails-6
   https://stackoverflow.com/questions/49808950/secure-active-storage-with-devise
   to improve the situation slightly. 
 
+#### 3.2.1 Cleaning up storage after heavier development
+
+In development mode /storage can quickly fill up with data that is not
+referenced anymore (once you wipe the database, the stored files and its
+variants are not automatically cleaned up).
+
+Futhermore there might be situations where blob data is stored in the database
+although the blob is not referenced anywhere anymore.
+
 
 #### 3.2.2 Populating/Repairing storage
 
@@ -333,7 +345,7 @@ easily be run non-interactively).
 To check whether all blobs have corresponding data on the disk, you can use
 `rails yosis:check_blobs`.
 
-### Big file upload
+### 3.3 Big file upload
 
 * Using ActiveStorage and a local Disk Service poses interesting challenges
 * The files to be uploaded will be rather big (videos), thus we want to have
@@ -344,12 +356,12 @@ To check whether all blobs have corresponding data on the disk, you can use
 * It might be worth to check out some Rack configuration (https://github.com/rack/rack/issues/1075)
 * Rack timeouts might not be the issue if you do not set them (https://stackoverflow.com/questions/2583166/set-rails-request-timeout-execution-expired, https://github.com/sharpstone/rack-timeout)
 
-#### Nginx
+#### 3.3.1 Nginx
 
 Nginx client_max_body_size is your friend. Others might join,
 https://github.com/Chocobozzz/PeerTube/issues/1359, https://serverfault.com/questions/820597/nginx-does-not-serve-large-files
 
-#### Favicon
+### 3.4 Favicon
 
 Favicons are a tiny bit [more nasty](https://en.wikipedia.org/wiki/Favicon)
 than tought, but still manageable.
@@ -401,12 +413,12 @@ generation or asset compilation and stuff (which has to happen in the `web` or
   (https://www.streamingmedia.com/Articles/Editorial/Featured-Articles/How-to-Automate-FFmpeg-and-Bento4-With-Bash-Scripts-129295.aspx?pageNum=2
   , https://docs.peer5.com/guides/production-ready-hls-vod/) and might need more setup on JavaScript / ruby / nginx side. Unclear.
 
-#### Videoplayers
+#### 3.4.1 Videoplayers
 
 https://videojs.com/ (https://github.com/videojs/video.js) and medialelement (https://github.com/mediaelement/mediaelement) seem to cover stuff (HLS streaming, multiple qualities, frontend, js driven interactions, ...). But there are many
 more, like [plyr](https://github.com/sampotts/plyr.)
 
-#### FFmpeg
+#### 3.4.2 FFmpeg
 
 * ffmpeg supports multiple outputs http://trac.ffmpeg.org/wiki/Creating%20multiple%20outputs
 * The ruby wrapper https://github.com/streamio/streamio-ffmpeg seems to be the
@@ -423,7 +435,7 @@ more, like [plyr](https://github.com/sampotts/plyr.)
     model)
 * via ladspa: https://github.com/werman/noise-suppression-for-voice/issues/11
 
-### Bulma
+### 3.5 Bulma
 
 Nice and mostly responsive (be careful with `levels` and `media` elements).
 Custom color-types and shades could be implemented:
@@ -432,11 +444,12 @@ https://github.com/jgthms/bulma/issues/2244 (undocumented), https://bulma.io/201
 
 
 
+### 3.6 Fonts
 
 
-### Operations
+### 3.7 Operations
 
-#### Spam detection
+#### 3.7.1 Spam detection
 
 To secure operations against attacks or weird clients, one line of defense is
 within the application. There, two approaches are prepared:
@@ -444,7 +457,7 @@ within the application. There, two approaches are prepared:
 * form submission (simple captcha) with [InvisibleCaptcha](https://github.com/markets/invisible_captcha) (alternative to checkout might be [HoneypotCaptcha](https://github.com/curtis/honeypot-captcha))
 * general flooding protection using [Rack::Attack]()
 
-### StimulusJS
+### 3.8 StimulusJS
 
 While Rails 6 and stimulusjs via sprockets might seem like an odd idea, it works
 pretty well with a workaround (to transpile es6 to es5): include babel and do
@@ -455,14 +468,15 @@ not name your js files \*.js but \*.es6 .
 I had to convert a postgres database to sqlite3, which is relaxingly easy with
 the `sequel` gem: `sequel -C postgres://.... sqlite://...`
 
-## ActiveRecord
+## 4 ActiveRecord
 
 Scoped not exists (e.g. User#in_trial :-> has no Subscription#current) might be
 implemented like this:
 https://medium.com/rubyinside/active-records-queries-tricks-2546181a98dd (Trick
 3) or with left_outer_joins? (https://stackoverflow.com/questions/10355002/rails-scope-to-check-if-association-does-not-exist)
 
-## Licensing
+
+## 5 Licensing
 
 SPDX License header for (FSFEs) [reuse compliance](https://reuse.software/) were
 added to some generated files, too, attributing Felix Wolfsteller Copyright and
@@ -472,7 +486,7 @@ not to do this, but most voices that I read were in favor of doing so. If you
 happen to disagree, it would be easy to change the relevant files with the
 correct header.
 
-## Known optimizabilities
+## 6 Known optimizabilities
 
 I'm glad if somebody helps out. The current setup arrives at a 99% desktop
 performance on google pagespeed insight, so its fine, but once it scales,
