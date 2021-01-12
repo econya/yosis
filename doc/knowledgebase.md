@@ -21,6 +21,7 @@
   + [2.9 UX](#29-ux)
     * [2.9.1 Admin: CMS](#291-admin-cms)
     * [2.9.2 Admin: Forms](#292-admin-forms)
+  + [2.10 Ordering](#210-ordering)
 - [3 Resources and lessons learned](#3-resources-and-lessons-learned)
   + [3.1 ActiveRecord](#31-activerecord)
   + [3.2 ActiveStorage](#32-activestorage)
@@ -31,11 +32,13 @@
     * [3.4.1 Video Players](#341-videoplayers)
     * [3.4.2 ffmpeg](#342-ffmpeg)
   + [3.4 Favicon](#34-favicon)
-  + [3.5 Bulma](#35-bulma)
-  + [3.6 Fonts](#36-fonts)
-  + [3.7 Operations](#37-operations)
-    * [3.7.1 Spam detection](#371-operations)
-  + [3.8 StimulusJS](#38-stimulusjs)
+  + [3.5 Sitemap](#35-sitemap)
+  + [3.6 Procfile, schema migrations and scheduling jobs](#36-procfile-schema-migration-and-scheduling jobs)
+  + [3.7 Bulma](#37-bulma)
+  + [3.8 Fonts](#38-fonts)
+  + [3.9 Operations](#37-operations)
+    * [3.9.1 Spam detection](#371-operations)
+  + [3.10 StimulusJS](#38-stimulusjs)
 - [4 ActiveRecord](#4-activerecord)
 - [5 Licensing](#5-licensing)
 - [6 Known optimizabilities](#6-know-optimizabilities)
@@ -45,15 +48,15 @@
 
 Mentionable (uncommon or outstanding) pieces of functionality:
 
-* [fontawesome](): popular clean icon font
+* [fontawesome](https://fontawesome.com/): popular clean icon font
 * [bulma](https://bulma.io): flex-based customizable CSS library
-* [ruby]() and [ruby on rails] not-so-popular-anymore programming language and
+* [ruby](https://www.ruby-lang.org/en/) and [ruby on rails] not-so-popular-anymore programming language and
   web-application framework that are both a joy to work with
-* [ahoy_email](): usually for mail-tracking, used for mail archieve
-* [friendly_id](): makes pretty URLs (https://mysite/mydrawer/mystuff) pretty
+* [ahoy_email](https://github.com/ankane/ahoy_email): usually for mail-tracking, used for mail archieve
+* [friendly_id](https://github.com/norman/friendly_id/): makes pretty URLs (https://mysite/mydrawer/mystuff) pretty
   easy
-* [stimulusjs](): organized, well-interweaved front-end code
-* [i18n-tasks](): handy tool to inspect your translation coverage
+* [stimulusjs](https://stimulus.hotwire.dev/): organized, well-interweaved front-end code
+* [i18n-tasks](https://github.com/glebm/i18n-tasks/): handy tool to inspect your translation coverage
 * many really useful gems: yeah, thats a helpful statement
 
 ## 2 Architectural "design" decisions and stuff to know
@@ -290,6 +293,20 @@ a relatively friendly way.
 addresses](https://medium.com/hackernoon/the-100-correct-way-to-validate-email-addresses-7c4818f24643)
 with some statistics and a funny twist.
 
+### 2.10 Ordering
+
+Most models are ordered ("ranked") by using the gem
+[ranked_model](https://github.com/mixonic/ranked-model).
+
+Position changes are available via static UI in the admin backend. An abstract
+PositionController helps with "one up" or "one down" steps and has to be
+overwritten per resource.
+
+`ranked_model` doesnt provide different ranks per `has_many` association. For
+Asanas (which can be associated to multiple AsanaFamilies) thus only a single
+position is held. In practice this should only result in few confusions, because
+the standard case is a single family per asana.
+
 ## Resources and lessons learned
 
 ### 3.1 ActiveRecord
@@ -383,7 +400,7 @@ premature optimization, but so what. Just create favicons, and its fine.
 the task to run for `web` workers in herokuish dokku deploys).
 
 
-#### Sitemap
+### 3.5 Sitemap
 
 A Sitemap-Controller would be easy to implement, but I chose the
 sitemap_generator gem. Challenge here is to have the sitemap generated and
@@ -391,7 +408,7 @@ sitemap_generator gem. Challenge here is to have the sitemap generated and
 default `web:` task in the [Procfile](Procfile).
 
 
-#### Procfile, schema migrations and scheduling jobs
+### 3.6 Procfile, schema migrations and scheduling jobs
 
 The `release` target in a `Procfile` is shot in a one-off container, which is
 okay for db migrations and initial cron schedules, but not for e.g. Sitemap
@@ -435,7 +452,7 @@ more, like [plyr](https://github.com/sampotts/plyr.)
     model)
 * via ladspa: https://github.com/werman/noise-suppression-for-voice/issues/11
 
-### 3.5 Bulma
+### 3.7 Bulma
 
 Nice and mostly responsive (be careful with `levels` and `media` elements).
 Custom color-types and shades could be implemented:
@@ -444,12 +461,12 @@ https://github.com/jgthms/bulma/issues/2244 (undocumented), https://bulma.io/201
 
 
 
-### 3.6 Fonts
+### 3.8 Fonts
 
 
-### 3.7 Operations
+### 3.9 Operations
 
-#### 3.7.1 Spam detection
+#### 3.9.1 Spam detection
 
 To secure operations against attacks or weird clients, one line of defense is
 within the application. There, two approaches are prepared:
@@ -457,7 +474,7 @@ within the application. There, two approaches are prepared:
 * form submission (simple captcha) with [InvisibleCaptcha](https://github.com/markets/invisible_captcha) (alternative to checkout might be [HoneypotCaptcha](https://github.com/curtis/honeypot-captcha))
 * general flooding protection using [Rack::Attack]()
 
-### 3.8 StimulusJS
+### 3.10 StimulusJS
 
 While Rails 6 and stimulusjs via sprockets might seem like an odd idea, it works
 pretty well with a workaround (to transpile es6 to es5): include babel and do
