@@ -46,7 +46,10 @@
           - if @site_setting.image.attached?
             %label.label
               = t('admin.forms.current_image')
-            = image_tag preview_image_variant_url (@site_setting.image)
+            - if @site_setting.image.variable?
+              = image_tag preview_image_variant_url (@site_setting.image)
+            - else
+              = image_tag @site_setting.image, size: "128x128"
             %hr
             = link_to @site_setting.image.filename, rails_blob_path(@site_setting.image, disposition: 'attachment')
     - else @site_setting.kind == "image"

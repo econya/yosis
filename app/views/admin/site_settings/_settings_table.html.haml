@@ -23,8 +23,16 @@
         %td
           - if site_setting.kind == 'image'
             - if site_setting.image.attached?
-              = image_tag site_setting.image.variant(resize_to_fill: [120, 120]).processed, class: 'has-background-primary'
-          = site_setting.value
+              - if site_setting.image.variable?
+                = image_tag site_setting.image.variant(resize_to_fill: [120, 120]).processed,
+                 class: 'has-background-primary'
+              - else
+                = image_tag site_setting.image, size: "128x128",
+                 class: 'has-background-primary is-128x128'
+              %br
+            %i= site_setting.value
+          - else
+            = site_setting.value
         %td
           - if site_setting.kind == "markdown"
             = link_to t('actions.Show'), [:admin, site_setting]
