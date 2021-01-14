@@ -1,3 +1,7 @@
+<!--
+SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 # Changelog for yosis
 
 This Changelog should mention the most important changes and fixes of every
@@ -5,6 +9,24 @@ release. It is mainly targeted towards Users.
 
 ## [Unreleased]
 
+#### Added
+- Let admin define asana order manually (with some restrictions)
+#### Changed
+#### Fixed
+#### Removed
+
+## [0.4.0] - 2021-01-05
+#### Added
+- Included Blog module
+- Add courses, places, styles (representing "physical" courses)
+- Add Asana Lexicon
+#### Changed
+- Reworked the complete layout
+#### Fixed
+#### Removed
+The whole appointment system alltogether is gone now.
+
+## [0.3.x] 2020
 #### Added
 - For SEO/structured metadata: add very basic, not configurable LD/JSON and og
 - Courses now have a description.
