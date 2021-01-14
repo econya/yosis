@@ -86,6 +86,9 @@
       - if (navbar_right_logo = SiteSettings.fetch('navbar_right_logo'))&.image&.attached?
         - right_logo_url_setting_value = SiteSettings.fetch('navbar_right_logo_url')&.value
         - right_logo_url = right_logo_url_setting_value.present? ? right_logo_url_setting_value : root_path
-        = link_to  right_logo_url, class: 'navbar-item' do
-          = image_tag navbar_right_logo.image.variant(resize_to_fit: [360, 48]).processed
+        = link_to right_logo_url, class: 'navbar-item' do
+          - if navbar_right_logo.image.variable?
+            = image_tag navbar_right_logo.image.variant(resize_to_fit: [360, 48]).processed
+          - else
+            = image_tag navbar_right_logo.image
 

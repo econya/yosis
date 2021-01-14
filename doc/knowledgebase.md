@@ -362,6 +362,18 @@ easily be run non-interactively).
 To check whether all blobs have corresponding data on the disk, you can use
 `rails yosis:check_blobs`.
 
+#### SVG and contenttypes
+
+Due to security (and other?) concerns the disposition for SVG files is set such
+that a plaim \<img src=...\> (`image_tag`) will not work.
+
+This can be overcome by modifying the ActiveStorage
+`content_types_to_serve_as_binary`.
+We do this for the logo in the top right as our use case is an SVG file here.
+
+Then, as the attachments are not variable, be sure to check before trying to
+create variants.
+
 ### 3.3 Big file upload
 
 * Using ActiveStorage and a local Disk Service poses interesting challenges

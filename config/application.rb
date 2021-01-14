@@ -30,5 +30,11 @@ module Yosis
     config.i18n.default_locale = :de
 
     config.active_job.queue_adapter     = :delayed_job
+
+    ActiveStorage::Engine.config
+      .active_storage
+      .content_types_to_serve_as_binary
+      .delete('image/svg+xml')
+
   end
 end
