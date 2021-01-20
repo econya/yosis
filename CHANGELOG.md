@@ -13,6 +13,7 @@ release. It is mainly targeted towards Users.
 - Let admin define asana order manually (with some restrictions)
 #### Changed
 #### Fixed
+- Show (markdown-) rendered version of online news on landing page
 #### Removed
 
 ## [0.4.0] - 2021-01-05
