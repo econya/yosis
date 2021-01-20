@@ -35,7 +35,7 @@
     %h2.title.is-3.is-inline-block
       = t('home.online')
     .subtitle.is-inline-block
-      = online_news_setting.value
+      != online_news_setting.value_rendered
 
 - last_post = Blog::Post.last_within days: 100
 - if last_post.present?
