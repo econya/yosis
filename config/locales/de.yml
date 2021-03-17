@@ -118,6 +118,7 @@ de:
   courses:
     edit: Bearbeiten
     listing-heading: Alle Kurse
+    local: Vor Ort
     title-all: Alle Kurse
   devise:
     failure:

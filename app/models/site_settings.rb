@@ -5,6 +5,7 @@
 class SiteSettings
   IMAGE_SETTING_KEYS    = %i[blog_background asana_lexicon_header_image
                              seminars_header_image
+                             courses_header_image
                              navbar_right_logo
                              logo favicon favicon-png favicon-apple-touch
                              intro_background]
@@ -39,6 +40,7 @@ class SiteSettings
     # i18n-tasks-use t('site_settings.navbar_right_logo.help')
     # i18n-tasks-use t('site_settings.logo.help')
     # i18n-tasks-use t('site_settings.seminars_header_image.help')
+    # i18n-tasks-use t('site_settings.courses_header_image.help')
   end
 
   def self.find_or_create_markdown_site_settings

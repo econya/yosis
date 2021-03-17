@@ -112,6 +112,10 @@ HTML5 video tag seems to work for now, too (other options: see below).
   stored in the db rather than being rerendered on every page view.
 * SiteSetting can be accessed by `SiteSettings.fetch` which will initialize the
   setting with a default value.
+* To **add a new setting**:
+  + add its name to the respective settings-category in `app/models/site_settings.rb`
+  + in the relevant section, mark its translatable strings with `i18n-tasks-use`
+  + add translations, e.g. in `config/locales/site_settings.de.yml`
 * Other site wide settings can be set via environment variables.
 
 #### 2.4.1 Markdown

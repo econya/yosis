@@ -25,6 +25,8 @@ de:
     courses_general:
       default: "# Über die Kurse\n**Schnupperstunde ist kostenlos"
       help: Seite/Text mit Hinweisen zu den Kursen
+    courses_header_image:
+      help: Header-Bild für die Vor Ort/Kurse-Seite
     explanation:
       default: Details über Dein Business (markdown)
       help: Sichtbar bei Wie-Geths-Weiter-Link
