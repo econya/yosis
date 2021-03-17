@@ -12,6 +12,7 @@ release. It is mainly targeted towards Users.
 #### Added
 - Let admin define asana order manually (with some restrictions)
 #### Changed
+- Define color for links in dark grey area
 #### Fixed
 - Show (markdown-) rendered version of online news on landing page
 #### Removed
