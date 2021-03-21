@@ -1,0 +1,20 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+.columns
+  .column
+    = f.label :value
+    = f.file_field :image
+  .column
+    - if @site_setting.image.attached?
+      %label.label
+        = t('admin.forms.current_image')
+      - if @site_setting.image.variable?
+        = image_tag preview_image_variant_url (@site_setting.image)
+      - else
+        = image_tag @site_setting.image, size: "128x128"
+      %hr
+      = link_to @site_setting.image.filename, rails_blob_path(@site_setting.image, disposition: 'attachment')
+-# TODO show the current image, if any
+

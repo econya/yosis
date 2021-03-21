@@ -1,0 +1,26 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+.columns{ data: { controller: 'render_md_preview reveal ',
+  reveal: { shown: "false" } } }
+  .column
+    = f.label :value
+    %button{ data: { action: 'render_md_preview#render reveal#reveal' },
+      class: 'button' }
+      = t('actions.preview')
+    = f.text_area :value, rows: 20,
+      data: { target: 'render_md_preview.source' }
+    %p.help
+      = link_to t('admin.forms.markdown_help'), admin_help_index_path , target: :_blank
+  .column#reveal-content{ data: { target: 'reveal.content' } }
+    .label
+      = t('actions.preview')
+    %button.button{ data: { action: 'reveal#hide' } }
+      = t('actions.hide')
+    %button.button{ data: { action: 'render_md_preview#render' } }
+      = t('actions.refresh')
+    .content
+      #preview{ data: { target: 'render_md_preview.result' } }
+        != @site_setting.value_rendered
+

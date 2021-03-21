@@ -16,44 +16,10 @@
   = f.hidden_field :key
   .field
     - if @site_setting.kind == "markdown"
-      .columns{ data: { controller: 'render_md_preview reveal auto_resize_height',
-        reveal: { shown: "false" } } }
-        .column
-          = f.label :value
-          %button{ data: { action: 'render_md_preview#render reveal#reveal' },
-            class: 'button' }
-            = t('actions.preview')
-          = f.text_area :value, rows: 20,
-            data: { target: 'render_md_preview.source' }
-          %p.help
-            = link_to t('admin.forms.markdown_help'), admin_help_index_path , target: :_blank
-        .column#reveal-content{ data: { target: 'reveal.content' } }
-          .label
-            = t('actions.preview')
-          %button.button{ data: { action: 'reveal#hide' } }
-            = t('actions.hide')
-          %button.button{ data: { action: 'render_md_preview#render' } }
-            = t('actions.refresh')
-          .content
-            #preview{ data: { target: 'render_md_preview.result' } }
-              != @site_setting.value_rendered
+      = render partial: 'admin/site_settings/fields/markdown', locals: { f: f }
     - elsif @site_setting.kind == "image"
-      .columns
-        .column
-          = f.label :value
-          = f.file_field :image
-        .column
-          - if @site_setting.image.attached?
-            %label.label
-              = t('admin.forms.current_image')
-            - if @site_setting.image.variable?
-              = image_tag preview_image_variant_url (@site_setting.image)
-            - else
-              = image_tag @site_setting.image, size: "128x128"
-            %hr
-            = link_to @site_setting.image.filename, rails_blob_path(@site_setting.image, disposition: 'attachment')
-    - else @site_setting.kind == "image"
-      = f.label :value
-      = f.text_field :value
+      = render partial: 'admin/site_settings/fields/image', locals: { f: f }
+    - else
+      = render partial: 'admin/site_settings/fields/text', locals: { f: f }
   .actions
     = f.submit t('actions.Save'), class: 'button is-primary is-pulled-right'
