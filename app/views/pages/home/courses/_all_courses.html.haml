@@ -51,14 +51,3 @@
         .price-note.has-text-weight-bold
           = place.pricing_note
 
-#general-info.mb-6.mt-5
-  %h3.title.is-3.mb-6.has-text-centered.has-text-weight-bold
-    = t('home.courses.about-all-courses')
-
-  -#%h4.title.is-5
-  - setting = SiteSetting.find_by(key: 'courses_general')
-  - if !setting.nil?
-    - admin_edit_area edit_path: edit_admin_site_setting_path(setting),
-      back_anchor: 'general-info' do
-      .content
-        != setting.value_rendered
