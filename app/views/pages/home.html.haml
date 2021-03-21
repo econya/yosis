@@ -24,7 +24,7 @@
   - news_setting = SiteSettings.fetch('news_line')
   - admin_edit_area(edit_path: edit_admin_site_setting_path(id: news_setting&.id)) do
     %h2.title.is-3.is-inline-block
-      = t('home.news')
+      = t('home.info')
     .subtitle.is-inline-block
       - if news_setting.present?
         != news_setting.value_rendered
