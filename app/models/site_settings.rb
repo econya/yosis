@@ -19,11 +19,13 @@ class SiteSettings
                              payment_details]
   STRING_SETTING_KEYS   = %i[your_name title subtitle copyright_notice
                              navbar_right_logo_url]
+  BOOLEAN_SETTING_KEYS  = %i[show_latest_blog_on_homepage]
 
   def self.find_or_create_settings
     find_or_create_markdown_site_settings
     find_or_create_string_site_settings
     find_or_create_image_site_settings
+    find_or_create_boolean_site_settings
   end
 
   def self.find_or_create_image_site_settings
@@ -85,6 +87,13 @@ class SiteSettings
     # i18n-tasks-use t('site_settings.terms.help')
   end
 
+  def self.find_or_create_boolean_site_settings
+    BOOLEAN_SETTING_KEYS.each do |key|
+      find_or_create(key: key, kind: 'boolean')
+    end
+    # i18n-tasks-use t('site_settings.show_latest_blog_on_homepage.help')
+  end
+
   def self.find_or_create_string_site_settings
     STRING_SETTING_KEYS.each do |key|
       find_or_create(key: key, kind: 'string')
@@ -112,7 +121,7 @@ class SiteSettings
     return 'string' if STRING_SETTING_KEYS.include?(key.to_sym)
     return 'markdown' if MARKDOWN_SETTING_KEYS.include?(key.to_sym)
     return 'image' if IMAGE_SETTING_KEYS.include?(key.to_sym)
-
+    return 'boolean' if BOOLEAN_SETTING_KEYS.include?(key.to_sym)
     raise
   end
 end

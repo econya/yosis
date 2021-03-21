@@ -31,6 +31,13 @@
                  class: 'has-background-primary is-128x128'
               %br
             %i= site_setting.value
+          - elsif site_setting.kind == 'boolean'
+            - if site_setting.true?
+              %span.icon.has-text-success
+                %i.fas.fa-check
+            - else
+              %span.icon.has-text-danger
+                %i.fas.fa-times
           - else
             = site_setting.value
         %td

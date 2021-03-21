@@ -84,6 +84,8 @@ de:
     seminars_text:
       default: Meine Seminare
       help: Text auf der Seminare-Seite
+    show_latest_blog_on_homepage:
+      help: Auf der landing page auf den letzten Blog-Eintrag verweisen
     subtitle:
       default: Untertitel Deiner Seite
       help: Untertitel Deiner Seite

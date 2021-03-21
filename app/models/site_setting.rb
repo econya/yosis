@@ -27,4 +27,7 @@ class SiteSetting < ApplicationRecord
     })
   end
 
+  def true?
+    value == '1'
+  end
 end

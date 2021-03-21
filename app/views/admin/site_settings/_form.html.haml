@@ -19,6 +19,8 @@
       = render partial: 'admin/site_settings/fields/markdown', locals: { f: f }
     - elsif @site_setting.kind == "image"
       = render partial: 'admin/site_settings/fields/image', locals: { f: f }
+    - elsif @site_setting.kind == "boolean"
+      = render partial: 'admin/site_settings/fields/boolean', locals: { f: f }
     - else
       = render partial: 'admin/site_settings/fields/text', locals: { f: f }
   .actions
