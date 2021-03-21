@@ -2,20 +2,18 @@
 -#
 -# SPDX-License-Identifier: AGPL-3.0-or-later
 
-%h1.title
-  = t('courses.title-all')
+-# Behave very much like a 'page'
+- set_title(@html_title)
 
-.columns.is-multiline
-  - @courses.each do |course|
-    .column.is-3
-      .card
-        .card-image
+- header_image_setting = 'courses_header_image'
+- if defined?(header_image_setting)
+  - header_image_setting = SiteSettings.fetch(header_image_setting)
+  
+  - content_for(:hero_head) do
+    = render partial: 'shared/hero_head_image_title',
+      locals: { image_url: header_image_variant_url(header_image_setting&.image),
+        title: @html_title,
+        image_edit_url: edit_admin_site_setting_path(header_image_setting, back_path: request.path) }
 
-        .card-header
-          %p.card-header-title.is-centered
-            = course.name
-        .card-content
-          = course.name
-          -#Text
-        %td= link_to t('actions.show'), course
+= render partial: 'pages/home/courses'
 

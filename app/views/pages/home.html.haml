@@ -49,18 +49,9 @@
         (#{l(last_post.published_at.to_date)})
 
 
-%section#courses.py-5.has-background-verycleargrey.pb-6
-  = render partial: 'pages/home/courses'
-
 %a.anchor-offset(name='videos')
-%section.videos#videos
+%section.videos.has-background-verycleargrey.py-5.pb-6.grey_fullwidth#videos
   = render partial: 'pages/home/videos'
-
--#- @styles.each do |style|
--#  = render partial: 'course_video_row', locals: { style: style }
--#- if @styles.empty?
--#  = t('home.courses.none_yet')
-
 
 -#- if !user_signed_in? || user_admin?
 -#  = render partial: 'ctas'

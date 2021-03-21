@@ -20,8 +20,7 @@
   #yosisNavbar.navbar-menu
     .navbar-start
     .navbar-end
-      = link_to root_path(anchor: 'courses'),
-        data: { turbolinks: !in_controller_action?(controller: 'pages', action: 'home' )},
+      = link_to courses_path,
         class: 'navbar-item' do
         = t('navigation.courses')
 
