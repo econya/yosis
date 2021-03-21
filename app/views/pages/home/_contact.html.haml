@@ -21,11 +21,13 @@
     .column.has-text-white.pr-4
       - admin_edit_area edit_path: edit_admin_site_setting_path(SiteSettings.fetch('about_us_left')),
         back_anchor: 'contact' do
-        != SiteSetting['about_us_left']
+        .content
+          != SiteSetting['about_us_left']
     .column.has-text-white.pl-4
       - admin_edit_area edit_path: edit_admin_site_setting_path(SiteSettings.fetch('about_us_right')),
         back_anchor: 'contact' do
-        != SiteSetting['about_us_right']
+        .content
+          != SiteSetting['about_us_right']
 
 %a.anchor-offset(name='contact-form')
 .container.has-text-centered.has-text-white.mt-6.pt-2
