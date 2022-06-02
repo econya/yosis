@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'impressum',       to: 'pages#impressum'
   get 'explanation',     to: 'pages#explanation'
   get 'asana-lexicon',   to: 'pages#asana_lexicon'
-  get 'seminars',        to: 'pages#seminars'
+  
 
   # Devise and user
   devise_for :users, controllers: {
@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   resources :courses,  only: [:index, :show]
   resource  :contacts, only: [:new, :create]
   resources :place, only: :show
+  resources :seminars, only: [:index, :show]
   resources :styles, only: [:index, :show]
 
   # TODO somewhere else
@@ -60,6 +61,10 @@ Rails.application.routes.draw do
 
     resources :courses, only: [:index, :edit, :update, :destroy, :new, :create, :show] do
       resource :position, only: [:create, :destroy], controller: 'course/position'
+    end
+
+    resources :seminars, only: [:index, :edit, :update, :destroy, :new, :create] do
+      resource :position, only: [:create, :destroy], controller: 'seminars/position'
     end
 
     resources :styles, only: [:index, :edit, :update, :destroy, :new, :create] do

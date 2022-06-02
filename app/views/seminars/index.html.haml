@@ -1,0 +1,35 @@
+-# SPDX-FileCopyrightText: 2022 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- header_image_setting = SiteSettings.fetch('seminars_header_image')
+- content_for(:hero_head) do
+  = render partial: 'shared/hero_head_image_title',
+    locals: { image_url: header_image_variant_url(header_image_setting&.image),
+      title: t('seminars.title-all'),
+      image_edit_url: edit_admin_site_setting_path(header_image_setting, back_path: request.path) }
+
+#seminars.has-text-centered.pt-4.mt-6
+  - @seminars.to_a.each_slice(3) do |seminars|
+    .columns.is-multiline.is-vcentered.is-centered.is-variable.is-8
+      - seminars.each do |seminar|
+        .column.is-4.style-column{id: dom_id(seminar)}
+          - admin_edit_area edit_path: edit_admin_seminar_path(seminar) do
+            = link_to seminar do
+              .box.pt-0.px-0.seminar-box
+                - if seminar.image.attached?
+                  = image_tag seminar.image.variant(resize_to_fill: [354,200]).processed
+                - else
+                  = image_tag 'blog.png', class: 'round'
+                .px-5.is-hidden-mobile(style="min-height: 100px;")
+                  %b
+                    = seminar.name
+                .px-5.is-hidden-desktop
+                  %b.title
+                    = seminar.name
+
+
+-#- @seminars.each do |seminar|
+-#  .row{id: dom_id(seminar)}
+-#    %h2.title= seminar.name
+-#    = seminar.description
