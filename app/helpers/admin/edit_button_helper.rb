@@ -51,8 +51,8 @@ module Admin::EditButtonHelper
           tag.i(class: "fas fa-user-shield")
         end
       end
-      @content << content_tag(:a, class: 'button',
-                              class: 'delete hide-admin-button',
+      @content << content_tag(:a,
+                              class: 'button delete hide-admin-button',
                               onclick: 'hide_admin_buttons();') do
         "hide"
       end
