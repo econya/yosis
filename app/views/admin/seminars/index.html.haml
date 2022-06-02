@@ -62,7 +62,7 @@
             = seminar.name
         %td
           .buttons
-            -#= link_to t('actions.show'), seminars_path, class: 'button is-small'
+            = link_to t('actions.show'), seminar, class: 'button is-small'
             = link_to t('actions.edit'), edit_admin_seminar_path(seminar), class: 'button is-small'
             - if !seminar.active?
               = link_to t('actions.Destroy'), [:admin, seminar], method: :delete,

@@ -93,6 +93,12 @@ de:
       all: Alle Orte
       edit: Ort bearbeiten
       new: Neuer Ort
+    seminars:
+      index:
+        listing: Alle Seminare
+      name: Name
+      new: Neues Seminar
+      order: Reihenfolge
     site_settings:
       index:
         listing: Alle Seiten-Einstellungen
