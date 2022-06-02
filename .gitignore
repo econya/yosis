@@ -22,6 +22,9 @@
 /storage/*
 !/storage/.keep
 
+# Ignore files from test.
+/test/tmp/*
+
 /public/assets
 .byebug_history
 
