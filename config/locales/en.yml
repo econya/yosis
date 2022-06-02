@@ -309,6 +309,9 @@ en:
     heading: Schnupperwoche anfangen
   register_new: Register new
   register_or_sign_in: Register or sign in
+  seminars:
+    contact_and_info: Registration and Info
+    title-all: All Seminars
   sessions:
     destroy:
       sign_out: Sign out
