@@ -170,7 +170,7 @@ the box.
 
 ### 3.1 License(s)
 
-yosis is copyright 2020 Felix Wolfsteller and released under the
+yosis is copyright 2020-2022 Felix Wolfsteller and released under the
 [AGPLv3+](LICENSE).
 
 Some file use [FSFEs reuse software](https://reuse.software/) compliant headers.
@@ -185,7 +185,7 @@ This repositories bundles third party assets:
 Contributions are more than welcome. For a pleasant experience, mail me or
 create issues before you dive deep.
 
-Code is released under the AGPLv3+ (exceptions see below), Copyright 2020 Felix
+Code is released under the AGPLv3+ (exceptions see below), Copyright 2020-2022 Felix
 Wolfsteller. Copyright transfer of contributions is assumed (or get into
 contact).
 
