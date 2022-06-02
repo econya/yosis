@@ -7,6 +7,6 @@
 .container.content
   != @seminar.description_rendered
 
-= link_to 'mailto:me@me.de', class: 'button is-primary' do
+= link_to "mailto:#{ENV['SENDER_EMAIL']}", class: 'button is-primary' do
   = t('seminars.contact_and_info')
 
