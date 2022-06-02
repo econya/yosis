@@ -96,6 +96,7 @@ de:
     seminars:
       index:
         listing: Alle Seminare
+      edit: Bearbeiten
       name: Name
       new: Neues Seminar
       order: Reihenfolge

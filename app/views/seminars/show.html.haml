@@ -10,3 +10,10 @@
 = link_to "mailto:#{ENV['SENDER_EMAIL']}", class: 'button is-primary' do
   = t('seminars.contact_and_info')
 
+- if user_admin?
+  %br
+  = link_to edit_admin_seminar_path(@seminar), class: 'button is-outlined' do
+    %span.icon.is-small
+      %i.fas.fa-user-shield
+    %span
+      =t('admin.seminars.edit')
