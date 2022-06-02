@@ -55,6 +55,11 @@ de:
         name: Name
         note: Hinweis
         pricing_note: Hinweis zu Kosten
+      seminar:
+        active: Aktiv?
+        name: Name
+        description: Beschreibung
+        image: Bild
       style:
         name: Name
         description: Beschreibung

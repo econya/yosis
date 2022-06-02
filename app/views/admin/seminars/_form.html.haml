@@ -20,6 +20,7 @@
     .columns{data: { controller: 'render_md_preview reveal',
       reveal: { shown: "true" } } }
       .column
+        -# i18n-tasks-use t('activerecord.attributes.seminar.description')
         = f.label :description
         %button{ data: { action: 'render_md_preview#render reveal#reveal' },
           class: 'button' }
@@ -36,11 +37,6 @@
           #preview{data: {target: 'render_md_preview.result'}}
             != @seminar.description_rendered
 
-  -#.field
-  -#  -# i18n-tasks-use t('activerecord.attributes.seminar.description')
-  -#  = f.label :description
-  -#  = f.text_field :description
-
   .columns
     .column
       .field
@@ -54,10 +50,12 @@
         = image_tag preview_image_variant_url(@seminar.image)
         %hr
         = link_to @seminar.image.filename, rails_blob_path(@seminar.image, disposition: 'attachment')
+
   .field
     -# i18n-tasks-use t('activerecord.attributes.seminar.active')
     = f.label :active
     = f.check_box :active
+
   .actions
     = f.submit t('actions.save'), class: 'button is-primary is-pulled-right'
 
