@@ -1,0 +1,9 @@
+-# SPDX-FileCopyrightText: 2020 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+= render layout: 'admin/shared/edit',
+  locals: { edit_title: t('admin.seminars.edit'),
+    back_target: admin_seminars_path } do
+  = render 'form'
+

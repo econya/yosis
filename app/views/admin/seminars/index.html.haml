@@ -1,0 +1,74 @@
+-# SPDX-FileCopyrightText: 2022 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+:ruby
+  admin_head_locals = {
+    title: t('admin.seminars.index.listing'),
+    admin: {
+      new: {
+        url: new_admin_seminar_path,
+        label: t('admin.seminars.new')
+      }
+    }
+  }
+
+= render partial: 'admin_head_level', locals: admin_head_locals
+
+%table.table.is-striped.is-fullwidth.is-hoverable
+  %thead
+    %tr
+      %th= t('admin.seminars.order')
+      %th
+      %th
+      %th= t('admin.seminars.name')
+      %th
+
+  %tbody
+    - first, last = @seminars.first, @seminars.last
+
+    - @seminars.each do |seminar|
+      %tr
+        %td.rank
+          = seminar.row_order_rank
+          - if seminar != first
+            = link_to admin_seminar_position_path(seminar), method: :post do
+              %span.icon.has-text-primary
+                %i.fas.fa-arrow-up.is-small
+          - else
+            %span.icon.has-text-primary
+              %i.fas.fa-empty.is-small
+          - if seminar != last
+            = link_to admin_seminar_position_path(seminar), method: :delete do
+              %span.icon.has-text-primary
+                %i.fas.fa-arrow-down
+          - else
+            %span.icon.has-text-primary
+              %i.fas.fa-empty.is-small
+        %td
+          - if !seminar.active?
+            %span.icon.has-text-danger
+              %i.fas.fa-eye-slash
+        %td
+          - if seminar.image.attached?
+            -# darken out if inactive?
+            = image_tag seminar.image.variant(resize_to_fill: [180,120]).processed,
+              class: (seminar.active?) ? '' : 'semi-transparent'
+          - else
+            &nbsp;
+
+        %td.name
+          .subtitle
+            = seminar.name
+        %td
+          .buttons
+            -#= link_to t('actions.show'), seminars_path, class: 'button is-small'
+            = link_to t('actions.edit'), edit_admin_seminar_path(seminar), class: 'button is-small'
+            - if !seminar.active?
+              = link_to t('actions.Destroy'), [:admin, seminar], method: :delete,
+                data: { confirm: t('actions.are_you_sure?') },
+                class: 'button is-small is-danger'
+%br
+
+= link_to t('admin.seminars.new'), new_admin_seminar_path, class: 'button is-link is-outlined'
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_16_145349) do
+ActiveRecord::Schema.define(version: 2022_06_02_184455) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -157,6 +157,18 @@ ActiveRecord::Schema.define(version: 2020_12_16_145349) do
     t.string "pricing_note"
     t.index ["name"], name: "index_places_on_name", unique: true
     t.index ["slug"], name: "index_places_on_slug", unique: true
+  end
+
+  create_table "seminars", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.text "description_rendered"
+    t.integer "row_order"
+    t.string "slug"
+    t.boolean "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_seminars_on_slug", unique: true
   end
 
   create_table "site_settings", force: :cascade do |t|

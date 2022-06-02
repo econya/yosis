@@ -1,0 +1,63 @@
+-# SPDX-FileCopyrightText: 2022 Felix Wolfsteller
+-#
+-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+= form_for [:admin, @seminar], builder: BulmaFormBuilder::FormBuilder do |f|
+  - if @seminar.errors.any?
+    #error_explanation
+      %h2
+        = t("errors.prohibited_from_saving", count: @seminar.errors.count)
+      %ul
+        - @seminar.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    -# i18n-tasks-use t('activerecord.attributes.seminar.name')
+    = f.label :name
+    = f.text_field :name
+
+  .field
+    .columns{data: { controller: 'render_md_preview reveal',
+      reveal: { shown: "true" } } }
+      .column
+        = f.label :description
+        %button{ data: { action: 'render_md_preview#render reveal#reveal' },
+          class: 'button' }
+          = t('actions.preview')
+        = f.text_area :description, rows: 15, data: { target: 'render_md_preview.source' }
+      .column
+        .label
+          = t('actions.preview')
+        %button.button{ data: { action: 'reveal#hide' } }
+          = t('actions.hide')
+        %button.button{ data: { action: 'render_md_preview#render' } }
+          = t('actions.refresh')
+        .description
+          #preview{data: {target: 'render_md_preview.result'}}
+            != @seminar.description_rendered
+
+  -#.field
+  -#  -# i18n-tasks-use t('activerecord.attributes.seminar.description')
+  -#  = f.label :description
+  -#  = f.text_field :description
+
+  .columns
+    .column
+      .field
+        -# i18n-tasks-use t('activerecord.attributes.seminar.image')
+        = f.label :image
+        = f.file_field :image, direct_upload: true
+    - if @seminar.image.attached?
+      .column
+        %label.label
+          = t('admin.forms.current_image')
+        = image_tag preview_image_variant_url(@seminar.image)
+        %hr
+        = link_to @seminar.image.filename, rails_blob_path(@seminar.image, disposition: 'attachment')
+  .field
+    -# i18n-tasks-use t('activerecord.attributes.seminar.active')
+    = f.label :active
+    = f.check_box :active
+  .actions
+    = f.submit t('actions.save'), class: 'button is-primary is-pulled-right'
+
